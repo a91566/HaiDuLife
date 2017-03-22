@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        /*#div1{height: 800px;border: 1px solid #39b3d7;}*/
+        /*#div2{height: 900px;border: 1px solid red;}*/
+        /*#div3{height: 1800px;border: 1px solid green;}*/
+        /*#div4{height: 1000px;border: 1px solid gold;}*/
+        /*#div5{height: 1800px;border: 1px solid greenyellow;}*/
+
+        .fix{width: 100px;height: 300px;border: 3px solid #333333;position: fixed;
+            right: 0px;top:10%;z-index: 555;cursor: pointer;display: none;}
+        #am-close{margin-left:82%;font-size: 20px;}
+        .fix-ul{list-style: none;margin: 0;padding: 0;margin: 5px;}
+        .fix-ul li{border-bottom: 1px solid #F8F8F8;line-height: 50px;text-align: center;}
+        .arrow-up {width:0;height:0;display: inline-block;border-left:5px solid transparent;
+            border-right:5px solid transparent;border-bottom:12px solid #000000;}
+    </style>
+    <!--<script src="http://apps.bdimg.com/libs/jquery/1.9.0/jquery.min.js"></script>-->
+    <script>
+        $(document).ready(function()
+        {
+            $('#am-close').click(function(){
+                $('.fix').hide(400);
+            });
+            $('#fix-xx').click(function(){
+                $('html,body').animate({scrollTop: $("#pagetop-palyopacity").offset().top}, 800);
+            });
+            $('#fix-tt').click(function(){
+                $('html,body').animate({scrollTop: $(".zsb-cw").offset().top}, 800);
+            });
+            $('#fix-dp').click(function(){
+                $('html,body').animate({scrollTop: $("#jz-hdp").offset().top}, 800);
+            });
+            $('#fix-ht').click(function(){
+                $('html,body').animate({scrollTop: $("#jz-thtj").offset().top}, 800);
+            });
+            $('#fix-top').click(function(){
+                $('html,body').animate({scrollTop: '0px'}, 800);
+            });
+        });
+
+        $(document).ready(function()
+        {
+            var iShowTop = $("#pagetop-palyopacity").offset().top;
+
+            $(window).scroll(function(){
+                var iScrollTop=window.scrollY;
+                var iScrollTop = $(this).scrollTop();
+                if(iScrollTop>iShowTop ){
+                    $(".fix").show(400);
+                }
+                else
+                {
+                    $(".fix").hide(400);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <!--<div id="div1">1</div>-->
+    <!--<div id="div2">2</div>-->
+    <!--<div id="div3">3</div>-->
+    <!--<div id="div4">4</div>-->
+    <!--<div id="div5">5</div>-->
+
+    <div class="fix">
+        <div>
+            <span id="am-close">×</span>
+        </div>
+        <ul class="fix-ul">
+            <li id="fix-xx">新鲜品尝</li>
+            <li id="fix-tt">聚惠团购</li>
+            <li id="fix-dp">惠搭配</li>
+            <li id="fix-ht">特惠推荐</li>
+            <li id="fix-top">TOP <div class="arrow-up"></div></li>
+        </ul>
+    </div>
+</body>
+</html>

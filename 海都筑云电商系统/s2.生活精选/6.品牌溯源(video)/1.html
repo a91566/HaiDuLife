@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .video-pp{width: 1190px;height:640px;position: relative;overflow: hidden;;
+        background: url(http://img.zhuyun.cn/M00/11/72/wKgJNFXEbaWABgLFAABOd7zzFzw923.jpg) center 0 no-repeat;}
+        #vList{left: 0;margin: 0;padding: 0;list-style: none;margin-top: 60px;width: 3570px;
+            position: absolute;background: #ffffff;height: 580px;}
+        #vList li{margin: 0;padding: 0;float: left;width: 1190px;height: 100%;}
+        .vpp-main{float: left;width: 896px;height: 580px;}
+        .vpp-content{width: 284px;float: left;height: 580px;background: lightgray;color: #333;position: relative;}
+        .vpp-content img{width: 284px;height: 580px;}
+        .vpp-cm{position: absolute;width: 175px;top: 120px;left: 80px;height: 250px;}
+        .vpp-cm P{margin: 0;padding: 0; font-family: "microsoft yahei", "微软雅黑";font-size: 12px;text-indent: 1em;}
+        .video-pp .btn-prev,.video-pp .btn-next{position: absolute;top: 40%;width: 96px;height: 89px;z-index: 4;
+            filter: alpha(opacity:30);opacity: 0.3;}
+        .btn-prev:hover,.btn-next:hover{filter: alpha(opacity:100);opacity: 1;}
+        .video-pp .btn-prev{left: 0;background: url(http://img.zhuyun.cn/M00/AB/2F/wKgJNFXtKPuAB5IfAAAKB4xcVmo866.png) 0 0 no-repeat;}
+        .video-pp .btn-next{right: 0;background: url(http://img.zhuyun.cn/M00/AB/2F/wKgJNFXtKPuAJ9oEAAAKCmZ6ivI390.png) 0 0 no-repeat;}
+    </style>
+    <!--<script src="http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>-->
+    <script>
+        $(function(){
+            var index=0;
+            var aLi=$('#vList li').get();
+            function fnChangeP(){
+                index++;
+                if(index==aLi.length)
+                {
+                    index=0;
+                }
+                else if(index==-1)
+                {
+                    index=aLi.length-1;
+                }
+                $('#vList').animate({
+                    'left':-index*1190
+                });
+            }
+            $('.video-pp .btn-prev').click(function(){
+                index=index-2;
+                fnChangeP();
+            });
+            $('.video-pp .btn-next').click(function(){
+                fnChangeP();
+            });
+        })
+    </script>
+</head>
+<body>
+    <div class="video-pp">
+        <a href="javascript:;" class="btn-prev"></a>
+        <a href="javascript:;" class="btn-next"></a>
+        <ul id="vList">
+            <li>
+                <div class="vpp-main">
+                    <video  controls width="896" height="580" poster="http://img.zhuyun.cn/M00/11/72/wKgJNFXEbaWAJlZmAAENieGnYxQ677.jpg">
+                        <source type="video/mp4" src="http://media2.fzntv.cn:88/vod/Archive/zohi_fztv1/2015/09/19/60E1560F1B4D4040925089523359E8CB.mp4"/>
+                        您的浏览器不支持此视频播放,请升级您的浏览器，或使用其他浏览器。
+                    </video>
+                </div>
+                <div class="vpp-content">
+                    <img src="http://img.zhuyun.cn/M00/1D/C7/wKgJNFYLq0SAfe33AACLTCJrZcc726.jpg" alt="厦门康达尔圆香食品有限公司"/>
+                    <div class="vpp-cm">
+                        <p>厦门康达尔圆香食品有限公司是厦门牧兴实业有限公司于2007年组建的。
+                            该司于2007年利用美国优质猪种与本地黑猪杂交，成功研发出“圆香黑猪”。
+                        </p>
+                        <p>
+                            “圆香黑猪”采用猪沼草生态养殖，必须饲养210天以上才能出栏；全身黑毛、适应性强，
+                            体躯高大丰满、瘦肉率高，肉质细嫩、肉味鲜美。
+                        </p>
+                        <p>
+                            在加工方面，“圆香黑猪”采用冷链加工、冷链运输、冷链销售，确保猪肉安全、卫生。
+                            目前除线下已有专卖店外，还在海都生活商城开通旗舰店进行“圆香黑猪肉”的销售。
+                        </p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="vpp-main">
+                    <video  controls width="896" height="580" poster="http://img.zhuyun.cn/M00/11/72/wKgJNFXEbaWAJlZmAAENieGnYxQ677.jpg">
+                        <source src="http://media2.fzntv.cn:88/vod/Archive/zohi_fztv1/2015/09/19/60E1560F1B4D4040925089523359E8CB.mp4"/>
+                        您的浏览器不支持此视频播放,请升级您的浏览器，或使用其他浏览器。
+                    </video>
+                </div>
+                <div class="vpp-content">
+                    <img src="http://img.zhuyun.cn/M00/1D/C7/wKgJNFYLq0SAfe33AACLTCJrZcc726.jpg" alt="厦门康达尔圆香食品有限公司"/>
+                    <div class="vpp-cm">
+                        <p>厦门康达尔圆香食品有限公司是厦门牧兴实业有限公司于2007年组建的。
+                            该司于2007年利用美国优质猪种与本地黑猪杂交，成功研发出“圆香黑猪”。
+                        </p>
+                        <p>
+                            “圆香黑猪”采用猪沼草生态养殖，必须饲养210天以上才能出栏；全身黑毛、适应性强，
+                            体躯高大丰满、瘦肉率高，肉质细嫩、肉味鲜美。
+                        </p>
+                        <p>
+                            在加工方面，“圆香黑猪”采用冷链加工、冷链运输、冷链销售，确保猪肉安全、卫生。
+                            目前除线下已有专卖店外，还在海都生活商城开通旗舰店进行“圆香黑猪肉”的销售。
+                        </p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="vpp-main">
+                    <video  controls width="896" height="580" poster="http://img.zhuyun.cn/M00/11/72/wKgJNFXEbaWAJlZmAAENieGnYxQ677.jpg">
+                        <source src="http://media2.fzntv.cn:88/vod/Archive/zohi_fztv1/2015/09/19/60E1560F1B4D4040925089523359E8CB.mp4"/>
+                        您的浏览器不支持此视频播放,请升级您的浏览器，或使用其他浏览器。
+                    </video>
+                </div>
+                <div class="vpp-content">
+                    <img src="http://img.zhuyun.cn/M00/1D/C7/wKgJNFYLq0SAfe33AACLTCJrZcc726.jpg" alt="厦门康达尔圆香食品有限公司"/>
+                    <div class="vpp-cm">
+                        <p>厦门康达尔圆香食品有限公司是厦门牧兴实业有限公司于2007年组建的。
+                            该司于2007年利用美国优质猪种与本地黑猪杂交，成功研发出“圆香黑猪”。
+                        </p>
+                        <p>
+                            “圆香黑猪”采用猪沼草生态养殖，必须饲养210天以上才能出栏；全身黑毛、适应性强，
+                            体躯高大丰满、瘦肉率高，肉质细嫩、肉味鲜美。
+                        </p>
+                        <p>
+                            在加工方面，“圆香黑猪”采用冷链加工、冷链运输、冷链销售，确保猪肉安全、卫生。
+                            目前除线下已有专卖店外，还在海都生活商城开通旗舰店进行“圆香黑猪肉”的销售。
+                        </p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

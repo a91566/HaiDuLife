@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #login{position:absolute;background: #FFE9D4;height: 890px;}
+        #login-main{width: 1190px;height: 100%;margin-bottom: 0;position: relative;margin: 0 auto;}
+        .lm-bg{z-index: 1;position: absolute;display: inline;width: 1190px;height: 100%;margin: 0;}
+        .lm-bg img{width: 1190px;height: 100%;margin: 0;}
+    </style>
+    <script>
+//                window.onload=function()
+//                {
+//                    fnLifeRhythm();
+//                };
+        $(document).ready(function()
+        {
+            fnLoadLogin();
+        });
+
+        function fnLoadLogin()
+        {
+            document.body.style.overflowX="hidden";
+            var iWidth=document.documentElement.clientWidth||document.body.clientWidth;
+            var oDivFz=document.getElementById("login");
+            oDivFz.style.width = iWidth + 'px';
+            //oDivFz.style.height = iHeight + 'px';
+            var iLeft=iWidth-1190;
+            iLeft=iLeft/2;
+            oDivFz.style.left = "-"+iLeft + 'px';
+        };
+    </script>
+</head>
+<body>
+<div id="login">
+    <div id="login-main">
+        <div class="lm-bg" style="z-index: 2;">
+            <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2534587">
+                <img src="http://img.zhuyun.cn/M00/71/48/wKgJNFXdD4SAUI0UAAdh2Y3lUk0210.jpg" alt="官坞小海带"/>
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

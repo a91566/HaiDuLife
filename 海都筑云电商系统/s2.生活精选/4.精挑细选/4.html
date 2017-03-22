@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #jt-xx{width: 1190px;height: 740px;padding-top: 60px;
+        background: url(http://img.zhuyun.cn/M00/10/52/wKgJNFXEUQaAWJA7AABdcQfD3TU363.jpg) center 0 no-repeat;}
+        #jtxx1{width: 1190px;height: 690px;position: relative;
+        background: url(http://img.zhuyun.cn/M00/39/FF/wKgJNFYXH4-ARs-HAAGMRpOD6BA646.jpg) 0 0 no-repeat;}
+        .jt-item{position: absolute;color: #ffffff;}
+        /*.jt-item:hover{background: #000000;opacity: 0.8;}*/
+        .jt-imain{width: 100px;height: 60px;margin: 40px auto;display: none;background: #000000;opacity: 0.8;
+        filter:alpha(opacity:80);border-radius: 10px;}
+        .jt-title{text-align: center;line-height: 30px;}
+        .jt-title a{color: #ffffff;text-decoration: none;}
+        .jt-title a:hover{text-decoration: underline;}
+        .jt-price{text-align: center;line-height: 30px;}
+    </style>
+    <!--<script src="http://apps.bdimg.com/libs/jquery/1.9.0/jquery.min.js"></script>-->
+    <script>
+        $(function(){
+            var aDiv=$('.jt-item').get();
+            var aDivMain=$('.jt-imain').get();
+            for(var i=0;i<aDiv.length;i++)
+            {
+                aDiv[i].index=i;
+                $(aDiv[i]).mouseover(function(){
+                    $(aDivMain[this.index]).css({
+                        'display':'block'
+                    });
+                });
+                $(aDiv[i]).mouseout(function(){
+                    $(aDivMain[this.index]).css({
+                        'display':'none'
+                    });
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+    <div id="jt-xx">
+        <div id="jtxx1">
+            <div class="jt-item" style="left:420px;top: 60px;width: 150px;height: 130px;">
+                <div class="jt-imain">
+                    <div class="jt-title">
+                        <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2558837">菠萝</a>
+                    </div>
+                    <div class="jt-price">
+                        ¥1000.00
+                    </div>
+                </div>
+            </div>
+            <div class="jt-item" style="left:600px;top: 60px;width: 180px;height: 130px;">
+                <div class="jt-imain">
+                    <div class="jt-title">
+                        <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2434632">大闸蟹</a>
+                    </div>
+                    <div class="jt-price">
+                        ¥1000.00
+                    </div>
+                </div>
+            </div>
+            <div class="jt-item" style="left:720px;top: 195px;width: 170px;height: 120px;">
+                <div class="jt-imain">
+                    <div class="jt-title">
+                        <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2673972">地瓜丝</a>
+                    </div>
+                    <div class="jt-price">
+                        ¥1000.00
+                    </div>
+                </div>
+            </div>
+            <div class="jt-item" style="left:720px;top: 370px;width: 170px;height: 120px;">
+                <div class="jt-imain">
+                    <div class="jt-title">
+                        <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2295328">西红柿</a>
+                    </div>
+                    <div class="jt-price">
+                        ¥1000.00
+                    </div>
+                </div>
+            </div>
+            <div class="jt-item" style="left:610px;top: 500px;width: 190px;height: 120px;">
+                <div class="jt-imain">
+                    <div class="jt-title">
+                        <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2622725">肉松</a>
+                    </div>
+                    <div class="jt-price">
+                        ¥1000.00
+                    </div>
+                </div>
+            </div>
+            <div class="jt-item" style="left:420px;top: 495px;width: 160px;height: 130px;">
+                <div class="jt-imain">
+                    <div class="jt-title">
+                        <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2201546">桂圆</a>
+                    </div>
+                    <div class="jt-price">
+                        ¥1000.00
+                    </div>
+                </div>
+            </div>
+            <div class="jt-item" style="left:300px;top: 370px;width: 180px;height: 120px;">
+                <div class="jt-imain">
+                    <div class="jt-title">
+                        <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2710423">红小豆</a>
+                    </div>
+                    <div class="jt-price">
+                        ¥1000.00
+                    </div>
+                </div>
+            </div>
+            <div class="jt-item" style="left:300px;top: 200px;width: 160px;height: 140px;">
+                <div class="jt-imain">
+                    <div class="jt-title">
+                        <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2674348">鹌鹑蛋</a>
+                    </div>
+                    <div class="jt-price">
+                        ¥1000.00
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

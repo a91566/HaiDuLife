@@ -1,0 +1,29 @@
+<!--ÔÝ²»¿ÉÐÐ-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript">
+	var curIndex = 0;
+	var arr = new Array();
+	arr[0] = "http://img.zhuyun.cn/M00/72/9D/wKgJNFWfXkqAXAu-AAAw8YVAueY644.jpg";
+	arr[1] = "http://img.zhuyun.cn/M00/72/9D/wKgJNFWfXkqAGEhgAAAxFy1FBAE781.jpg";
+	arr[2] = "http://img.zhuyun.cn/M00/72/9D/wKgJNFWfXkqADR8XAAAxFW638dA098.jpg";
+	arr[3] = "http://img.zhuyun.cn/M00/72/9E/wKgJNFWfXkqAfzwWAAAxF209sug525.jpg";
+
+	var iwidth=$(window).width();
+	iwidth=iwidth-1000;
+	$("#div1").css("right",iwidth);
+
+	setInterval(changeImg,3000);
+	function changeImg() {
+		var obj = document.getElementById("obj");
+		if (curIndex == arr.length-1) {
+			curIndex = 0;
+		} else {
+			curIndex += 1;
+		}
+		obj.src = arr[curIndex];
+	}
+</script>
+<div id="div1">
+	<img id="obj" src="http://img.zhuyun.cn/M00/72/9E/wKgJNFWfXkqAfzwWAAAxF209sug525.jpg" />
+</div>

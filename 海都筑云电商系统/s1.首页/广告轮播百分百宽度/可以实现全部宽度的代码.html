@@ -1,0 +1,18 @@
+<!--预览模式下才可以看到效果-->
+<meta charset="utf-8" />
+<style>
+		</style>
+<script>
+		   //window.onload=function()  //这一句不能加
+		   {
+				var iWidth=document.documentElement.clientWidth;
+				var oDiv=document.getElementById("divTest1");
+				oDiv.style.width = iWidth + 'px';
+				var iLeft=iWidth-1190;
+				iLeft=iLeft/2;
+				oDiv.style.left = "-"+iLeft + 'px';
+		   }
+		</script>
+<div id="divTest1" style="position:absolute;overflow: hidden;">
+	<img src="http://img.zhuyun.cn/M00/B0/5D/wKgJNFWt-V6AXwZsAAW0T4O5Twc792.jpg" alt=""/>
+</div>

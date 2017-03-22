@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #full-zsb{position: absolute;top: 0;left: 0;background: #F6F6F6;}
+        .fzsb-top{width: 1190px;background: #000000;background: rgba(0,0,0,0.7);position: absolute;margin: 0 auto;
+            filter: alpha(opacity:70);opacity:0.7;}
+        .fullw-img{display:block;}
+    </style>
+    <!--<script src="http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>-->
+    <script type="text/javascript">
+        $(document).ready(function()
+        {
+            $("body").css("overflow-x","hidden");
+            var iWidth=$(window).width();
+            var iheight=4.94*iWidth;
+            var aImgFz=$('.fullw-img');
+            var aImgBtn=$('.fzsb-top');
+
+            var iLeft=iWidth-1190;
+            iLeft=iLeft/2;
+            $('#full-zsb').css('width',iWidth+'px');
+            $('#full-zsb').css('left','-'+iLeft+'px');
+
+            for(var i=0;i<aImgFz.length;i++)
+            {
+                aImgFz[i].style.width = iWidth + 'px';
+            }
+            for(var i=0;i<aImgBtn.length-1;i++)
+            {
+                aImgBtn[i].style.left =iLeft + 'px';
+            }
+        });
+    </script>
+</head>
+<body>
+    <div id="full-zsb">
+        <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2434632">
+            <img class="fullw-img" src="http://img.zhuyun.cn/M00/79/EC/wKgJNFXewRaAUdmXAHaWbrE1toU372.jpg" alt="大闸蟹"/>
+        </a>
+
+    </div>
+    <!--<a target="_blank" href="http://test5556437.70card.net/Home/Goods/2203774">-->
+        <!--<div class="fzsb-top" style="top: 450px;height: 550px;"></div>-->
+    <!--</a>-->
+
+    <!--<a target="_blank" href="http://test5556437.70card.net/Home/Goods/2203774">-->
+        <!--<div class="fzsb-top" style="top: 1110px;height: 800px;"></div>-->
+    <!--</a>-->
+
+    <!--<a target="_blank" href="http://test5556437.70card.net/Home/Goods/2203774">-->
+        <!--<div class="fzsb-top" style="top: 1950px;height: 600px;"></div>-->
+    <!--</a>-->
+
+    <!--<a target="_blank" href="http://test5556437.70card.net/Home/Goods/2203774">-->
+        <!--<div class="fzsb-top" style="top: 2650px;height: 700px;"></div>-->
+    <!--</a>-->
+
+    <!--<a target="_blank" href="http://test5556437.70card.net/">-->
+        <!--<div class="fzsb-top" style="left: 72%;top: 3580px;width:160px;height: 90px;"></div>-->
+    <!--</a>-->
+
+
+</body>
+</html>

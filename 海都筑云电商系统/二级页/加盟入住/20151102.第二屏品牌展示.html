@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #brands{width: 1190px;height: 640px;position: relative;padding-top: 140px;
+        background: url(http://img.zhuyun.cn/M00/B3/39/wKgJNFXvhAGAD2McAABEh1VbFV0360.jpg) 0 40px no-repeat;}
+        #brands-inner{width: 1190px;height: 500px;position: relative;overflow: hidden;}
+        #brands-items{margin: 0;padding: 0;list-style: none;width: 2380px;left:0;height: 500px;position: absolute;}
+        .brands-item{width: 1190px;height: 500px;margin: 0;padding: 0;float: left;font-size: 0;}
+        .brand{float: left;position: relative;overflow: hidden;}
+        .shade{width: 100%;height: 200%;position: absolute;top: 0;}
+        .shade-space{width: 100%;height: 40%;}
+        .shade-black{width: 100%;height: 60%;background: rgba(0,0,0,0.8);background: #000000;opacity: 0.8;
+        filter: alpha(opacity:80);}
+        .shade-title{color: #ffffff;font-size: 18px;margin: 0;padding: 0;text-align: center;
+        height: 50px;line-height: 50px;}
+        .shade-more{color: #ffffff;font-size: 18px;margin: 0;padding: 0;text-align: center;
+            height: 250px;line-height: 50px;margin-top: 75px;}
+
+        #brands .btn-prev,#brands .btn-next{position: absolute;top: 50%;width: 96px;height: 89px;z-index: 14;
+            filter: alpha(opacity:30);opacity: 0.3;}
+        .btn-prev:hover,.btn-next:hover{filter: alpha(opacity:100);opacity: 1;}
+        #brands .btn-prev{left: -96px;background: url(http://img.zhuyun.cn/M00/AB/2F/wKgJNFXtKPuAB5IfAAAKB4xcVmo866.png) 0 0 no-repeat;}
+        #brands .btn-next{right: -96px;background: url(http://img.zhuyun.cn/M00/AB/2F/wKgJNFXtKPuAJ9oEAAAKCmZ6ivI390.png) 0 0 no-repeat;}
+
+    </style>
+    <!--<script src="http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>-->
+    <script>
+        $(function(){
+
+            $("#brands").parentsUntil(".plugin_inner_content").css('overflow','visible');
+            var aLis=$('.shade').get();
+            for(var i=0;i<aLis.length;i++)
+            {
+                aLis[i].index=i;
+                $(aLis[i]).mouseover(function(){
+                    $(this).stop().animate({
+                        'top':-250
+                    })
+                });
+                $(aLis[i]).mouseout(function(){
+                    $(this).stop().animate({
+                        'top':0
+                    })
+                });
+            }
+
+            aLis=$('.brands-item').get();
+            var index=0;
+            function fnChangeP(){
+                index++;
+                if(index==aLis.length)
+                {
+                    index=0;
+                }
+                else if(index==-1)
+                {
+                    index=aLis.length-1;
+                }
+                $('#brands-items').animate({
+                    'left':-index*1190
+                });
+            }
+            $('#brands .btn-prev').click(function(){
+                index=index-2;
+                fnChangeP();
+            });
+            $('#brands .btn-next').click(function(){
+                fnChangeP();
+            });
+        })
+    </script>
+</head>
+<body>
+    <div id="brands">
+        <a href="javascript:;" class="btn-prev"></a>
+        <a href="javascript:;" class="btn-next"></a>
+        <div id="brands-inner">
+            <ul id="brands-items">
+                <li class="brands-item" id="brands-item1">
+                    <div class="brand">
+                        <a href="http://test5556437.70card.net/Sub/yuanxiang_qjd" target="_blank">
+                            <img src="http://img.zhuyun.cn/M00/87/6C/wKgJNFY2vMWAEzPXAADaSKs_2Jk006.jpg" alt="园香黑猪"/>
+                            <div class="shade">
+                                <div class="shade-space">
+
+                                </div>
+                                <div class="shade-black">
+                                    <p class="shade-title">园香黑猪</p>
+                                    <p class="shade-more">园香黑猪 <br/> LEARN MORE → </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="brand">
+                        <a href="http://test5556437.70card.net/Sub/lianggengyuan_qjd" target="_blank">
+                            <img src="http://img.zhuyun.cn/M00/87/6C/wKgJNFY2vMWAAcpBAAELfnJFjFY585.jpg" alt="粮耕园"/>
+                            <div class="shade">
+                                <div class="shade-space">
+
+                                </div>
+                                <div class="shade-black">
+                                    <p class="shade-title">粮耕园</p>
+                                    <p class="shade-more">粮耕园 <br/> LEARN MORE → </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="brand">
+                        <a href="javascript:;" target="_blank">
+                            <img src="http://img.zhuyun.cn/M00/87/6C/wKgJNFY2vMWAa9kbAAEdw5IP2D0557.jpg" alt="鱼品园"/>
+                            <div class="shade">
+                                <div class="shade-space">
+
+                                </div>
+                                <div class="shade-black">
+                                    <p class="shade-title">鱼品园</p>
+                                    <p class="shade-more">鱼品园 <br/> LEARN MORE → </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="brand">
+                        <a href="javascript:;" target="_blank">
+                            <img src="http://img.zhuyun.cn/M00/87/6C/wKgJNFY2vMaAcxzUAABk3wEQhUw582.jpg" alt="三江雪"/>
+                            <div class="shade">
+                                <div class="shade-space">
+
+                                </div>
+                                <div class="shade-black">
+                                    <p class="shade-title">三江雪</p>
+                                    <p class="shade-more">三江雪 <br/> LEARN MORE → </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="brand">
+                        <a href="javascript:;" target="_blank">
+                            <img src="http://img.zhuyun.cn/M00/87/6C/wKgJNFY2vMaAX23UAABBzg_-YuI487.jpg" alt="闽洋"/>
+                            <div class="shade">
+                                <div class="shade-space">
+
+                                </div>
+                                <div class="shade-black">
+                                    <p class="shade-title">闽洋</p>
+                                    <p class="shade-more">闽洋 <br/> LEARN MORE → </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+
+                <li class="brands-item" id="brands-item2">
+                    <div class="brand">
+                        <a href="javascript:;" target="_blank">
+                            <img src="http://img.zhuyun.cn/M00/B3/39/wKgJNFXvhAKAR-sNAAGUu5fGXBE600.jpg" alt="绿帝"/>
+                            <div class="shade">
+                                <div class="shade-space">
+
+                                </div>
+                                <div class="shade-black">
+                                    <p class="shade-title">绿帝</p>
+                                    <p class="shade-more">绿帝 <br/> LEARN MORE → </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="brand">
+                        <a href="javascript:;" target="_blank">
+                            <img src="http://img.zhuyun.cn/M00/B3/39/wKgJNFXvhAKAZLSHAACGlXPoYR4620.jpg" alt="居味达"/>
+                            <div class="shade">
+                                <div class="shade-space">
+
+                                </div>
+                                <div class="shade-black">
+                                    <p class="shade-title">居味达</p>
+                                    <p class="shade-more">居味达 <br/> LEARN MORE → </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="brand">
+                        <a href="javascript:;" target="_blank">
+                            <img src="http://img.zhuyun.cn/M00/B3/39/wKgJNFXvhAKAaltzAACm9qY0dig453.jpg" alt="珍源美"/>
+                            <div class="shade">
+                                <div class="shade-space">
+
+                                </div>
+                                <div class="shade-black">
+                                    <p class="shade-title">珍源美</p>
+                                    <p class="shade-more">珍源美 <br/> LEARN MORE → </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="brand">
+                        <a href="http://test5556437.70card.net/Home/Index?index_id=1000013" target="_blank">
+                            <img src="http://img.zhuyun.cn/M00/B3/39/wKgJNFXvhAKAHuJXAADhppCxLO4333.jpg" alt="西闽特"/>
+                            <div class="shade">
+                                <div class="shade-space">
+
+                                </div>
+                                <div class="shade-black">
+                                    <p class="shade-title">西闽特</p>
+                                    <p class="shade-more">西闽特 <br/> LEARN MORE → </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="brand">
+                        <a href="http://test5556437.70card.net/Home/Index?index_id=1000014" target="_blank">
+                            <img src="http://img.zhuyun.cn/M00/B3/39/wKgJNFXvhAOAPO4KAAB3mfpyTuE419.jpg" alt="中粮"/>
+                            <div class="shade">
+                                <div class="shade-space">
+
+                                </div>
+                                <div class="shade-black">
+                                    <p class="shade-title">中粮</p>
+                                    <p class="shade-more">中粮 <br/> LEARN MORE → </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

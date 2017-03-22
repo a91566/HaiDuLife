@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .fruit-jqsy{width: 1190px;height: 490px;padding-top: 90px;
+        background: #FBF9FA url(http://img.zhuyun.cn/M00/F1/A7/wKgJNFX_ypOAcOcPAAAxcj7wTQA902.jpg) 0 -40px no-repeat;}
+        .fruit-2title{width: 1190px;height: 40px;color: #ffffff;font-family: "microsoft yahei", "微软雅黑";position: relative;}
+        .fruit-2title h4{float: left;margin: 0;padding: 0;height: 40px;line-height: 40px;width: 100px;
+            text-align: center;cursor: pointer;position: absolute;}
+        .fruith4-actve{background: #4c7a25;}
+        .fruith4-nor{background: #87C035;}
+        .fruit-2main{margin-top: 10px;width: 1190px;height: 420px;position: relative;}
+        .fruit-2m-item{position: absolute;width: 100%;height: 100%;display: none;}
+        .f2m-item-ul{margin: 0;padding: 0;list-style: none;width: 100%;height: 100%;}
+        .f2m-item-ul li{margin: 0 7px 0 1px;padding: 0;list-style: none;float: left;height: 100%;
+        width: 285px;border: 3px solid transparent;}
+        .f2m-item-ul li:last-child{margin-right: 0px;}
+        .f2m-item-li:hover{border-color: #87C035;}
+        .f2m-item-li a{text-decoration: none;}
+        .f2m-item-li h6{text-align: center;font-size: 14px;color: #000000;border-bottom: 1px dashed #CCCCCC;
+        line-height: 40px;margin: 0;}
+        .f2m-item-li p{text-align: center;font-size: 12px;color: #7a7a7a;border-bottom: 1px dashed #CCCCCC;
+            line-height: 40px;margin: 0;}
+        .f2m-il-pic{width: 280px;height: 280px;margin: 0 auto;}
+        .f2m-il-pic img{width: 280px;height: 280px;}
+        .f2m-il-price{height: 100px;text-align: center;margin-top: 10px;position: relative;}
+        .salePrice{font-size: 26px;color: #C40000;font-weight: 700;}
+        .nonePrice{font-size: 12px;color: darkgray;position: absolute;margin-left: 10px;}
+    </style>
+    <!--<script src="http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>-->
+    <script>
+        $(function(){
+            var aH4=$('.fruit-2title h4').get();
+            var aItem=$('.fruit-2m-item').get();
+            for(var i=0;i<aH4.length;i++)
+            {
+                aH4[i].index=i;
+                $(aH4[i]).click(function(){
+                    for(var i=0;i<aH4.length;i++)
+                    {
+                        $(aItem[i]).css('display','none');
+                        aH4[i].className='fruith4-nor';
+                    }
+                    $(aItem[this.index]).css('display','block');
+                    aH4[this.index].className='fruith4-actve';
+                });
+            }
+        })
+    </script>
+</head>
+<body>
+    <div class="fruit-jqsy">
+        <div class="fruit-2title">
+            <hr width=1190px size=1 color=#87C035 style="position: absolute;bottom: 0;margin: 0;padding: 0;">
+            <h4 class="fruith4-actve">话题水果</h4>
+            <h4 class="fruith4-nor" style="left: 100px;">礼盒</h4>
+            <h4 class="fruith4-nor" style="left: 200px;">半价抢购</h4>
+            <h4 class="fruith4-nor" style="left: 300px;">特色水果</h4>
+        </div>
+        <div class="fruit-2main">
+            <div class="fruit-2m-item" style="display: block;">
+                <ul class="f2m-item-ul">
+                    <li class="f2m-item-li">
+                        <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2582255">
+                            <div class="f2m-il-pic">
+                                <img src="http://img.zhuyun.cn/M00/56/D9/wKgJNFXWeXOAMhx5AAS6Kw6nKUI764.jpg" alt="qiyiguo"/>
+                            </div>
+                            <h6>徐香绿心奇异果</h6>
+                            <p>水润香甜 坏损包赔</p>
+                            <div class="f2m-il-price">
+                                <span class="salePrice">1000.00</span>
+                                <span class="nonePrice"><del>2000.00</del></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="f2m-item-li">
+                        <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2582255">
+                            <div class="f2m-il-pic">
+                                <img src="http://img.zhuyun.cn/M00/56/D9/wKgJNFXWeXOAMhx5AAS6Kw6nKUI764.jpg" alt="qiyiguo"/>
+                            </div>
+                            <h6>徐香绿心奇异果</h6>
+                            <p>水润香甜 坏损包赔</p>
+                            <div class="f2m-il-price">
+                                <span class="salePrice">1000.00</span>
+                                <span class="nonePrice"><del>2000.00</del></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="f2m-item-li">
+                        <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2582255">
+                            <div class="f2m-il-pic">
+                                <img src="http://img.zhuyun.cn/M00/56/D9/wKgJNFXWeXOAMhx5AAS6Kw6nKUI764.jpg" alt="qiyiguo"/>
+                            </div>
+                            <h6>徐香绿心奇异果</h6>
+                            <p>水润香甜 坏损包赔</p>
+                            <div class="f2m-il-price">
+                                <span class="salePrice">1000.00</span>
+                                <span class="nonePrice"><del>2000.00</del></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="f2m-item-li">
+                        <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2582255">
+                            <div class="f2m-il-pic">
+                                <img src="http://img.zhuyun.cn/M00/56/D9/wKgJNFXWeXOAMhx5AAS6Kw6nKUI764.jpg" alt="qiyiguo"/>
+                            </div>
+                            <h6>徐香绿心奇异果</h6>
+                            <p>水润香甜 坏损包赔</p>
+                            <div class="f2m-il-price">
+                                <span class="salePrice">1000.00</span>
+                                <span class="nonePrice"><del>2000.00</del></span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="fruit-2m-item">
+                <ul class="f2m-item-ul">
+                    <li class="f2m-item-li">
+                        <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2582255">
+                            <div class="f2m-il-pic">
+                                <img src="http://img.zhuyun.cn/M00/6B/A0/wKgJNFXbySWAVVytAAQUzU4jj4o980.jpg" alt="qiyiguo"/>
+                            </div>
+                            <h6>徐香绿心奇异果</h6>
+                            <p>水润香甜 坏损包赔</p>
+                            <div class="f2m-il-price">
+                                <span class="salePrice">1000.00</span>
+                                <span class="nonePrice"><del>2000.00</del></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="f2m-item-li">
+                        <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2582255">
+                            <div class="f2m-il-pic">
+                                <img src="http://img.zhuyun.cn/M00/6B/A0/wKgJNFXbySWAVVytAAQUzU4jj4o980.jpg" alt="qiyiguo"/>
+                            </div>
+                            <h6>徐香绿心奇异果</h6>
+                            <p>水润香甜 坏损包赔</p>
+                            <div class="f2m-il-price">
+                                <span class="salePrice">1000.00</span>
+                                <span class="nonePrice"><del>2000.00</del></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="f2m-item-li">
+                        <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2582255">
+                            <div class="f2m-il-pic">
+                                <img src="http://img.zhuyun.cn/M00/6B/A0/wKgJNFXbySWAVVytAAQUzU4jj4o980.jpg" alt="qiyiguo"/>
+                            </div>
+                            <h6>徐香绿心奇异果</h6>
+                            <p>水润香甜 坏损包赔</p>
+                            <div class="f2m-il-price">
+                                <span class="salePrice">1000.00</span>
+                                <span class="nonePrice"><del>2000.00</del></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="f2m-item-li">
+                        <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2582255">
+                            <div class="f2m-il-pic">
+                                <img src="http://img.zhuyun.cn/M00/6B/A0/wKgJNFXbySWAVVytAAQUzU4jj4o980.jpg" alt="qiyiguo"/>
+                            </div>
+                            <h6>徐香绿心奇异果</h6>
+                            <p>水润香甜 坏损包赔</p>
+                            <div class="f2m-il-price">
+                                <span class="salePrice">1000.00</span>
+                                <span class="nonePrice"><del>2000.00</del></span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="fruit-2m-item">
+                <ul class="f2m-item-ul">
+                    <li class="f2m-item-li">
+                        <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2582255">
+                            <div class="f2m-il-pic">
+                                <img src="http://img.zhuyun.cn/M00/50/81/wKgJNFWWSs6ABP6BAAMOyLsQI2E948.jpg" alt="qiyiguo"/>
+                            </div>
+                            <h6>徐香绿心奇异果</h6>
+                            <p>水润香甜 坏损包赔</p>
+                            <div class="f2m-il-price">
+                                <span class="salePrice">1000.00</span>
+                                <span class="nonePrice"><del>2000.00</del></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="f2m-item-li">
+                        <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2582255">
+                            <div class="f2m-il-pic">
+                                <img src="http://img.zhuyun.cn/M00/56/D9/wKgJNFXWeXOAMhx5AAS6Kw6nKUI764.jpg" alt="qiyiguo"/>
+                            </div>
+                            <h6>徐香绿心奇异果</h6>
+                            <p>水润香甜 坏损包赔</p>
+                            <div class="f2m-il-price">
+                                <span class="salePrice">1000.00</span>
+                                <span class="nonePrice"><del>2000.00</del></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="f2m-item-li">
+                        <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2582255">
+                            <div class="f2m-il-pic">
+                                <img src="http://img.zhuyun.cn/M00/56/D9/wKgJNFXWeXOAMhx5AAS6Kw6nKUI764.jpg" alt="qiyiguo"/>
+                            </div>
+                            <h6>徐香绿心奇异果</h6>
+                            <p>水润香甜 坏损包赔</p>
+                            <div class="f2m-il-price">
+                                <span class="salePrice">1000.00</span>
+                                <span class="nonePrice"><del>2000.00</del></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="f2m-item-li">
+                        <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2582255">
+                            <div class="f2m-il-pic">
+                                <img src="http://img.zhuyun.cn/M00/56/D9/wKgJNFXWeXOAMhx5AAS6Kw6nKUI764.jpg" alt="qiyiguo"/>
+                            </div>
+                            <h6>徐香绿心奇异果</h6>
+                            <p>水润香甜 坏损包赔</p>
+                            <div class="f2m-il-price">
+                                <span class="salePrice">1000.00</span>
+                                <span class="nonePrice"><del>2000.00</del></span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="fruit-2m-item">
+                <ul class="f2m-item-ul">
+                    <li class="f2m-item-li">
+                        <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2582255">
+                            <div class="f2m-il-pic">
+                                <img src="http://img.zhuyun.cn/M00/56/D9/wKgJNFXWeXOAMhx5AAS6Kw6nKUI764.jpg" alt="qiyiguo"/>
+                            </div>
+                            <h6>徐香绿心奇异果</h6>
+                            <p>水润香甜 坏损包赔</p>
+                            <div class="f2m-il-price">
+                                <span class="salePrice">1000.00</span>
+                                <span class="nonePrice"><del>2000.00</del></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="f2m-item-li">
+                        <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2582255">
+                            <div class="f2m-il-pic">
+                                <img src="http://img.zhuyun.cn/M00/56/D9/wKgJNFXWeXOAMhx5AAS6Kw6nKUI764.jpg" alt="qiyiguo"/>
+                            </div>
+                            <h6>徐香绿心奇异果</h6>
+                            <p>水润香甜 坏损包赔</p>
+                            <div class="f2m-il-price">
+                                <span class="salePrice">1000.00</span>
+                                <span class="nonePrice"><del>2000.00</del></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="f2m-item-li">
+                        <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2582255">
+                            <div class="f2m-il-pic">
+                                <img src="http://img.zhuyun.cn/M00/56/D9/wKgJNFXWeXOAMhx5AAS6Kw6nKUI764.jpg" alt="qiyiguo"/>
+                            </div>
+                            <h6>徐香绿心奇异果</h6>
+                            <p>水润香甜 坏损包赔</p>
+                            <div class="f2m-il-price">
+                                <span class="salePrice">1000.00</span>
+                                <span class="nonePrice"><del>2000.00</del></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="f2m-item-li">
+                        <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2582255">
+                            <div class="f2m-il-pic">
+                                <img src="http://img.zhuyun.cn/M00/50/81/wKgJNFWWSs6ABP6BAAMOyLsQI2E948.jpg" alt="qiyiguo"/>
+                            </div>
+                            <h6>徐香绿心奇异果</h6>
+                            <p>水润香甜 坏损包赔</p>
+                            <div class="f2m-il-price">
+                                <span class="salePrice">1000.00</span>
+                                <span class="nonePrice"><del>2000.00</del></span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

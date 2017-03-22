@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .catemap{width:1190px;height: 540px;background: #FFFFFF;margin: 0 auto;}
+        .cm-top{background: url("http://img.zhuyun.cn/M00/0D/0A/wKgJNFXDMRSAKjbQAABgTLLog_k668.jpg")  center 0 no-repeat;
+            height: 58px;line-height: 58px;}
+        .cm-bottom{height: 480px;}
+        .cm-bottom-left{float: left;height: 470px;}
+        .cm-bottom-right{float: left;width: 780px;height: 470px;overflow: hidden;position: relative;
+            margin-top: 10px;border:0px solid #39b3d7}
+        .cm-mapshow{width: 400px;height: 480px;position: relative;}
+        .cm-mapshow img{width: 400px;height: 479px;}
+        .cm-circle{position: absolute;background: #FFFFFF;width: 20px;height: 20px;border-radius:20px;}
+        #cm-fz{left: 300px;top:212px;}
+        #cm-pt{left: 265px;top:275px;}
+        #cm-qz{left: 230px;top:340px;}
+        #cm-xm{left: 195px;top:370px;}
+        #cm-zz{left: 145px;top:345px;}
+        #cm-ly{left: 95px;top:295px;}
+        #cm-sm{left: 140px;top:200px;}
+        #cm-np{left: 205px;top:180px;}
+        #cm-nd{left: 300px;top:145px;}
+        #cm-car{left: 280px;top:150px;width: 60px;height: 70px;position: absolute;transition-duration:0.5s;
+            background: url("http://img.zhuyun.cn/M00/0B/7A/wKgJNFXDCkiAWpm8AAAczgejrXk972.png") 0 0 repeat;}
+
+
+        .cm-sp{width: 780px;height: 500px;position: absolute;}
+        .cm-sp img{width: 390px;height: 500px;float: left;transition-duration: .2s;}
+
+        .cm-circle:hover{
+            transform: scale(1.1);
+        }
+        .cm-sp img:hover{
+            transform: translate(0px,-30px);
+        }
+    </style>
+    <script src="http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+            $(document).ready(function()
+            {
+                fnCateMap();
+            });
+            function fnCateMap()
+            {
+                var aBtncm=$(".cm-circle").get();
+                var oImgCar=document.getElementById("cm-car");
+                var nowZindex=2;
+                for(var i=0;i<aBtncm.length;i++)
+                {
+                    aBtncm[i].index=i;
+                };
+                function AddZindex(tindex)
+                {
+                    var oCMsp=$(".cm-sp")[tindex];
+                    nowZindex++;
+                    oCMsp.style.zIndex=nowZindex;
+                };
+                aBtncm[0].onmouseover=function()
+                {
+                    $(oImgCar).animate({
+                        'left':280,
+                        'top':150
+                    });
+                    AddZindex(this.index);
+                };
+
+                aBtncm[1].onmouseover=function()
+                {
+                    $(oImgCar).animate({
+                        'left':245,
+                        'top':215
+                    });
+                    AddZindex(this.index);
+
+                };
+                aBtncm[2].onmouseover=function()
+                {
+                    $(oImgCar).animate({
+                        'left':210,
+                        'top':280
+                    });
+                    AddZindex(this.index);
+                };
+                aBtncm[3].onmouseover=function()
+                {
+                    $(oImgCar).animate({
+                        'left':175,
+                        'top':310
+                    });
+                    AddZindex(this.index);
+                };
+                aBtncm[4].onmouseover=function()
+                {
+                    $(oImgCar).animate({
+                        'left':125,
+                        'top':285
+                    });
+                    AddZindex(this.index);
+                };
+                aBtncm[5].onmouseover=function()
+                {
+                    $(oImgCar).animate({
+                        'left':75,
+                        'top':235
+                    });
+                    AddZindex(this.index);
+                };
+                aBtncm[6].onmouseover=function()
+                {
+                    $(oImgCar).animate({
+                        'left':120,
+                        'top':140
+                    });
+                    AddZindex(this.index);
+                };
+                aBtncm[7].onmouseover=function()
+                {
+                    $(oImgCar).animate({
+                        'left':185,
+                        'top':120
+                    });
+                    AddZindex(this.index);
+                };
+                aBtncm[8].onmouseover=function()
+                {
+                    $(oImgCar).animate({
+                        'left':279,
+                        'top':85
+                    });
+                    AddZindex(this.index);
+                };
+
+            };
+    </script>
+</head>
+<body>
+    <div class="catemap">
+        <div class="cm-top"></div>
+        <div class="cm-bottom">
+            <div class="cm-bottom-left">
+                <div class="cm-mapshow">
+                    <img src="http://img.zhuyun.cn/M00/02/91/wKgJNFXBbhSAMaa9AAK1gZI0pWU325.jpg" alt=""/>
+
+                    <div class="cm-circle" id="cm-fz">
+                    </div>
+                    <div class="cm-circle" id="cm-pt">
+                    </div>
+                    <div class="cm-circle" id="cm-qz">
+                    </div>
+                    <div class="cm-circle" id="cm-xm">
+
+                    </div>
+                    <div class="cm-circle" id="cm-zz">
+
+                    </div>
+                    <div class="cm-circle" id="cm-ly">
+
+                    </div>
+                    <div class="cm-circle" id="cm-sm">
+
+                    </div>
+                    <div class="cm-circle" id="cm-np">
+
+                    </div>
+                    <div class="cm-circle" id="cm-nd">
+
+                    </div>
+
+                    <div id="cm-car">
+
+                    </div>
+
+
+                </div>
+                <div class="cm-foodshow">
+
+                </div>
+            </div>
+            <div class="cm-bottom-right">
+                <!--fuzhou-->
+                <div class="cm-sp" style="z-index: 2">
+                    <a target="_blank" href="http://www.968111.com">
+                        <img src="http://img.zhuyun.cn/M00/10/A2/wKgJNFXEWcWAdD00AABlOjUleA8071.jpg" alt=""/>
+                    </a>
+                    <a target="_blank" href="http://www.968111.com">
+                        <img src="http://img.zhuyun.cn/M00/10/A2/wKgJNFXEWcaAWq2LAADh4l-nO2I726.jpg" alt=""/>
+                    </a>
+                </div>
+
+                <!--putian-->
+                <div class="cm-sp">
+                    <a target="_blank" href="http://www.968111.com">
+                        <img src="http://img.zhuyun.cn/M00/10/A2/wKgJNFXEWcaAbI7_AADXZKVKA-M132.jpg" alt=""/>
+                    </a>
+                    <a target="_blank" href="http://www.968111.com">
+                        <img src="http://img.zhuyun.cn/M00/10/A2/wKgJNFXEWcaAS56qAADZ7xgoAlc168.jpg" alt=""/>
+                    </a>
+                </div>
+
+                <!--quanzhou-->
+                <div class="cm-sp">
+                    <a target="_blank" href="http://www.968111.com">
+                        <img src="http://img.zhuyun.cn/M00/10/B5/wKgJNFXEXAuAYQxaAABraslYDn0704.jpg" alt=""/>
+                    </a>
+                    <a target="_blank" href="http://www.968111.com">
+                        <img src="http://img.zhuyun.cn/M00/10/B5/wKgJNFXEXAuAHeMgAABqtTbfxiU574.jpg" alt=""/>
+                    </a>
+                </div>
+
+                <!--xiamen-->
+                <div class="cm-sp">
+                    <a target="_blank" href="http://www.968111.com">
+                        <img src="http://img.zhuyun.cn/M00/10/A8/wKgJNFXEWn6AbaFuAACHAD9krl0510.jpg" alt=""/>
+                    </a>
+                    <a target="_blank" href="http://www.968111.com">
+                        <img src="http://img.zhuyun.cn/M00/10/A8/wKgJNFXEWn6AArTOAABWnT6aHgU996.jpg" alt=""/>
+                    </a>
+                </div>
+
+                <!--zhangzhou-->
+                <div class="cm-sp">
+                    <a target="_blank" href="http://www.968111.com">
+                        <img src="http://img.zhuyun.cn/M00/10/A8/wKgJNFXEWqWAZKXEAABoM9rI874051.jpg" alt=""/>
+                    </a>
+                    <a target="_blank" href="http://www.968111.com">
+                        <img src="http://img.zhuyun.cn/M00/10/A8/wKgJNFXEWqWAJJBvAABO43NCmyM262.jpg" alt=""/>
+                    </a>
+                </div>
+
+                <!--longyan-->
+                <div class="cm-sp">
+                    <a target="_blank" href="http://www.968111.com">
+                        <img src="http://img.zhuyun.cn/M00/10/A9/wKgJNFXEWsmASHpHAABfoLxxMVc179.jpg" alt=""/>
+                    </a>
+                    <a target="_blank" href="http://www.968111.com">
+                        <img src="http://img.zhuyun.cn/M00/10/A9/wKgJNFXEWsqAC0vtAACCy4OxGYM053.jpg" alt=""/>
+                    </a>
+                </div>
+
+                <!--sanming-->
+                <div class="cm-sp">
+                    <a target="_blank" href="http://www.968111.com">
+                        <img src="http://img.zhuyun.cn/M00/10/AB/wKgJNFXEWvKAfUIFAABkhMiQtz4580.jpg" alt=""/>
+                    </a>
+                    <a target="_blank" href="http://www.968111.com">
+                        <img src="http://img.zhuyun.cn/M00/10/AB/wKgJNFXEWvKAReljAABTTKspLKM680.jpg" alt=""/>
+                    </a>
+                </div>
+
+                <!--nanping-->
+                <div class="cm-sp">
+                    <a target="_blank" href="http://www.968111.com">
+                        <img src="http://img.zhuyun.cn/M00/10/A3/wKgJNFXEWdaACe9cAACX-qRVdyM762.jpg" alt=""/>
+                    </a>
+                    <a target="_blank" href="http://www.968111.com">
+                        <img src="http://img.zhuyun.cn/M00/10/A3/wKgJNFXEWdaAHmEZAABngeuR-04541.jpg" alt=""/>
+                    </a>
+                </div>
+
+                <!--ningde-->
+                <div class="cm-sp">
+                    <a target="_blank" href="http://www.968111.com">
+                        <img src="http://img.zhuyun.cn/M00/10/AD/wKgJNFXEWxuARP_qAAB7W_UrtTg614.jpg" alt=""/>
+                    </a>
+                    <a target="_blank" href="http://www.968111.com">
+                        <img src="http://img.zhuyun.cn/M00/10/AD/wKgJNFXEWxuAVdfDAABRMiQf6aw825.jpg" alt=""/>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #zl-ppzt-1{height:auto;position:absolute;top:0;}
+    </style>
+    <!--<script src="http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>-->
+    <script>
+        $(function(){
+            $('body').css('overflow-x','hidden');
+            var iLeft=$(window).width()-1190;
+            iLeft=iLeft/2;
+            iLeft = iLeft > 0 ? -iLeft : 0;
+            $('#zl-ppzt-1').css('width',$(window).width()).css('left',iLeft);
+            $('#zl-ppzt-1 img').css('width',$(window).width());
+        });
+    </script>
+</head>
+<body>
+    <div id="zl-ppzt-1">
+        <img src="http://img.zhuyun.cn/M00/0E/94/wKgJNFYIk8eAWKAcAAGOG89tOiM631.jpg" alt="中粮"/>
+    </div>
+</body>
+</html>

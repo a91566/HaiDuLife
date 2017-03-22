@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #full-zsb{height:390px;position:absolute;background: #29A0F0;}
+        #fu-z-main{width: 1190px;height: 390px;margin-bottom: 0;position: relative;margin: 0 auto;}
+        .fu-zm{z-index: 1;position: absolute;display: inline;width: 1190px;height: 390px;margin: 0;}
+        .fu-zm img{width: 1190px;height: 390px;margin: 0;}
+        .fu-zr{width: 290px;height: 390px;margin: 0;position: absolute;right: 0;z-index: 3;}
+        .fu-zr img{width: 290px;height: 390px;}
+    </style>
+    <script>
+        window.onload=function()
+        {
+            var iWidth=document.documentElement.clientWidth;
+            var oDivFz=document.getElementById("full-zsb");
+            oDivFz.style.width = iWidth + 'px';
+            var iLeft=iWidth-1190;
+            iLeft=iLeft/2;
+//            oDivFz.style.left = "-"+iLeft + 'px';
+        };
+    </script>
+</head>
+<body style="margin: 0;padding: 0;overflow-x: hidden;">
+    <div id="full-zsb">
+        <div id="fu-z-main">
+            <div class="fu-zm" style="z-index: 2;">
+                <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2211534">
+                    <img src="https://img.alicdn.com/tps/i3/TB1ZKakJXXXXXclXFXXP.iR4FXX-1190-380.jpg_q75.jpg" alt="海都网门店"/>
+                </a>
+            </div>
+            <div class="fu-zr">
+                <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2211534">
+                    <img src="http://img.zhuyun.cn/M00/72/9D/wKgJNFWfXkqAGEhgAAAxFy1FBAE781.jpg" alt="海都网门店"/>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

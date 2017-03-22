@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #register{position:absolute;background: #FFE9D4;height: 890px;width: 1920px;
+            background: url(http://img.zhuyun.cn/M00/72/80/wKgJNFXdN4-AeSlWAAHn3vCtxok877.jpg) 0 0 no-repeat;}
+    </style>
+    <script>
+//        window.onload=function()
+//        {
+//            fnLoadRegister();
+//        };
+        $(document).ready(function()
+        {
+            fnLoadRegister();
+        });
+
+        function fnLoadRegister()
+        {
+            document.body.style.overflowX="hidden";
+            var iWidth=document.documentElement.clientWidth||document.body.clientWidth;
+            var oDivFz=document.getElementById("register");
+//            oDivFz.style.width = iWidth + 'px';
+            var iLeft=iWidth-1190;
+            iLeft=iLeft/2;
+            oDivFz.style.left = "-"+iLeft + 'px';
+        };
+    </script>
+</head>
+<body>
+<div id="register">
+</div>
+</body>
+</html>

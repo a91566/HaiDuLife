@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .jz-hdp{width: 1190px;height: 890px;position: relative;}
+        .jz-hdp-top{width: 1190px;height: 110px;
+            background: url(http://img.zhuyun.cn/M00/0B/29/wKgJNFYcc9OAAhzTAACWTXx3WNk076.png) 0 -110px no-repeat;}
+        .jz-hdp-main{width: 1190px;height: 780px;
+            background: url(http://img.zhuyun.cn/M00/7E/96/wKgJNFXgA5aANL5SAADbzmyrfyM676.jpg) 0 0px no-repeat;}
+        .jh-btn{position: absolute;left:788px;top:145px;color: #CCCCCC;}
+        .jh-btn li{width: 110px;height: 40px;line-height:40px;text-align: center;cursor: pointer;
+            display: inline-block;margin: 0 0 0 2px;}
+        .jh-show{position: relative;width: 1190px;height: 700px;left: 0;top:75px;
+            margin: 0;padding: 0;list-style: none;position: relative;}
+        .jh-show li{width: 1190px;height: 700px;left: 0;top:0;position: absolute;
+            margin: 0;padding: 0;z-index: 1;display: none;}
+
+        #show_rule_dp{position: absolute;left: 570px;top:70px;color: darkgray;text-decoration: none;}
+        #show_rule_dp:hover{text-decoration: underline;}
+        #show-rule_details_dp{left:345px;display: none;position: absolute;width: 500px;height: 400px;background:#FFFFFF;
+            border: 1px solid #Ad0100;top:0px;;z-index: 10;box-shadow: 0 0 15px #000000;}
+        .rule-title{color: #FFFFFF;font-size: 20px;line-height: 50px;padding-left: 10px;}
+        #show-rule_details_dp p{padding:0 10px;font-size: 14px;line-height: 25px;}
+        #am-close-dp{right: 5px;color: #FFFFFF;font-size: 38px;cursor: pointer;position: absolute;}
+
+    </style>
+    <!--<script src="http://apps.bdimg.com/libs/jquery/1.9.0/jquery.min.js"></script>-->
+    <script>
+        $(function()
+        {
+            $('#show_rule_dp').click(function()
+            {
+                $('#show-rule_details_dp').css('display','block');
+            });
+
+            $('#am-close-dp').click(function ()
+            {
+                $('#show-rule_details_dp').css('display','none');
+            });
+        });
+        $(document).ready(function() {
+            var zIndex=2;
+
+            $('.jh-btn li').eq(0).mouseover(function(){
+                $('.jh-btn li').eq(0).css('color','#FFFFFF').css('font-weight','bold');
+                $('.jh-btn li').eq(1).css('color','#CCCCCC').css('font-weight','normal');
+                $('.jh-btn li').eq(2).css('color','#CCCCCC').css('font-weight','normal');
+
+                $('.jh-show li').eq(0).css('display','block');
+                $('.jh-show li').eq(1).css('display','none');
+                $('.jh-show li').eq(2).css('display','none');
+            });
+            $('.jh-btn li').eq(1).mouseover(function(){
+                $('.jh-btn li').eq(1).css('color','#FFFFFF').css('font-weight','bold');
+                $('.jh-btn li').eq(0).css('color','#CCCCCC').css('font-weight','normal');
+                $('.jh-btn li').eq(2).css('color','#CCCCCC').css('font-weight','normal');
+
+                $('.jh-show li').eq(1).css('display','block');
+                $('.jh-show li').eq(0).css('display','none');
+                $('.jh-show li').eq(2).css('display','none');
+            });
+            $('.jh-btn li').eq(2).mouseover(function(){
+                $('.jh-btn li').eq(2).css('color','#FFFFFF').css('font-weight','bold');
+                $('.jh-btn li').eq(1).css('color','#CCCCCC').css('font-weight','normal');
+                $('.jh-btn li').eq(0).css('color','#CCCCCC').css('font-weight','normal');
+
+                $('.jh-show li').eq(2).css('display','block');
+                $('.jh-show li').eq(1).css('display','none');
+                $('.jh-show li').eq(0).css('display','none');
+            });
+
+//            $('.jh-btn li').eq(0).click(function(){
+//                zIndex++;
+//                $('.jh-show li').eq(0).css('z-index',zIndex);
+//            });
+//            $('.jh-btn li').eq(1).click(function(){
+//                zIndex++;
+//                $('.jh-show li').eq(1).css('z-index',zIndex);
+//            });
+//            $('.jh-btn li').eq(2).click(function(){
+//                zIndex++;
+//                $('.jh-show li').eq(2).css('z-index',zIndex);
+//            });
+        });
+
+    </script>
+</head>
+<body>
+    <div id="jz-hdp" class="jz-hdp">
+        <div id="show-rule_details_dp">
+            <div style="position: relative;height: 50px;width: 100%;background: #Ad0100;">
+                <span class="rule-title">规则说明</span>
+                <span id="am-close-dp" style="font-size: 38px;">×</span>
+            </div>
+            <div>
+                <p>购买规则：惠搭配是按菜谱销售食材，因此只能按照套餐购买，不能单独购买其中一类商品，如需购买单品，请到相关单品页面；</p>
+                <p>食材说明：惠搭配里面所有食材均为初始食材，需加工才可烹饪；</p>
+                <p>限购份数：每个会员限购3份</p>
+                <p>配送范围：惠搭配涉及生鲜食材，只接受福州市四区会员订单，非鼓楼、仓山、台江、晋安区会员请勿拍；</p>
+                <p>配送时间：支付完成之后第二天发货；</p>
+                <p>配送费用：参照海都生活商城“配送费用”；</p>
+                <p>注意事项：惠搭配商品不接受自提，不可退换货，介意者勿拍；</p>
+            </div>
+        </div>
+        <div class="jz-hdp-top">
+            <a href="###" id="show_rule_dp">查看规则</a>
+        </div>
+        <div class="jz-hdp-main">
+            <ul class="jh-btn">
+                <li style="color: #FFFFFF;font-weight: bold;">梅菜扣肉</li>
+                <li>白菜烩排骨</li>
+                <li>香菇排骨</li>
+            </ul>
+            <ul class="jh-show">
+                <li style="z-index: 2;display: block;">
+                    <a target="_blank" href="">
+                        <img src="http://img.zhuyun.cn/M00/6F/9C/wKgJNFXcMTeAbRlbAA7Ei1Py-lg132.png" alt="梅菜扣肉"/>
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" href="">
+                        <img src="http://img.zhuyun.cn/M00/6F/9C/wKgJNFXcMTaATH3OAA8xaRM5jrQ735.png" alt="白菜烩排骨"/>
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" href="">
+                        <img src="http://img.zhuyun.cn/M00/6F/9C/wKgJNFXcMTWAVqm4AAz1IK8uSjI711.png" alt="香菇排骨"/>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .goodsMain{width:1188px;height: 438px;background: white;position: relative;
+            display: block;border: 1px solid lightgray;}
+        .goodsMain1{width:290px;height: 440px;float: left;background: white;}
+        .goodsMain1 img{width:285px;height: 440px;}
+        .goodsMain2{width:170px;height: 440px;margin-left:2px;background:white;float: left;position: relative;}
+        .goodsMain2 img{width:170px;height: 440px;}
+        .navGoods{height: 120px;width: 170px;background: rgba(0,0,0,0.3);position: absolute;top: 250px;}
+        .navGoods a{width:60px;padding: 10px 6px;display: inline-block; text-decoration: none;color: #FFFFFF;}
+        .goodsMain3{width:726px;height: 438px;background: #FFFFFF;float: left;}
+        .goodsMain3Top{width: 700px;height: 30px;border-top: 2px solid #1ffa49;margin:10px 10px 0 10px;}
+        .showtitle {width:300px;line-height: 30px;float: left;font-size: 16px;padding-left: 10px;}
+        .showmore {width:180px;line-height: 30px;float: right;font-size: 12px;text-align: right;
+            padding-right: 10px;}
+        .showmore a{color: #333333;text-decoration: none;}
+        .showgoodsMain{width: 728px;height: 386px;}
+        .showgoodsMain ul{width: 728px;height: 396px;padding: 0 15px}
+        .showgoodsMain li{width:168px;height: 188px;list-style: none;display:inline-block;
+            float: left;background: #FFFFFF;margin: 1px 4px;}
+        .goods-pic{width: 152px;height: 152px;text-align: center;}
+        .goods-pic img{width: 152px;height: 152px;}
+        .goods-content{width: 152px;height: 38px;line-height: 38px;}
+        .goods-content div{height: 38px;display: inline-block;margin-top: 0}
+        .goods-notes{height:38px;margin-left: 10px;font-size: 14px;}
+        .goods-prices{height: 38px;float: right;color: red;font-weight: bold;
+            font-size: 16px;}
+
+        /*动画处理*/
+        @-webkit-keyframes key-goodsMain1 {
+           100% {transform:rotateY(360deg);}
+        }
+        @keyframes key-goodsMain1 {
+            100% {transform:rotateY(360deg);}
+        }
+        .goodsMain1:hover{
+            -webkit-animation-name: key-goodsMain1;
+            -webkit-animation-duration: 2s;
+
+            animation-name: key-goodsMain1;
+            animation-duration: 2s;
+        }
+
+        @-webkit-keyframes key-goodsMain2 {
+            100% {transform:rotateY(360deg);}
+        }
+        @keyframes key-goodsMain2 {
+            100% {transform:rotateY(360deg);}
+        }
+        .goodsMain2:hover{
+            -webkit-animation-name: key-goodsMain2;
+            -webkit-animation-duration: 2s;
+
+            animation-name: key-goodsMain2;
+            animation-duration: 2s;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="goodsMain" class="goodsMain">
+        <div class="goodsMain1">
+            <a  target="_blank" href="http://www.968111.com">
+                <img src="http://img.zhuyun.cn/M00/9D/32/wKgJNFWpzU2AOFuuAAK5_QfycZ4642.jpg"
+                     alt=""/>
+            </a>
+        </div>
+        <div class="goodsMain2">
+            <a target="_blank" href="http://www.968111.com">
+                <img src="http://img.zhuyun.cn/M00/9D/32/wKgJNFWpzU2AB24eAAFc4XKj-XE486.jpg"
+                     alt=""/>
+            </a>
+            <div class="navGoods">
+                <a target="_blank" href="http://www.968111.com">水蜜桃</a>
+                <a target="_blank" href="http://www.968111.com">水蜜桃</a>
+                <a target="_blank" href="http://www.968111.com">水蜜桃</a>
+                <a target="_blank" href="http://www.968111.com">水蜜桃</a>
+                <a target="_blank" href="http://www.968111.com">水蜜桃</a>
+                <a target="_blank" href="http://www.968111.com">水蜜桃</a>
+            </div>
+        </div>
+        <div class="goodsMain3">
+            <div class="goodsMain3Top">
+                <div class="showtitle">新品推荐</div>
+                <div class="showmore"><a target="_blank" href="http://www.968111.com">查看更多&gt;&gt;</a></div>
+            </div>
+            <div class="showgoodsMain">
+                <ul>
+
+                    <!--1-->
+                    <li>
+                        <div class="goods-pic">
+                            <a  target="_blank" href="http://test5556437.70card.net/Home/Goods/2010931">
+                                <img src="http://img.zhuyun.cn/M00/50/81/wKgJNFWWSuCAQkDIAAPw7iYYh30594.jpg" alt=""/>
+                            </a>
+                        </div>
+                        <div class="goods-content">
+                            <div class="goods-notes">古田水蜜桃</div>
+                            <div class="goods-prices">￥68</div>
+                        </div>
+                    </li>
+
+                    <!--2-->
+                    <li>
+                        <div class="goods-pic">
+                            <a  target="_blank" href="http://www.968111.com">
+                                <img src="http://img.zhuyun.cn/M00/9E/1C/wKgJNFWp8v6Ab3v8AAF52pFmA70944.jpg" alt=""/>
+                            </a>
+                        </div>
+                        <div class="goods-content">
+                            <div class="goods-notes">古田水蜜桃</div>
+                            <div class="goods-prices">￥68</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="goods-pic">
+                            <a  target="_blank" href="http://www.968111.com">
+                                <img src="http://img.zhuyun.cn/M00/9E/1C/wKgJNFWp8v6Ab3v8AAF52pFmA70944.jpg" alt=""/>
+                            </a>
+                        </div>
+                        <div class="goods-content">
+                            <div class="goods-notes">古田水蜜桃</div>
+                            <div class="goods-prices">￥68</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="goods-pic">
+                            <a  target="_blank" href="http://www.968111.com">
+                                <img src="http://img.zhuyun.cn/M00/9E/1C/wKgJNFWp8v6Ab3v8AAF52pFmA70944.jpg" alt=""/>
+                            </a>
+                        </div>
+                        <div class="goods-content">
+                            <div class="goods-notes">古田水蜜桃</div>
+                            <div class="goods-prices">￥68</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="goods-pic">
+                            <a  target="_blank" href="http://www.968111.com">
+                                <img src="http://img.zhuyun.cn/M00/9E/1C/wKgJNFWp8v6Ab3v8AAF52pFmA70944.jpg" alt=""/>
+                            </a>
+                        </div>
+                        <div class="goods-content">
+                            <div class="goods-notes">古田水蜜桃</div>
+                            <div class="goods-prices">￥68</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="goods-pic">
+                            <a  target="_blank" href="http://www.968111.com">
+                                <img src="http://img.zhuyun.cn/M00/9E/1C/wKgJNFWp8v6Ab3v8AAF52pFmA70944.jpg" alt=""/>
+                            </a>
+                        </div>
+                        <div class="goods-content">
+                            <div class="goods-notes">古田水蜜桃</div>
+                            <div class="goods-prices">￥68</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="goods-pic">
+                            <a  target="_blank" href="http://www.968111.com">
+                                <img src="http://img.zhuyun.cn/M00/9E/1C/wKgJNFWp8v6Ab3v8AAF52pFmA70944.jpg" alt=""/>
+                            </a>
+                        </div>
+                        <div class="goods-content">
+                            <div class="goods-notes">古田水蜜桃</div>
+                            <div class="goods-prices">￥68</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="goods-pic">
+                            <a  target="_blank" href="http://www.968111.com">
+                                <img src="http://img.zhuyun.cn/M00/9E/1C/wKgJNFWp8v6Ab3v8AAF52pFmA70944.jpg" alt=""/>
+                            </a>
+                        </div>
+                        <div class="goods-content">
+                            <div class="goods-notes">古田水蜜桃</div>
+                            <div class="goods-prices">￥68</div>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

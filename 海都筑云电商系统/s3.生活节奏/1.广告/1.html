@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .sh-jz{width: 1190px;height: 390px;margin: 0 auto;}
+        .sj-pl{width: 230px;height: 390px;position: relative;float: left;
+            background: url("http://img.zhuyun.cn/M00/15/C6/wKgJNFXFsPGAAikwAAAehslm0W0863.jpg") 0 0 no-repeat;}
+        .sj-pl-btn{position: absolute;width: 180px;height: 100px;background: white;
+            right: 0;top:150px;}
+        .sp-btn-act{background:white;margin: 0;padding: 0;line-height: 50px;padding-left: 10px;
+            cursor: pointer;}
+        .sp-btn{background: #780006;border-left: 3px solid #5C0006;margin: 0;padding: 0;line-height: 50px;
+            cursor: pointer;color: #F6F6F6;padding-left: 15px;}
+
+        .sj-pr{position: relative;width: 960px;height: 390px;float: right;}
+        #sj-pr-p1{width: 720px;height: 390px;position: absolute;left: 0;top:0;}
+        #sj-pr-p2{width: 720px;height: 390px;position: absolute;left: 0;top:0;display: none;}
+        .sj-pr-r{position: absolute;right: 0;width: 240px;}
+        .sj-pr-r img{width: 240px;height: 128px;margin-top: 2px;}
+    </style>
+    <script>
+        window.onload=function()
+        {
+            fnSHJZTop();
+        };
+        function fnSHJZTop()
+        {
+
+            var oBtnp1=document.getElementById("sp-btn1");
+            var oBtnp2=document.getElementById("sp-btn2");
+            var oPicp1=document.getElementById("sj-pr-p1");
+            var oPicp2=document.getElementById("sj-pr-p2");
+
+            oBtnp1.onclick=function()
+            {
+                oBtnp1.className="sp-btn-act";
+                oBtnp2.className="sp-btn";
+                oPicp1.style.display="block";
+                oPicp2.style.display="none";
+            };
+            oBtnp2.onclick=function()
+            {
+                oBtnp2.className="sp-btn-act";
+                oBtnp1.className="sp-btn";
+                oPicp2.style.display="block";
+                oPicp1.style.display="none";
+            };
+        };
+//        $(document).ready(function()
+//        {
+//            document.body.style.overflowX='hidden';
+//            var iWidth=document.documentElement.clientWidth||document.body.clientWidth;
+//            $('#display_containers').css('width',iWidth + 'px');
+//            var iLeft=iWidth-1200;
+//            iLeft=iLeft/2;
+//            $('#display_containers').css('margin-left',"-"+iLeft + 'px');
+//            //$('.sh-jz').parentsUntil('#display_containers').css('margin-left',"-"+iLeft + 'px');
+//
+//            $('.sh-jz').parentsUntil('#display_containers').css('background','#CCCCCC');
+//        });
+    </script>
+</head>
+<body>
+    <div class="sh-jz">
+        <div class="sj-pl">
+            <div class="sj-pl-btn">
+                <p id="sp-btn1" class="sp-btn-act">美味黄金蟹</p>
+                <p id="sp-btn2" class="sp-btn">新鲜扇贝</p>
+            </div>
+        </div>
+        <div class="sj-pr">
+            <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2420287">
+                <img id="sj-pr-p1" src="http://img.zhuyun.cn/M00/15/C6/wKgJNFXFsPKAX0xjAAD2StYztuo389.jpg" alt="黄金蟹"/>
+            </a>
+            <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2434669">
+                <img id="sj-pr-p2"  src="http://img.zhuyun.cn/M00/15/DA/wKgJNFXFslKAEsY9AADuFFRk3jw483.jpg" alt="扇贝"/>
+            </a>
+            <div class="sj-pr-r">
+
+                <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2377775">
+                    <img src="http://img.zhuyun.cn/M00/15/C6/wKgJNFXFsPGAXDjmAAAhdck24YI457.jpg" alt="虫草花"/>
+                </a>
+
+                <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2201546">
+                    <img src="http://img.zhuyun.cn/M00/15/C6/wKgJNFXFsPGAPT6fAAAbebFjAYA930.jpg" alt="新鲜桂圆进口新鲜水果"/>
+                </a>
+
+                <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2228373">
+                    <img src="http://img.zhuyun.cn/M00/15/C6/wKgJNFXFsPGAMTnXAAAd8egYV-w962.jpg" alt="竹荪"/>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

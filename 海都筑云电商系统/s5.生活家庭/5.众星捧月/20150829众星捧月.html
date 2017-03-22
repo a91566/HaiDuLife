@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .zx-py{width: 1190px;height: 740px;}
+        .zzpy-top{width: 1190px;height: 105px;
+            background: url(http://img.zhuyun.cn/M00/26/B1/wKgJNFXJu6iAAIYwAAAteEX7nkQ654.jpg) 0 20px no-repeat;}
+        .zzpy-ils{display: none;float: left;position: absolute;background: black;
+            opacity: 0.7;filter: alpha(opacity:70);background: rgba(0,0,0,0.7);}
+        .zzpy-ils h3{color: white;padding: 6px;}
+        .zzpy-ils p{color: white;padding: 6px;}
+    </style>
+    <script src="http://apps.bdimg.com/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function()
+        {
+            var aDivZzpyLi=$(".zzpy-il");
+
+            for(var i=0;i<aDivZzpyLi.length;i++)
+            {
+                aDivZzpyLi[i].index=i;
+                aDivZzpyLi[i].onmouseover=function()
+                {
+                    var xx=$(this).find('.zzpy-ils').get(0);
+                    xx.style.display="block";
+                    xx.style.width=aDivZzpyLi[this.index].offsetWidth+"px";
+                    xx.style.height=aDivZzpyLi[this.index].offsetHeight-2+"px";
+                };
+                aDivZzpyLi[i].onmouseout=function()
+                {
+                    var xx=$(this).find('.zzpy-ils').get(0);
+                    xx.style.display="none";
+                };
+            };
+        });
+    </script>
+</head>
+<body>
+    <div class="zx-py" id="zxpy">
+        <div class="zzpy-top">
+
+        </div>
+        <div class="zzpy-bot">
+            <div class="zzpy-btol" style="position: relative;float: left;width: 295px;height:635px;">
+                <div class="zzpy-il" style="margin-bottom: 6px;">
+                    <a target="_blank" href="http://test5556437.70card.net/?index_id=4#zxpy">
+                        <div class="zzpy-ils">
+                            <h3>某某某</h3>
+                            <p>吃货教你不一样的木瓜吃法</p>
+                        </div>
+                        <img src="http://img.zhuyun.cn/M00/81/B0/wKgJNFXhFhSAKJNcAABWFIZu4Qo945.jpg" alt=""/>
+                    </a>
+                </div>
+
+                <div class="zzpy-il" style="margin-bottom: 6px;">
+                    <a target="_blank" href="###">
+                        <div class="zzpy-ils">
+                            <h3>某某某</h3>
+                            <p>吃货教你不一样的木瓜吃法</p>
+                        </div>
+                        <img src="http://img.zhuyun.cn/M00/81/B0/wKgJNFXhFhSAbHDsAACuip0DVco929.jpg" alt=""/>
+                    </a>
+                </div>
+
+
+                <div class="zzpy-il" style="position: absolute;bottom: 0;">
+                    <a target="_blank" href="###">
+                        <div class="zzpy-ils">
+                            <h3>某某某</h3>
+                            <p>吃货教你不一样的木瓜吃法</p>
+                        </div>
+                        <img src="http://img.zhuyun.cn/M00/81/B0/wKgJNFXhFhSAWKDuAABpz-gbdyY497.jpg" alt=""/>
+                    </a>
+                </div>
+            </div>
+
+            <div class="zzpy-btom" style="position: relative;float: left;width: 595px;height:635px;margin:0 4px;">
+
+                <div class="zzpy-il" style="margin-left: 3px;">
+                    <a target="_blank" href="###">
+                        <div class="zzpy-ils">
+                            <h3>某某某</h3>
+                            <p>吃货教你不一样的木瓜吃法</p>
+                        </div>
+                        <img src="http://img.zhuyun.cn/M00/81/B0/wKgJNFXhFhSAVLkfAAEJIgzCaxU102.jpg" alt=""/>
+                    </a>
+                </div>
+
+                <div class="zzpy-il" style="float: left;position:absolute;bottom: 0;">
+                    <a target="_blank" href="###">
+                        <div class="zzpy-ils">
+                            <h3>某某某</h3>
+                            <p>吃货教你不一样的木瓜吃法</p>
+                        </div>
+                        <img src="http://img.zhuyun.cn/M00/81/B0/wKgJNFXhFhWAfvjzAACZrUC4E_w573.jpg" alt=""/>
+                    </a>
+                </div>
+
+                <div class="zzpy-il" style="right:0;position:absolute;bottom: 0;">
+                    <a target="_blank" href="###">
+                        <div class="zzpy-ils">
+                            <h3>某某某</h3>
+                            <p>吃货教你不一样的木瓜吃法</p>
+                        </div>
+                        <img src="http://img.zhuyun.cn/M00/81/B1/wKgJNFXhFhWAdDd4AACcs0zQb2w419.jpg" alt=""/>
+                    </a>
+                </div>
+            </div>
+
+            <div class="zzpy-btor" style="position: relative;;float: right;width: 291px;height:635px;">
+                <div class="zzpy-il">
+                    <a target="_blank" href="###">
+                        <div class="zzpy-ils">
+                            <h3>某某某</h3>
+                            <p>吃货教你不一样的木瓜吃法</p>
+                        </div>
+                        <img src="http://img.zhuyun.cn/M00/81/B0/wKgJNFXhFhSAIWVDAACTjSY3FSY915.jpg" alt=""/>
+                    </a>
+                </div>
+
+                <div class="zzpy-il" style="float: left;position: absolute;bottom: 0;">
+                    <a target="_blank" href="###">
+                        <div class="zzpy-ils">
+                            <h3>某某某</h3>
+                            <p>吃货教你不一样的木瓜吃法</p>
+                        </div>
+                        <img src="http://img.zhuyun.cn/M00/81/B0/wKgJNFXhFhSACJgFAADAJTczf4Q155.jpg" alt=""/>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

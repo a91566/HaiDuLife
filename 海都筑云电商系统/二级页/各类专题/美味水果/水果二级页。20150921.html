@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .pw-wqh{position: absolute;height: auto;
+            background: url(http://img.zhuyun.cn/M00/F0/BB/wKgJNFX_tQeAd_1LAAY0VtTuYgo249.jpg) center top no-repeat;}
+        .pw-wqh-main{position: relative;width: 1146px;height: 517px;margin: 780px auto;overflow: hidden;margin-bottom: 0;}
+        .pw-wqh-ul{position: absolute;left: 0;top: 0;list-style: none;margin: 0;padding: 0;width: 1146px;height: 517px;}
+        .pw-wqh-ul li{margin: 0;padding: 0;float: left;}
+        .pw-wqh-ul li img{width: 1146px;height: 517px;}
+        .pw-wqh-ol{position: absolute;left: 0;bottom: 0;list-style: none;margin: 0;padding: 0;z-index: 5;}
+        .pw-wqh-ol li{margin-left: 5px;padding: 0;float: left;display: block;border: 1px solid #000000;}
+        .pw-wqh-ol-a{width: 15px;height: 15px;background: #000000;margin-top: 0px;}
+        .pw-wqh-ol-n{width: 10px;height: 10px;background: #FFFFFF;margin-top: 3px;}
+    </style>
+    <!--<script src="http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>-->
+    <script>
+        $(function(){
+            $('body').css('background-color','#FBF9FA');
+            $('.plugin_containers').css('background-color','#FBF9FA');
+            $('#display_containers').css('background-color','#FBF9FA');
+            $('.plugin_free_content').css('background-color','#FBF9FA');
+            var iCWidth=$(window).width();
+            var aLi=$('.pw-wqh-ul li').get();
+            var aOli=$('.pw-wqh-ol li').get();
+            var index=0;
+            var iLeft=iCWidth-1190;
+            iLeft=-iLeft/2;
+            var iLeft2=iCWidth-1235;
+            iLeft2=iLeft2/2;
+            $('.pw-wqh-ul li').css('width',1146);
+            $('.pw-wqh-ul').css('width',1146*aLi.length);
+            $('.pw-wqh').css('width',iCWidth);
+            $('.pw-wqh').css('left',iLeft);
+//            $('.pw-wqh-main').css('left',iLeft2);
+
+            for(var i=0;i<aOli.length;i++)
+            {
+                aOli[i].index=i;
+                aOli[i].onmouseover=function(){
+                    for(var i=0;i<aOli.length;i++)
+                    {
+                        aOli[i].className='pw-wqh-ol-n';
+                    }
+                    aOli[this.index].className='pw-wqh-ol-a';
+                    $('.pw-wqh-ul').animate({
+                        'left':-1146*this.index
+                    });
+                }
+            }
+            var tmrMove=setInterval(fnChangeP,3000);
+            function fnChangeP(){
+                index++;
+                if(index==aLi.length)
+                {
+                    index=0;
+                }
+                for(var i=0;i<aOli.length;i++)
+                {
+                    aOli[i].className='pw-wqh-ol-n';
+                }
+                aOli[index].className='pw-wqh-ol-a';
+                $('.pw-wqh-ul').animate({
+                    'left':-index*1146
+                });
+            }
+            $('.pw-wqh-main').mouseover(function(){
+                clearInterval(tmrMove);
+            });
+            $('.pw-wqh-main').mouseout(function(){
+                tmrMove=setInterval(fnChangeP,3000);
+            });
+        });
+    </script>
+</head>
+<body style="overflow-x: hidden;margin: 0;padding: 0;">
+    <div class="pw-wqh">
+        <div class="pw-wqh-main">
+            <ol class="pw-wqh-ol">
+                <li class="pw-wqh-ol-a"></li>
+                <li class="pw-wqh-ol-n"></li>
+            </ol>
+            <ul class="pw-wqh-ul">
+                <li>
+                    <a target="_blank" href="">
+                        <img src="http://img.zhuyun.cn/M00/EE/2D/wKgJNFX_YiuAMNZEAAJL01ZulOo838.jpg" alt="葡萄"/>
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" href="">
+                        <img src="http://img.zhuyun.cn/M00/EE/2D/wKgJNFX_YiqAPB5LAAHR1EJCtkU191.jpg" alt="金柚"/>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

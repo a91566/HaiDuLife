@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--<script src="http://apps.bdimg.com/libs/jquery/1.9.0/jquery.min.js"></script>-->
+    <style>
+        /*修改默认样式*/
+        .header_nav .nav_style1_content_li{border: 0;}
+        .header_nav .nav_style1_content_li:last-child{border-bottom: 0;}
+        .header_nav .nav_style1_content_li:hover{border-left: 0;}
+        .header_nav .Nav_TitleStyleBox{background: #3a3a3c;}
+        .nav_p{padding-left: 52px;background-position: 10px 10px;background-repeat: no-repeat;}
+        .nav_p a{font-size:16px;!important;color: #F8F8F8;}
+        .nav_style1_sub dt a{font-size:16px}
+        .nav_style1_sub a{font-size:14px}
+        .nav_style1_sub{top:0;!important;}
+        .nav_style1_content_li{line-height:49px;border: 0;}
+        .nav_style1_button_arrow{top:18px}
+        ul.nav_style1_content.nav_style1_color1{margin-top: 8px;
+            background:#FFFFFF url(http://img.zhuyun.cn/M00/7F/11/wKgJNFVidB-AZntZAACLNv8q4T8629.jpg) 0 0 no-repeat;}
+    </style>
+    <script>
+        //向默认导航添加样式图片
+        $(function(){
+            $('.nav_p').eq(0).css('background-image',' url(http://img.zhuyun.cn/M00/B1/8C/wKgJNFWuEzmAOl5rAAAOMopu140180.png)');
+            $('.nav_p').eq(1).css('background-image',' url(http://img.zhuyun.cn/M00/B1/8C/wKgJNFWuEzmACMmMAAANkz-_EU8524.png)');
+            $('.nav_p').eq(2).css('background-image',' url(http://img.zhuyun.cn/M00/B1/8C/wKgJNFWuEzmAAKk8AAANRb4ob3U034.png)');
+            $('.nav_p').eq(3).css('background-image',' url(http://img.zhuyun.cn/M00/B1/AC/wKgJNFWuFqOAdcLoAAAOkn5hxpg778.png)');
+            $('.nav_p').eq(4).css('background-image',' url(http://img.zhuyun.cn/M00/B1/AC/wKgJNFWuFqOADo-nAAAOHTXFuac730.png)');
+            $('.nav_p').eq(5).css('background-image',' url(http://img.zhuyun.cn/M00/B1/8C/wKgJNFWuEzmABcsdAAANiSjgxXA565.png)');
+            $('.nav_p').eq(6).css('background-image',' url(http://img.zhuyun.cn/M00/B1/8C/wKgJNFWuEzmALgIoAAAN343KAcI117.png)');
+            $('.nav_p').eq(7).css('background-image',' url(http://img.zhuyun.cn/M00/B1/C0/wKgJNFWuGRCAbdmhAAAND59VYuo774.png)');
+        });
+    </script>
+
+    <script>
+        //向默认导航添加样式楼层图片
+        $(function(){
+            for(var i=0;i<8;i++)
+            {
+                $('.nav_style1_sub').eq(i).html($('.nav_style1_sub').eq(i).html()+$('.NavDivImg').eq(i).html());
+            }
+        });
+    </script>
+</head>
+<body>
+    <div style="position: fixed;left: 0;bottom: 0;display: none;height: 0;width: 0;">
+        <div class="NavDivImg" style="display: none;width: 320px;margin: 10px auto;">
+            <img style="margin: 10px 40px;width: 320px;height: 268px;" src="http://img.zhuyun.cn/M00/71/47/wKgJNFXdD2iAaiC7AAFjrad6Ihg768.jpg" alt="新鲜蔬菜"/>
+        </div>
+        <div class="NavDivImg" style="display: none;width: 320px;margin: 10px auto;">
+            <img style="margin: 10px 40px;width: 320px;height: 268px;" src="http://img.zhuyun.cn/M00/71/47/wKgJNFXdD2iAaiC7AAFjrad6Ihg768.jpg" alt="美味水果"/>
+        </div>
+        <div class="NavDivImg" style="display: none;width: 320px;margin: 10px auto;">
+            <img style="margin: 10px 40px;width: 320px;height: 268px;" src="http://img.zhuyun.cn/M00/71/47/wKgJNFXdD2iAaiC7AAFjrad6Ihg768.jpg" alt="家禽山珍"/>
+        </div>
+        <div class="NavDivImg" style="display: none;width: 320px;margin: 10px auto;">
+            <img style="margin: 10px 40px;width: 320px;height: 268px;" src="http://img.zhuyun.cn/M00/71/47/wKgJNFXdD2iAaiC7AAFjrad6Ihg768.jpg" alt="水产海鲜"/>
+        </div>
+        <div class="NavDivImg" style="display: none;width: 320px;margin: 10px auto;">
+            <img style="margin: 10px 40px;width: 320px;height: 268px;" src="http://img.zhuyun.cn/M00/71/47/wKgJNFXdD2iAaiC7AAFjrad6Ihg768.jpg" alt="特产干货"/>
+        </div>
+        <div class="NavDivImg" style="display: none;width: 320px;margin: 10px auto;">
+            <img style="margin: 10px 40px;width: 320px;height: 268px;" src="http://img.zhuyun.cn/M00/71/47/wKgJNFXdD2iAaiC7AAFjrad6Ihg768.jpg" alt="食品饮料"/>
+        </div>
+        <div class="NavDivImg" style="display: none;width: 320px;margin: 10px auto;">
+            <img style="margin: 10px 40px;width: 320px;height: 268px;" src="http://img.zhuyun.cn/M00/71/47/wKgJNFXdD2iAaiC7AAFjrad6Ihg768.jpg" alt="五谷杂粮"/>
+        </div>
+        <div class="NavDivImg" style="display: none;width: 320px;margin: 10px auto;">
+            <img style="margin: 10px 40px;width: 320px;height: 268px;" src="http://img.zhuyun.cn/M00/71/47/wKgJNFXdD2iAaiC7AAFjrad6Ihg768.jpg" alt="油盐酱醋"/>
+        </div>
+        <!--<br/>-->
+        <!--<div class="nav_style1_sub" style="height: 500px;border: 1px solid red;">-->
+        <!--</div><br/>-->
+
+        <!--<div class="nav_style1_sub" style="height: 500px;border: 1px solid red;">-->
+        <!--</div><br/>-->
+        <!--<div class="nav_style1_sub" style="height: 500px;border: 1px solid red;">-->
+        <!--</div><br/>-->
+        <!--<div class="nav_style1_sub" style="height: 500px;border: 1px solid red;">-->
+        <!--</div><br/>-->
+    </div>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .jt-banner{width: 1190px;height: 590px;position: relative;
+        background: url(http://img.zhuyun.cn/M00/81/2C/wKgJNFXhAH6AYHZuAAclnkfhVQM199.jpg) 0 0 no-repeat;}
+        .jt-uldiv{position: relative;width: 110px;height: 590px;overflow: hidden;float: left;}
+        .jt-banner ul{margin: 0;padding: 0;position: absolute;list-style: none;top:0px;}
+        .jt-banner li{height: 90px;width: 91px;border-bottom: 9px solid black;}
+        .jt-ul li img{height: 90px;width: 91px;}
+
+        .jt-urdiv{position: relative;width: 110px;height: 590px;overflow: hidden;float: right;}
+    </style>
+    <!--<script src="http://apps.bdimg.com/libs/jquery/1.9.0/jquery.min.js"></script>-->
+    <script>
+        $(function(){
+            var iSpeed=-2;
+            var oUlL=document.getElementById("ju-left");
+            var oUlR=document.getElementById("ju-right");
+            oUlL.innerHTML=oUlL.innerHTML+oUlL.innerHTML;
+            oUlR.innerHTML=oUlR.innerHTML+oUlR.innerHTML;
+            var aLi=$('#ju-left li');
+            oUlL.style.height=aLi[0].offsetHeight*aLi.length+"px";
+            oUlR.style.height=oUlL.style.height;
+
+            var tmrMovel=setInterval(movel,30);
+            var tmrMoveR=setInterval(mover,30);
+            function movel(){
+                if(oUlL.offsetTop<-(oUlL.offsetHeight/2))
+                {
+                    oUlL.style.top=0;
+                }
+                if(oUlL.offsetTop>0)
+                {
+                    oUlL.style.top=-(oUlL.offsetHeight/2)+"px";
+                }
+                oUlL.style.top=oUlL.offsetTop+iSpeed+"px";
+            }
+            function mover(){
+                if(oUlR.offsetTop<-(oUlR.offsetHeight/2))
+                {
+                    oUlR.style.top=0;
+                }
+                if(oUlR.offsetTop>0)
+                {
+                    oUlR.style.top=-(oUlR.offsetHeight/2)+"px";
+                }
+                oUlR.style.top=oUlR.offsetTop+iSpeed+"px";
+            }
+
+            document.getElementById("jt-uldiv").onmouseover=function()
+            {
+                clearInterval(tmrMovel);
+            };
+            document.getElementById("jt-uldiv").onmouseout=function()
+            {
+                tmrMovel=setInterval(movel,30);
+            };
+            document.getElementById("jt-urdiv").onmouseover=function()
+            {
+                clearInterval(tmrMoveR);
+            };
+            document.getElementById("jt-urdiv").onmouseout=function()
+            {
+                tmrMoveR=setInterval(mover,30);
+            };
+        });
+    </script>
+</head>
+<body>
+    <div class="jt-banner">
+        <div class="jt-uldiv" id="jt-uldiv">
+            <ul class="jt-ul" id="ju-left" style="left: 16px;">
+                <li>
+                    <img src="http://img.zhuyun.cn/M00/81/2C/wKgJNFXhAJKAfnfgAAAn_OuX-J0746.jpg" alt="肉"/>
+                </li>
+                <li>
+                    <img src="http://img.zhuyun.cn/M00/81/2C/wKgJNFXhAJKAIMsyAAAtxABnF8Q891.jpg" alt="虾"/>
+                </li>
+                <li>
+                    <img src="http://img.zhuyun.cn/M00/81/2C/wKgJNFXhAI6Aaj_nAAAmFS6rlf0205.jpg" alt="炖鱼"/>
+                </li>
+                <li>
+                    <img src="http://img.zhuyun.cn/M00/81/2C/wKgJNFXhAI6AcMr8AAAg8d6msUg172.jpg" alt="香煎鱼"/>
+                </li>
+                <li>
+                    <img src="http://img.zhuyun.cn/M00/81/2C/wKgJNFXhAI2AQDEaAAAlrr0osQ0077.jpg" alt="蚕豆"/>
+                </li>
+                <li>
+                    <img src="http://img.zhuyun.cn/M00/81/2C/wKgJNFXhAI2AAQeYAAAkABxDS8A252.jpg" alt="青椒"/>
+                </li>
+            </ul>
+        </div>
+
+        <div class="jt-urdiv" id="jt-urdiv">
+            <ul class="jt-ul" id="ju-right" style="right: 17px;">
+                <li>
+                    <img src="http://img.zhuyun.cn/M00/81/2C/wKgJNFXhAI2AAVxTAAAlLmGZ2P8628.jpg" alt="红烧牛肉"/>
+                </li>
+                <li>
+                    <img src="http://img.zhuyun.cn/M00/81/2C/wKgJNFXhAI2AeNe1AAAjbMV2uJk034.jpg" alt="肉丝"/>
+                </li>
+                <li>
+                    <img src="http://img.zhuyun.cn/M00/81/2C/wKgJNFXhAI2AbisXAAAhT_0hlH0574.jpg" alt="西红柿炒蛋"/>
+                </li>
+                <li>
+                    <img src="http://img.zhuyun.cn/M00/81/2C/wKgJNFXhAI2ANG1RAAAhxR5PhA8680.jpg" alt="素丸子"/>
+                </li>
+                <li>
+                    <img src="http://img.zhuyun.cn/M00/81/2C/wKgJNFXhAI2AEEktAAAtOM7q27k556.jpg" alt="叉烧"/>
+                </li>
+                <li>
+                    <img src="http://img.zhuyun.cn/M00/81/2C/wKgJNFXhAI2AS_L2AAAc_gk3bR8168.jpg" alt="香菇"/>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

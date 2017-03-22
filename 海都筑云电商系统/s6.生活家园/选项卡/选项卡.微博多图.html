@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .tab-center{height:2040px;width: 698px;border: 1px solid lightgray;margin: 30px auto;}
+        .tab-title{background: #F8F8F8;}
+        .h-tab{background: #F8F8F8;float: left;line-height: 70px;width: 232px;margin: 0 auto;text-align: center;
+            font-size: 24px;font-weight: normal;color: #000000;}
+        .h-active{background: white;float: left;line-height: 70px;width: 232px;margin: 0 auto;text-align: center;
+            font-size: 24px;font-weight: bold;color: orange;}
+        .h-tab:hover{color: orange;font-weight: bold;}
+        .tab-main{clear: both;height: 100%;}
+        .tab-item{font-size:14px;display:none;padding:0;height: 100%;}
+
+        .tab-item-title{background: #f7fbfe;height: 61px;border-width: 1px 0px;border-color: #d8dcdf;border-style: solid;}
+        .h-item-tab{float: left;line-height: 50px;width: 150px;margin: 0 auto;text-align: center;
+            font-size: 19px;font-weight: normal;color: #000000;margin-top: 10px;}
+        .h-item-active{background: white;float: left;line-height: 50px;width: 150px;margin: 0 auto;text-align: center;
+            font-size: 19px;font-weight: bold;color: #ff5317;margin-top: 10px;}
+        .h-item-tab:hover{color: #ff5317;font-weight: bold;}
+        .tab-item-main{clear: both;height: 100%;}
+        .tab-item-item{font-size:14px;display:none;padding:0;height: 100%;}
+
+
+        .tab-topic{padding-top: 80px;}
+        .tab-ul{width: 650px;margin: 0 auto;padding: 0;list-style: none;}
+        .tab-ul li{width: 100%;height: 159px;border-bottom: 1px dashed darkgray;margin-top: 15px;}
+        .du-title{float: right;width: 400px;}
+        .du-title a{text-decoration: none;font-size: 22px;color: #1D80D0;font-weight: bold;}
+        .du-title a:hover{text-decoration: underline;}
+        .du-title p{font-size: 14px;text-decoration: none;color: darkgray;}
+        .tab-ul-goods{width: 660px;height:200px;list-style: none;margin: 5px auto;padding: 0;}
+        .tab-ul-goods li{margin: 0 10px;heigh:200px;padding: 0;border: 1px solid transparent;float: left;}
+        .tab-ul-goods li:hover{border-color: #d2322d;}
+        .tab-ul-goods img{width: 198px;height: 198px;}
+
+        .ul-question{margin: 0;padding: 0;list-style: none;cursor: pointer;color: blue;}
+        .ul-question li{margin: 5px 10px;padding: 0;line-height: 30px;border-bottom: 1px dashed lightgray;}
+        #serachtext{background: url(http://cache.soso.com/wenwen/i/icon_lib_20140515.png) 5px -227px no-repeat;
+        padding-left: 20px;height: 20px;line-height: 20px;border: 1px solid lightgray;}
+
+        .tab-item-ulwb{padding:5px 0 0 0;list-style: none;width: 100%;height:100%;margin: 0;}
+        .tab-item-wbli div{float: left;}
+        .tab-item-wbli{margin: 10px 5px;padding: 0px;background: #fbfbfb;overflow: hidden;height: auto;}
+        .ti-wb-icon{width: 60px;height: 200px;padding: 5px;border-radius: 50px;}
+        .ti-wb-icon img{width: 50px;height: 50px;border-radius: 25px;}
+        .ti-wb-details{width: 610px;height: auto;}
+        .wb-title{margin: 10px 0 0 1px;padding: 0;font-weight: bold;font-size: 16px;display: block;}
+        .ti-wb-footer{width: 100%;border-top: 1px solid lightgray;border-bottom: 1px solid lightgray;background: #FFFFFF;
+            cursor: pointer;}
+        .ti-wb-footer span {display: inline-block;width: 163px;text-align: center;line-height: 40px;
+        border-right: 1px dashed lightgray;}
+        .pics-thumb{display: block;}
+        .pics-normal{display: none;height: auto;width: auto;overflow: hidden;}
+        .pn-bg{background: #FFFFFF;width: 100%;height: auto;}
+        .pb-tool{height: 30px;width: 100%;}
+        .pb-tool span{display: inline-block;text-align: center;width: 80px;line-height: 30px;cursor: pointer;}
+        .pb-tool span:hover{color: orangered;}
+        .pb-showpic{margin: 10px;}
+        .pbs-show{height: auto;}
+        .pbs-show img{height: auto;}
+        .pbs-show-ul-parent{width: 100%;height: 80px;overflow: hidden;}
+        .pbss-ul{margin: 0;padding: 0;list-style: none;height: 72px;}
+        .pbss-ul li{margin: 5px;padding: 0;float: left;height: 72px;border-width: 2px;border-style: solid;}
+        .pbss-uli{opacity: 0.5;border-color:  transparent;}
+        .pbss-uli-active{opacity: 1;border-color:  orangered;}
+
+    </style>
+    <script src="http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        $(function(){
+            var aH3=$('.tab-title h3').get();
+            var aDiv=$('.tab-item').get();
+            $(aH3[0]).css('border','0');
+            $(aH3[1]).css('border-left','1px solid lightgray').css('border-bottom','1px solid lightgray');
+            $(aH3[2]).css('border-left','1px solid lightgray').css('border-bottom','1px solid lightgray');
+            for(var i=0;i<aH3.length;i++)
+            {
+                aH3[i].index=i;
+                $(aH3[i]).click(function(){
+                    for(var i=0;i<aH3.length;i++)
+                    {
+                        aH3[i].className="h-tab";
+                        aDiv[i].style.display="none";
+                    }
+                    this.className="h-active";
+                    aDiv[this.index].style.display="block";
+                    switch (this.index)
+                    {
+                        case 0:
+                            $(aH3[0]).css('border','0');
+                            $(aH3[1]).css('border-right','0').css('border-left','1px solid lightgray').css('border-bottom','1px solid lightgray');
+                            $(aH3[2]).css('border-left','1px solid lightgray').css('border-bottom','1px solid lightgray');
+                            break;
+                        case 1:
+                            $(aH3[1]).css('border','0');
+                            $(aH3[0]).css('border-right','1px solid lightgray').css('border-bottom','1px solid lightgray');
+                            $(aH3[2]).css('border-left','1px solid lightgray').css('border-bottom','1px solid lightgray');
+                            break;
+                        case 2:
+                            $(aH3[2]).css('border','0');
+                            $(aH3[0]).css('border-right','1px solid lightgray').css('border-bottom','1px solid lightgray');
+                            $(aH3[1]).css('border-left','0').css('border-right','1px solid lightgray').css('border-bottom','1px solid lightgray');
+                            break;
+                    }
+
+                });
+            }
+        });
+        $(function(){
+            var aH4=$('.tab-item-title h4').get();
+            var aDiv=$('.tab-item-item').get();
+            $(aH4[1]).css('border','0');
+            $(aH4[0]).css('border-right','1px solid #d8dcdf').css('border-top','1px solid #d8dcdf').css('border-bottom','1px solid #ffffff');
+            for(var i=0;i<aH4.length;i++)
+            {
+                aH4[i].index=i;
+                $(aH4[i]).click(function(){
+                    for(var i=0;i<aH4.length;i++)
+                    {
+                        aH4[i].className="h-item-tab";
+                        aDiv[i].style.display="none";
+                    }
+                    this.className="h-item-active";
+                    aDiv[this.index].style.display="block";
+                    switch (this.index)
+                    {
+                        case 0:
+                            $(aH4[1]).css('border','0');
+                            $(aH4[0]).css('border-right','1px solid #d8dcdf').css('border-top','1px solid #d8dcdf').css('border-bottom','1px solid #ffffff');
+                            break;
+                        case 1:
+                            $(aH4[0]).css('border','0');
+                            $(aH4[1]).css('border-left','1px solid #d8dcdf').css('border-right','1px solid #d8dcdf').css('border-top','1px solid #d8dcdf').css('border-bottom','1px solid #ffffff');
+                            break;
+                    }
+
+                });
+            }
+        });
+        $(function(){
+            var aLisThumb=$('.pics-thumb').get();
+            var aLisNormal=$('.pics-normal').get();
+            var aLisUp=$('.pb-tool span').get()
+            for(var i=0;i<aLisThumb.length;i++)
+            {
+                aLisThumb[i].index=i;
+                aLisUp[i].index=i;
+                $(aLisThumb[i]).click(function(){
+                    $(this).css('display','none');
+                    $(aLisNormal[this.index]).css('display','block');
+                });
+
+                $(aLisUp[i]).click(function(){
+                    $(aLisThumb[this.index]).css('display','block');
+                    $(aLisNormal[this.index]).css('display','none');
+                });
+
+            }
+
+
+        });
+        $(function(){
+            var aLis=$('.pbss-ul li').get();
+            for(var i=0;i<aLis.length;i++)
+            {
+                aLis[i].index=i;
+                $(aLis[i]).click(function(){
+                    for(var i=0;i<aLis.length;i++)
+                    {
+                        aLis[i].className='pbss-uli';
+                    }
+                    this.className='pbss-uli-active';
+                    var thumbSrc=$(this).children('img').attr("src");
+                    var normalSrc=thumbSrc.replace("/thumbnail/","/bmiddle/");
+                    $(this).closest('.pb-showpic').children('.pbs-show').children('img').attr("src",normalSrc);
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="tab-center">
+        <div class="tab-title">
+            <h3 class="h-active">发现生活</h3>
+            <h3 class="h-tab">话题互动</h3>
+            <h3 class="h-tab">提问解疑</h3>
+        </div>
+        <div class="tab-main">
+            <!--faxianshenghuo-->
+            <div class="tab-item" style="display: block;">
+                <div class="tab-topic" tips="1.生活杂谈" style="background: url(http://img.zhuyun.cn/M00/2B/D5/wKgJNFXK8YuANeyGAAAhfZGyuQw228.jpg) 5px 20px no-repeat;">
+                    <ul class="tab-ul">
+                        <li>
+                            <a target="_blank" href="http://www.968111.com">
+                                <img src="http://img.zhuyun.cn/M00/7A/C3/wKgJNFXe1o-AX7v3AAEDQktYrEk993.jpg" alt=""/>
+                            </a>
+                            <div class="du-title">
+                                <a target="_blank" href="http://test5556437.70card.net/Home/News?id=81">穿越一个世纪 美哭你的爱情故事</a>
+                                <p>
+                                    时光机：目标上世纪70年代,现在让我们乘坐时光机，来到20世纪70年代。
+                                    闰土年15，对同村的若水（年14）心仪已久，他俩一块长大，一起挤过戏台子，还上台表演过戏曲，可谓青梅竹马，两小无猜。两人家庭成分也一样，经过双方家长一致同意，决定于年底将若水嫁予闰土。闰土欣喜若狂。......
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <a target="_blank" href="">
+                                <img src="http://img.zhuyun.cn/M00/7A/C4/wKgJNFXe1o-ATyW7AAFcd64tdKE800.jpg" alt=""/>
+                            </a>
+                            <div class="du-title">
+                                <a target="_blank" href="http://test5556437.70card.net/Home/News?id=82">感恩!!!心疼带娃老人，哭死也必须接受的8个事实</a>
+                                <p>
+                                    在中国，越来越多的年轻家长疲于谋生，不得不把孩子的抚养重任托付给自己的父母，而父母老来无事，便心甘情愿地承担下来，甚至乐此不疲。这种隔代教育如此风行，在沿海地区已占到半数以上，催生出一代又一代“幼啃族”。
+                                    今天，让我们一起走入这样一个普通的家庭......
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="tab-ul-goods">
+                        <li>
+                            <a  target="_blank" href="http://test5556437.70card.net/Home/Goods/2295328">
+                                <img src="http://img.zhuyun.cn/M00/DA/CC/wKgJNFW3UO-ANIZBAAaNx6p_0Eo467.jpg" alt="西红柿,番茄"/>
+                            </a>
+                        </li>
+                        <li>
+                            <a  target="_blank" href="http://test5556437.70card.net/Home/Goods/2203898">
+                                <img src="http://img.zhuyun.cn/M00/BE/89/wKgJNFWwuZaAEmtBAABq4_rZ2fg718.jpg" alt="苹果"/>
+                            </a>
+                        </li>
+                        <li>
+                            <a  target="_blank" href="http://test5556437.70card.net/Home/Goods/2159602">
+                                <img src="http://img.zhuyun.cn/M00/A6/51/wKgJNFWsWTWAHyybAABW56Oosj0608.jpg" alt="水蜜桃"/>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="tab-topic" tips="2.食者无忧" style="background: url(http://img.zhuyun.cn/M00/2B/DF/wKgJNFXK8qeAFbwuAAAha8LSiaE283.jpg) 5px 20px no-repeat;">
+                    <ul class="tab-ul">
+                        <li>
+                            <a target="_blank" href="http://www.968111.com">
+                                <img src="http://img.zhuyun.cn/M00/7A/C4/wKgJNFXe1pCAW4d_AAEmwYuqBN8391.jpg" alt=""/>
+                            </a>
+                            <div class="du-title">
+                                <a target="_blank" href="http://test5556437.70card.net/Home/News?id=83">挑选鸡蛋还得以貌取蛋 带鸡粪的鸡蛋毒力危害大</a>
+                                <p>
+                                    不造大家有没有这样的习惯，买鸡蛋的时候习惯于挑选那些蛋壳上带有鸡粪的鸡蛋，反正笔者看到不下一半的人有这样的习惯，笔者家人也不例外。话说前段时间，笔者说要到海都生活网站订购鸡蛋，你造母亲大人怎么说“那不能选有鸡粪的鸡蛋了”。我的亲娘呢.....
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <a target="_blank" href="">
+                                <img src="http://img.zhuyun.cn/M00/7A/C4/wKgJNFXe1pCAWouqAADLSEUvBoI055.jpg" alt=""/>
+                            </a>
+                            <div class="du-title">
+                                <a target="_blank" href="http://test5556437.70card.net/Home/News?id=84">内脏竟会“脏”成这样！如何清洁内脏？</a>
+                                <p>
+                                    人好比一件精密的仪器，需要各个部位完美协调才能健康工作，内脏尤其重要。一旦内脏出了问题，就会导致各种疾病。海都生活商城营养师提醒大家：外伤易治，内伤难疗，健康生活保护好我们的内脏特别重要......
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="tab-ul-goods">
+                        <li>
+                            <a  target="_blank" href="http://test5556437.70card.net/Home/Goods/2234219">
+                                <img src="http://img.zhuyun.cn/M00/C5/D9/wKgJNFWyIMeAHkK1AAAUcpItOCM119.jpg" alt="鸡蛋"/>
+                            </a>
+                        </li>
+                        <li>
+                            <a  target="_blank" href="http://test5556437.70card.net/Home/Goods/2041833">
+                                <img src="http://img.zhuyun.cn/M00/67/96/wKgJNFWc1hqAPWKvAAA98-k6PfE618.jpg" alt="香蕉"/>
+                            </a>
+                        </li>
+                        <li>
+                            <a  target="_blank" href="http://test5556437.70card.net/Home/Goods/2203774">
+                                <img src="http://img.zhuyun.cn/M00/B7/EA/wKgJNFWvaRaARjCPAABUBboeo3s201.jpg" alt="蜂蜜"/>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-topic" tips="3.旅游休闲" style="background: url(http://img.zhuyun.cn/M00/2B/DF/wKgJNFXK8qeAHehbAAAhaZvD-io262.jpg) 5px 20px no-repeat;">
+                    <ul class="tab-ul">
+                        <li>
+                            <a target="_blank" href="http://www.968111.com">
+                                <img src="http://img.zhuyun.cn/M00/7A/C3/wKgJNFXe1o-AFk05AAEyAzyZ5Kw254.jpg" alt=""/>
+                            </a>
+                            <div class="du-title">
+                                <a target="_blank" href="http://test5556437.70card.net/Home/News?id=86">
+                                    自驾游好去处：武夷山五夫镇 感受浓浓的人文、自然气息
+                                </a>
+                                <p>
+                                    五夫镇地处武夷山市东南部，原名五夫里，始于晋代中期，迄今1700余年。这里不仅是“白莲之乡”，还有“邹鲁渊源”之称，是理学宗师朱熹的故乡，朱子理学的形成地，朱熹在此从师就学长达40余年，留下了兴贤书院、朱子巷、紫阳楼等历史遗迹.....
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <a target="_blank" href="">
+                                <img src="http://img.zhuyun.cn/M00/7A/C4/wKgJNFXe1o-ANphPAAD5_HROrkg808.jpg" alt=""/>
+                            </a>
+                            <div class="du-title">
+                                <a target="_blank" href=http://test5556437.70card.net/Home/News?id=85&l=1">
+                                    外地的朋友看过来 给想买福建特产的你 福建特产哪里的好</a>
+                                <p>
+                                    问题描述：
+                                    福建的姐妹看过来 福建特产哪里的好？
+                                    福建的特产都有哪些啊？哪里能买到正牌字的啊！！
+                                    希望大家给一些详细的情况！！
+                                    我知道的是茶叶！！但是不知道什么牌子的茶叶！！
+                                    旅游一圈，回家买什么呢？？按说在本地买应该便宜正宗的啊！！
+                                    跟帖回复：.....
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="tab-ul-goods">
+                        <li>
+                            <a  target="_blank" href="http://test5556437.70card.net/Home/Goods/2385924">
+                                <img src="http://img.zhuyun.cn/M00/FE/EB/wKgJNFXActSAEwvuAABwgyoHwsc834.jpg" alt="墨鱼干"/>
+                            </a>
+                        </li>
+                        <li>
+                            <a  target="_blank" href="http://test5556437.70card.net/Home/Goods/2281394">
+                                <img src="http://img.zhuyun.cn/M00/D6/18/wKgJNFW21NuAW9c0AARitOmh3B4006.jpg" alt="莲子"/>
+                            </a>
+                        </li>
+                        <li>
+                            <a  target="_blank" href="http://test5556437.70card.net/Home/Goods/2431533">
+                                <img src="http://img.zhuyun.cn/M00/11/8C/wKgJNFXEcIyAbyDvAAB7mmjmVUk357.jpg" alt="鲍鱼"/>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--huatihudong-->
+            <div class="tab-item">
+                <ul class="tab-item-ulwb">
+                    <li class="tab-item-wbli">
+                        <div class="ti-wb-icon">
+                            <a href="">
+                                <img src="http://tp2.sinaimg.cn/2803301701/50/40094657657/1" alt=""/>
+                            </a>
+                        </div>
+                        <div class="ti-wb-details">
+                            <a class="wb-title">人们日报</a>
+                            <p>今天，再读毛主席诗词】55首不同时期的毛泽东诗词，重温诗中记录的风起云涌的中国革命历程，体会“湖海荡波澜，全无斧凿痕”诗词之美！</p>
+                            <div class="wb-pics">
+                                <div class="pics-thumb">
+                                    <img src="http://ww3.sinaimg.cn/thumbnail/4b0dc518jw1evw89a0339j22io1ic4qp.jpg" alt=""/>
+                                </div>
+                                <div class="pics-normal">
+                                    <div class="pn-bg">
+                                        <div class="pb-tool">
+                                            <span>↑收起</span>
+                                        </div>
+                                        <div class="pb-showpic">
+                                            <div class="pbs-show">
+                                                <img src="http://ww3.sinaimg.cn/bmiddle/4b0dc518jw1evw89a0339j22io1ic4qp.jpg" alt=""/>
+                                            </div>
+                                            <div class="pbs-show-ul-parent">
+                                                <ul class="pbss-ul">
+                                                    <li class="pbss-uli-active">
+                                                        <img src="http://ww3.sinaimg.cn/thumbnail/4b0dc518jw1evw89a0339j22io1ic4qp.jpg" alt=""/>
+                                                    </li>
+                                                    <li class="pbss-uli">
+                                                        <img src="http://ww3.sinaimg.cn/thumbnail/4b0dc518jw1evw89a0339j22io1ic4qp.jpg" alt=""/>
+                                                    </li>
+                                                    <li class="pbss-uli">
+                                                        <img src="http://ww1.sinaimg.cn/thumbnail/a3e88eb3jw1evwkylr9b2j20hs0oi75e.jpg" alt=""/>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ti-wb-footer">
+                            <span>收藏</span>
+                            <span>转发</span>
+                            <span>评论</span>
+                            <span style="border: 0;">赞</span>
+                        </div>
+                    </li>
+                    <li class="tab-item-wbli">
+                        <div class="ti-wb-icon">
+                            <a href="">
+                                <img src="http://tp2.sinaimg.cn/2803301701/50/40094657657/1" alt=""/>
+                            </a>
+                        </div>
+                        <div class="ti-wb-details">
+                            <a class="wb-title">人们日报</a>
+                            <p>今天，再读毛主席诗词】55首不同时期的毛泽东诗词，重温诗中记录的风起云涌的中国革命历程，体会“湖海荡波澜，全无斧凿痕”诗词之美！</p>
+                            <div class="wb-pics">
+                                <div class="pics-thumb">
+                                    <img src="http://ww3.sinaimg.cn/thumbnail/4b0dc518jw1evw89a0339j22io1ic4qp.jpg" alt=""/>
+                                </div>
+                                <div class="pics-normal">
+                                    <div class="pn-bg">
+                                        <div class="pb-tool">
+                                            <span>↑收起</span>
+                                        </div>
+                                        <div class="pb-showpic">
+                                            <img src="http://ww3.sinaimg.cn/bmiddle/4b0dc518jw1evw89a0339j22io1ic4qp.jpg" alt=""/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ti-wb-footer">
+                            <span>收藏</span>
+                            <span>转发</span>
+                            <span>评论</span>
+                            <span style="border: 0;">赞</span>
+                        </div>
+                    </li>
+                    <li class="tab-item-wbli">
+                        <div class="ti-wb-icon">
+                            <a href="">
+                                <img src="http://tp2.sinaimg.cn/2803301701/50/40094657657/1" alt=""/>
+                            </a>
+                        </div>
+                        <div class="ti-wb-details">
+                            <a class="wb-title">人们日报</a>
+                            <p>今天，再读毛主席诗词】55首不同时期的毛泽东诗词，重温诗中记录的风起云涌的中国革命历程，体会“湖海荡波澜，全无斧凿痕”诗词之美！</p>
+                            <div class="wb-pics">
+                                <div class="pics-thumb">
+                                    <img src="http://ww3.sinaimg.cn/thumbnail/4b0dc518jw1evw89a0339j22io1ic4qp.jpg" alt=""/>
+                                </div>
+                                <div class="pics-normal">
+                                    <div class="pn-bg">
+                                        <div class="pb-tool">
+                                            <span>↑收起</span>
+                                        </div>
+                                        <div class="pb-showpic">
+                                            <img src="http://ww3.sinaimg.cn/bmiddle/4b0dc518jw1evw89a0339j22io1ic4qp.jpg" alt=""/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ti-wb-footer">
+                            <span>收藏</span>
+                            <span>转发</span>
+                            <span>评论</span>
+                            <span style="border: 0;">赞</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+
+            <!--tiwenjieyi-->
+            <div class="tab-item" style="padding-top: 50px;">
+                <div class="tab-item-title">
+                    <h4 class="h-item-active">已解决</h4>
+                    <h4 class="h-item-tab">待解决</h4>
+                </div>
+                <div class="tab-item-main">
+                    <div class="tab-item-item" style="display: block;">
+                        <ul class="ul-question">
+                            <li>送儿子上大学祝福语[礼节礼仪]</li>
+                            <li>大工智能定制一体机加盟费是多少钱？怎么加盟...[创业投资]</li>
+                            <li>其实男人出轨肯定是有自己的原因，现在回忆起来，...[婚嫁]</li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-item-item">
+                        <ul class="ul-question">
+                            <li style="height: 35px;">
+                                <input id="serachtext" type="text" placeholder="输入关键字"/>
+                                <input type="button" value="筛选"/>
+                            </li>
+                            <li>送儿子上大学祝福语[礼节礼仪]</li>
+                            <li>大工智能定制一体机加盟费是多少钱？怎么加盟...[创业投资]</li>
+                            <li>其实男人出轨肯定是有自己的原因，现在回忆起来，...[婚嫁]</li>
+                        </ul>
+                    </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

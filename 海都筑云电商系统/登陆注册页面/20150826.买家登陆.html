@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #login{position:absolute;background: #FFE9D4;height: 890px;width: 1920px;
+            background: url(http://img.zhuyun.cn/M00/71/6C/wKgJNFXdFZWAabarAAIzA-k3y18522.jpg) 0 0 no-repeat;}
+        #login-main{width: 1190px;height: 100%;margin-bottom: 0;position: relative;margin: 0 auto;}
+        .lm-bg{z-index: 1;position: absolute;display: inline;width: 1190px;height: 100%;margin: 0;}
+
+    </style>
+    <script>
+//        window.onload=function()
+//        {
+//            fnLoadLogin();
+//        };
+        $(document).ready(function()
+        {
+            fnLoadLogin();
+        });
+
+        function fnLoadLogin()
+        {
+            document.body.style.overflowX="hidden";
+            var iWidth=document.documentElement.clientWidth||document.body.clientWidth;
+            var oDivFz=document.getElementById("login");
+//            oDivFz.style.width = iWidth + 'px';
+            var iLeft=iWidth-1190;
+            iLeft=iLeft/2;
+            oDivFz.style.left = "-"+iLeft + 'px';
+        };
+    </script>
+</head>
+<body>
+<div id="login">
+    <!--<div id="login-main">-->
+        <!--<div class="lm-bg" style="z-index: 2;">-->
+
+        <!--</div>-->
+    <!--</div>-->
+</div>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .zx-yj{width: 1190px;height: 390px;}
+        .zj-pl{width: 700px;height: 390px;float: left;position: relative;overflow: hidden;}
+        ol{z-index: 30;position: absolute;list-style-type: none;bottom:0px;
+            right: 10px;margin-bottom: 5px;}
+        ol li{float: left;margin: 5px;width: 25px;height:25px;border-radius:25px;line-height: 25px;
+            text-align: center;background: gray;color: #FFFFFF;}
+        .zj-olact{background: #39b3d7;}
+        #zj-pul{width: 2100px;height: 390px;margin: 0;padding: 0;list-style: none;left: 0px;
+            position: absolute;}
+        #zj-pul li{float: left;margin: 0;padding: 0;width: 700px;height: 390px;
+            border: 0;white-space:nowrap;}
+        #zj-pul img{width:730px;height:385px;margin-top:3px;}
+
+        .zj-pr a{text-decoration: none;}
+        .zj-pr a:hover{text-decoration: underline;}
+        .zj-pr{width: 490px;height: 390px;float: left;
+            background: url(http://img.zhuyun.cn/M00/26/4B/wKgJNFXJsqiAX3niAAAvUrWa314645.png) -2px 0 no-repeat}
+        .zj-pr-title{margin-left: 80px;padding: 0px;margin-top: 35px;margin-bottom:8px;color: #39b3d7;display: block;
+        font-size: 20px;font-weight: bold;}
+        .zj-pr p{margin-left: 80px;padding: 0px;margin-top: 1px;color: darkgray;}
+        #show_rule{position: absolute;right: 40px;top:20px;color: darkgray;text-decoration: none;}
+        #show_rule:hover{text-decoration: underline;}
+        #show-rule_details{left:345px;display: none;position: absolute;width: 500px;height: 600px;background:#FFFFFF;
+            border: 1px solid #Ad0100;top:0px;z-index: 100;box-shadow: 0 0 15px #000000;}
+        .rule-title{color: #FFFFFF;font-size: 20px;line-height: 50px;padding-left: 10px;}
+        #show-rule_details p{padding:0 10px;font-size: 14px;line-height: 25px;}
+        #am-close{right: 5px;color: #FFFFFF;font-size: 38px;cursor: pointer;position: absolute;}
+    </style>
+    <!--<script src="http://apps.bdimg.com/libs/jquery/1.9.0/jquery.min.js"></script>-->
+    <script>
+        $(function()
+        {
+            $('#show_rule').click(function()
+            {
+                $('#show-rule_details').css('display','block');
+            });
+
+            $('#am-close').click(function ()
+            {
+                $('#show-rule_details').css('display','none');
+            });
+        });
+        $(document).ready(function()
+        {
+            var oUl=document.getElementById("zj-pul");
+            var aBtn=document.getElementsByTagName("ol")[0].getElementsByTagName("li");
+            var nowIndex=0;
+
+            for(var i=0;i<aBtn.length;i++)
+            {
+                aBtn[i].index=i;
+                aBtn[i].onclick=function()
+                {
+                    nowIndex=this.index;
+
+                    tab();
+                }
+            }
+
+            function tab()
+            {
+                for(var i=0;i<aBtn.length;i++)
+                {
+                    aBtn[i].className="";
+                }
+                $(oUl).animate({
+                    'left':-700*nowIndex
+                });
+                aBtn[nowIndex].className="zj-olact";
+            }
+
+            function next()
+            {
+                nowIndex++;
+                if(nowIndex==aBtn.length)
+                {
+                    nowIndex=0;
+                }
+                tab();
+            }
+
+            var tmrMove=setInterval(next,5000);
+
+            $('.zj-pl').eq(0).mouseover(function(){
+                clearInterval(tmrMove);
+            });
+            $('.zj-pl').eq(0).mouseout(function(){
+                tmrMove=setInterval(next,5000);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="zx-yj">
+        <div id="show-rule_details">
+            <div style="position: relative;height: 50px;width: 100%;background: #Ad0100;">
+                <span class="rule-title">规则说明</span>
+                <span id="am-close" style="font-size: 38px;">×</span>
+            </div>
+            <div>
+                <p>参赛资格：海都生活商城会员均可参加；</p>
+                <p>赛事要求：爱美食、爱拍照缺一不可。海都生活商城众所周知版块，无论大图、小图，只接受地点为“家庭”的图片，外出就餐请绕行；</p>
+                <p>参赛方式：会员请将参赛作品投递至Email：shenghuoshangcheng@163.com ，或投递至QQ：1120158651；</p>
+                <p>赛事须知：目前，众所周知版块的图文均由海都生活商城编辑人员上传，会员不能私自上传图文；</p>
+                <p>版权须知：凡投递到海都生活商城的作品，包括但不限于图片、文字，所有权均归海都生活商城，海都生活商城拥有编辑、修改、使用权，海都生活商城有权在海都生活商城（lifetmall.com）上任何地点展示，而不需要额外支付稿费；</p>
+                <p>活动奖励：本周受关注度前三的作品对应的会员会得到相应的奖励：按菜肴涉及食材本周在海都生活商城的中间价给予该会员三人份等价代金券，线上线下都可以用。</p>
+                <p>Ps：规则未明事项请咨询海都生活商城客服人员。</p>
+            </div>
+        </div>
+        <a href="javascript:;" id="show_rule">查看规则</a>
+        <div class="zj-pl">
+            <ol>
+                <li class="zj-olact">1</li>
+                <li>2</li>
+                <li>3</li>
+            </ol>
+            <ul id="zj-pul">
+                <li>
+                    <a target="_blank" href="http://test5556437.70card.net/Home/News?id=79">
+                        <img src="http://img.zhuyun.cn/M00/93/C9/wKgJNFXmUtGACGIcAAGgj_2z6UE858.jpg" alt=""/>
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" href="http://test5556437.70card.net/Home/News?id=80">
+                        <img src="http://img.zhuyun.cn/M00/93/C9/wKgJNFXmUtGAbi6wAAGIkBFI4wI562.jpg" alt=""/>
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" href="http://test5556437.70card.net/Home/News?id=78">
+                        <img src="http://img.zhuyun.cn/M00/93/C9/wKgJNFXmUtGAbpl5AAHDqTNw7SM048.jpg" alt=""/>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="zj-pr">
+            <a class="zj-pr-title" target="_blank" href="http://test5556437.70card.net/Home/News?id=79">
+                来晒晒我的第一个被吃光光的菜
+            </a>
+            <p>冰箱里只躺着一小块冬瓜，和一把快焉的韭菜，怎么做到能有美美的午餐呢？...
+                <a target="_blank" href="http://test5556437.70card.net/Home/News?id=79">[详细]</a>
+            </p>
+
+            <a class="zj-pr-title"  target="_blank" href="http://test5556437.70card.net/Home/News?id=80">
+                色香味俱全的减肥营养餐 想想都流口水了
+            </a>
+            <p>“来，亲爱的吃饭了。尝尝我的减肥营养套餐。”闺蜜叫道...
+                <a target="_blank" href="http://test5556437.70card.net/Home/News?id=80">[详细]</a>
+            </p>
+
+            <a class="zj-pr-title"  target="_blank" href="http://test5556437.70card.net/Home/News?id=78">
+                表哥上大学前来我家吃饭 穿着超人衣服好帅
+            </a>
+            <p>表哥要去上大学了，爸爸妈妈请表哥到家里来做客，有好吃的东西吃真快乐...
+                <a target="_blank" href="http://test5556437.70card.net/Home/News?id=78">[详细]</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

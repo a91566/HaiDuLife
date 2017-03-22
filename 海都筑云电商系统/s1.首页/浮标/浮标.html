@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        /*.goodFloor{height: 800px;border: 1px dashed red;}*/
+        .fix{width: 30px;height: auto;position: fixed;left: 0;top:30%;z-index: 555;display: none;font-family: "microsoft yahei", "微软雅黑"}
+        .fix-ul{list-style: none;margin: 0;padding: 0;margin: 0;font-size: 14px;color: #666;}
+        .fix-ul li{border-bottom: 1px dashed #d5d5d5;line-height: 40px;text-align: center;width: 30px;height: 40px;
+            cursor: pointer;}
+        .fix-change:hover{background-color: green;color: #FFFFFF;line-height: 20px;}
+    </style>
+    <!--<script src="http://apps.bdimg.com/libs/jquery/1.9.0/jquery.min.js"></script>-->
+    <script>
+        $(function(){
+            var iLeft=$(window).width()-1190;
+            iLeft=(iLeft/2)-30;
+            iLeft = iLeft > 0 ? iLeft : 0;
+            $('.fix').css('left',iLeft);
+        });
+
+
+
+
+        $(function(){
+            var iShowTop=$('.goodFloor').eq(0).offset().top-600;
+            var aTips=['新鲜蔬菜','美味水果','家禽山珍','水产海鲜','特产干货','食品饮料','五谷杂粮','油盐酱醋'];
+            var aTipsFl=['1F','2F','3F','4F','5F','6F','7F','8F'];
+
+            var aLis=$('.goodFloor').get();
+            for(var i=0;i<aLis.length;i++)
+            {
+                aLis[i].index=i;
+                var temp="#fix-"+(i+1);
+                $(temp).mouseover(function(){
+                    $(this).css({
+                        'background-color': 'green',
+                        'color': '#FFFFFF',
+                        'line-height': '20px'
+                    }).html(aTips[this.index]);
+                });
+
+                $(temp).mouseout(function(){
+                    $(this).css({
+                        'background-color': '#FFFFFF',
+                        'color': '#666',
+                        'line-height': '40px'
+                    }).html(aTipsFl[this.index]);
+                    fnShowFloor($(window).scrollTop());
+                });
+
+            }
+
+            $(window).scroll(function(){
+                var iScrollTop = $(this).scrollTop();
+                var iTop2=$('.goodFloor').eq(7).offset().top;
+                if(iScrollTop>iShowTop && iScrollTop<iTop2 ){
+                    $(".fix").show();
+                    fnShowFloor(iScrollTop);
+                }
+                else
+                {
+                    $(".fix").hide();
+                }
+            });
+
+            function fnShowFloor(iScrollTop)
+            {
+                iScrollTop=iScrollTop+300;
+                if(iScrollTop>=$('.goodFloor').eq(0).offset().top && iScrollTop<$('.goodFloor').eq(1).offset().top)
+                {
+                    fnCh(1);
+                }
+                else if(iScrollTop>=$('.goodFloor').eq(1).offset().top && iScrollTop<$('.goodFloor').eq(2).offset().top)
+                {
+                    fnCh(2);
+                }
+                else if(iScrollTop>=$('.goodFloor').eq(2).offset().top && iScrollTop<$('.goodFloor').eq(3).offset().top)
+                {
+                    fnCh(3);
+                }
+                else if(iScrollTop>=$('.goodFloor').eq(3).offset().top && iScrollTop<$('.goodFloor').eq(4).offset().top)
+                {
+                    fnCh(4);
+                }
+                else if(iScrollTop>=$('.goodFloor').eq(4).offset().top && iScrollTop<$('.goodFloor').eq(5).offset().top)
+                {
+                    fnCh(5);
+                }
+                else if(iScrollTop>=$('.goodFloor').eq(5).offset().top && iScrollTop<$('.goodFloor').eq(6).offset().top)
+                {
+                    fnCh(6);
+                }
+                else if(iScrollTop>=$('.goodFloor').eq(6).offset().top && iScrollTop<$('.goodFloor').eq(7).offset().top)
+                {
+                    fnCh(7);
+                }
+                else if(iScrollTop>=$('.goodFloor').eq(7).offset().top)
+                {
+                    fnCh(8);
+                }
+            }
+
+            function fnCh(index)
+            {
+                for(var i=1;i<=aTips.length;i++)
+                {
+                    var temp1="#fix-"+i;
+                    $(temp1).css({
+                        'background-color': '#FFFFFF',
+                        'color': '#666',
+                        'line-height': '40px'
+                    });
+                    $(temp1).html(aTipsFl[i-1]);
+
+                }
+                var temp="#fix-"+index;
+                $(temp).css({
+                    'background-color': 'green',
+                    'color': '#FFFFFF',
+                    'line-height': '20px'
+                }).html(aTips[index-1]);
+            }
+        });
+
+        $(function(){
+            var aLis=$('.fix-ul li').get();
+            for(var i=0;i<aLis.length;i++)
+            {
+                aLis[i].index=i;
+                $(aLis[i]).click(function(){
+                    $('html,body').animate({scrollTop: $(".goodFloor").eq(this.index).offset().top}, 800);
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+    <!--<div style="height: 1500px;border: 10px solid red;"></div>-->
+    <!--<div style="height: 1500px;border: 10px solid red;"></div>-->
+    <!--<div class="goodFloor">1</div>-->
+    <!--<div class="goodFloor">2</div>-->
+    <!--<div class="goodFloor">3</div>-->
+    <!--<div class="goodFloor">4</div>-->
+    <!--<div class="goodFloor">5</div>-->
+    <!--<div class="goodFloor">6</div>-->
+    <!--<div class="goodFloor">7</div>-->
+    <!--<div class="goodFloor">8</div>-->
+    <!--<div style="height: 1500px;border: 10px solid red;"></div>-->
+
+    <div class="fix">
+        <ul class="fix-ul">
+            <li id="fix-1" class="fix-change">1F</li>
+            <li id="fix-2" class="fix-change">2F</li>
+            <li id="fix-3" class="fix-change">3F</li>
+            <li id="fix-4" class="fix-change">4F</li>
+            <li id="fix-5" class="fix-change">5F</li>
+            <li id="fix-6" class="fix-change">6F</li>
+            <li id="fix-7" class="fix-change">7F</li>
+            <li id="fix-8" class="fix-change">8F</li>
+        </ul>
+    </div>
+</body>
+</html>

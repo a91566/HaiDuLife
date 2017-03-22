@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #jt-xx{width: 1190px;height: 590px;}
+        #jtxx-ul{list-style: none;width: 1190px;height: 580px;margin: 0;padding: 0;margin-left: 10px;}
+        #jtxx-ul li{float: left;margin: 5px;padding: 0;width: 280px;height: 280px;border: 1px solid lightgray;position: relative;}
+        #jtxx-ul img{float: left;width: 280px;height: 280px;}
+        .jxul-tit{position: absolute;float: left;bottom: 0;height: 50px;width: 100%;
+            background: black;opacity: 0.8;filter: alpha(opacity:80);}
+        .jxul-tit h4{color: #ffffff;font-weight: normal;line-height: 50px;
+            margin: 0;padding: 0;height: 50px;margin-left: 20px;}
+        .jxul-tit p{color: #ffffff;margin-left: 20px;}
+    </style>
+    <!--<script src="http://apps.bdimg.com/libs/jquery/1.9.0/jquery.min.js"></script>-->
+    <script>
+        $(function(){
+            var aLis=$('#jtxx-ul li').get();
+            for(var i=0;i<aLis.length;i++)
+            {
+                aLis[i].index=i;
+                $(aLis[i]).mouseover(function(){
+                    var xx=$(this).find('.jxul-tit').get(0);
+                    $(xx).stop().animate({
+                        'height':280
+                    });
+                });
+
+                $(aLis[i]).mouseout(function(){
+                    var xx=$(this).find('.jxul-tit').get(0);
+                    $(xx).stop().animate({
+                        'height': 50
+                    });
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+    <div id="jt-xx">
+        <ul id="jtxx-ul">
+            <li>
+                <a target="_blank" href="http://test5556437.70card.net/Home/Goods?id=2990326">
+                    <div class="jxul-tit">
+                        <h4>圆香排骨</h4>
+                        <p>美味营养</p>
+                    </div>
+                    <img src="http://img.zhuyun.cn/M00/10/F8/wKgJNFYdrDWAbIIvAAFlfI5d8Wc030.jpg" alt="圆香排骨"/>
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="http://test5556437.70card.net/Home/Goods?id=2990436">
+                    <div class="jxul-tit">
+                        <h4>圆香瘦肉</h4>
+                        <p>美味营养</p>
+                    </div>
+                    <img src="http://img.zhuyun.cn/M00/11/06/wKgJNFYdrfWAG0fqAAHeH_BSogw974.jpg" alt="圆香瘦肉"/>
+                </a>
+            </li>
+
+            <li>
+                <a target="_blank" href="http://test5556437.70card.net/Home/Goods?id=2990353">
+                    <div class="jxul-tit">
+                        <h4>圆香三层肉</h4>
+                        <p>美味营养</p>
+                    </div>
+                    <img src="http://img.zhuyun.cn/M00/11/00/wKgJNFYdrQ6ANXZ7AAH5xN4At6U317.jpg" alt="圆香三层肉"/>
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="http://test5556437.70card.net/Home/Goods?id=2990455">
+                    <div class="jxul-tit">
+                        <h4>圆香猪脚</h4>
+                        <p>美味营养</p>
+                    </div>
+                    <img src="http://img.zhuyun.cn/M00/11/0A/wKgJNFYdrlyAMsWQAAFq34HCe-M086.jpg" alt="圆香猪脚"/>
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="http://test5556437.70card.net/Home/Goods?id=2990473">
+                    <div class="jxul-tit">
+                        <h4>圆香猪腿肉</h4>
+                        <p>美味营养</p>
+                    </div>
+                    <img src="http://img.zhuyun.cn/M00/11/10/wKgJNFYdrruAFiUIAAKljGb1pco503.jpg" alt="圆香猪腿肉"/>
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="http://test5556437.70card.net/Home/Goods?id=2990489">
+                    <div class="jxul-tit">
+                        <h4>圆香猪尾巴</h4>
+                        <p>美味营养</p>
+                    </div>
+                    <img src="http://img.zhuyun.cn/M00/11/12/wKgJNFYdrySAApXGAAKKV9r_FL0515.jpg" alt="圆香猪尾巴"/>
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="http://test5556437.70card.net/Home/Goods?id=2990370">
+                    <div class="jxul-tit">
+                        <h4>圆香三角肉</h4>
+                        <p>美味营养</p>
+                    </div>
+                    <img src="http://img.zhuyun.cn/M00/11/02/wKgJNFYdrW-ACvaeAACZ8RrMzkA783.jpg" alt="圆香三角肉"/>
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="http://test5556437.70card.net/Home/Goods?id=2990265">
+                    <div class="jxul-tit">
+                        <h4>圆香大骨</h4>
+                        <p>美味营养</p>
+                    </div>
+                    <img src="http://img.zhuyun.cn/M00/10/E7/wKgJNFYdqkaAcJNoAACpYd46dhY799.jpg" alt="圆香大骨"/>
+                </a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

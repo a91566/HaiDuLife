@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .zs-zz{width: 1190px;height: 590px;}
+        .zsz-top{width: 1190px;height: 90px;line-height: 40px;
+            background: url(http://img.zhuyun.cn/M00/28/B8/wKgJNFXKngqAZAvyAAAtVQMp9PM658.jpg) 0 20px no-repeat;}
+        .zsz-top h3{margin: 0;padding: 0;border-bottom: 3px solid #39b3d7;}
+        .zsz-middle{width: 1190px;height: 115px;margin-top: 5px;position: relative;}
+        .dzszt-ul{width: 1110px;height: 113px;margin: 0 auto;padding: 0;overflow: hidden;
+            position: relative;}
+        .ulzszt{width: 2240px;height: 113px;left: 0;margin: 0;padding: 0;list-style: none;
+            position: absolute;}
+        .ulzszt li{width: 210px;height: 113px;float: left;border-left: 7px solid transparent;
+            border-right: 7px solid transparent;}
+        .ulzszt img{width: 210px;height: 113px;}
+        .zsz-bottom{width: 1190px;height: 475px;margin-top: 5px;}
+        .zszb1{width: 496px;height: 370px;float: left;}
+        .zszb2{width: 410px;height: 370px;float: left;}
+        .zszb3{width: 279px;height: 370px;float: left;}
+        .zszb3 img{width: 279px;height: 370px;}
+        .picbtnPrev{position: absolute;left: 0;display: block;height: 115px;width: 40px;cursor: pointer;
+            background: url(http://img.zhuyun.cn/M00/28/CB/wKgJNFXKoDSAGsL0AAABsDb_g5U880.png) center center no-repeat}
+        .picbtnNext{position: absolute;right: 0;display: block;height: 115px;width: 50px;cursor: pointer;
+            background: url(http://img.zhuyun.cn/M00/28/CB/wKgJNFXKoDSAPk4ZAAABytE9enE670.png) center center no-repeat}
+    </style>
+    <!--<script src="http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>-->
+    <script>
+        $(document).ready(function(){
+            var  oUlzY=$("#ul-zszt").get(0);
+            $("#ul-zszt").html($("#ul-zszt").html()+$("#ul-zszt").html());
+            var oDivMiddle=$("#zsz-middle").get(0);
+            var btnPrev=$(".picbtnPrev").get(0);
+            var btnNext=$(".picbtnNext").get(0);
+            var aBtn=$(".ulzszt")[0].getElementsByTagName("li");
+            var iLiwidth=aBtn[0].offsetWidth;
+            var iChangLeft=iLiwidth;
+             oUlzY.style.width=iLiwidth*aBtn.length+'px';
+            var iLeft=-( oUlzY.offsetWidth/2)+iLiwidth;
+             oUlzY.style.left=iLeft+"px";
+            function next()
+            {
+                if(iLeft>=0)
+                {
+                    iLeft=-( oUlzY.offsetWidth/2);
+                }
+                else if(iLeft<=-( oUlzY.offsetWidth/2))
+                {
+                    iLeft=0;
+                }
+                 oUlzY.style.left=iLeft+"px";
+                iLeft=iLeft+iChangLeft;
+                tab();
+            }
+
+            function tab()
+            {
+                $("#ul-zszt").animate({
+                    'left': iLeft
+                });
+            }
+
+            var tmrMove=setInterval(next,2000);
+            oDivMiddle.onmouseover=function()
+            {
+                clearInterval(tmrMove);
+            };
+            oDivMiddle.onmouseout=function()
+            {
+                tmrMove=setInterval(next,2000);
+            };
+
+            btnPrev.onclick=function()
+            {
+                iChangLeft=-iLiwidth;
+                next();
+            };
+            btnNext.onclick=function()
+            {
+                iChangLeft=iLiwidth;
+                next();
+            };
+        });
+    </script>
+</head>
+<body>
+<div class="zs-zz">
+    <div class="zsz-top"></div>
+    <div class="zsz-middle" id="zsz-middle">
+        <a class="picbtnPrev"></a>
+        <a class="picbtnNext"></a>
+        <div class="dzszt-ul">
+            <ul class="ulzszt" id="ul-zszt">
+                <li>
+                    <a target="_blank" href="http://test5556437.70card.net/Home/News?id=73">
+                        <img src="http://img.zhuyun.cn/M00/7A/A5/wKgJNFXe0tuAHFMgAAFFz5NCfn0536.jpg" alt="季节养生"/>
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" href="http://test5556437.70card.net/Home/News?id=74">
+                        <img src="http://img.zhuyun.cn/M00/7A/A5/wKgJNFXe0tuAKndFAAC7Hij_iRI631.jpg" alt="生活妙招"/>
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" href="http://test5556437.70card.net/Home/News?id=75">
+                        <img src="http://img.zhuyun.cn/M00/31/63/wKgJNFXMNSCAG3FLAACiBv9mCcQ001.jpg" alt="饮食宜忌"/>
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" href="http://test5556437.70card.net/Home/News?id=76">
+                        <img src="http://img.zhuyun.cn/M00/31/63/wKgJNFXMNSCAW34sAACiyTjuvgQ180.jpg" alt="烹饪方法"/>
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" href="http://test5556437.70card.net/Home/News?id=77">
+                        <img src="http://img.zhuyun.cn/M00/31/63/wKgJNFXMNSCATGqlAAC7LyIS_cA277.jpg" alt="养生美容"/>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="zsz-bottom">
+        <div class="zszb1">
+            <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2234219">
+                <img src="http://img.zhuyun.cn/M00/2D/68/wKgJNFXLEVeAVMNjAAEN5borGYQ175.jpg" alt="怡然鸡蛋,营养鸡蛋"/>
+            </a>
+        </div>
+        <div class="zszb2">
+            <h3 style="margin: 15px;padding: 0;">[官方活动] 【大嘴鉴店】我带上你，你带上相机，我们一起去吃免费的农家大餐~</h3>
+            <p style="margin: 15px;padding: 0;line-height: 29px;">福州欲借总体规划获批契机 跻身副省级城市
+                8月的福州，犹如火炉，高空俯瞰下的闽江，蜿蜒曲折，在巍峨雄峻的群山中犹如一条卧龙，蔚为壮观。沿江两岸不断拔地而起的高楼，象征着福州城市版图的扩张之路，顺流而下。
+
+                作为福建省省会，福州一直在谋求成为中国东南沿海的“超级城市”。如今，它似乎朝着梦想又迈进了一步。
+
+                2015年8月3日，国务院下发《关于福州市城市总体规划的批复》，原则同意《福州市城市总体规划（2011—2020年）》。
+
+                “这次审批来之不易，等待了很长的时间。</p>
+        </div>
+        <div class="zszb3">
+            <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2203898">
+                <img src="http://img.zhuyun.cn/M00/2D/68/wKgJNFXLEVaAenFHAABIPv6xrc4571.jpg" alt="苹果"/>
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

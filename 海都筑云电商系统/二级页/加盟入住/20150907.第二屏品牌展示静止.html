@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .shmx{width: 1190px;height: 640px;padding-top: 140px;
+        background: url(http://img.zhuyun.cn/M00/B3/39/wKgJNFXvhAGAD2McAABEh1VbFV0360.jpg) 0px 30px no-repeat;}
+        .shmx img{font-size: 0;}
+        .shmx-l{float: left;width: 476px;font-size: 0;position: relative;height: 500px;overflow: hidden;}
+        .shmx-l img{width: 100%;height: 500px;}
+        .shmx-r{float: left;width: 714px;font-size: 0;position: relative;height: 500px;}
+        .shmx-r a{overflow: hidden;}
+        .shmx-r img{width: 357px;height: 250px;}
+        .shmx-zz{width: 100%;height: 120%;position: absolute;top: 450px;left: 0;z-index: 5;}
+        .shmx-zz-bg{width: 100%;height: 100%;filter: alpha(opacity:50);opacity: 0.5;background: #000000;z-index: 6;
+            top: 0px;left: 0;position: absolute;}
+        .shmx-zz-tips{width: 100%;height: 100%;z-index: 7;position: absolute;top: 0;left: 0;}
+        .shmx-zz p{text-align: center;color: #FFFFFF;font-size: 18px;margin: 0;padding: 0;line-height: 50px;}
+        .shmx-l-more{border-bottom: 1px solid #FFFFFF;border-top: 1px solid #FFFFFF; }
+        .shmx-zz1{width: 100%;height: 100%;z-index: 8;position: absolute;top: 0;left: 0;}
+
+
+        .shmx-zz-rb{width: 357px;height: 300px;position: absolute;top: 200px;left: 0;z-index: 5;}
+        .shmx-zz-rb-bg{width: 357px;height: 300px;filter: alpha(opacity:50);opacity: 0.5;background: #000000;z-index: 6;
+            top: 0px;left: 0;position: absolute;}
+        .shmx-zz-rb p{text-align: center;color: #FFFFFF;font-size: 18px;margin: 0;padding: 0;line-height: 50px;}
+        .shmx-zz-rb-tips{width: 357px;height: 300px;z-index: 7;position: absolute;top: 0;left: 0;}
+        .shmx-zz-rt{width: 357px;height: 300px;z-index: 8;position: absolute;top: 0;left: 0;}
+        .shmx-r-item{width: 357px;height: 250px;float: left;overflow: hidden;position: relative;}
+    </style>
+    <!--<script src="http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>-->
+    <script>
+        $(function(){
+            $('.shmx-zz1').mouseover(function(){
+                $('.shmx-zz').stop().animate({
+                    'top':-100
+                })
+            });
+
+            $('.shmx-zz1').mouseout(function(){
+                    $('.shmx-zz').stop().animate({
+                        'top':450
+                    })
+            });
+
+            var aDivRt=$('.shmx-zz-rt').get();
+            for(var i=0;i<aDivRt.length;i++)
+            {
+                aDivRt[i].index=i;
+                $('.shmx-zz-rt').eq(i).mouseover(function(){
+                    $('.shmx-zz-rb').eq(this.index).stop().animate({
+                        'top':-50
+                    })
+                });
+
+                $('.shmx-zz-rt').eq(i).mouseout(function(){
+                    $('.shmx-zz-rb').eq(this.index).stop().animate({
+                        'top':200
+                    })
+                });
+            }
+
+
+        });
+    </script>
+</head>
+<body>
+    <div class="shmx">
+        <div class="shmx-l">
+            <a target="_blank" href="">
+                <img src="http://img.zhuyun.cn/M00/B3/39/wKgJNFXvhAKAR-sNAAGUu5fGXBE600.jpg" alt="绿帝"/>
+                <div class="shmx-zz">
+                    <div class="shmx-zz-bg"></div>
+                    <div class="shmx-zz-tips">
+                        <p style="height: 45%">绿帝</p>
+                        <p>绿帝</p>
+                        <p class="shmx-l-more">LEARN MORE →</p>
+                    </div>
+                </div>
+                <div class="shmx-zz1"></div>
+            </a>
+        </div>
+        <div class="shmx-r">
+            <div class="shmx-r-item">
+                <a target="_blank" href="">
+                    <img src="http://img.zhuyun.cn/M00/B3/39/wKgJNFXvhAKAZLSHAACGlXPoYR4620.jpg" alt="居味达"/>
+                    <div class="shmx-zz-rb">
+                        <div class="shmx-zz-rb-bg"></div>
+                        <div class="shmx-zz-rb-tips">
+                            <p style="height: 40%">居味达</p>
+                            <p>居味达</p>
+                            <p class="shmx-l-more">LEARN MORE →</p>
+                        </div>
+                    </div>
+                    <div class="shmx-zz-rt"></div>
+                </a>
+            </div>
+
+            <div class="shmx-r-item">
+                <a target="_blank" href="">
+                    <img src="http://img.zhuyun.cn/M00/B3/39/wKgJNFXvhAKAaltzAACm9qY0dig453.jpg" alt="珍源美"/>
+                </a>
+                <div class="shmx-zz-rb">
+                    <div class="shmx-zz-rb-bg"></div>
+                    <div class="shmx-zz-rb-tips">
+                        <p style="height: 40%">珍源美</p>
+                        <p>珍源美</p>
+                        <p class="shmx-l-more">LEARN MORE →</p>
+                    </div>
+                </div>
+                <div class="shmx-zz-rt"></div>
+             </div>
+
+            <div class="shmx-r-item">
+                <a target="_blank" href="">
+                    <img src="http://img.zhuyun.cn/M00/B3/39/wKgJNFXvhAKAHuJXAADhppCxLO4333.jpg" alt="西闽特"/>
+                </a>
+                <div class="shmx-zz-rb">
+                    <div class="shmx-zz-rb-bg"></div>
+                    <div class="shmx-zz-rb-tips">
+                        <p style="height: 40%">西闽特</p>
+                        <p>西闽特</p>
+                        <p class="shmx-l-more">LEARN MORE →</p>
+                    </div>
+                </div>
+                <div class="shmx-zz-rt"></div>
+            </div>
+
+            <div class="shmx-r-item">
+                <a target="_blank" href="">
+                    <img src="http://img.zhuyun.cn/M00/B3/39/wKgJNFXvhAOAPO4KAAB3mfpyTuE419.jpg" alt="中粮"/>
+                </a>
+                <div class="shmx-zz-rb">
+                    <div class="shmx-zz-rb-bg"></div>
+                    <div class="shmx-zz-rb-tips">
+                        <p style="height: 40%">中粮</p>
+                        <p>中粮</p>
+                        <p class="shmx-l-more">LEARN MORE →</p>
+                    </div>
+                </div>
+                <div class="shmx-zz-rt"></div>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>

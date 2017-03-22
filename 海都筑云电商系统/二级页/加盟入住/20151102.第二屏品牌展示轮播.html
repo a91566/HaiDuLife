@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .shmx{width: 1190px;height: 640px;position: relative;}
+        .shmx-main{width: 1190px;height: 640px;position: relative;overflow: hidden;}
+        .shmx img{font-size: 0;}
+        .shmx-l{float: left;width: 476px;font-size: 0;position: relative;height: 500px;margin-top: 140px;overflow: hidden;}
+        .shmx-l img{width: 100%;height: 500px;}
+        .shmx-r{float: left;width: 714px;font-size: 0;position: relative;height: 500px;margin-top: 140px;overflow: hidden;}
+        .shmx-r img{width: 357px;height: 250px;}
+        .shmx-zz{width: 100%;height: 120%;position: absolute;top: 450px;left: 0;z-index: 5;}
+        .shmx-zz-bg{width: 100%;height: 100%;filter: alpha(opacity:50);opacity: 0.5;background: #000000;z-index: 6;
+            top: 0px;left: 0;position: absolute;}
+        .shmx-zz-tips{width: 100%;height: 100%;z-index: 7;position: absolute;top: 0;left: 0;}
+        .shmx-zz p{text-align: center;color: #FFFFFF;font-size: 18px;margin: 0;padding: 0;line-height: 50px;}
+        .shmx-l-more{border-bottom: 1px solid #FFFFFF;border-top: 1px solid #FFFFFF; }
+        .shmx-zz1{width: 100%;height: 100%;z-index: 8;position: absolute;top: 0;left: 0;}
+
+
+        .shmx-zz-rb{width: 357px;height: 300px;position: absolute;top: 200px;left: 0;z-index: 5;}
+        .shmx-zz-rb-bg{width: 357px;height: 300px;filter: alpha(opacity:50);opacity: 0.5;background: #000000;z-index: 6;
+            top: 0px;left: 0;position: absolute;}
+        .shmx-zz-rb p{text-align: center;color: #FFFFFF;font-size: 18px;margin: 0;padding: 0;line-height: 50px;}
+        .shmx-zz-rb-tips{width: 357px;height: 300px;z-index: 7;position: absolute;top: 0;left: 0;}
+        .shmx-zz-rt{width: 357px;height: 300px;z-index: 8;position: absolute;top: 0;left: 0;}
+        .shmx-r-item{width: 357px;height: 250px;float: left;overflow: hidden;position: relative;}
+
+        .shmx-ul{width: 1190px;height:640px;position: absolute;padding-top: 140px;left: 0;list-style: none;margin: 0;padding: 0;}
+        .shmx-ul li{width: 1190px;height:640px;margin: 0;padding: 0;float: left;overflow: hidden;
+            background: url(http://img.zhuyun.cn/M00/B3/39/wKgJNFXvhAGAD2McAABEh1VbFV0360.jpg) 0px 20px no-repeat;}
+        .shmx .btn-prev,.shmx .btn-next{position: absolute;top: 50%;width: 96px;height: 89px;z-index: 14;
+            filter: alpha(opacity:30);opacity: 0.3;}
+        .btn-prev:hover,.btn-next:hover{filter: alpha(opacity:100);opacity: 1;}
+        .shmx .btn-prev{left: -96px;background: url(http://img.zhuyun.cn/M00/AB/2F/wKgJNFXtKPuAB5IfAAAKB4xcVmo866.png) 0 0 no-repeat;}
+        .shmx .btn-next{right: -96px;background: url(http://img.zhuyun.cn/M00/AB/2F/wKgJNFXtKPuAJ9oEAAAKCmZ6ivI390.png) 0 0 no-repeat;}
+
+        .shmx-top{height: 250px;margin-top: 140px;}
+        .shmx-t-item{height: 100%;float: left;}
+        .shmx-bottom{height: 250px;}
+        .shmx-b-item{height: 100%;float: left;}
+    </style>
+    <script src="http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $('.shmx').closest('.plugin_containers').css('top',0.5031*$(window).width());
+            $('.shmx-ul').css('width',1190*2);
+            $(".shmx").parentsUntil(".plugin_inner_content").css('overflow','visible');
+            var aDivZZ=$('.shmx-ulli1 .shmx-zz1').get();
+            for(var i=0;i<aDivZZ.length;i++)
+            {
+                aDivZZ[i].index=i;
+                $('.shmx-zz1').eq(i).mouseover(function(){
+                    $('.shmx-zz').eq(this.index).stop().animate({
+                        'top':-100
+                    })
+                });
+
+                $('.shmx-zz1').eq(i).mouseout(function(){
+                    $('.shmx-zz').eq(this.index).stop().animate({
+                        'top':450
+                    })
+                });
+            }
+
+            var aDivRt=$('.shmx-zz-rt').get();
+            for(var i=0;i<aDivRt.length;i++)
+            {
+                aDivRt[i].index=i;
+                $('.shmx-zz-rt').eq(i).mouseover(function(){
+                    $('.shmx-zz-rb').eq(this.index).stop().animate({
+                        'top':-50
+                    })
+                });
+
+                $('.shmx-zz-rt').eq(i).mouseout(function(){
+                    $('.shmx-zz-rb').eq(this.index).stop().animate({
+                        'top':200
+                    })
+                });
+            }
+
+
+
+            aDivZZ=$('.shmx-zzt').get();
+            for(var i=0;i<aDivZZ.length;i++)
+            {
+                aDivZZ[i].index=i;
+                $('.shmx-zzt').eq(i).mouseover(function(){
+                    $('.shmx-zzt').closest('.shmx-zz').stop().animate({
+                        'top':-100
+                    })
+                });
+
+                $('.shmx-zzt').eq(i).mouseout(function(){
+                    $('.shmx-zzt').closest('.shmx-zz').stop().animate({
+                        'top':450
+                    })
+                });
+            }
+
+
+
+            var aLi=$('.shmx-ul li').get();
+            var index=0;
+            function fnChangeP(){
+                index++;
+                if(index==aLi.length)
+                {
+                    index=0;
+                }
+                else if(index==-1)
+                {
+                    index=aLi.length-1;
+                }
+                $('.shmx-ul').animate({
+                    'left':-index*1190
+                });
+            }
+            $('.shmx .btn-prev').click(function(){
+                index=index-2;
+                fnChangeP();
+            });
+            $('.shmx .btn-next').click(function(){
+                fnChangeP();
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="shmx">
+        <a href="javascript:;" class="btn-prev"></a>
+        <a href="javascript:;" class="btn-next"></a>
+        <div class="shmx-main">
+            <ul class="shmx-ul">
+                <li class="shmx-ulli1">
+                    <div class="shmx-top">
+                        <div class="shmx-t-item">
+                            <a target="_blank" href="http://test5556437.70card.net/Home/Index?index_id=1000013">
+                                <img src="http://img.zhuyun.cn/M00/87/6C/wKgJNFY2vMWAEzPXAADaSKs_2Jk006.jpg" alt="园香猪肉"/>
+                                <div class="shmx-zz">
+                                    <div class="shmx-zz-bg"></div>
+                                    <div class="shmx-zz-tips">
+                                        <p style="height: 45%">园香猪肉</p>
+                                        <p>园香猪肉</p>
+                                        <p class="shmx-l-more">LEARN MORE →</p>
+                                    </div>
+                                </div>
+                                <div class="shmx-zzt"></div>
+                            </a>
+                        </div>
+                        <div class="shmx-t-item">
+                            <a target="_blank" href="http://test5556437.70card.net/Home/Index?index_id=1000013">
+                                <img src="http://img.zhuyun.cn/M00/87/6C/wKgJNFY2vMWAAcpBAAELfnJFjFY585.jpg" alt="粮耕园"/>
+                                <div class="shmx-zz">
+                                    <div class="shmx-zz-bg"></div>
+                                    <div class="shmx-zz-tips">
+                                        <p style="height: 45%">粮耕园</p>
+                                        <p>粮耕园</p>
+                                        <p class="shmx-l-more">LEARN MORE →</p>
+                                    </div>
+                                </div>
+                                <div class="shmx-zzt"></div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="shmx-bottom">
+                        <div class="shmx-b-item">
+                            <a target="_blank" href="http://test5556437.70card.net/Home/Index?index_id=1000013">
+                                <img src="http://img.zhuyun.cn/M00/87/6C/wKgJNFY2vMWAa9kbAAEdw5IP2D0557.jpg" alt="鱼品园"/>
+                                <div class="shmx-zz-rb">
+                                    <div class="shmx-zz-rb-bg"></div>
+                                    <div class="shmx-zz-rb-tips">
+                                        <p style="height: 40%">鱼品园</p>
+                                        <p>鱼品园</p>
+                                        <p class="shmx-l-more">LEARN MORE →</p>
+                                    </div>
+                                </div>
+                                <div class="shmx-zz-rt"></div>
+                            </a>
+                        </div>
+
+                        <div class="shmx-b-item">
+                            <a target="_blank" href="http://test5556437.70card.net/Home/Index?index_id=1000013">
+                                <img src="http://img.zhuyun.cn/M00/87/6C/wKgJNFY2vMaAcxzUAABk3wEQhUw582.jpg" alt="三江雪"/>
+                                <div class="shmx-zz-rb">
+                                    <div class="shmx-zz-rb-bg"></div>
+                                    <div class="shmx-zz-rb-tips">
+                                        <p style="height: 40%">三江雪</p>
+                                        <p>三江雪</p>
+                                        <p class="shmx-l-more">LEARN MORE →</p>
+                                    </div>
+                                </div>
+                                <div class="shmx-zz-rt"></div>
+                            </a>
+                        </div>
+
+                        <div class="shmx-b-item">
+                            <a target="_blank" href="http://test5556437.70card.net/Home/Index?index_id=1000013">
+                                <img src="http://img.zhuyun.cn/M00/87/6C/wKgJNFY2vMaAX23UAABBzg_-YuI487.jpg" alt="闽洋"/>
+                                <div class="shmx-zz-rb">
+                                    <div class="shmx-zz-rb-bg"></div>
+                                    <div class="shmx-zz-rb-tips">
+                                        <p style="height: 40%">闽洋</p>
+                                        <p>闽洋</p>
+                                        <p class="shmx-l-more">LEARN MORE →</p>
+                                    </div>
+                                </div>
+                                <div class="shmx-zz-rt"></div>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li class="shmx-ulli2">
+                    <div class="shmx-l">
+                        <a target="_blank" href="http://test5556437.70card.net/Home/Index?index_id=1000013">
+                            <img src="http://img.zhuyun.cn/M00/B3/39/wKgJNFXvhAKAR-sNAAGUu5fGXBE600.jpg" alt="绿帝"/>
+                            <div class="shmx-zz">
+                                <div class="shmx-zz-bg"></div>
+                                <div class="shmx-zz-tips">
+                                    <p style="height: 45%">绿帝</p>
+                                    <p>绿帝</p>
+                                    <p class="shmx-l-more">LEARN MORE →</p>
+                                </div>
+                            </div>
+                            <div class="shmx-zz1"></div>
+                        </a>
+                    </div>
+                    <div class="shmx-r">
+                        <div class="shmx-r-item">
+                            <a target="_blank" href="http://test5556437.70card.net/Home/Index?index_id=1000013">
+                                <img src="http://img.zhuyun.cn/M00/B3/39/wKgJNFXvhAKAZLSHAACGlXPoYR4620.jpg" alt="居味达"/>
+                                <div class="shmx-zz-rb">
+                                    <div class="shmx-zz-rb-bg"></div>
+                                    <div class="shmx-zz-rb-tips">
+                                        <p style="height: 40%">居味达</p>
+                                        <p>居味达</p>
+                                        <p class="shmx-l-more">LEARN MORE →</p>
+                                    </div>
+                                </div>
+                                <div class="shmx-zz-rt"></div>
+                            </a>
+                        </div>
+
+                        <div class="shmx-r-item">
+                            <a target="_blank" href="http://test5556437.70card.net/Home/Index?index_id=1000013">
+                                <img src="http://img.zhuyun.cn/M00/B3/39/wKgJNFXvhAKAaltzAACm9qY0dig453.jpg" alt="珍源美"/>
+                                <div class="shmx-zz-rb">
+                                    <div class="shmx-zz-rb-bg"></div>
+                                    <div class="shmx-zz-rb-tips">
+                                        <p style="height: 40%">珍源美</p>
+                                        <p>珍源美</p>
+                                        <p class="shmx-l-more">LEARN MORE →</p>
+                                    </div>
+                                </div>
+                                <div class="shmx-zz-rt"></div>
+                            </a>
+                        </div>
+
+                        <div class="shmx-r-item">
+                            <a target="_blank" href="http://test5556437.70card.net/Home/Index?index_id=1000013">
+                                <img src="http://img.zhuyun.cn/M00/B3/39/wKgJNFXvhAKAHuJXAADhppCxLO4333.jpg" alt="西闽特"/>
+                                <div class="shmx-zz-rb">
+                                    <div class="shmx-zz-rb-bg"></div>
+                                    <div class="shmx-zz-rb-tips">
+                                        <p style="height: 40%">西闽特</p>
+                                        <p>西闽特</p>
+                                        <p class="shmx-l-more">LEARN MORE →</p>
+                                    </div>
+                                </div>
+                                <div class="shmx-zz-rt"></div>
+                            </a>
+                        </div>
+
+                        <div class="shmx-r-item">
+                            <a target="_blank" href="http://test5556437.70card.net/Home/Index?index_id=1000013">
+                                <img src="http://img.zhuyun.cn/M00/B3/39/wKgJNFXvhAOAPO4KAAB3mfpyTuE419.jpg" alt="中粮"/>
+                                <div class="shmx-zz-rb">
+                                    <div class="shmx-zz-rb-bg"></div>
+                                    <div class="shmx-zz-rb-tips">
+                                        <p style="height: 40%">中粮</p>
+                                        <p>中粮</p>
+                                        <p class="shmx-l-more">LEARN MORE →</p>
+                                    </div>
+                                </div>
+                                <div class="shmx-zz-rt"></div>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

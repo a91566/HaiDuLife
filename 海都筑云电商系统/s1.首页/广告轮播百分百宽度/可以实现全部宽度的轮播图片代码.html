@@ -1,0 +1,30 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title></title>
+<script type="text/javascript"> 
+  var curIndex = 0; 
+  var timeInterval = 3000; 
+  var arr = new Array(); 
+  arr[0] ="http://img.zhuyun.cn/M00/62/E3/wKgJNFWbpJWAARt4AABIVvZhXYU972.jpg"; 
+  arr[1] = "http://img.zhuyun.cn/M00/62/DA/wKgJNFWbovOAeiVFAAEZdRiMLhE790.jpg"; 
+  arr[2] = "http://img.zhuyun.cn/M00/65/C1/wKgJNFWcmzuATTNHAAESxVxQTEY425.jpg"; 
+  arr[3] = "http://img.zhuyun.cn/M00/62/E4/wKgJNFWbpPaAb3OzAABlmV_oZZY031.jpg"; 
+  setInterval(changeImg,timeInterval); 
+  function changeImg() { 
+   var obj = document.getElementById("obj"); 
+   if (curIndex == arr.length-1) { 
+    curIndex = 0; 
+   } else { 
+    curIndex += 1; 
+     } 
+   obj.src = arr[curIndex]; 
+  } 
+                var iWidth=document.documentElement.clientWidth;
+				var oDiv=document.getElementById("divTest1");
+				iWidth=iWidth-10;
+				oDiv.style.width = iWidth + 'px';
+				var iLeft=iWidth-1190;
+				iLeft=iLeft/2;
+				oDiv.style.left = "-"+iLeft + 'px';
+ </script>
+<div id="divTest1" style="height:390px;position:absolute;">
+    <img id="obj" src="1.jpg" border="0" />
+</div>

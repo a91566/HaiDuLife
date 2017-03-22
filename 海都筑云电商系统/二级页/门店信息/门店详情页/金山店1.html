@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .stroe-detail{width: 1190px;height: 440px;background: #F8F8F8;}
+        .stro-pic{float: left;width: 400px;height:440px;text-align: center;}
+        .stro-pic img{width: 350px;height:350px;margin-top: 35px;}
+        .stro-content{float: left;height:400px;width: 730px;}
+        .btn-span{display: inline-block;margin-left: 62%;color: #FFFFFF;background: #39b3d7;
+            border-radius: 5px;height: 40px;line-height: 40px;width: 130px;text-align: center;
+        font-size: 14px;font-weight: normal;cursor: pointer;}
+        .stro-content p{color: #666666;margin-left: 0px;padding-left: 0px;line-height: 38px;
+            font-size: 14px;font-family: "微软雅黑"}
+        .stro-content h3{height: 50px;line-height: 50px;border-bottom: 3px solid #Ad0100;}
+        #allmap-p{width:80%;height:600px;position: absolute;
+            border: 1px solid #39b3d7;box-shadow: 0 0 15px #000000;
+            display: none;background:rgba(0,0,0,0.2);left: 10%;}
+        #allmap{width:100%;height:550px;}
+        #am-close{margin-left: 96%;color: #FFFFFF;font-size: 38px;cursor: pointer;position: absolute;}
+        .sd-foot{width: 1190px;height: 200px;}
+    </style>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=FFRxHiPi2O5sCzeKqPFHE0pv"></script>
+    <script>
+
+        //        金山店	仓山区金山街道金榕北路52号3号楼沿街3-6号	             (119.270361,26.061094)
+        //        师大店	福州市仓山区上三路127号	                             (119.324946,26.041574)
+        //        福飞南路店	福飞南路236号米罗1层04店（省体彩对面）	         (119.303545,26.117305)
+        //        井大店	鼓楼区井大路104号店面（福州消防对面）	                 (119.310365,26.095351)
+        //        连江北路店	福州市晋安区世纪东方5#04、05店面（鼎屿二路）       (119.339348,26.083224)
+        //        西洪店	福州市西洪路516号67号店面	                         (119.272706,26.085436)
+        //        秀山店	福州市晋安区新店秀山路245号索高广场1号楼一层第11单元	 (119.314288,26.137622)
+        //        时代名城店	福州市工业路99号时代名城4栋2号店	                 (119.305269,26.067936)
+        //        苍霞店	台江区苍霞新城支前路2号09店面（与中平路十字路口交界处）	 (119.312518,26.055218)
+        //        得贵路店	鼓楼区福新路上琼福路30号宜发得贵城7栋7号店       	 (119.32284,26.087943)
+        window.onload= function ()
+        {
+
+            document.body.style.overflowX="hidden";
+            var iWidth=document.documentElement.clientWidth;
+            var oDivFz=document.getElementById("stroe-detail");
+            oDivFz.style.width = iWidth + 'px';
+            var iLeft=iWidth-1190;
+            iLeft=iLeft/2;
+            oDivFz.style.left = "-"+iLeft + 'px';
+
+            var oBtnShow=document.getElementById("btn-span");
+            var oBtnClose=document.getElementById("am-close");
+
+            oBtnShow.onclick=function()
+            {
+                var oDivMap=document.getElementById("allmap-p");
+                oDivMap.style.display="block";
+
+                // 百度地图API功能
+                var map = new BMap.Map("allmap");
+                var point = new BMap.Point(119.270361,26.061094);
+                var marker = new BMap.Marker(point);  // 创建标注
+                map.addOverlay(marker);               // 将标注添加到地图中
+                map.centerAndZoom(point, 19);
+            };
+            oBtnClose.onclick=function()
+            {
+                var oDivMap=document.getElementById("allmap-p");
+
+                oDivMap.style.display="none";
+            };
+
+
+        };
+    </script>
+</head>
+<body>
+    <div id="allmap-p">
+        <div style="position: relative;height: 50px;width: 100%;background: #39b3d7;">
+            <span  id="am-close">×</span>
+        </div>
+        <div id="allmap"></div>
+    </div>
+
+    <div class="stroe-detail" id="stroe-detail">
+        <div class="stro-pic">
+            <img src="http://img.zhuyun.cn/M00/45/FE/wKgJNFXRp5eAbdIFAA52JYpCWgY359.jpg" alt="海都"/>
+        </div>
+        <div class="stro-content">
+            <h3>
+                海都金山旗舰店
+                <span class="btn-span" id="btn-span">查看地图</span>
+            </h3>
+            <p>门店地址：仓山区金山街道金榕北路52号3号楼沿街3-6号</p>
+            <p>联系电话：0591-63129319</p>
+            <p>营业时间：08:00-21:00</p>
+            <p>公交路线：K3路、13路、15路、42路、79路、91路、111路、118路、121路、122路、128路、162路、
+                202路、308路、317路、318路至市人才储备中心站</p>
+            <p>
+                地铁路线：（无）
+            </p>
+            <p>停车服务：收费</p>
+        </div>
+    </div>
+
+    <div class="sd-foot">
+
+    </div>
+</body>
+</html>

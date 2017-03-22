@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .sh-fw{width: 994px;height: 790px;border: 1px solid #39b3d7;}
+        .sw-top{width: 994px;height: 240px;border-bottom: 1px solid #39b3d7;position: relative;}
+        .swt-b{width:994px;height: 60px;border-bottom: 1px solid #39b3d7;}
+        .swt-c{width:555px;height: 60px;left: 30%;background: #FFFFFF;color: #28aaf7;
+            line-height: 60px;font-size: 50px;font-weight: bold;position: absolute;left: 20%;
+            top: 30px;overflow: hidden;}
+        .ul-swt{width:555px;height: 60px;text-align: center;margin: 0;padding: 0;
+            list-style: none;position: absolute;top:0px;}
+        .ul-swt li{margin: 0;padding: 0;}
+        .sw-bot{width: 994px;height: 550px;}
+        .ul-sw{margin: 0;padding: 0;width: 994px;height: 550px;list-style: none;}
+        .uli-sw{margin: 10px;padding: 0;width: 308px;height: 255px;border: 1px solid black;
+            float: left;position: relative;overflow: hidden;}
+        .udimg-sw{width: 308px;height: 200px;margin: 0;top:0;left:0;position: absolute;z-index: 1;}
+        .uli-sw img{width: 308px;height: 200px;margin: 0;}
+        .udiv-sw{width: 308px;height: 255px;line-height: 55px;position: absolute;top: 0px;padding-top: 200px;
+            transition-duration: .5s;}
+        .uli-sw:hover{background: #39b3d7;color: #FFFFFF;}
+        .udiv-sw p{margin: 0;padding: 0;padding-left: 20px;}
+
+    </style>
+
+    <script>
+        <!--p20150803-->
+        function getStyle(obj,name)
+        {
+            if(obj.currentStyle)
+            {
+                return obj.currentStyle[name];
+            }
+            else
+            {
+                return getComputedStyle(obj,false)[name];
+            }
+        }
+        function startMove(obj,json,fnEnd)
+        {
+            clearInterval(obj.tmrMove);
+            obj.tmrMove=setInterval(function()
+            {
+                for (var attr in json)
+                {
+                    var bSTop=true;
+                    var iCurr = 0;
+                    if (attr == 'opacity') {
+                        iCurr = Math.round(parseFloat(getStyle(obj, attr)) * 100);
+                        //这里要注意区分
+                    }
+                    else {
+                        iCurr = parseInt(getStyle(obj, attr));
+                    }
+                    var iSpeed = (json[attr] - iCurr) / 6;
+                    iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+                    if (iCurr != json[attr])
+                    {
+                        bSTop=false;
+                    }
+
+
+                    if (attr == 'opacity') {
+                        obj.style.filter = 'alpha(opacity:' + (iCurr + iSpeed) + ')';
+                        obj.style.opacity = (iCurr + iSpeed) / 100;
+                        //这里要注意区分
+                    }
+                    else {
+                        obj.style[attr] = iCurr + iSpeed + 'px';
+                    }
+
+
+                    if(bSTop)
+                    {
+                        clearInterval(obj.tmrMove);
+                        if (fnEnd)fnEnd();
+                    }
+                }
+            },30);
+        }
+        <!--endp20150803-->
+        window.onload=function()
+        {
+            fnLifeServicesT();
+        };
+        function fnLifeServicesT()
+        {
+            var oUlTitle=document.getElementById("ul-swt");
+            var aUlContent=document.getElementsByClassName("uli-sw");
+
+            for(var i=0;i<aUlContent.length;i++)
+            {
+                aUlContent[i].index=i;
+                aUlContent[i].onmouseover=function()
+                {
+//                    oUlTitle.style.top=-60*this.index+"px";
+                    startMove(oUlTitle,{top:-60*this.index});
+                };
+            }
+
+
+
+        };
+    </script>
+</head>
+<body>
+    <div class="sh-fw">
+        <div class="sw-top">
+            <div class="swt-b"></div>
+            <div class="swt-c">
+                <ul class="ul-swt" id="ul-swt">
+                    <li>海都服务1</li>
+                    <li>海都服务2</li>
+                    <li>海都服务3</li>
+                    <li>海都服务4</li>
+                    <li>海都服务5</li>
+                    <li>海都服务6</li>
+                </ul>
+            </div>
+        </div>
+        <div class="sw-bot">
+            <ul class="ul-sw">
+                <li class="uli-sw">
+                    <div class="udimg-sw">
+                        <a href="">
+                            <img src="http://image.suning.cn//uimg/cms/img/140964002205033301.jpg" alt=""/>
+                        </a>
+                    </div>
+                    <div class="udiv-sw">
+                        <p>海都服务</p>
+                    </div>
+                </li>
+                <li class="uli-sw">
+                    <div class="udimg-sw">
+                        <a href="">
+                            <img src="http://image.suning.cn//uimg/cms/img/140964002205033301.jpg" alt=""/>
+                        </a>
+                    </div>
+                    <div class="udiv-sw">
+                        <p>海都服务</p>
+                    </div>
+                </li>
+                <li class="uli-sw">
+                    <div class="udimg-sw">
+                        <a href="">
+                            <img src="http://image.suning.cn//uimg/cms/img/140964002205033301.jpg" alt=""/>
+                        </a>
+                    </div>
+                    <div class="udiv-sw">
+                        <p>海都服务</p>
+                    </div>
+                </li>
+                <li class="uli-sw">
+                    <div class="udimg-sw">
+                        <a href="">
+                            <img src="http://image.suning.cn//uimg/cms/img/140964002205033301.jpg" alt=""/>
+                        </a>
+                    </div>
+                    <div class="udiv-sw">
+                        <p>海都服务</p>
+                    </div>
+                </li>
+                <li class="uli-sw">
+                    <div class="udimg-sw">
+                        <a href="">
+                            <img src="http://image.suning.cn//uimg/cms/img/140964002205033301.jpg" alt=""/>
+                        </a>
+                    </div>
+                    <div class="udiv-sw">
+                        <p>海都服务</p>
+                    </div>
+                </li>
+                <li class="uli-sw">
+                    <div class="udimg-sw">
+                        <a href="">
+                            <img src="http://image.suning.cn//uimg/cms/img/140964002205033301.jpg" alt=""/>
+                        </a>
+                    </div>
+                    <div class="udiv-sw">
+                        <p>海都服务</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

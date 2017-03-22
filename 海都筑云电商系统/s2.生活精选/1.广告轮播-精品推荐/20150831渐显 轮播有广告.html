@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title></title>
+    <style>
+        #pagetop-palyopacity{width: 1190px;height: 440px;margin-bottom: 0;position: relative;}
+        .pt-po{z-index: 1;position: absolute;display: inline;width: 1190px;height: 440px;margin: 0;}
+
+        .pt-po img{width: 1190px;height: 440px;margin: 0;}
+        .pt-po-ol{z-index: 99999;position: absolute;list-style-type: none;bottom: 0;left:42%;}
+        .pt-po-ol li{float: left;margin: 5px;width: 30px;height:30px;text-align: center;color: #FFFFFF;
+            border-radius:30px;
+            -moz-border-radius: 30px;
+            -webkit-border-radius: 30px;
+            line-height: 30px;}
+        .pt-liactive{background: #39b3d7;}
+        .ptpo-ad{z-index: 99999;position: absolute;right: 0px;width: 180px;height: 440px;}
+        .ptpo-ad img{width: 180px;height: 219px;transition-duration: .4s;}
+        .ptpo-ad img:hover{transform: translateX(-5px);}
+    </style>
+    <!--<script src="http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>-->
+    <script>
+        $(document).ready(function()
+        {
+            fnAutoChange();
+        });
+        function fnAutoChange()
+        {
+            var oDivPtpoMain=$("#pagetop-palyopacity").get(0);
+            var aDivPtpo=$(".pt-po").get();
+            var aBtnPtpo=$(".pt-po-ol")[0].getElementsByTagName("li");
+            var nowIndex=0;
+            var nowZIndex=2;
+
+            for(var i=0;i<aBtnPtpo.length;i++)
+            {
+                aBtnPtpo[i].index=i;
+                $(aBtnPtpo[i]).click(function(){
+                    nowIndex=this.index;
+                    tab();
+                });
+
+            }
+
+            function tab()
+            {
+
+                nowZIndex++;
+                aDivPtpo[nowIndex].style.zIndex=nowZIndex;
+
+                var oPtpoPicShow=aDivPtpo[nowIndex].getElementsByTagName("img")[0];
+                $(oPtpoPicShow).css('opacity',0.1);
+                $(oPtpoPicShow).animate({
+                  'opacity':1
+                });
+
+
+                for(var i=0;i<aBtnPtpo.length;i++)
+                {
+                    aBtnPtpo[i].className="";
+                }
+                aBtnPtpo[nowIndex].className="pt-liactive";
+            }
+
+            function next()
+            {
+                nowIndex++;
+                if(nowIndex==aBtnPtpo.length)
+                {
+                    nowIndex=0;
+                }
+                tab();
+            }
+
+            var tmrMove=setInterval(next,5000);
+
+            oDivPtpoMain.onmouseover=function(){
+                clearInterval(tmrMove);
+            }
+            oDivPtpoMain.onmouseout=function(){
+                tmrMove=setInterval(next,5000);
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <div id="pagetop-palyopacity">
+        <div class="pt-po" style="z-index: 2;">
+            <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2211534">
+                <img src="http://img.zhuyun.cn/M00/10/BA/wKgJNFXEXJeAelieAAZWgKUC2Qs359.jpg" alt="猴头菇,美味,健康"/>
+            </a>
+        </div>
+        <div class="pt-po">
+            <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2203739">
+                <img src="http://img.zhuyun.cn/M00/10/BA/wKgJNFXEXJWAHTqjAATJROQBPUo774.jpg" alt="百合干好吃"/></a>
+        </div>
+        <div class="pt-po">
+            <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2349622">
+                <img src="http://img.zhuyun.cn/M00/10/BA/wKgJNFXEXJaAHwE1AAOoKb9yEf8273.jpg" alt="北极甜虾"/></a>
+        </div>
+        <ol class="pt-po-ol">
+            <li class="pt-liactive">1</li>
+            <li>2</li>
+            <li>3</li>
+        </ol>
+        <div class="ptpo-ad">
+            <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2234219">
+                <img src="http://img.zhuyun.cn/M00/10/DC/wKgJNFXEYDuAUPqfAABBxD3Dj80275.png" alt="怡然鸡蛋"/>
+            </a>
+            <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2415846">
+                <img src="http://img.zhuyun.cn/M00/10/EE/wKgJNFXEYUSAYv6CAABvgtCX4OY527.png"
+                     alt="精品无公害花菜" style="margin-top: 2px;"/>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

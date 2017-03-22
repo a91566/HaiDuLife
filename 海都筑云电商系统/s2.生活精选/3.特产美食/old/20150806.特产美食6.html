@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .catemap{width:1190px;height: 540px;background: #39b3d7;margin: 0 auto;border: 1px solid #FFFFFF;}
+        .cm-top{height: 58px;line-height: 58px;border-bottom: 2px solid #FFFFFF;}
+        .cm-bottom{height: 480px;}
+        .cm-bottom-left{float: left;}
+        .cm-bottom-right{float: left;width: 790px;height: 480px;overflow: hidden;position: relative;}
+        .cm-mapshow{width: 400px;height: 480px;position: relative;}
+        .cm-mapshow img{width: 400px;height: 479px;}
+        .cm-circle{position: absolute;background: #FFFFFF;width: 20px;height: 20px;border-radius:20px;}
+        #cm-fz{left: 300px;top:212px;}
+        #cm-pt{left: 265px;top:275px;}
+        #cm-qz{left: 230px;top:340px;}
+        #cm-xm{left: 195px;top:370px;}
+        #cm-zz{left: 145px;top:345px;}
+        #cm-ly{left: 95px;top:295px;}
+        #cm-sm{left: 140px;top:200px;}
+        #cm-np{left: 205px;top:180px;}
+        #cm-nd{left: 300px;top:145px;}
+        #cm-car{left: 280px;top:150px;width: 60px;height: 70px;position: absolute;transition-duration:0.5s;
+            background: url("http://img.zhuyun.cn/M00/06/5D/wKgJNFXB3CuAH5BnAAC4uQugOAs746.png") 0 0 repeat;}
+
+        .cm-ul{margin: 0;padding: 0;list-style: none;width: 790px;height: 480px;position: absolute;
+            top:0px;width: 790px;height: 480px;transition-duration:0.2s;}
+        .cm-ul li{margin: 0;padding: 0;float: left;transition-duration:0.2s;transform-origin: 50% 0%}
+        .cm-ul img{width: 394px;height: 480px;}
+
+        .cm-circle:hover{
+            transform: scale(1.1);
+        }
+        .cm-ul li:hover{
+            transform: rotateY(30deg);
+        }
+    </style>
+    <script>
+            window.onload=function(){
+                var aBtncm=document.getElementsByClassName("cm-circle");
+                var oUlCM=document.getElementsByClassName("cm-ul")[0];
+                var oImgCar=document.getElementById("cm-car");
+
+                aBtncm[0].onclick=function()
+                {
+                    oUlCM.style.top="0px";
+                    oImgCar.style.left="280px";
+                    oImgCar.style.top="150px";
+                };
+
+                aBtncm[1].onclick=function()
+                {
+                    oUlCM.style.top="-483px";
+                    oImgCar.style.left="245px";
+                    oImgCar.style.top="215px";
+                };
+                aBtncm[2].onclick=function()
+                {
+                    oUlCM.style.top="-966px";
+                    oImgCar.style.left="210px";
+                    oImgCar.style.top="280px";
+                };
+                aBtncm[3].onclick=function()
+                {
+                    oUlCM.style.top="-1449px";
+                    oImgCar.style.left="175px";
+                    oImgCar.style.top="310px";
+                };
+                aBtncm[4].onclick=function()
+                {
+                    oUlCM.style.top="-1932px";
+                    oImgCar.style.left="125px";
+                    oImgCar.style.top="285px";
+                };
+                aBtncm[5].onclick=function()
+                {
+                    oUlCM.style.top="-2415px";
+                    oImgCar.style.left="75px";
+                    oImgCar.style.top="235px";
+                };
+                aBtncm[6].onclick=function()
+                {
+                    oUlCM.style.top="-2898px";
+                    oImgCar.style.left="120px";
+                    oImgCar.style.top="140px";
+                };
+                aBtncm[7].onclick=function()
+                {
+                    oUlCM.style.top="-3381px";
+                    oImgCar.style.left="185px";
+                    oImgCar.style.top="120px";
+                };
+                aBtncm[8].onclick=function()
+                {
+                    oUlCM.style.top="-3864px";
+                    oImgCar.style.left="279px";
+                    oImgCar.style.top="85px";
+                };
+
+            };
+    </script>
+</head>
+<body>
+    <div class="catemap">
+        <div class="cm-top">
+            特产美食
+        </div>
+        <div class="cm-bottom">
+            <div class="cm-bottom-left">
+                <div class="cm-mapshow">
+                    <img src="http://img.zhuyun.cn/M00/02/91/wKgJNFXBbhSAMaa9AAK1gZI0pWU325.jpg" alt=""/>
+
+                    <div class="cm-circle" id="cm-fz">
+                    </div>
+                    <div class="cm-circle" id="cm-pt">
+                    </div>
+                    <div class="cm-circle" id="cm-qz">
+                    </div>
+                    <div class="cm-circle" id="cm-xm">
+
+                    </div>
+                    <div class="cm-circle" id="cm-zz">
+
+                    </div>
+                    <div class="cm-circle" id="cm-ly">
+
+                    </div>
+                    <div class="cm-circle" id="cm-sm">
+
+                    </div>
+                    <div class="cm-circle" id="cm-np">
+
+                    </div>
+                    <div class="cm-circle" id="cm-nd">
+
+                    </div>
+
+                    <div id="cm-car">
+
+                    </div>
+
+
+                </div>
+                <div class="cm-foodshow">
+
+                </div>
+            </div>
+            <div class="cm-bottom-right">
+                <ul class="cm-ul" id="cm-ul">
+                    <li class="cm-ulli">
+                        <img src="http://img.zhuyun.cn/M00/06/5D/wKgJNFXB3DaAJpsOAASjJ8TlSIk363.jpg" alt=""/>
+                    </li>
+                    <li>
+                        <img src="http://img.zhuyun.cn/M00/06/5D/wKgJNFXB3DaAJpsOAASjJ8TlSIk363.jpg" alt=""/>
+                    </li>
+                    <li>
+                        <img src="http://img.zhuyun.cn/M00/06/63/wKgJNFXB3MOAUDGQAAPkWt2EEfA713.jpg" alt=""/>
+                    </li>
+                    <li>
+                        <img src="http://img.zhuyun.cn/M00/06/63/wKgJNFXB3MOAUDGQAAPkWt2EEfA713.jpg" alt=""/>
+                    </li>
+                    <li>
+                        <img src="http://img.zhuyun.cn/M00/06/62/wKgJNFXB3MCABzaTAALdMty9C2I722.jpg" alt=""/>
+                    </li>
+                    <li>
+                        <img src="http://img.zhuyun.cn/M00/06/62/wKgJNFXB3MCABzaTAALdMty9C2I722.jpg" alt=""/>
+                    </li>
+                    <li>
+                        <img src="http://img.zhuyun.cn/M00/06/62/wKgJNFXB3MGAZsNnAATwiUxoTog493.jpg" alt=""/>
+                    </li>
+                    <li>
+                        <img src="http://img.zhuyun.cn/M00/06/62/wKgJNFXB3MGAZsNnAATwiUxoTog493.jpg" alt=""/>
+                    </li>
+                    <li>
+                        <img src="http://img.zhuyun.cn/M00/06/63/wKgJNFXB3MOAJIrZAAXLGzrZbWc883.jpg" alt=""/>
+                    </li>
+                    <li>
+                        <img src="http://img.zhuyun.cn/M00/06/63/wKgJNFXB3MOAJIrZAAXLGzrZbWc883.jpg" alt=""/>
+                    </li>
+                    <li>
+                        <img src="http://img.zhuyun.cn/M00/06/63/wKgJNFXB3MOAUDGQAAPkWt2EEfA713.jpg" alt=""/>
+                    </li>
+                    <li>
+                        <img src="http://img.zhuyun.cn/M00/06/63/wKgJNFXB3MOAUDGQAAPkWt2EEfA713.jpg" alt=""/>
+                    </li>
+                    <li>
+                        <img src="http://img.zhuyun.cn/M00/06/63/wKgJNFXB3MSAIw9hAAMcXYCXNbI615.jpg" alt=""/>
+                    </li>
+                    <li>
+                        <img src="http://img.zhuyun.cn/M00/06/63/wKgJNFXB3MSAIw9hAAMcXYCXNbI615.jpg" alt=""/>
+                    </li>
+                    <li>
+                        <img src="http://img.zhuyun.cn/M00/06/63/wKgJNFXB3MSAFZc4AAHB-BqsG1M692.jpg" alt=""/>
+                    </li>
+                    <li>
+                        <img src="http://img.zhuyun.cn/M00/06/63/wKgJNFXB3MSAFZc4AAHB-BqsG1M692.jpg" alt=""/>
+                    </li>
+                    <li>
+                        <img src="http://img.zhuyun.cn/M00/06/63/wKgJNFXB3MSAMHOXAAKtlG157ZI630.jpg" alt=""/>
+                    </li>
+                    <li>
+                        <img src="http://img.zhuyun.cn/M00/06/63/wKgJNFXB3MSAMHOXAAKtlG157ZI630.jpg" alt=""/>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

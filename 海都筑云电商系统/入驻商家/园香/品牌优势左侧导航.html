@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #nav-qywh{width:176px;height:150px;position: static;top: 0;border: 1px solid lightgray;background: #f6f6f6;}
+        #nav-qywh ul{width: 100%;height: 100%;}
+        #nav-qywh li{margin-top: 20px;cursor: pointer;width: 100%;text-align: center;list-style: none;}
+        #nav-qywh li:hover{text-decoration: underline;}
+    </style>
+    <!--<script src="http://apps.bdimg.com/libs/jquery/1.9.0/jquery.min.js"></script>-->
+    <script>
+        $(function()
+        {
+            $('#nav-qywh li').eq(0).click(function(){
+                $('html,body').animate({scrollTop: $("#qywh-yzjd").offset().top}, 800);
+            });
+            $('#nav-qywh li').eq(1).click(function(){
+                $('html,body').animate({scrollTop: $("#qywh-zlkz").offset().top}, 800);
+            });
+            $('#nav-qywh li').eq(2).click(function(){
+                $('html,body').animate({scrollTop: $("#qywh-cpys").offset().top}, 800);
+            });
+
+            var iShowTop = $("#nav-qywh").offset().top;
+
+            $(window).scroll(function(){
+                var iScrollTop=window.scrollY;
+                var iScrollTop = $(this).scrollTop();
+                if(iScrollTop>iShowTop ){
+                    $("#nav-qywh").css({
+                        'position':'fixed'
+                    });
+                }
+                else
+                {
+                    $("#nav-qywh").css({
+                        'position':'static'
+                    });
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="nav-qywh">
+        <ul>
+            <li>养殖基地</li>
+            <li>质量控制</li>
+            <li>产品优势</li>
+        </ul>
+    </div>
+</body>
+</html>

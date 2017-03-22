@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+
+	<style type="text/css">
+		.banner-box{min-width:1900px;height:390px;left:0px;position:relative;overflow:hidden;}
+	</style>
+
+	<script>
+		$(function(){
+			$("body").css("overflow-x","hidden");
+			var winWidth=$(window).width();
+			//获取浏览器可视窗口宽度
+			var pfcLeft=$(".plugin_containers").offset().left;
+			//获取容器相对窗口左边距离
+			$(".plugin_untitle_noborder").css("margin","0");
+			//设置边距为0
+			//$(".plugin_free_content").css("banner-box",winWidth).css("margin-left",'-'+pfcLeft+'px');
+			$(".plugin_free_content").css("banner-box",winWidth).css("margin-left",'0px');
+			//设置宽度为窗口宽度同时左移相对距离值
+		});
+	</script>
+</head>
+<body  style="margin-left: 0px;margin-top: 0px;">
+	<div class="banner-box">
+		<a href="http://test5556437.70card.net/Home/Search?sa=-1" target="_block">
+			<img src="http://img.zhuyun.cn/M00/72/9E/wKgJNFWfXkqAC7SGAAAxFifKrYA436.jpg" alt="www.968111.com"/>
+		</a>
+	</div>
+</body>
+</html>

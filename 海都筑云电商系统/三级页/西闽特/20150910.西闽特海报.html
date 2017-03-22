@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #xmt-ppzt-1{height:auto;position:absolute;}
+    </style>
+    <!--<script src="http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>-->
+    <script>
+        $(function(){
+            $('body').css('overflow-x','hidden');
+            var iLeft=$(window).width()-1190;
+            iLeft=iLeft/2;
+            iLeft = iLeft > 0 ? -iLeft : 0;
+            $('#xmt-ppzt-1').css('width',$(window).width()).css('left',iLeft);
+            $('#xmt-ppzt-1 img').css('width',$(window).width());
+        });
+    </script>
+</head>
+<body>
+    <div id="xmt-ppzt-1">
+        <img src="http://img.zhuyun.cn/M00/BD/8E/wKgJNFXyMh-ANDj-ABMXpytPGxo729.png" alt="西闽特花生"/>
+    </div>
+</body>
+</html>

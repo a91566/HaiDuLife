@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .jmrz-scrz{width: 1190px;height: 840px;padding-top: 140px;
+        background: url(http://img.zhuyun.cn/M00/B3/39/wKgJNFXvhAOAHr_KAAA-UBZ8ZHc079.jpg) 0 20px no-repeat;}
+        .js-main{width: 1190px;height: 700px;}
+        .js-mitem{width: 595px;height: 700px;float: left;overflow: hidden;}
+        .js-main img{transition-duration: 1s;}
+        .js-main img:hover{
+            transform: scale(1.1);
+        }
+    </style>
+    <script>
+        $(function(){
+            $('.jmrz-scrz').closest('.plugin_containers').css('top',0.5031*$(window).width()+640);
+        });
+    </script>
+</head>
+<body>
+    <div class="jmrz-scrz">
+        <div class="js-main">
+            <div class="js-mitem">
+                <a target="_blank" href="">
+                    <img src="http://img.zhuyun.cn/M00/B3/39/wKgJNFXvhAOAHQXbAACd4UoRkls552.jpg" alt="线上入驻"/>
+                </a>
+            </div>
+            <div class="js-mitem">
+                <a target="_blank" href="">
+                    <img src="http://img.zhuyun.cn/M00/B3/39/wKgJNFXvhAOAZqWjAABZM8Spdm4988.jpg" alt="门店加盟"/>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .sh-fw{width: 1190px;height: 790px;}
+        .sw-left{width: 994px;height: 790px;float: left;}
+        .sw-top-title{width: 994px;height: 150px;
+            background: #F8F8F8 url(http://img.zhuyun.cn/M00/42/89/wKgJNFXRMb-AGK0nAACiSFa2l1o415.jpg) 0 0 no-repeat;}
+        .sw-top{width: 994px;height: 90px;position: relative;}
+        .swt-b{width:994px;height: 45px;border-bottom: 1px solid lightgray;}
+        .swt-c{width:400px;height: 60px;left: 30%;background: #FFFFFF;color: #ab0306;
+            line-height: 60px;font-size: 50px;font-weight: bold;position: absolute;left: 30%;
+            top: 10px;overflow: hidden;}
+        .ul-swt{width:400px;height: 60px;text-align: center;margin: 0;padding: 0;
+            list-style: none;position: absolute;top:0px;}
+        .ul-swt li{margin: 0;padding: 0;}
+        .sw-bot{width: 994px;height: 550px;}
+        .ul-sw{margin: 0;padding: 0;width: 994px;height: 550px;list-style: none;}
+        .uli-sw{margin: 20px 17px 0 0;padding: 0;width: 320px;height: 255px;
+            float: left;position: relative;overflow: hidden;background: #F8F8F8;}
+        .udimg-sw{width: 320px;height: 200px;margin: 0;top:0;left:0;position: absolute;z-index: 1;}
+        .uli-sw img{width: 320px;height: 200px;margin: 0;}
+        .udiv-sw{width: 320px;height: 255px;line-height: 55px;position: absolute;top: 0px;padding-top: 200px;
+            transition-duration: .5s;z-index: 0;}
+        .udiv-sw:hover{padding-top: 145px;color: #ffffff;}
+        .udiv-sw p{margin: 0;padding: 0;padding-left: 20px;}
+        .uem-sw{background: #ab0306;padding-left: 20px;}
+
+        .sw-right{float: right;background: #F8F8F8;width: 180px;height: 740px;}
+    </style>
+    <!--<script src="http://apps.bdimg.com/libs/jquery/1.9.0/jquery.min.js"></script>-->
+    <script>
+        $(document).ready(function()
+        {
+            var aUlContent=$(".uli-sw");
+            for(var i=0;i<aUlContent.length;i++)
+            {
+                aUlContent[i].index=i;
+                aUlContent[i].onmouseover=function()
+                {
+                    $('#ul-swt').stop();
+                    $('#ul-swt').animate({
+                        'top':-60*this.index
+                    });
+
+                };
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="sh-fw">
+        <div class="sw-left">
+            <div class="sw-top-title">
+            </div>
+            <div class="sw-top">
+                <div class="swt-b"></div>
+                <div class="swt-c">
+                    <ul class="ul-swt" id="ul-swt">
+                        <li>门店查询</li>
+                        <li>配送说明</li>
+                        <li>合作媒体</li>
+                        <li>加盟入驻</li>
+                        <li>人才汇聚</li>
+                        <li>联系我们</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="sw-bot">
+                <ul class="ul-sw">
+                    <li class="uli-sw">
+                        <div class="udimg-sw">
+                            <a target="_blank" href="http://test5556437.70card.net/Home/Index?index_id=1000009">
+                                <img src="http://img.zhuyun.cn/M00/71/47/wKgJNFXdD2iAX_7hAAJ0AggEank656.jpg" alt="门店查询"/>
+                            </a>
+                        </div>
+                        <div class="udiv-sw">
+                            <p>门店查询</p>
+                            <p class="uem-sw">包括全部门店与自提点</p>
+                        </div>
+                    </li>
+                    <li class="uli-sw">
+                        <div class="udimg-sw">
+                            <a target="_blank" href="http://test5556437.70card.net/Home/News?id=59">
+                                <img src="http://img.zhuyun.cn/M00/71/47/wKgJNFXdD2iAaiC7AAFjrad6Ihg768.jpg" alt="配送说明"/>
+                            </a>
+                        </div>
+                        <div class="udiv-sw">
+                            <p>配送说明</p>
+                            <p class="uem-sw">配送说明</p>
+                        </div>
+                    </li>
+                    <li class="uli-sw" style="margin-right: 0;">
+                        <div class="udimg-sw">
+                            <a target="_blank" href="http://test5556437.70card.net/Home/News?id=95">
+                                <img src="http://img.zhuyun.cn/M00/71/47/wKgJNFXdD2eAZ316AAEZsRzN1sE621.jpg" alt="合作媒体"/>
+                            </a>
+                        </div>
+                        <div class="udiv-sw">
+                            <p>合作媒体</p>
+                            <p class="uem-sw">合作媒体</p>
+                        </div>
+                    </li>
+                    <li class="uli-sw">
+                        <div class="udimg-sw">
+                            <a target="_blank" href="http://test5556437.70card.net/Home/Index?index_id=1000012">
+                                <img src="http://img.zhuyun.cn/M00/71/47/wKgJNFXdD2eADvWiAAE-RUeGboI832.jpg" alt="加盟入住"/>
+                            </a>
+                        </div>
+                        <div class="udiv-sw">
+                            <p>加盟入驻</p>
+                            <p class="uem-sw">包括实体店与网上商城入驻</p>
+                        </div>
+                    </li>
+                    <li class="uli-sw">
+                        <div class="udimg-sw">
+                            <a target="_blank" href="http://test5556437.70card.net/Home/News?id=94">
+                                <img src="http://img.zhuyun.cn/M00/71/47/wKgJNFXdD2iAe03-AAEqykDuCuw618.jpg" alt="人才汇聚"/>
+                            </a>
+                        </div>
+                        <div class="udiv-sw">
+                            <p>人才汇聚</p>
+                            <p class="uem-sw">人才汇聚</p>
+                        </div>
+                    </li>
+                    <li class="uli-sw" style="margin-right: 0;">
+                        <div class="udimg-sw">
+                            <a target="_blank" href="http://test5556437.70card.net/Home/News?id=93">
+                                <img src="http://img.zhuyun.cn/M00/71/47/wKgJNFXdD2eAO_QKAAGOE3caLw4940.jpg" alt="联系我们"/>
+                            </a>
+                        </div>
+                        <div class="udiv-sw">
+                            <p>联系我们</p>
+                            <p class="uem-sw">联系我们</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="sw-right">
+            <a target="_blank" href="">
+                <img style="width: 180px;height: 790px;" src="http://img.zhuyun.cn/M00/42/B5/wKgJNFXROomAa7LkAABwtTps2IQ025.jpg" alt=""/>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

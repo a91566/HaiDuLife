@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #pagetop-palyopacity{width: 1190px;height: 490px;margin-bottom: 0;position: relative;}
+        .pt-poctit{width: 1190px;height: 110px;
+            background: url(http://img.zhuyun.cn/M00/0B/29/wKgJNFYcc9OAAhzTAACWTXx3WNk076.png) 0 -330px no-repeat;}
+        .pt-po{z-index: 1;position: absolute;display: inline;width: 890px;height: 380px;margin: 0;}
+
+        .pt-po img{width: 890px;height: 380px;margin: 0;}
+        .pt-po-ol{z-index: 99999;position: absolute;list-style-type: none;bottom: 0;left:1%;}
+        .pt-po-ol li{float: left;margin: 5px;width: 30px;height:30px;border-radius:30px;line-height: 30px;
+            text-align: center;color: #FFFFFF;}
+        .pt-liactive{background: #39b3d7;}
+        .ptpo-ad{z-index: 99999;position: absolute;right: 0px;width: 300px;height: 380px;}
+        .ptpo-ad img{width: 300px;height: 380px;transition-duration: .4s;}
+        .ptpo-ad img:hover{transform: translateX(-5px);}
+        #show_rule_xpys{position: absolute;left: 570px;top:70px;color: darkgray;text-decoration: none;}
+        #show_rule_xpys:hover{text-decoration: underline;}
+        #show_rule_xpys{position: absolute;left: 570px;top:70px;color: darkgray;text-decoration: none;}
+        #show_rule_xpys:hover{text-decoration: underline;}
+        #show-rule_details_xpys{left:345px;display: none;position: absolute;width: 500px;height: 620px;background:#FFFFFF;
+            border: 1px solid #Ad0100;top:0px;;z-index: 1000;box-shadow: 0 0 15px #000000;}
+        .rule-title{color: #FFFFFF;font-size: 20px;line-height: 50px;padding-left: 10px;}
+        #show-rule_details_xpys p{padding:0 10px;font-size: 14px;line-height: 25px;margin: 8px 0;}
+        #am-close-xpys{right: 5px;color: #FFFFFF;font-size: 38px;cursor: pointer;position: absolute;}
+        .gwlc{height: 260px;position: relative;
+            background: url(http://img.zhuyun.cn/M00/0D/B6/wKgJNFYcseiANHZDAAD-dyOOIXQ732.jpg) 0 0 no-repeat;}
+        .gwlc span{display: block;position: absolute;font-size: 12px;}
+    </style>
+    <!--<script src="http://apps.bdimg.com/libs/jquery/1.9.0/jquery.min.js"></script>-->
+    <script>
+        $(function()
+        {
+            $('#show_rule_xpys').click(function()
+            {
+                $('#show-rule_details_xpys').css('display','block');
+            });
+
+            $('#am-close-xpys').click(function ()
+            {
+                $('#show-rule_details_xpys').css('display','none');
+            });
+        });
+        $(document).ready(function()
+        {
+            var oDivPtpoMain=$("#pagetop-palyopacity");
+            var aBtnPtpo=$(".pt-po-ol").get(0).getElementsByTagName("li");
+            var nowIndex=0;
+            var nowZIndex=2;
+
+            for(var i=0;i<aBtnPtpo.length;i++)
+            {
+                aBtnPtpo[i].index=i;
+                aBtnPtpo[i].onclick=function()
+                {
+                    nowIndex=this.index;
+                    tab();
+                    aBtnPtpo[i].className=".pt-liactive";
+                }
+            }
+
+            function tab()
+            {
+                nowZIndex++;
+                $(".pt-po").eq(nowIndex).css('z-index',nowZIndex);
+
+                $(".pt-po").eq(nowIndex).find('img').eq(0).css('opacity',0);
+                $(".pt-po").eq(nowIndex).find('img').eq(0).animate({'opacity':1});
+
+                for(var i=0;i<aBtnPtpo.length;i++)
+                {
+                    aBtnPtpo[i].className="";
+                }
+                aBtnPtpo[nowIndex].className="pt-liactive";
+
+            }
+
+            function next()
+            {
+                nowIndex++;
+                if(nowIndex==aBtnPtpo.length)
+                {
+                    nowIndex=0;
+                }
+                tab();
+            }
+
+            var tmrMove=setInterval(next,5000);
+
+            oDivPtpoMain.onmouseover=function(){
+                clearInterval(tmrMove);
+            }
+            oDivPtpoMain.onmouseout=function(){
+                tmrMove=setInterval(next,5000);
+            }
+
+            $('#show-rule_details_xpys').closest('.plugin_free_content').css('overflow','visible');
+        });
+    </script>
+</head>
+<body>
+    <div id="pagetop-palyopacity">
+        <div id="show-rule_details_xpys">
+            <div style="position: relative;height: 50px;width: 100%;background: #Ad0100;">
+                <span class="rule-title">规则说明</span>
+                <span id="am-close-xpys" style="font-size: 38px;">×</span>
+            </div>
+            <div class="gwlc">
+                <span style="top: 105px;left: 35px;">注册海都生活网账户</span>
+                <span style="top: 125px;left: 35px;">登陆账户</span>
+                <span style="top: 105px;left: 210px;">搜索预售标签产品</span>
+                <span style="top: 125px;left: 210px;">查看页面推荐</span>
+                <span style="top: 105px;left: 380px;">选择预定数量</span>
+                <span style="top: 125px;left: 380px;">选择配送地址</span>
+                <span style="top: 208px;left: 380px;">空运/直采/进口</span>
+                <span style="top: 208px;left: 35px;">确认收货</span>
+                <span style="top: 228px;left: 35px;">商品评价</span>
+            </div>
+            <div>
+                <p>1.仅本网站注册会员可参与预售。</p>
+                <p>2.预售不支持货到付款，仅限网上支付。且支付不支持任何形式抵用券。</p>
+                <p>3.买家拍下商品后必须120分钟内成功支付金额，否则系统将自动关闭该订单。</p>
+                <p>4.预售商品发货时间，请参考商品详情页面“预计发货时间”为准 。</p>
+                <p>5.预售商品与其他商品分开计算运费，预售商品单独满百包邮。</p>
+                <p>6.预售产品配送范围：生鲜类商品只接受福州市四区会员订单，非鼓楼、仓山、台江、晋安区会员请勿拍；非生鲜类商品全国范围类配送。</p>
+                <p>7.产品咨询：商品的相关询问，请联系在线客服或拨打热线电话：4009-968112。</p>
+            </div>
+        </div>
+        <div class="pt-poctit">
+            <a href="###" id="show_rule_xpys">查看规则</a>
+        </div>
+        <div class="pt-po" style="z-index: 2;">
+            <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2211534">
+                <img src="http://img.zhuyun.cn/M00/5A/5B/wKgJNFXW5xOAESnUAAIokVL4GTg552.jpg" alt="猴头菇,美味,健康"/>
+            </a>
+        </div>
+        <div class="pt-po">
+            <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2203739">
+                <img src="http://img.zhuyun.cn/M00/5A/5B/wKgJNFXW5xOAO-PIAAJD_bpjXlc345.jpg" alt="百合干好吃"/></a>
+        </div>
+        <ol class="pt-po-ol">
+            <li class="pt-liactive">1</li>
+            <li>2</li>
+        </ol>
+        <div class="ptpo-ad">
+            <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2234219">
+                <img src="http://img.zhuyun.cn/M00/5A/5B/wKgJNFXW5xOACTqGAACfes4FLEs640.jpg" alt="怡然鸡蛋"/>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

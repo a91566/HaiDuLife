@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #pagetop-palyopacity{width: 1190px;height: 490px;margin-bottom: 0;position: relative;}
+        .pt-poctit{width: 1190px;height: 110px;
+            background: url(http://img.zhuyun.cn/M00/0B/29/wKgJNFYcc9OAAhzTAACWTXx3WNk076.png) 0 -330px no-repeat;}
+        .pt-po{z-index: 1;position: absolute;display: inline;width: 890px;height: 380px;margin: 0;}
+
+        .pt-po img{width: 890px;height: 380px;margin: 0;}
+        .pt-po-ol{z-index: 99999;position: absolute;list-style-type: none;bottom: 0;left:1%;}
+        .pt-po-ol li{float: left;margin: 5px;width: 30px;height:30px;border-radius:30px;line-height: 30px;
+            text-align: center;color: #FFFFFF;}
+        .pt-liactive{background: #39b3d7;}
+        .ptpo-ad{z-index: 99999;position: absolute;right: 0px;width: 300px;height: 380px;}
+        .ptpo-ad img{width: 300px;height: 380px;transition-duration: .4s;}
+        .ptpo-ad img:hover{transform: translateX(-5px);}
+    </style>
+    <!--<script src="http://apps.bdimg.com/libs/jquery/1.9.0/jquery.min.js"></script>-->
+    <script>
+        $(document).ready(function()
+        {
+            var oDivPtpoMain=$("#pagetop-palyopacity");
+            var aBtnPtpo=$(".pt-po-ol").get(0).getElementsByTagName("li");
+            var nowIndex=0;
+            var nowZIndex=2;
+
+            for(var i=0;i<aBtnPtpo.length;i++)
+            {
+                aBtnPtpo[i].index=i;
+                aBtnPtpo[i].onclick=function()
+                {
+                    nowIndex=this.index;
+                    tab();
+                    aBtnPtpo[i].className=".pt-liactive";
+                }
+            }
+
+            function tab()
+            {
+                nowZIndex++;
+                $(".pt-po").eq(nowIndex).css('z-index',nowZIndex);
+
+                $(".pt-po").eq(nowIndex).find('img').eq(0).css('opacity',0);
+                $(".pt-po").eq(nowIndex).find('img').eq(0).animate({'opacity':1});
+
+                for(var i=0;i<aBtnPtpo.length;i++)
+                {
+                    aBtnPtpo[i].className="";
+                }
+                aBtnPtpo[nowIndex].className="pt-liactive";
+
+            }
+
+            function next()
+            {
+                nowIndex++;
+                if(nowIndex==aBtnPtpo.length)
+                {
+                    nowIndex=0;
+                }
+                tab();
+            }
+
+            var tmrMove=setInterval(next,5000);
+
+            oDivPtpoMain.onmouseover=function(){
+                clearInterval(tmrMove);
+            }
+            oDivPtpoMain.onmouseout=function(){
+                tmrMove=setInterval(next,5000);
+            }
+
+        });
+    </script>
+</head>
+<body>
+    <div id="pagetop-palyopacity">
+        <div class="pt-poctit">
+
+        </div>
+        <div class="pt-po" style="z-index: 2;">
+            <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2211534">
+                <img src="http://img.zhuyun.cn/M00/5A/5B/wKgJNFXW5xOAESnUAAIokVL4GTg552.jpg" alt="猴头菇,美味,健康"/>
+            </a>
+        </div>
+        <div class="pt-po">
+            <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2203739">
+                <img src="http://img.zhuyun.cn/M00/5A/5B/wKgJNFXW5xOAO-PIAAJD_bpjXlc345.jpg" alt="百合干好吃"/></a>
+        </div>
+        <ol class="pt-po-ol">
+            <li class="pt-liactive">1</li>
+            <li>2</li>
+        </ol>
+        <div class="ptpo-ad">
+            <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2234219">
+                <img src="http://img.zhuyun.cn/M00/5A/5B/wKgJNFXW5xOACTqGAACfes4FLEs640.jpg" alt="怡然鸡蛋"/>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

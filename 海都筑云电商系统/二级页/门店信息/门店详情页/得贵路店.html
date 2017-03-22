@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .stroe-detail{height: 440px;background: #F8F8F8;position: absolute;}
+        .stor-main{margin: 0 auto;width: 1190px;}
+        .stro-pic{float: left;width: 400px;height:440px;text-align: center;}
+        .stro-pic img{width: 350px;height:350px;margin-top: 35px;}
+        .stro-content{float: left;height:400px;width: 730px;}
+        .btn-span{display: inline-block;margin-left: 62%;color: #FFFFFF;background: #Ad0100;
+            border-radius: 5px;height: 40px;line-height: 40px;width: 130px;text-align: center;
+        font-size: 14px;font-weight: normal;cursor: pointer;}
+        .stro-content p{color: #666666;margin-left: 0px;padding-left: 0px;line-height: 38px;
+            font-size: 14px;font-family: "微软雅黑"}
+        .stro-content h3{height: 50px;line-height: 50px;border-bottom: 3px solid #Ad0100;}
+        #allmap-p{width:80%;height:600px;position: absolute;z-index: 10;
+            border: 1px solid #Ad0100;box-shadow: 0 0 15px #000000;
+            display: none;background:rgba(0,0,0,0.2);left: 10%;}
+        #allmap{width:100%;height:550px;}
+        #am-close{margin-left: 96%;color: #FFFFFF;font-size: 38px;cursor: pointer;position: absolute;}
+        .sd-foot{width: 1190px;height: 200px;}
+    </style>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=FFRxHiPi2O5sCzeKqPFHE0pv"></script>
+    <script>
+
+        window.onload= function ()
+        {
+            document.body.style.overflowX="hidden";
+            var iWidth=document.documentElement.clientWidth;
+            var oDivFz=document.getElementById("stroe-detail");
+            oDivFz.style.width = iWidth + 'px';
+            var iLeft=iWidth-1190;
+            iLeft=iLeft/2;
+            oDivFz.style.left = "-"+iLeft + 'px';
+
+            var oBtnShow=document.getElementById("btn-span");
+            var oBtnClose=document.getElementById("am-close");
+
+            oBtnShow.onclick=function()
+            {
+                var oDivMap=document.getElementById("allmap-p");
+                oDivMap.style.display="block";
+
+                // 百度地图API功能
+                var map = new BMap.Map("allmap");
+                var point = new BMap.Point(119.32284,26.087943);
+                var marker = new BMap.Marker(point);  // 创建标注
+                map.addOverlay(marker);               // 将标注添加到地图中
+                map.centerAndZoom(point, 19);
+            };
+            oBtnClose.onclick=function()
+            {
+                var oDivMap=document.getElementById("allmap-p");
+
+                oDivMap.style.display="none";
+            };
+
+
+        };
+    </script>
+</head>
+<body>
+    <div id="allmap-p">
+        <div style="position: relative;height: 50px;width: 100%;background: #Ad0100;">
+            <span  id="am-close">×</span>
+        </div>
+        <div id="allmap"></div>
+    </div>
+
+    <div class="stroe-detail" id="stroe-detail">
+        <div class="stor-main">
+            <div class="stro-pic">
+                <img src="http://img.zhuyun.cn/M00/45/FE/wKgJNFXRp5eAbdIFAA52JYpCWgY359.jpg" alt="海都"/>
+            </div>
+            <div class="stro-content">
+                <h3>
+                    海都购物网得贵路店
+                    <span class="btn-span" id="btn-span">查看地图</span>
+                </h3>
+                <p>门店地址：鼓楼区福新路上琼福路30号宜发得贵城7栋7号店 </p>
+                <p>联系电话：0591-63101865</p>
+                <p>营业时间：08:00-21:00</p>
+                <p>公交路线：60路; 78路; 86路; 102路; 122路; 303路至双子星大厦站下车</p>
+                <p>
+                    地铁路线：（无）
+                </p>
+                <p>停车服务：无</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="sd-foot">
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #jt-xx{width: 1190px;height: 590px;}
+        #jtxx-ul{list-style: none;width: 1190px;height: 580px;margin: 0;padding: 0;margin-left: 10px;}
+        #jtxx-ul li{float: left;margin: 5px;padding: 0;width: 280px;height: 280px;border: 1px solid lightgray;position: relative;}
+        #jtxx-ul img{float: left;width: 280px;height: 280px;}
+        .jxul-tit{position: absolute;float: left;bottom: 0;height: 50px;width: 100%;
+            background: black;opacity: 0.8;filter: alpha(opacity:80);}
+        .jxul-tit h4{color: #ffffff;font-weight: normal;line-height: 50px;
+            margin: 0;padding: 0;height: 50px;margin-left: 20px;}
+        .jxul-tit p{color: #ffffff;margin-left: 20px;}
+    </style>
+    <!--<script src="http://apps.bdimg.com/libs/jquery/1.9.0/jquery.min.js"></script>-->
+    <script>
+        $(function(){
+            var aLis=$('#jtxx-ul li').get();
+            for(var i=0;i<aLis.length;i++)
+            {
+                aLis[i].index=i;
+                $(aLis[i]).mouseover(function(){
+                    var xx=$(this).find('.jxul-tit').get(0);
+                    $(xx).stop().animate({
+                        'height':280
+                    });
+                });
+
+                $(aLis[i]).mouseout(function(){
+                    var xx=$(this).find('.jxul-tit').get(0);
+                    $(xx).stop().animate({
+                        'height': 50
+                    });
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+    <div id="jt-xx">
+        <ul id="jtxx-ul">
+            <li>
+                <a target="_blank" href="http://test5556437.70card.net/Home/Goods?id=3047064">
+                    <div class="jxul-tit">
+                        <h4>红腰豆</h4>
+                        <p>美味营养</p>
+                    </div>
+                    <img src="http://img.zhuyun.cn/M00/40/5C/wKgJNFYolHGALEB_AAB55AP_AM0035.jpg" alt="红腰豆"/>
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="http://test5556437.70card.net/Home/Goods?id=3047042">
+                    <div class="jxul-tit">
+                        <h4>红皮花生</h4>
+                        <p>美味营养</p>
+                    </div>
+                    <img src="http://img.zhuyun.cn/M00/40/53/wKgJNFYok5eATiDWAABx_XOwRSg808.jpg" alt="红皮花生"/>
+                </a>
+            </li>
+
+            <li>
+                <a target="_blank" href="http://test5556437.70card.net/Home/Goods?id=3046946">
+                    <div class="jxul-tit">
+                        <h4>黑糯米</h4>
+                        <p>美味营养</p>
+                    </div>
+                    <img src="http://img.zhuyun.cn/M00/40/37/wKgJNFYokSeAWrr8AADBE93o76o077.jpg" alt="黑糯米"/>
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="http://test5556437.70card.net/Home/Goods?id=3046989">
+                    <div class="jxul-tit">
+                        <h4>红粳米</h4>
+                        <p>美味营养</p>
+                    </div>
+                    <img src="http://img.zhuyun.cn/M00/40/46/wKgJNFYokjqAO_tgAACeLEcV7ic922.jpg" alt="红粳米"/>
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="http://test5556437.70card.net/Home/Goods?id=3046862">
+                    <div class="jxul-tit">
+                        <h4>黑豆</h4>
+                        <p>美味营养</p>
+                    </div>
+                    <img src="http://img.zhuyun.cn/M00/40/23/wKgJNFYoj7aAPl7FAAB2ztXp7gM303.jpg" alt="黑豆"/>
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="http://test5556437.70card.net/Home/Goods?id=3046628">
+                    <div class="jxul-tit">
+                        <h4>腐竹</h4>
+                        <p>美味营养</p>
+                    </div>
+                    <img src="http://img.zhuyun.cn/M00/40/0D/wKgJNFYojhKADjh7AABjItRjdaQ231.jpg" alt="腐竹"/>
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="http://test5556437.70card.net/Home/Goods?id=3046403">
+                    <div class="jxul-tit">
+                        <h4>八宝粥</h4>
+                        <p>美味营养</p>
+                    </div>
+                    <img src="http://img.zhuyun.cn/M00/3F/D0/wKgJNFYoiUqAcIQ1AAClxoeifbI417.jpg" alt="八宝粥"/>
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="http://test5556437.70card.net/Home/Goods?id=3046397">
+                    <div class="jxul-tit">
+                        <h4>八宝粥</h4>
+                        <p>美味营养</p>
+                    </div>
+                    <img src="http://img.zhuyun.cn/M00/3F/D0/wKgJNFYoiUqAcIQ1AAClxoeifbI417.jpg" alt="八宝粥"/>
+                </a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

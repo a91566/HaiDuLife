@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .FoodProducts{width: 1190px;height: 750px;overflow: hidden;position: relative;}
+        .fp-main{width: 1190px;height: 100%;position: relative;margin-top: -10px;}
+        .fpm-2l{width: 505px;height: 562px;float: left;position: relative;
+            background: url(http://img.zhuyun.cn/M00/0A/73/wKgJNFYGPW-AGIOrAABm3UsW1WA179.jpg) 0 0 no-repeat;}
+        .fpm-2r{width: 685px;height: 562px;float: left;position: relative;overflow: hidden;
+            background: url(http://img.zhuyun.cn/M00/04/9D/wKgJNFYEv1WACT6hAAAb1BtArWw010.jpg) 0 0 no-repeat;}
+        .fpm-2r a{font-size: 0;margin-top: 99px;}
+        .fpm-2r img{margin-top: 99px;}
+        #fpm-ul{margin: 0;padding: 0;list-style: none;height: 186px;position: absolute;top: 562px;left: 0;}
+        #fpm-ul li{margin: 0;padding: 0;float: left;height: 186px;}
+        .FoodProducts .btn-prev,.FoodProducts .btn-next{position: absolute;bottom: 70px;width: 42px;height: 47px;z-index: 99;
+            filter: alpha(opacity:30);opacity: 0.3;}
+        .btn-prev:hover,.btn-next:hover{filter: alpha(opacity:100);opacity: 1;}
+        .FoodProducts .btn-prev{left: 0;background: #000000 url(http://img.zhuyun.cn/M00/28/CB/wKgJNFXKoDSAGsL0AAABsDb_g5U880.png) 10px 0 no-repeat;}
+        .FoodProducts .btn-next{left: 1148px;background: #000000 url(http://img.zhuyun.cn/M00/28/CB/wKgJNFXKoDSAPk4ZAAABytE9enE670.png) 10px 0 no-repeat;}
+        .cm-circle{position: absolute;background: #FFFFFF;width: 12px;height: 12px;border-radius:20px;transition-duration: .5s;}
+        #cm-fz{left: 392px;top:228px;}
+        #cm-pt{left: 353px;top:295px;}
+        #cm-qz{left: 314px;top:365px;}
+        #cm-xm{left: 275px;top:398px;}
+        #cm-zz{left: 220px;top:375px;}
+        #cm-ly{left: 166px;top:320px;}
+        #cm-sm{left: 218px;top:215px;}
+        #cm-np{left: 288px;top:190px;}
+        #cm-nd{left: 392px;top:153px;}
+        .cm-circle:hover{transform: scale(1.5);}
+        #cm-car{left: 367px;top:169px;width: 60px;height: 70px;position: absolute;transition-duration:0.5s;
+            background: url("http://img.zhuyun.cn/M00/0B/7A/wKgJNFXDCkiAWpm8AAAczgejrXk972.png") 0 0 repeat;}
+        .fpm-area{position: absolute;font-size: 14px;}
+        #fa-fz{left: 362px;top:226px;}
+        #fa-pt{left: 323px;top:293px;}
+        #fa-qz{left: 284px;top:363px;}
+        #fa-xm{left: 245px;top:396px;}
+        #fa-zz{left: 190px;top:373px;}
+        #fa-ly{left: 136px;top:318px;}
+        #fa-sm{left: 188px;top:213px;}
+        #fa-np{left: 258px;top:188px;}
+        #fa-nd{left: 362px;top:151px;}
+
+        #fpm-2rul{margin: 0;padding: 0;list-style: none;position: absolute;}
+        #fpm-2rul li{float: left;padding: 0;margin: 0;}
+        #fpm-2rul img{transition-duration: 1s;}
+        #fpm-2rul img:hover{transform: scale(1.01);}
+        .fpm-content{position:absolute;bottom: -43px;height: 43px;width: 100%;line-height: 43px;
+        background: #000000;padding-left: 80px;opacity: 0.3;filter: alpha(opacity:30);}
+        .fpm-content a{cursor: pointer;color: #b2b2b2;text-decoration: none;}
+        .fpm-content a:hover{text-decoration: underline;color: #ffffff;animation: rotate 1s infinite;}
+        @keyframes rotate {
+            100%{transform: rotateZ(360deg);}
+        }
+    </style>
+    <!--<script src="http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>-->
+    <script>
+        $(function(){
+            $('.fpm-2l').eq(0).mouseover(function(){
+                $('.fpm-content').eq(0).stop().animate({
+                    'bottom':0
+                });
+            });
+            $('.fpm-2l').eq(0).mouseout(function(){
+                $('.fpm-content').eq(0).stop().animate({
+                    'bottom':-43
+                });
+            });
+            $('#fpm-ul').html($('#fpm-ul').html()+$('#fpm-ul').html()+$('#fpm-ul').html());
+            var aLis=$('#fpm-ul li').get();
+            $('#fpm-ul').css('width',aLis.length*238);
+            $('#fpm-ul').css('left',-$('#fpm-ul').width() / 3);
+
+
+            $('.FoodProducts .btn-prev').click(function(){
+                $(this).css('display','none');
+                if(parseInt($('#fpm-ul').css('left'))==-$('#fpm-ul').width()*2 / 3)
+                {
+                    $('#fpm-ul').css('left',-$('#fpm-ul').width() / 3);
+                }
+                var iLeft=parseInt($('#fpm-ul').css('left'));
+                $('#fpm-ul').animate({
+                    'left':iLeft-238
+                },400,function(){
+                    $('.FoodProducts .btn-prev').css('display','block');
+                });
+            });
+            $('.FoodProducts .btn-next').click(function(){
+                $(this).css('display','none');
+                if(parseInt($('#fpm-ul').css('left'))==0)
+                {
+                    $('#fpm-ul').css('left',-$('#fpm-ul').width() / 3);
+                }
+
+                var iLeft=parseInt($('#fpm-ul').css('left'));
+                $('#fpm-ul').animate({
+                    'left':iLeft+238
+                },400,function(){
+                    $('.FoodProducts .btn-next').css('display','block');
+                });
+            });
+
+            aLis=$('#fpm-2rul li').get();
+            $('#fpm-2rul').css('width',aLis.length*685);
+            var aDivs=$('.cm-circle').get();
+            var arrLeft=[367,328,289,250,195,141,193,263,367];
+            var arrTop=[169,233,303,336,313,258,153,128,91];
+            for(var i=0;i<aDivs.length;i++)
+            {
+                aDivs[i].index=i;
+                $(aDivs[i]).mouseover(function(){
+                    $('#cm-car').animate({
+                        'left':arrLeft[this.index],
+                        'top':arrTop[this.index]
+                    });
+                    $('#fpm-2rul').animate({
+                        'left':-this.index*685
+                    });
+                });
+            }
+
+        })
+    </script>
+</head>
+<body>
+    <div class="FoodProducts">
+        <a href="javascript:;" class="btn-prev"></a>
+        <a href="javascript:;" class="btn-next"></a>
+        <div class="fp-main">
+            <div class="fpm-2l">
+                <div class="fpm-content">
+                    <a target="_blank" href="http://test5556437.70card.net/Home/Index?index_id=1000015" title="查看更多福州信息">福州</a>
+                    <a target="_blank" href="http://test5556437.70card.net/Home/Index?index_id=1000016" title="查看更多莆田信息">莆田</a>
+                    <a target="_blank" href="http://test5556437.70card.net/Home/Index?index_id=1000017" title="查看更多泉州信息">泉州</a>
+                    <a target="_blank" href="http://test5556437.70card.net/Home/Index?index_id=1000018" title="查看更多厦门信息">厦门</a>
+                    <a target="_blank" href="http://test5556437.70card.net/Home/Index?index_id=1000019" title="查看更多漳州信息">漳州</a>
+                    <a target="_blank" href="http://test5556437.70card.net/Home/Index?index_id=1000020" title="查看更多龙岩信息">龙岩</a>
+                    <a target="_blank" href="http://test5556437.70card.net/Home/Index?index_id=1000021" title="查看更多三明信息">三明</a>
+                    <a target="_blank" href="http://test5556437.70card.net/Home/Index?index_id=1000022" title="查看更多南平信息">南平</a>
+                    <a target="_blank" href="http://test5556437.70card.net/Home/Index?index_id=1000023" title="查看更多宁德信息">宁德</a>
+                </div>
+                <span class="fpm-area" id="fa-fz">福州</span>
+                <span class="fpm-area" id="fa-pt">莆田</span>
+                <span class="fpm-area" id="fa-qz">泉州</span>
+                <span class="fpm-area" id="fa-xm">厦门</span>
+                <span class="fpm-area" id="fa-zz">漳州</span>
+                <span class="fpm-area" id="fa-ly">龙岩</span>
+                <span class="fpm-area" id="fa-sm">三明</span>
+                <span class="fpm-area" id="fa-np">南平</span>
+                <span class="fpm-area" id="fa-nd">宁德</span>
+
+                <div class="cm-circle" id="cm-fz">
+
+                </div>
+                <div class="cm-circle" id="cm-pt">
+                </div>
+                <div class="cm-circle" id="cm-qz">
+                </div>
+                <div class="cm-circle" id="cm-xm">
+
+                </div>
+                <div class="cm-circle" id="cm-zz">
+
+                </div>
+                <div class="cm-circle" id="cm-ly">
+
+                </div>
+                <div class="cm-circle" id="cm-sm">
+
+                </div>
+                <div class="cm-circle" id="cm-np">
+
+                </div>
+                <div class="cm-circle" id="cm-nd">
+
+                </div>
+
+                <div id="cm-car">
+
+                </div>
+            </div>
+            <div class="fpm-2r">
+                <ul id="fpm-2rul">
+                    <li>
+                        <!--福州-->
+                        <a target="_blank" href="">
+                            <img src="http://img.zhuyun.cn/M00/04/9D/wKgJNFYEv1aAc5fwAAC67GSHN3A648.jpg" alt="福州三坊七巷"/>
+                        </a>
+                        <a target="_blank" href="">
+                            <img src="http://img.zhuyun.cn/M00/04/9D/wKgJNFYEv1aAHuulAADDIamJibc879.jpg" alt="福州鱼丸"/>
+                        </a>
+                    </li>
+                    <li>
+                        <!--莆田-->
+                        <a target="_blank" href="">
+                            <img src="http://img.zhuyun.cn/M00/09/7C/wKgJNFYGAaeABR-mAAB8Q2hHigc772.jpg" alt="永定土楼"/>
+                        </a>
+                        <a target="_blank" href="">
+                            <img src="http://img.zhuyun.cn/M00/09/7D/wKgJNFYGAaeAHBvbAACo_fwHFKA605.jpg" alt="闽西八大干"/>
+                        </a>
+                    </li>
+                    <li>
+                        <!--泉州-->
+                        <a target="_blank" href="">
+                            <img src="http://img.zhuyun.cn/M00/09/BE/wKgJNFYGDNeAHreEAADl3U8OBTs421.jpg" alt="清源山老君岩"/>
+                        </a>
+                        <a target="_blank" href="">
+                            <img src="http://img.zhuyun.cn/M00/09/7D/wKgJNFYGAaiAA3JhAAEI_Xdjg1E987.jpg" alt="安溪铁观音"/>
+                        </a>
+                    </li>
+                    <li>
+                        <!--厦门-->
+                        <a target="_blank" href="">
+                            <img src="http://img.zhuyun.cn/M00/09/7D/wKgJNFYGAaiAcUzeAACj_bikqdY177.jpg" alt="鼓浪屿"/>
+                        </a>
+                        <a target="_blank" href="">
+                            <img src="http://img.zhuyun.cn/M00/09/7D/wKgJNFYGAaiAMeCNAAD4YfReIQw283.jpg" alt="姜母鸭"/>
+                        </a>
+                    </li>
+                    <li>
+                        <!--漳州-->
+                        <a target="_blank" href="">
+                            <img src="http://img.zhuyun.cn/M00/09/7D/wKgJNFYGAaiADhxOAAB4InSX7RI636.jpg" alt="东山岛"/>
+                        </a>
+                        <a target="_blank" href="">
+                            <img src="http://img.zhuyun.cn/M00/09/7D/wKgJNFYGAaiAdmGWAADziGCgRoY383.jpg" alt="枕头饼"/>
+                        </a>
+                    </li>
+                    <li>
+                        <!--龙岩-->
+                        <a target="_blank" href="">
+                            <img src="http://img.zhuyun.cn/M00/09/7C/wKgJNFYGAaeAfE1fAADf_v3AKrA709.jpg" alt="永定土楼"/>
+                        </a>
+                        <a target="_blank" href="">
+                            <img src="http://img.zhuyun.cn/M00/09/7D/wKgJNFYGAaiAN21bAADgnL8dsqU334.jpg" alt="闽西八大干"/>
+                        </a>
+                    </li>
+                    <li>
+                        <!--三明-->
+                        <a target="_blank" href="">
+                            <img src="http://img.zhuyun.cn/M00/09/7D/wKgJNFYGAaiAFXgHAADh9WrbYTk913.jpg" alt="三明桃源洞"/>
+                        </a>
+                        <a target="_blank" href="">
+                            <img src="http://img.zhuyun.cn/M00/09/7D/wKgJNFYGAaiAHEdpAAEu3gM5Y84605.jpg" alt="三明板鸭"/>
+                        </a>
+                    </li>
+                    <li>
+                        <!--南平-->
+                        <a target="_blank" href="">
+                            <img src="http://img.zhuyun.cn/M00/09/7C/wKgJNFYGAaeAPPDtAADUn3UlBGc690.jpg" alt="武夷山"/>
+                        </a>
+                        <a target="_blank" href="">
+                            <img src="http://img.zhuyun.cn/M00/09/7C/wKgJNFYGAaeAPIeYAACek4ucCUc321.jpg" alt="锥栗"/>
+                        </a>
+                    </li>
+                    <li>
+                        <!--宁德-->
+                        <a target="_blank" href="">
+                            <img src="http://img.zhuyun.cn/M00/09/7C/wKgJNFYGAaeADAfOAACVpWnewTM677.jpg" alt="太姥山"/>
+                        </a>
+                        <a target="_blank" href="">
+                            <img src="http://img.zhuyun.cn/M00/09/7C/wKgJNFYGAaeAMlpAAACstVQYapY511.jpg" alt="紫菜"/>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <ul id="fpm-ul">
+                <li>
+                    <a target="_blank" href="http://test5556437.70card.net/Home/Index?index_id=1000015">
+                        <img src="http://img.zhuyun.cn/M00/09/B8/wKgJNFYGC_eAIVCDAAA5skQ99HI343.jpg" alt="福州馆"/>
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" href="http://test5556437.70card.net/Home/Index?index_id=1000016">
+                        <img src="http://img.zhuyun.cn/M00/09/B8/wKgJNFYGC_eAaBKlAAAyGrbTC8U530.jpg" alt="莆田馆"/>
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" href="http://test5556437.70card.net/Home/Index?index_id=1000017">
+                        <img src="http://img.zhuyun.cn/M00/09/B8/wKgJNFYGC_eAXtHMAAAv918R4GQ961.jpg" alt="泉州馆"/>
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" href="http://test5556437.70card.net/Home/Index?index_id=1000018">
+                        <img src="http://img.zhuyun.cn/M00/09/B8/wKgJNFYGC_eAJl8bAAAwVBl9qtY625.jpg" alt="厦门馆"/>
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" href="http://test5556437.70card.net/Home/Index?index_id=1000019">
+                        <img src="http://img.zhuyun.cn/M00/09/B8/wKgJNFYGC_eAKRUnAAAyThmujOk179.jpg" alt="漳州馆"/>
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" href="http://test5556437.70card.net/Home/Index?index_id=1000020">
+                        <img src="http://img.zhuyun.cn/M00/09/B8/wKgJNFYGC_eAdXaMAAA7ZzrGn_E078.jpg" alt="龙岩馆"/>
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" href="http://test5556437.70card.net/Home/Index?index_id=1000021">
+                        <img src="http://img.zhuyun.cn/M00/09/B8/wKgJNFYGC_eAczL_AAArINVhI8U219.jpg" alt="三明馆"/>
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" href="http://test5556437.70card.net/Home/Index?index_id=1000022">
+                        <img src="http://img.zhuyun.cn/M00/09/B8/wKgJNFYGC_eAKGFlAAAx6Q7vKcY380.jpg" alt="南平馆"/>
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" href="http://test5556437.70card.net/Home/Index?index_id=1000023">
+                        <img src="http://img.zhuyun.cn/M00/09/B8/wKgJNFYGC_eAXXgnAAAp74T7F10332.jpg" alt="宁德馆"/>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
