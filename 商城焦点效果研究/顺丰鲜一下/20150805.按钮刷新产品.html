@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        #divhaiyixia{width: 950px;height: 290px;border: 1px solid black;margin: 0 auto;}
+        #divhaileft{float:left;width: 810px;height: 290px;margin: 0;border: 1px dashed #39b3d7;}
+        #divhairight{float:left;width: 136px;height: 290px;margin: 0;}
+        .haitop{width: 810px;height: 60px;}
+        .haibottom{width: 810px;height: 230px;position: relative;overflow: hidden;}
+        .hailist{margin: 0;padding: 0;float: left;width: 200px;height: 230px;}
+
+        ul{margin: 0;padding: 0;list-style: none;top: 0px;
+            width: 800px;height: 210px;position: absolute;}
+
+        li{margin: 0;padding: 0;width: 200px;height: 230px;text-align: center;}
+
+        .hailist img{width: 150px;height: 150px;}
+        #divbtnhai{float: left;}
+        #btnhai{margin-top: 60px;margin-left: 20px;transition: 1s;border: 1px dashed #39b3d7;}
+
+        #btnhai:hover{
+            transform: rotate(360deg);
+        }
+
+
+    </style>
+    <script>
+        <!--运动框架,请不要更更改,20150731-->
+        function getStyle(obj,name)
+        {
+            if(obj.currentStyle)
+            {
+                return obj.currentStyle[name];
+            }
+            else
+            {
+                return getComputedStyle(obj,false)[name];
+            }
+        }
+        function startMove(obj,json,fnEnd)
+        {
+            clearInterval(obj.tmrMove);
+            obj.tmrMove=setInterval(function()
+            {
+                for (var attr in json)
+                {
+                    var bSTop=true;
+                    var iCurr = 0;
+                    if (attr == 'opacity') {
+                        iCurr = Math.round(parseFloat(getStyle(obj, attr)) * 100);
+                        //这里要注意区分
+                    }
+                    else {
+                        iCurr = parseInt(getStyle(obj, attr));
+                    }
+                    var iSpeed = (json[attr] - iCurr) / 6;
+                    iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+                    if (iCurr != json[attr])
+                    {
+                        bSTop=false;
+                    }
+
+
+                    if (attr == 'opacity') {
+                        obj.style.filter = 'alpha(opacity:' + (iCurr + iSpeed) + ')';
+                        obj.style.opacity = (iCurr + iSpeed) / 100;
+                        //这里要注意区分
+                    }
+                    else {
+                        obj.style[attr] = iCurr + iSpeed + 'px';
+                    }
+
+
+                    if(bSTop)
+                    {
+                        clearInterval(obj.tmrMove);
+                        if (fnEnd)fnEnd();
+                    }
+                }
+            },30);
+        }
+        <!--end 运动框架，请不要更更改-->
+
+        window.onload= function ()
+        {
+            var oDiv=document.getElementById("divhaiyixia");
+            var ohaiul=document.getElementById("haiul1");
+            var oUl2=document.getElementById("haiul2");
+            var oUl3=document.getElementById("haiul3");
+            var oUl4=document.getElementById("haiul4");
+            var nowIndex=0;
+
+
+
+            function tab()
+            {
+                startMove(ohaiul,{top:-230*nowIndex},function()
+                {
+                    startMove(oUl2,{top:-230*nowIndex},function()
+                    {
+                        startMove(oUl3,{top:-230*nowIndex},function()
+                        {
+                            startMove(oUl4,{top:-230*nowIndex})
+                        });
+                    })
+                });
+            }
+
+            function next()
+            {
+//                nowIndex++;
+//                if(nowIndex==10)
+//                {
+//                    nowIndex=0;
+//                }
+                nowIndex=parseInt(10*Math.random());
+                tab();
+            }
+
+
+
+            var oBtn=document.getElementById("btnhai");
+            oBtn.onclick= function ()
+            {
+                next();
+            };
+
+        }
+    </script>
+</head>
+<body>
+    <div id="divhaiyixia">
+        <div id="divhaileft">
+            <div class="haitop">
+                <img src="http://img.zhuyun.cn/M00/02/80/wKgJNFXBbCWAJ9jwAADIv0ei4rI695.jpg" alt=""/>
+            </div>
+
+            <div class="haibottom">
+                <div class="hailist">
+                    <ul id="haiul1" class="haiul">
+                        <li>
+                            <a href="http://www.968111.com" target="_blank">
+                                <img src="images/1.jpg" alt=""/>
+                            </a>
+                            dsadas
+                        </li>
+                        <li>
+                            <img src="images/2.jpg" alt=""/>
+                        </li>
+                        <li>
+                            <img src="images/3.jpg" alt=""/>
+                        </li>
+                        <li>
+                            <img src="images/4.jpg" alt=""/>
+                        </li>
+                        <li>
+                            <img src="images/5.jpg" alt=""/>
+                        </li>
+                        <li>
+                            <img src="images/6.jpg" alt=""/>
+                        </li>
+                        <li>
+                            <img src="images/7.jpg" alt=""/>
+                        </li>
+                        <li>
+                            <img src="images/8.jpg" alt=""/>
+                        </li>
+                        <li>
+                            <img src="images/9.jpg" alt=""/>
+                        </li>
+                        <li>
+                            <img src="images/10.jpg" alt=""/>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="hailist">
+                    <ul id="haiul2" class="haiul">
+                        <li>
+                            <img src="images/11.jpg" alt=""/>
+                        </li>
+                        <li>
+                            <img src="images/12.jpg" alt=""/>
+                        </li>
+                        <li>
+                            <img src="images/13.jpg" alt=""/>
+                        </li>
+                        <li>
+                            <img src="images/14.jpg" alt=""/>
+                        </li>
+                        <li>
+                            <img src="images/15.jpg" alt=""/>
+                        </li>
+                        <li>
+                            <img src="images/16.jpg" alt=""/>
+                        </li>
+                        <li>
+                            <img src="images/17.jpg" alt=""/>
+                        </li>
+                        <li>
+                            <img src="images/18.jpg" alt=""/>
+                        </li>
+                        <li>
+                            <img src="images/19.jpg" alt=""/>
+                        </li>
+                        <li>
+                            <img src="images/20.jpg" alt=""/>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="hailist">
+                    <ul id="haiul3" class="haiul">
+                        <li>
+                            <img src="images/21.jpg" alt=""/>
+                        </li>
+                        <li>
+                            <img src="images/22.jpg" alt=""/>
+                        </li>
+                        <li>
+                            <img src="images/23.jpg" alt=""/>
+                        </li>
+                        <li>
+                            <img src="images/24.jpg" alt=""/>
+                        </li>
+                        <li>
+                            <img src="images/25.jpg" alt=""/>
+                        </li>
+                        <li>
+                            <img src="images/26.jpg" alt=""/>
+                        </li>
+                        <li>
+                            <img src="images/27.jpg" alt=""/>
+                        </li>
+                        <li>
+                            <img src="images/28.jpg" alt=""/>
+                        </li>
+                        <li>
+                            <img src="images/29.jpg" alt=""/>
+                        </li>
+                        <li>
+                            <img src="images/30.jpg" alt=""/>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="hailist">
+                    <ul id="haiul4" class="haiul">
+                        <li>
+                            <img src="images/31.jpg" alt=""/>
+                        </li>
+                        <li>
+                            <img src="images/32.jpg" alt=""/>
+                        </li>
+                        <li>
+                            <img src="images/33.jpg" alt=""/>
+                        </li>
+                        <li>
+                            <img src="images/34.jpg" alt=""/>
+                        </li>
+                        <li>
+                            <img src="images/35.jpg" alt=""/>
+                        </li>
+                        <li>
+                            <img src="images/36.jpg" alt=""/>
+                        </li>
+                        <li>
+                            <img src="images/37.jpg" alt=""/>
+                        </li>
+                        <li>
+                            <img src="images/38.jpg" alt=""/>
+                        </li>
+                        <li>
+                            <img src="images/39.jpg" alt=""/>
+                        </li>
+                        <li>
+                            <img src="images/40.jpg" alt=""/>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="divhairight">
+            <div id="divbtnhai" class="divbtnhai">
+                <img id="btnhai"  src="http://img.zhuyun.cn/M00/02/48/wKgJNFXBZc6AI9W5AABCcPu3z20846.png" alt=""/>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

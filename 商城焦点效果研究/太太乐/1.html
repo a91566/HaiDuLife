@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #full-zsb{height:840px;position:absolute;background: #000000;
+        background: url(http://img.zhuyun.cn/M00/74/7A/wKgJNFXddMyACfUsAAmKiEYHeMA003.jpg) center center no-repeat;}
+        #fz-main{width: 1190px;height: 400px;margin: 0 auto;position: relative;}
+        #fz-main li{position: absolute;width: 30px;height: 30px;border-radius: 15px;list-style: none;;
+            background: #8ad39d;transition-duration: .2s;cursor: pointer;}
+        #fz-main li:hover{
+            background: #a9ffbd;
+            transform: scale(1.5);
+        }
+        .fz-main img{width: 1190px;height: 440px;margin: 0;}
+        .fz-pic{position: absolute;width: 430px;height: 300px;display: none;
+         background: url(http://img.zhuyun.cn/M00/74/C5/wKgJNFXde1aAWAiGAAAPOo78fuU987.png) 0 0 no-repeat;}
+        .fz-pic img{margin: 37px 0 0 23px;}
+    </style>
+    <!--<script src="http://apps.bdimg.com/libs/jquery/1.9.0/jquery.min.js"></script>-->
+    <script>
+        $(document).ready(function()
+        {
+            var iWidth=document.documentElement.clientWidth;
+            var oDivFz=document.getElementById("full-zsb");
+            oDivFz.style.width = iWidth + 'px';
+            var iLeft=iWidth-1190;
+            iLeft=iLeft/2;
+            oDivFz.style.left = "-"+iLeft + 'px';
+        });
+
+        $(document).ready(function()
+        {
+            var aBtnLi=$('#fz-main li');
+            var aDivPic=$('.fz-pic');
+
+            for(var i=0;i<aBtnLi.length;i++)
+            {
+                aBtnLi[i].index=i;
+                aBtnLi[i].onmouseover=function(){
+                    aDivPic[this.index].style.display="block";
+                };
+
+                aBtnLi[i].onmouseout=function(){
+                    aDivPic[this.index].style.display="none";
+                };
+            };
+        });
+    </script>
+</head>
+<body style="margin: 0;padding: 0;overflow-x: hidden;">
+<div id="full-zsb">
+    <ul id="fz-main">
+        <li style="left: 430px;top: 53px;"></li>
+
+        <li style="left: 710px;top: 53px;"></li>
+
+        <li style="left: 1000px;top: 53px;"></li>
+
+        <li style="left: 140px;top: 197px;"></li>
+
+        <li style="left: 430px;top: 197px;"></li>
+
+        <li style="left: 710px;top: 197px;"></li>
+
+        <li style="left: 1000px;top: 197px;"></li>
+
+        <li style="left: 140px;top: 337px;"></li>
+
+        <li style="left: 430px;top: 337px;"></li>
+    </ul>
+
+    <div class="fz-pic" style="left: 415px;top:80px;">
+        <img src="http://www.totole.com.cn/sites/default/files/images/7.jpg" alt="aaa"/>
+    </div>
+
+    <div class="fz-pic" style="left: 695px;top:80px;">
+        <img src="http://www.totole.com.cn/sites/default/files/images/7.jpg" alt="aaa"/>
+    </div>
+
+    <div class="fz-pic" style="left: 984px;top:80px;">
+        <img src="http://www.totole.com.cn/sites/default/files/images/7.jpg" alt="aaa"/>
+    </div>
+
+    <div class="fz-pic" style="left: 125px;top:224px;">
+        <img src="http://www.totole.com.cn/sites/default/files/images/7.jpg" alt="aaa"/>
+    </div>
+
+    <div class="fz-pic" style="left: 415px;top:224px;">
+        <img src="http://www.totole.com.cn/sites/default/files/images/7.jpg" alt="aaa"/>
+    </div>
+
+    <div class="fz-pic" style="left: 695px;top:224px;">
+        <img src="http://www.totole.com.cn/sites/default/files/images/7.jpg" alt="aaa"/>
+    </div>
+
+    <div class="fz-pic" style="left: 985px;top:224px;">
+        <img src="http://www.totole.com.cn/sites/default/files/images/7.jpg" alt="aaa"/>
+    </div>
+
+    <div class="fz-pic" style="left: 125px;top:361px;">
+        <img src="http://www.totole.com.cn/sites/default/files/images/7.jpg" alt="aaa"/>
+    </div>
+
+    <div class="fz-pic" style="left: 415px;top:361px;">
+        <img src="http://www.totole.com.cn/sites/default/files/images/7.jpg" alt="aaa"/>
+    </div>
+</div>
+</body>
+</html>

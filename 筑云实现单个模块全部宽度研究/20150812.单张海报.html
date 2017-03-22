@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #full-zsb{height:690px;position:absolute;background: #F6F6F6;}
+        #fu-z-main{width: 1190px;height: 690px;margin-bottom: 0;position: relative;margin: 0 auto;}
+        .fu-zm{z-index: 1;position: absolute;display: inline;width: 1190px;height: 390px;margin: 0;}
+        .fu-zm img{width: 1190px;height: 690px;margin: 0;}
+    </style>
+    <script>
+        window.onload=function()
+        {
+            var iWidth=document.documentElement.clientWidth;
+            var oDivFz=document.getElementById("full-zsb");
+            oDivFz.style.width = iWidth + 'px';
+            var iLeft=iWidth-1190;
+            iLeft=iLeft/2;
+            oDivFz.style.left = "-"+iLeft + 'px';
+        };
+    </script>
+</head>
+<body style="margin: 0;padding: 0;overflow-x: hidden;">
+    <div id="full-zsb">
+        <div id="fu-z-main">
+            <div class="fu-zm" style="z-index: 2;">
+                <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2211534">
+                    <img src="http://img.zhuyun.cn/M00/42/89/wKgJNFXRMb6AZYjzAANqWO-YeDE254.jpg" alt="海都网门店"/>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

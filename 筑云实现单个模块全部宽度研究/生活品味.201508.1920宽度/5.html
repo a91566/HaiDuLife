@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #full-zsb{height: 3040px;position: absolute;top: 0;left: 0;background: #F6F6F6;}
+        .fzsb-top{width: 1190px;background: #000000;background: rgba(0,0,0,0.7);position: absolute;margin: 0 auto;
+            filter: alpha(opacity:70);opacity:0.7;}
+        .fullw-img{display:block;}
+    </style>
+    <script type="text/javascript">
+
+        //root：父节点，tagName：该节点的标签名。 这两个参数均可有可无
+        function getElementsByClassName(className,root,tagName)
+        {
+            if(root)
+            {
+                root=typeof root=="string"?document.getElementById(root) : root;
+            }else{
+                root=document.body;
+            }
+            tagName=tagName||"*";
+            if (document.getElementsByClassName)
+            {
+                return root.getElementsByClassName(className);
+            }
+            else
+            {
+                var tag= root.getElementsByTagName(tagName);    //获取指定元素
+                var tagAll = [];                                    //用于存储符合条件的元素
+                for (var i = 0; i < tag.length; i++)
+                {                //遍历获得的元素
+                    for(var j=0,n=tag[i].className.split(' ');j<n.length;j++)
+                    {    //遍历此元素中所有class的值，如果包含指定的类名，就赋值给tagnameAll
+                        if(n[j]==className)
+                        {
+                            tagAll.push(tag[i]);
+                            break;
+                        }
+                    }
+                }
+                return tagAll;
+            }
+        }
+        window.onload=function()
+        {
+            fnOnLoadFPic();
+        };
+//        $(document).ready(function()
+//        {
+//            fnOnLoadFPic();
+//        });
+        function fnOnLoadFPic()
+        {
+            document.body.style.overflowX="hidden";
+            var iWidth=document.documentElement.clientWidth||document.body.clientWidth;
+
+            var oDivFz=document.getElementById("full-zsb");
+            var aImgFz=getElementsByClassName("fullw-img","full-zsb","img");
+            var aImgBtn=getElementsByClassName("fzsb-top","","div");
+
+            oDivFz.style.width = iWidth + 'px';
+            var iLeft=iWidth-1200;
+            iLeft=iLeft/2;
+            oDivFz.style.left = "-"+iLeft + 'px';
+
+            for(var i=0;i<aImgFz.length;i++)
+            {
+                aImgFz[i].style.width = iWidth + 'px';
+            }
+            for(var i=0;i<aImgBtn.length-1;i++)
+            {
+                aImgBtn[i].style.left =iLeft + 'px';
+            }
+        };
+    </script>
+</head>
+<body>
+    <div id="full-zsb">
+        <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2203774">
+            <img class="fullw-img" src="http://img.zhuyun.cn/M00/38/F6/wKgJNFXNrSCAFtG_AALuuDwaMkY471.jpg" alt="雪脂莲蜜"/>
+        </a>
+        <img class="fullw-img" src="http://img.zhuyun.cn/M00/38/F6/wKgJNFXNrR6AHpQ7AABbYOozx6c518.jpg" alt="正品保证,精致服务"/>
+        <img class="fullw-img" src="http://img.zhuyun.cn/M00/38/F6/wKgJNFXNrSWABD97AAQdPatFdYM209.jpg" alt="秋葵"/>
+        <img class="fullw-img" src="http://img.zhuyun.cn/M00/38/F6/wKgJNFXNrR-AAkpBAAI4ijH1Uw8241.jpg" alt="免洗,掌生香枸杞"/>
+        <img class="fullw-img" src="http://img.zhuyun.cn/M00/38/F6/wKgJNFXNrSKAernYAAHHpF7oklg679.jpg" alt="免洗,掌生香枸杞"/>
+        <img class="fullw-img" src="http://img.zhuyun.cn/M00/38/F6/wKgJNFXNrSKAUaBFAAMgi-26sms809.jpg" alt="土鳖"/>
+        <img class="fullw-img" src="http://img.zhuyun.cn/M00/38/F6/wKgJNFXNrSSAKyVwAANM-uL-3t0706.jpg" alt="小海带"/>
+        <img class="fullw-img" src="http://img.zhuyun.cn/M00/38/F6/wKgJNFXNrSWAWg_WAAVNzlv3a7U858.jpg" alt="返回首页"/>
+
+    </div>
+    <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2203774">
+        <div class="fzsb-top" style="top: 450px;height: 550px;"></div>
+    </a>
+
+    <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2203774">
+        <div class="fzsb-top" style="top: 1110px;height: 800px;"></div>
+    </a>
+
+    <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2203774">
+        <div class="fzsb-top" style="top: 1950px;height: 600px;"></div>
+    </a>
+
+    <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2203774">
+        <div class="fzsb-top" style="top: 2650px;height: 700px;"></div>
+    </a>
+
+    <a target="_blank" href="http://test5556437.70card.net/">
+        <div class="fzsb-top" style="left: 72%;top: 3580px;width:160px;height: 90px;"></div>
+    </a>
+</body>
+</html>

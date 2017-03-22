@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .zsb-cw{width: 1190px;height:325px;border: 1px solid #39b3d7;}
+        .zsb-cw-top{width: 1190px;height:55px;}
+        .zsb-cw-bottom{width: 1190px;height:270px;overflow: hidden;}
+        .zsb-cw-img{float: left;width: 590px;height: 270px;}
+        .zsb-cw-img img{width: 590px;height: 270px;}
+        #zsb-cw-img-selected1{width: 590px;height: 270px;transition-duration: .2s;
+            background-image: url(1.jpg)}
+        #zsb-cw-img-selected2{width: 300px;height: 270px;transition-duration: .2s;
+            background-image: url(2.jpg)}
+        #zsb-cw-img-selected3{float:right;width: 300px;height: 270px;transition-duration: .2s;
+            background-image: url(3.jpg)}
+
+        #zsb-cw-img-selected1:hover
+        {
+            width: 590px;
+        }
+        #zsb-cw-img-selected2:hover
+        {
+            width: 590px;
+        }
+        #zsb-cw-img-selected3:hover
+        {
+            width: 590px;
+        }
+    </style>
+    <script>
+
+
+        window.onload=function()
+        {
+            var aImgCw1=document.getElementById("zsb-cw-img-selected1");
+            var aImgCw2=document.getElementById("zsb-cw-img-selected2");
+            var aImgCw3=document.getElementById("zsb-cw-img-selected3");
+
+            aImgCw1.onmouseover=function()
+            {
+                aImgCw1.style.width="590px";
+                aImgCw2.style.width="300px";
+                aImgCw3.style.width="300px";
+            };
+            aImgCw2.onmouseover=function()
+            {
+                aImgCw1.style.width="300px";
+                aImgCw2.style.width="590px";
+                aImgCw3.style.width="300px";
+            };
+            aImgCw3.onmouseover=function()
+            {
+                aImgCw1.style.width="300px";
+                aImgCw2.style.width="300px";
+                aImgCw3.style.width="590px";
+            };
+        };
+    </script>
+</head>
+<body>
+    <div class="zsb-cw">
+        <div class="zsb-cw-top">
+            <img src="0.png" alt=""/>
+        </div>
+        <div class="zsb-cw-bottom">
+            <a href=""><div id="zsb-cw-img-selected1" class="zsb-cw-img"></div></a>
+            <a href=""><div id="zsb-cw-img-selected2" class="zsb-cw-img"></div></a>
+            <a href=""><div id="zsb-cw-img-selected3" class="zsb-cw-img"></div></a>
+        </div>
+    </div>
+</body>
+</html>

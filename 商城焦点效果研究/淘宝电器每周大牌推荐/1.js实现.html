@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .zsb-cw{width: 1190px;height:325px;border: 1px solid #39b3d7;}
+        .zsb-cw-top{width: 1190px;height:55px;}
+        .zsb-cw-bottom{width: 1190px;height:270px;overflow: hidden;}
+        .zsb-cw-img{float: left;width: 590px;height: 270px;}
+        .zsb-cw-img img{width: 590px;height: 270px;}
+        #zsb-cw-img-selected1{width: 590px;height: 270px;}
+        #zsb-cw-img-selected2{width: 300px;height: 270px;}
+        #zsb-cw-img-selected3{width: 300px;height: 270px;}
+    </style>
+    <script>
+        <!--运动框架,请不要更更改,20150803-->
+        function getStyle(obj,name)
+        {
+            if(obj.currentStyle)
+            {
+                return obj.currentStyle[name];
+            }
+            else
+            {
+                return getComputedStyle(obj,false)[name];
+            }
+        }
+        function startMove(obj,json,fnEnd)
+        {
+            clearInterval(obj.tmrMove);
+            obj.tmrMove=setInterval(function()
+            {
+                for (var attr in json)
+                {
+                    var bSTop=true;
+                    var iCurr = 0;
+                    if (attr == 'opacity') {
+                        iCurr = Math.round(parseFloat(getStyle(obj, attr)) * 100);
+                        //这里要注意区分
+                    }
+                    else {
+                        iCurr = parseInt(getStyle(obj, attr));
+                    }
+                    var iSpeed = (json[attr] - iCurr) / 6;
+                    iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+                    if (iCurr != json[attr])
+                    {
+                        bSTop=false;
+                    }
+
+
+                    if (attr == 'opacity') {
+                        obj.style.filter = 'alpha(opacity:' + (iCurr + iSpeed) + ')';
+                        obj.style.opacity = (iCurr + iSpeed) / 100;
+                        //这里要注意区分
+                    }
+                    else {
+                        obj.style[attr] = iCurr + iSpeed + 'px';
+                    }
+
+
+                    if(bSTop)
+                    {
+                        clearInterval(obj.tmrMove);
+                        document.title=obj.style.left;
+                        if (fnEnd)fnEnd();
+                    }
+                }
+            },30);
+        }
+        <!--end 运动框架，请不要更更改-->
+
+        window.onload=function()
+        {
+            var aImgCw1=document.getElementById("zsb-cw-img-selected1");
+            var aImgCw2=document.getElementById("zsb-cw-img-selected2");
+            var aImgCw3=document.getElementById("zsb-cw-img-selected3");
+
+            aImgCw1.onmouseover=function()
+            {
+                startMove(aImgCw1,{width:590});
+                startMove(aImgCw2,{width:300});
+                startMove(aImgCw3,{width:300});
+            };
+            aImgCw2.onmouseover=function()
+            {
+                startMove(aImgCw2,{width:590});
+                startMove(aImgCw1,{width:300});
+                startMove(aImgCw3,{width:300});
+            };
+            aImgCw3.onmouseover=function()
+            {
+                startMove(aImgCw1,{width:300});
+                startMove(aImgCw2,{width:300});
+                startMove(aImgCw3,{width:590});
+            };
+        };
+    </script>
+</head>
+<body>
+    <div class="zsb-cw">
+        <div class="zsb-cw-top">
+            <img src="0.png" alt=""/>
+        </div>
+        <div class="zsb-cw-bottom">
+            <div id="zsb-cw-img-selected1" class="zsb-cw-img">
+                <a href=""><img src="1.jpg" alt=""/></a>
+            </div>
+            <div  id="zsb-cw-img-selected2" class="zsb-cw-img">
+                <a href=""><img src="2.jpg" alt=""/></a>
+            </div>
+            <div  id="zsb-cw-img-selected3" class="zsb-cw-img">
+                <a href=""><img src="3.jpg" alt=""/></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

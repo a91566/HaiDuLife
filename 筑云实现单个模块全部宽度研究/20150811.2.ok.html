@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #full-zsb{height:440px;position:absolute;background: #000000;}
+        #fu-z-main{width: 1190px;height: 440px;margin-bottom: 0;position: relative;margin: 0 auto;}
+        .fu-zm{z-index: 1;position: absolute;display: inline;width: 1190px;height: 440px;margin: 0;}
+
+        .fu-zm img{width: 1190px;height: 440px;margin: 0;}
+        .fu-zm-ol{z-index: 99999;position: absolute;list-style-type: none;bottom: 0;left:42%;}
+        .fu-zm-ol li{float: left;margin: 5px;width: 30px;height:30px;border-radius:30px;line-height: 30px;
+            text-align: center;color: #FFFFFF;}
+        .fu-zm-olact{background: #39b3d7;}
+    </style>
+    <script>
+        <!--p20150803-->
+        function getStyle(obj,name)
+        {
+            if(obj.currentStyle)
+            {
+                return obj.currentStyle[name];
+            }
+            else
+            {
+                return getComputedStyle(obj,false)[name];
+            }
+        }
+        function startMove(obj,json,fnEnd)
+        {
+            clearInterval(obj.tmrMove);
+            obj.tmrMove=setInterval(function()
+            {
+                for (var attr in json)
+                {
+                    var bSTop=true;
+                    var iCurr = 0;
+                    if (attr == 'opacity') {
+                        iCurr = Math.round(parseFloat(getStyle(obj, attr)) * 100);
+                        //这里要注意区分
+                    }
+                    else {
+                        iCurr = parseInt(getStyle(obj, attr));
+                    }
+                    var iSpeed = (json[attr] - iCurr) / 6;
+                    iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+                    if (iCurr != json[attr])
+                    {
+                        bSTop=false;
+                    }
+
+
+                    if (attr == 'opacity') {
+                        obj.style.filter = 'alpha(opacity:' + (iCurr + iSpeed) + ')';
+                        obj.style.opacity = (iCurr + iSpeed) / 100;
+                        //这里要注意区分
+                    }
+                    else {
+                        obj.style[attr] = iCurr + iSpeed + 'px';
+                    }
+
+
+                    if(bSTop)
+                    {
+                        clearInterval(obj.tmrMove);
+                        document.title=obj.style.left;
+                        if (fnEnd)fnEnd();
+                    }
+                }
+            },30);
+        }
+        <!--endp20150803-->
+        window.onload=function()
+        {
+            var iWidth=document.documentElement.clientWidth;
+            var oDivFz=document.getElementById("full-zsb");
+            oDivFz.style.width = iWidth + 'px';
+            var iLeft=iWidth-1190;
+            iLeft=iLeft/2;
+            oDivFz.style.left = "-"+iLeft + 'px';
+
+            fnAutoChange();
+        };
+
+        function fnAutoChange() {
+            var oDivPtpoMain = document.getElementById("fu-z-main");
+            var aDivPtpo = oDivPtpoMain.getElementsByClassName("fu-zm");
+            var aBtnPtpo = oDivPtpoMain.getElementsByClassName("fu-zm-ol")[0].getElementsByTagName("li");
+            var nowIndex = 0;
+            var nowZIndex = 2;
+
+            for (var i = 0; i < aBtnPtpo.length; i++) {
+                aBtnPtpo[i].index = i;
+                aBtnPtpo[i].onclick = function () {
+                    nowIndex = this.index;
+                    tab();
+                    aBtnPtpo[i].className = ".fu-zm-olact";
+                }
+            }
+
+            function tab()
+            {
+
+                nowZIndex++;
+                aDivPtpo[nowIndex].style.zIndex = nowZIndex;
+
+
+                var oDivFz=document.getElementById("full-zsb");
+                var oPtpoPicShow = aDivPtpo[nowIndex].getElementsByTagName("img")[0];
+                oPtpoPicShow.style.filter = 'alpha(opacity:10)';
+                oPtpoPicShow.style.opacity = 0.1;
+                startMove(oPtpoPicShow, {opacity: 100});
+
+
+                for (var i = 0; i < aBtnPtpo.length; i++) {
+                    aBtnPtpo[i].className = "";
+                }
+                aBtnPtpo[nowIndex].className = "fu-zm-olact";
+                switch(nowIndex)
+                {
+                    case 0:
+                        oDivFz.style.background="#0b0b0d";
+                        break;
+                    case 1:
+                        oDivFz.style.background="#faf9f5";
+                        break;
+                    case 2:
+                        oDivFz.style.background="#0b0b0d";
+                        break;
+                };
+
+
+            }
+
+            function next() {
+                nowIndex++;
+                if (nowIndex == aBtnPtpo.length) {
+                    nowIndex = 0;
+                }
+                tab();
+            }
+
+            var tmrMove = setInterval(next, 2000);
+
+            oDivPtpoMain.onmouseover = function () {
+                clearInterval(tmrMove);
+            }
+            oDivPtpoMain.onmouseout = function () {
+                tmrMove = setInterval(next, 2000);
+            }
+        }
+    </script>
+</head>
+<body style="margin: 0;padding: 0;overflow-x: hidden;">
+    <div id="full-zsb">
+        <div id="fu-z-main">
+            <div class="fu-zm" style="z-index: 2;">
+                <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2211534">
+                    <img src="http://img.zhuyun.cn/M00/10/BA/wKgJNFXEXJeAelieAAZWgKUC2Qs359.jpg" alt="猴头菇,美味,健康"/>
+                </a>
+            </div>
+            <div class="fu-zm">
+                <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2203739">
+                    <img src="http://img.zhuyun.cn/M00/10/BA/wKgJNFXEXJWAHTqjAATJROQBPUo774.jpg" alt="百合干好吃"/></a>
+            </div>
+            <div class="fu-zm">
+                <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2349622">
+                    <img src="http://img.zhuyun.cn/M00/10/BA/wKgJNFXEXJaAHwE1AAOoKb9yEf8273.jpg" alt="北极甜虾"/></a>
+            </div>
+            <ol class="fu-zm-ol">
+                <li class="fu-zm-olact">1</li>
+                <li>2</li>
+                <li>3</li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html>

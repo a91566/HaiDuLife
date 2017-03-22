@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin: 0;padding: 0;}
+        .xx-height{width: 210px;height: 410px;margin: 10px auto; }
+        .xxh-item{width: 210px;height: 56px;padding: 0;
+            border-top: 4px solid #FFFFFF;overflow: hidden; transition-duration: .5s;
+            background:#F8F8F8 url(http://css.gomein.net.cn/images/helpcenter/help_index.png) 120px 40px no-repeat;}
+        button{width: 110px;height: 35px;margin-top: 5px;}
+
+        .xxh-item:hover{height: 126px;}
+    </style>
+    <script>
+        window.onload=function()
+        {
+            var aXxItem=document.getElementsByClassName("xxh-item");
+
+            for(var i=0;i<aXxItem.length;i++)
+            {
+                aXxItem[i].index=i;
+                aXxItem[i].onmouseover=function()
+                {
+                    for(var i=0;i<aXxItem.length;i++)
+                    {
+                       if(i!=this.index)
+                       {
+                           aXxItem[i].style.height="56px";
+                       }
+                    };
+                    aXxItem[this.index].style.height="126px";
+                };
+            };
+        };
+    </script>
+</head>
+<body>
+    <div class="xx-height">
+        <div class="xxh-item" style="height: 126px;z-index: 1;">
+            <p>在线客服1</p>
+            <p>7*12小时 9-21点为你解答疑惑</p>
+            <button>开始聊天1</button>
+        </div>
+        <div class="xxh-item" style="z-index: 2;">
+            <p>在线客服2</p>
+            <p>7*12小时 9-21点为你解答疑惑</p>
+            <button>开始聊天2</button>
+        </div>
+        <div class="xxh-item" style="z-index: 3;">
+            <p>在线客服3</p>
+            <p>7*12小时 9-21点为你解答疑惑</p>
+            <button>开始聊天3</button>
+        </div>
+        <div class="xxh-item" style="z-index: 4;">
+            <p>在线客服4</p>
+            <p>7*12小时 9-21点为你解答疑惑</p>
+            <button>开始聊天4</button>
+        </div>
+        <div class="xxh-item" style="z-index: 5;">
+            <p>在线客服5</p>
+            <p>7*12小时 9-21点为你解答疑惑</p>
+            <button>开始聊天5</button>
+        </div>
+        <div class="xxh-item" style="z-index: 6;">
+            <p>在线客服6</p>
+            <p>7*12小时 9-21点为你解答疑惑</p>
+            <button>开始聊天6</button>
+        </div>
+    </div>
+</body>
+</html>

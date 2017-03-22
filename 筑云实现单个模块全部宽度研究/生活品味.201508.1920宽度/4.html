@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #full-zsb{height: 3040px;position: absolute;top: 0;left: 0;background: #F6F6F6;}
+        .fzsb-top{width: 1190px;background: rgba(0,0,0,0);position: absolute;margin: 0 auto;}
+        .fullw-img{display:block;}
+    </style>
+    <script type="text/javascript">
+        window.onload=function()
+        {
+            fnOnLoadFPic();
+        };
+        $(document).ready(function()
+        {
+            fnOnLoadFPic();
+        });
+        function fnOnLoadFPic()
+        {
+            var iWidth=document.documentElement.clientWidth||document.body.clientWidth;
+
+            var oDivFz=document.getElementById("full-zsb");
+            var aImgFz=document.getElementsByClassName("fullw-img");
+            var aImgBtn=document.getElementsByClassName("fzsb-top");
+
+            document.body.style.overflowX="hidden";
+            oDivFz.style.width = iWidth + 'px';
+            var iLeft=iWidth-1200;
+            iLeft=iLeft/2;
+            oDivFz.style.left = "-"+iLeft + 'px';
+            var aImgSrc = new Array(
+                    "http://img.zhuyun.cn/M00/38/F6/wKgJNFXNrSCAFtG_AALuuDwaMkY471.jpg",
+                    "http://img.zhuyun.cn/M00/38/F6/wKgJNFXNrR6AHpQ7AABbYOozx6c518.jpg",
+                    "http://img.zhuyun.cn/M00/38/F6/wKgJNFXNrSWABD97AAQdPatFdYM209.jpg",
+                    "http://img.zhuyun.cn/M00/38/F6/wKgJNFXNrR-AAkpBAAI4ijH1Uw8241.jpg",
+                    "http://img.zhuyun.cn/M00/38/F6/wKgJNFXNrSKAernYAAHHpF7oklg679.jpg",
+                    "http://img.zhuyun.cn/M00/38/F6/wKgJNFXNrSKAUaBFAAMgi-26sms809.jpg",
+                    "http://img.zhuyun.cn/M00/38/F6/wKgJNFXNrSSAKyVwAANM-uL-3t0706.jpg",
+                    "http://img.zhuyun.cn/M00/38/F6/wKgJNFXNrSWAWg_WAAVNzlv3a7U858.jpg"
+            );
+
+            for(var i=0;i<aImgFz.length;i++)
+            {
+                aImgFz[i].src=aImgSrc[i];
+                aImgFz[i].style.width = iWidth + 'px';
+            }
+            for(var i=0;i<aImgBtn.length-1;i++)
+            {
+                aImgBtn[i].style.left =iLeft + 'px';
+            }
+        };
+    </script>
+</head>
+<body>
+    <div id="full-zsb">
+        <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2203774">
+            <img class="fullw-img" src="" alt="雪脂莲蜜"/>
+        </a>
+        <img class="fullw-img" src="" alt=""/>
+        <img class="fullw-img" src="" alt=""/>
+        <img class="fullw-img" src="" alt=""/>
+        <img class="fullw-img" src="" alt=""/>
+        <img class="fullw-img" src="" alt=""/>
+        <img class="fullw-img" src="" alt=""/>
+        <img class="fullw-img" src="" alt=""/>
+        <hr color="red" width="10px;" style="margin: 0;padding: 0;">
+    </div>
+    <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2203774">
+        <div class="fzsb-top" style="top: 550px;height: 600px;"></div>
+    </a>
+
+    <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2203774">
+        <div class="fzsb-top" style="top: 1310px;height: 600px;"></div>
+    </a>
+
+    <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2203774">
+        <div class="fzsb-top" style="top: 2450px;height: 600px;"></div>
+    </a>
+
+    <a target="_blank" href="http://test5556437.70card.net/Home/Goods/2203774">
+        <div class="fzsb-top" style="top: 3450px;height: 600px;"></div>
+    </a>
+
+    <a target="_blank" href="http://test5556437.70card.net/">
+        <div class="fzsb-top" style="left: 75%;top: 4310px;width:180px;height: 90px;"></div>
+    </a>
+</body>
+</html>
