@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin: 0;padding: 0;}
+        #div2{text-align: center;}
+        #ul1{width: 600px;height: 400px;margin: 0 auto;border: 1px solid black;overflow: hidden;}
+        #ul1 li {list-style: none;border-bottom: 1px dashed black;padding: 8px;
+        filter: alpha(opacity:0);opacity: 0;overflow: hidden;}
+    </style>
+    <script>
+        <!--运动框架，请不要更更改，20150803-->
+        function getStyle(obj,name)
+        {
+            if(obj.currentStyle)
+            {
+                return obj.currentStyle[name];
+            }
+            else
+            {
+                return getComputedStyle(obj,false)[name];
+            }
+        }
+        function startMove(obj,json,fnEnd)
+        {
+            clearInterval(obj.tmrMove);
+            obj.tmrMove=setInterval(function()
+            {
+                for (var attr in json)
+                {
+                    var bSTop=true;
+                    var iCurr = 0;
+                    if (attr == 'opacity') {
+                        iCurr = Math.round(parseFloat(getStyle(obj, attr)) * 100);
+                        //这里要注意区分
+                    }
+                    else {
+                        iCurr = parseInt(getStyle(obj, attr));
+                    }
+                    var iSpeed = (json[attr] - iCurr) / 6;
+                    iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+                    if (iCurr != json[attr])
+                    {
+                        bSTop=false;
+                    }
+
+
+                    if (attr == 'opacity') {
+                        obj.style.filter = 'alpha(opacity:' + (iCurr + iSpeed) + ')';
+                        obj.style.opacity = (iCurr + iSpeed) / 100;
+                        //这里要注意区分
+                    }
+                    else {
+                        obj.style[attr] = iCurr + iSpeed + 'px';
+                    }
+
+
+                    if(bSTop)
+                    {
+                        clearInterval(obj.tmrMove);
+                        document.title=obj.style.left;
+                        if (fnEnd)fnEnd();
+                    }
+                }
+            },30);
+        }
+        <!--end 运动框架，请不要更更改-->
+
+        window.onload=function()
+        {
+            var oTxt=document.getElementById("txt1");
+            var oBtn=document.getElementById("btn1");
+            var oUl=document.getElementById("ul1");
+
+            oBtn.onclick=function(){
+                var oLi=document.createElement("li");
+                oLi.innerHTML=oTxt.value;
+                oTxt.value="";
+
+                if(oUl.children.length>0)
+                {
+                    oUl.insertBefore(oLi,oUl.children[0]);
+                }
+                else
+                {
+                    oUl.appendChild(oLi);
+                }
+
+                var iHeight=oLi.offsetHeight;
+                oLi.style.height=0;
+                startMove(oLi,{height:iHeight},function(){
+                    startMove(oLi,{opacity:100})
+                });
+            }
+
+        };
+    </script>
+</head>
+<body>
+    <div id="div2">
+        <textarea name="txt1" id="txt1" cols="78" rows="10"></textarea>
+        <input type="button" id="btn1" value="发布"/>
+    </div>
+    <div id="div1">
+        <ul id="ul1">
+            <li>123</li>
+        </ul>
+    </div>
+</body>
+</html>

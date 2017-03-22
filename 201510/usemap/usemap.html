@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+    </style>
+
+    <script src="http://apps.bdimg.com/libs/jquery/1.9.0/jquery.min.js"></script>
+
+    <script>
+        function fnA(){
+            alert("长方形形");
+        }
+        function fnB(){
+            alert("圆形");
+        }
+        function fnC(){
+            alert("正方形");
+        }
+        function fnD(){
+            alert("多边形");
+        }
+        function fnE(){
+            alert("JS多边形");
+        }
+        $(function(){
+            $("#map1").attr("coords","730,90,774,117,786,166,757,210,704,210,667,168,679,116");
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <img src="2.png" alt="1" usemap="mapdemo"/>
+
+        <map name="mapdemo">
+            <area href="javascript:fnA()" shape="rect" coords="100,100,300,220"></a>
+            <area href="javascript:fnC()" shape="rect" coords="400,50,600,250"></a>
+            <area href="javascript:fnB()" shape="circle" coords="200,400,100"></a>
+            <area href="javascript:fnD()" shape="polygon" coords="495,321,573,356,592,443,543,507,455,507,400,443,419,359"></a>
+            <area href="javascript:fnE()" shape="polygon" id="map1"></a>
+        </map>
+    </div>
+</body>
+</html>

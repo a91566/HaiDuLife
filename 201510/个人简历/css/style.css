@@ -1,0 +1,65 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: "microsoft yahei", "Î¢ÈíÑÅºÚ";
+    overflow-x: hidden;
+}
+
+
+header{
+    height: 800px;
+    position: relative;
+    background: rgba(20, 200, 30, 0.8);
+    overflow: hidden;
+}
+
+.a-btn{
+    position: absolute;
+    display: block;
+    width: 40px;
+    height: 40px;
+    top:50%;
+    z-index: 2;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+}
+.a-btn:hover{
+    background-position: 0 -40px;
+}
+#btn-left{
+     background-image: url(../img/btn_left.png);
+     left: 1%;
+}
+#btn-right{
+    background-image: url(../img/btn_right.png);
+    right: 1%;
+}
+
+section{
+    height: 1600px;
+    background:rgba(200,50,30,0.5);
+}
+
+footer{
+    height: 600px;
+    background:rgba(200,50,30,0.2);
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+}
+
+.ulfloat{
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.ulfloat li{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    float: left;
+}

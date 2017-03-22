@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript">
+        alert('1');
+        window.onload=function()
+        {
+            fnABC();
+            fnABCD();
+        };
+        function fnABC()
+        {
+            alert('2');
+        }
+        function fnABCD()
+        {
+            alert('5');
+        }
+        alert('3');
+    </script>
+</head>
+<body onload="alert('4');">
+执行顺序：13254.window.onload的function是匿名的，则只执行后者，且动作是后者的动作
+</body>
+</html>

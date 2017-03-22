@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        //slice(begin[, end])
+        //slice的第一个参数是必填的，如果传两个正的参数，那么他的用法与substring是一样的，如果传的是负数，那么说明他是从后边数回来的
+
+        //substr(start[, length]) (下标从0开始)从指定位置，提取指定数量的字符。
+
+
+
+        //substring(from[, to])   (下标从0开始)用于提取字符串 一个index索引至另一个之间的子集， 或是直到字符串的结束。
+        //这个放大的的特别就是两个参数可以反转，可是我觉得并没什么用
+
+        //2015年9月12日08:55:57
+
+
+
+        var a='0123456789';//换做数组也是一样的
+//        a=['123','abc','456','ddd','sss','qqq','789456','s123a','78s5a6','5sas32'];
+
+        document.write('a.slice(0,1):'+ a.slice(0,1)+ '<br />');
+        document.write('a.slice(0,2):'+ a.slice(0,2)+ '<br />');
+        document.write('a.slice(1,2):'+ a.slice(1,2)+ '<br />');
+        document.write('a.slice(0,-3):'+ a.slice(0,-3)+ '<br />');//0123456
+        document.write('a.slice(2,-3):'+ a.slice(2,-3)+ '<br />');//23456
+        document.write('a.slice(-3):'+ a.slice(-3)+ '<br />');//789
+        document.write('a.slice(2,5):'+ a.slice(2,5)+ '<br /><br /><br /><br />');//234
+
+
+        document.write('a.substr(0,1):'+ a.substr(0,1)+ '<br />');
+        document.write('a.substr(0,2):'+ a.substr(0,2)+ '<br />');
+        document.write('a.substr(1,2):'+ a.substr(1,2)+ '<br />');//12
+        document.write('a.substr(2,5):'+ a.substr(2,5)+ '<br /><br /><br /><br />');//23456
+
+
+        document.write('a.substring(0,1):'+ a.substring(0,1)+ '<br />');//0
+        document.write('a.substring(0,2):'+ a.substring(0,2)+ '<br />');//01
+        document.write('a.substring(1,2):'+ a.substring(1,2)+ '<br />');//1
+        document.write('a.substring(2,5):'+ a.substring(2,5)+ '<br />');//234  下标是可以反转的
+        document.write('a.substring(5,2):'+ a.substring(5,2)+ '<br />');//234
+        document.write('a.substring(1,5):'+ a.substring(1,5)+ '<br />');//1234
+        document.write('a.substring(4):'+ a.substring(4)+ '<br />');//1234
+    </script>
+</head>
+<body>
+
+</body>
+</html>

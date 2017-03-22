@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1{width: 840px;height: 210px;background: #39b3d7;position: relative;margin: 100px auto;
+            overflow: hidden;}
+        #ul1{height: 210px;margin: 0;padding: 0;list-style: none;position: absolute;left: 0;top: 0;}
+        #ul1 li{margin: 5px;padding: 0;float: left;width: 200px;height: 200px;}
+    </style>
+    <script>
+        window.onload=function()
+        {
+            var oDiv=document.getElementById("div1");
+            var oUl=document.getElementById("ul1");
+            var iSpeed=2;
+            oUl.innerHTML=oUl.innerHTML+oUl.innerHTML;
+            var aLi=document.getElementsByTagName("li");
+            oUl.style.width=aLi[0].offsetWidth*aLi.length+80+"px";
+
+            var tmrMove=setInterval(move,30);
+            function move(){
+                if(oUl.offsetLeft<-(oUl.offsetWidth/2))
+                {
+                    oUl.style.left=0;
+                }
+                if(oUl.offsetLeft>0)
+                {
+                    oUl.style.left=-(oUl.offsetWidth/2)+"px";
+                }
+                oUl.style.left=oUl.offsetLeft+iSpeed+"px";
+            }
+
+            oDiv.onmouseover=function()
+            {
+                clearInterval(tmrMove);
+            };
+            oDiv.onmouseout=function()
+            {
+                tmrMove=setInterval(move,30);
+            };
+            document.getElementsByTagName("a")[0].onclick=function()
+            {
+                iSpeed=-2;
+            };
+            document.getElementsByTagName("a")[1].onclick=function()
+            {
+                iSpeed=2;
+            };
+        };
+    </script>
+</head>
+<body>
+<a href="javascript:;">向左</a>
+<a href="javascript:;">向右</a>
+    <div id="div1">
+        <ul id="ul1">
+            <li><img src="images/1.jpg" alt=""/></li>
+            <li><img src="images/2.jpg" alt=""/></li>
+            <li><img src="images/3.jpg" alt=""/></li>
+            <li><img src="images/4.jpg" alt=""/></li>
+        </ul>
+    </div>
+</body>
+</html>

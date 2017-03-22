@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .div1{width: 200px;height: 50px;background: #39b3d7;float: left;}
+        .div2{width: 200px;height: 80px;background: #64d778;clear: left;}
+        .div3{width: 200px;height: 80px;background: #d76338;float: left;}
+    </style>
+    <script>
+
+//        (function() {
+//            'use strict';
+//            var a = window.b = 5;
+//
+//        })();
+//
+//        alert(b);
+
+        var a=[1,2,3];
+
+//        a=[1,2,3];
+//        a instanceof Array ? alert("true"):alert("false");
+
+
+//        a=[1,2,3];
+//        a constructor  Array ? alert("true"):alert("false");
+
+
+//        a=12;
+//        typeof a=='number'? alert("true"):alert("false");
+
+        function isArray(object){
+            return  object && typeof object==='object' &&
+                    typeof object.length==='number' &&
+                    typeof object.splice==='function' &&
+                        //判断length属性是否是可枚举的 对于数组 将得到false
+                        //有length和splice并不一定是数组，因为可以为对象添加属性，而不能枚举length属性，才是最重要的判断因子
+                    !(object.propertyIsEnumerable('length'));
+        }
+
+        alert(isArray(a));
+    </script>
+</head>
+<body>
+    <div class="div1"> </div>
+    <div class="div2"> </div>
+    <div class="div3"> </div>
+
+</body>
+</html>

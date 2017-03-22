@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript">
+
+        //stringObject.split(separator,howmany)  方法用于把一个字符串分割成字符串数组。
+        //separator	必需。字符串或正则表达式，从该参数指定的地方分割 stringObject。
+        //howmany	可选。该参数可指定返回的数组的最大长度。如果设置了该参数，返回的子串不会多于这个参数指定的数组。
+        //如果没有设置该参数，整个字符串都会被分割，不考虑它的长度。
+
+        var str="How are you doing today?"
+
+        document.write(str.split(" ") + "<br />");
+        document.write(str.split("") + "<br />");
+        document.write(str.split("you") + "<br />");
+        document.write(str.split(" ",3)+ "<br /><br /><br /><br />");
+        document.write("hello".split("")+ "<br /><br /><br /><br />");
+        document.write("hello".split(/\s+/)+ "<br /><br /><br /><br />");
+
+
+    </script>
+</head>
+<body>
+    "2:3:4:5".split(":")	//将返回["2", "3", "4", "5"]
+    <br />
+    "|a|b|c".split("|")	//将返回["", "a", "b", "c"]
+    <br />
+    "hello".split("")	//可返回 ["h", "e", "l", "l", "o"]
+    "hello".split(/\s+/)
+</body>
+</html>

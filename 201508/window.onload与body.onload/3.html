@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript">
+        alert('1');
+        window.onload=function()
+        {
+            alert('2');
+        }
+        alert('3');
+    </script>
+</head>
+<body onload="alert('4');">
+执行顺序：1324.window.onload的function是匿名的，则只执行后者，且动作是后者的动作
+</body>
+</html>

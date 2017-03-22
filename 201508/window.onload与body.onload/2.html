@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+    <TITLE> New Document </TITLE>
+
+</HEAD>
+
+<BODY onload="alert('body onload');alert(document.getElementById('testdiv').innerText)" onclick="alert('click');">
+<div id="testdiv">
+    aaa
+</div>
+</BODY>
+<SCRIPT LANGUAGE="JavaScript">
+    window.onload = haha();
+    function haha() {
+        alert('window onload');
+        alert(document.getElementById('testdiv'));
+    }
+</SCRIPT>
+</HTML>

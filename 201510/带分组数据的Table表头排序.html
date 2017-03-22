@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        .tbl-list, .tbl-list td, .tbl-list th {
+            border: solid 1px #000;
+            border-collapse: collapse;
+            padding: 10px;
+            margin: 15px;
+        }
+    </style>
+    <script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js"></script>
+    <title>table sort</title>
+    <script type="text/javascript">
+        //排序 tableId: 表的id,iCol:第几列 ；dataType：iCol对应的列显示数据的数据类型
+        function sortAble(th, tableId, iCol, dataType) {
+
+            var ascChar = "▲";
+            var descChar = "▼";
+
+            var table = document.getElementById(tableId);
+
+            //排序标题加背景色
+            for (var t = 0; t < table.tHead.rows[0].cells.length; t++) {
+                var th = $(table.tHead.rows[0].cells[t]);
+                var thText = th.html().replace(ascChar, "").replace(descChar, "");
+                if (t == iCol) {
+                    th.css("background-color", "#ccc");
+                }
+                else {
+                    th.css("background-color", "#fff");
+                    th.html(thText);
+                }
+
+            }
+
+            var tbody = table.tBodies[0];
+            var colRows = tbody.rows;
+            var aTrs = new Array;
+
+            //将得到的行放入数组，备用
+            for (var i = 0; i < colRows.length; i++) {
+                //注：如果要求“分组明细不参与排序”，把下面的注释去掉即可
+                //if ($(colRows[i]).attr("group") != undefined) {
+                aTrs.push(colRows[i]);
+                //}
+            }
+
+
+            //判断上一次排列的列和现在需要排列的是否同一个。
+            var thCol = $(table.tHead.rows[0].cells[iCol]);
+            if (table.sortCol == iCol) {
+                aTrs.reverse();
+            } else {
+                //如果不是同一列，使用数组的sort方法，传进排序函数
+                aTrs.sort(compareEle(iCol, dataType));
+            }
+
+            var oFragment = document.createDocumentFragment();
+            for (var i = 0; i < aTrs.length; i++) {
+                oFragment.appendChild(aTrs[i]);
+            }
+            tbody.appendChild(oFragment);
+
+            //记录最后一次排序的列索引
+            table.sortCol = iCol;
+
+            //给排序标题加“升序、降序” 小图标显示
+            var th = $(table.tHead.rows[0].cells[iCol]);
+            if (th.html().indexOf(ascChar) == -1 && th.html().indexOf(descChar) == -1) {
+                th.html(th.html() + ascChar);
+            }
+            else if (th.html().indexOf(ascChar) != -1) {
+                th.html(th.html().replace(ascChar, descChar));
+            }
+            else if (th.html().indexOf(descChar) != -1) {
+                th.html(th.html().replace(descChar, ascChar));
+            }
+
+            //重新整理分组
+            var subRows = $("#" + tableId + " tr[parent]");
+            for (var t = subRows.length - 1; t >= 0 ; t--) {
+                var parent = $("#" + tableId + " tr[group='" + $(subRows[t]).attr("parent") + "']");
+                parent.after($(subRows[t]));
+            }
+        }
+
+        //将列的类型转化成相应的可以排列的数据类型
+        function convert(sValue, dataType) {
+            switch (dataType) {
+                case "int":
+                    return parseInt(sValue, 10);
+                case "float":
+                    return parseFloat(sValue);
+                case "date":
+                    return new Date(Date.parse(sValue));
+                case "string":
+                default:
+                    return sValue.toString();
+            }
+        }
+
+        //排序函数，iCol表示列索引，dataType表示该列的数据类型
+        function compareEle(iCol, dataType) {
+            return function (oTR1, oTR2) {
+
+                var vValue1 = convert(removeHtmlTag($(oTR1.cells[iCol]).html()), dataType);
+                var vValue2 = convert(removeHtmlTag($(oTR2.cells[iCol]).html()), dataType);
+                if (vValue1 < vValue2) {
+                    return -1;
+                }
+                else {
+                    return 1;
+                }
+
+            };
+        }
+
+        //去掉html标签
+        function removeHtmlTag(html) {
+            return html.replace(/<[^>]+>/g, "");
+        }
+
+
+        //jQuery加载完以后，分组行高亮背景，分组明细隐藏
+        $(document).ready(function () {
+            $("tr[group]").css("background-color", "#ff9");
+            $("tr[parent]").hide();
+        });
+
+
+        //点击分组行时，切换分组明细的显示/隐藏
+        function showSub(a) {
+            var groupValue = $(a).parent().parent().attr("group");
+            var subDetails = $("tr[parent='" + groupValue + "']");
+            subDetails.toggle();
+        }
+
+
+    </script>
+</head>
+
+<body>
+
+<table id="tableId" class="tbl-list" cellpadding="0" cellspacing="0">
+    <thead>
+        <tr>
+            <th>序号</th>
+            <th onclick="sortAble(this,'tableId', 1,'string')"
+                style="cursor:pointer">姓名</th>
+            <th onclick="sortAble(this,'tableId', 2, 'date')"
+                style="cursor:pointer">生日</th>
+            <th onclick="sortAble(this,'tableId', 3, 'int')"
+                style="cursor:pointer">年龄</th>
+            <th onclick="sortAble(this,'tableId', 4, 'float')"
+                style="cursor:pointer">工资</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr group="A">
+            <td>1</td>
+            <td><a href="#" onclick="showSub(this)">Group-A</a></td>
+            <td>01/12/1982</td>
+            <td>25</td>
+            <td>1000.50</td>
+        </tr>
+        <tr parent="A">
+            <td>2</td>
+            <td>A-01</td>
+            <td>01/09/1982</td>
+            <td>25</td>
+            <td>2000.10</td>
+        </tr>
+        <tr parent="A">
+            <td>3</td>
+            <td>A-02</td>
+            <td>01/10/1982</td>
+            <td>26</td>
+            <td>2000.20</td>
+        </tr>
+        <tr group="B">
+            <td>4</td>
+            <td><a href="#" onclick="showSub(this)">Group-B</a></td>
+            <td>10/14/1999</td>
+            <td>18</td>
+            <td>1000.20</td>
+        </tr>
+        <tr parent="B">
+            <td>5</td>
+            <td>B-01</td>
+            <td>02/12/1982</td>
+            <td>19</td>
+            <td>3000.20</td>
+        </tr>
+        <tr parent="B">
+            <td>6</td>
+            <td>B-02</td>
+            <td>03/12/1982</td>
+            <td>20</td>
+            <td>3000.30</td>
+        </tr>
+        <tr group="C">
+            <td>7</td>
+            <td><a href="#" onclick="showSub(this)">Group-C</a></td>
+            <td>10/14/1980</td>
+            <td>8</td>
+            <td>1000.30</td>
+        </tr>
+        <tr parent="C">
+            <td>8</td>
+            <td>C-01</td>
+            <td>03/12/1981</td>
+            <td>17</td>
+            <td>3100.30</td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

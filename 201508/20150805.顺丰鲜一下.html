@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{background:#d5f3fd; font-size:14px;}
+        *{margin:0; padding:0;}
+        a{text-decoration:none;}
+        .fresh-screen-hd{width:100%;}
+        .fresh-promo{width:100%;height:380px;position:relative;}
+        .fresh-cont{width:1200px;margin:0 auto;}
+        .promo-main{float:right;width:1000px;}
+        .promo-img{float:left;}
+        .menu-wrap{float:left;width:198px;border:1px solid #dcdcdc;background-color:white;position:absolute;z-index:2;top:0;left:50%;margin-left:-600px;}
+        .product-new{background:url(http://i.sfbest.com/html/images/fresh_water.png) repeat-x left bottom #d5f3fd;height:397px;width:100%;}
+        .time-line{float:right;width:240px;padding-top:10px;height:370px;position:relative;z-index:6;}
+        .hot-cont{width:240px;height:280px;background-color:white;position:relative;padding-top:70px;font-family:"microsoft yahei";}
+        .hot-cont .ct{width:240px;height:55px;background:url(http://i.sfbest.com/html/images/fresh_bg02.png) no-repeat;position:absolute;left:5px;top:5px;overflow:hidden;zoom:1;}
+        .hot-cont .cm{width:240px;height:280px;overflow:hidden;}
+        .hot-cont .cm img{width:240px;height:280px;}
+        .hot-cont .bprice {color: #ff4700;font: bold 20px/30px Arial;left: 20px;position: absolute;top: 125px;}
+        .hot-cont .bprice span {font-size: 14px;font-family:Microsoft YaHei;}
+        .hot-cont .t1{width:180px;float:left;font-size:22px;color:#ffffff;line-height:45px;text-indent:10px;}
+        .hot-cont .t2{font-size:14px;width:40px;padding:6px 10px;color:#ffffff;float:left;text-align:center;line-height:15px;cursor:pointer;}
+        .hot-cont.next .ct{background:url(http://i.sfbest.com/html/images/fresh_bg02.png) no-repeat 0 -55px;}
+        .menu-cont{font-family:"microsoft yahei";padding:10px 13px;}
+        .menu-cont .item{padding-bottom:5px;}
+        .menu-cont .item .ct{position:relative;padding-left:28px;height:27px;line-height:25px;font-size:14px;color:black;border-bottom:1px dotted #d2d2d2;}
+        .menu-cont .item .ct a:link,.menu-cont .item .ct a:visited{color:black;text-decoration:none;}
+        .menu-cont .item .ct a:hover{text-decoration:none;color:#69af00;}
+        .menu-cont .item b{width:24px;height:25px;position:absolute;left:0;background:url(http://i.sfbest.com/html/images/fresh_bg.png) no-repeat -120px -157px;}
+        .menu-cont .item b.i-52{background:url(http://i.sfbest.com/html/images/fresh_bg.png) no-repeat 0 -132px;}
+        .menu-cont .item b.i-64{background:url(http://i.sfbest.com/html/images/fresh_bg.png) no-repeat -24px -132px;}
+        .menu-cont .item b.i-63{background:url(http://i.sfbest.com/html/images/fresh_bg.png) no-repeat -48px -132px;}
+        .menu-cont .item b.i-58{background:url(http://i.sfbest.com/html/images/fresh_bg.png) no-repeat -72px -132px;}
+        .menu-cont .item b.i-55{background:url(http://i.sfbest.com/html/images/fresh_bg.png) no-repeat -96px -132px;}
+        .menu-cont .item b.i-60{background:url(http://i.sfbest.com/html/images/fresh_bg.png) no-repeat -120px -132px;}
+        .menu-cont .item b.i-5990{background:url(http://i.sfbest.com/html/images/fresh_bg.png) no-repeat -144px -132px;}
+        .menu-cont .item b.i-6000{background:url(http://i.sfbest.com/html/images/fresh_bg.png) no-repeat 0 -157px;}
+        .menu-cont .item b.i-57{background:url(http://i.sfbest.com/html/images/fresh_bg.png) no-repeat -72px -157px;}
+        .menu-cont .item b.i-481{background:url(http://i.sfbest.com/html/images/fresh_bg.png) no-repeat -96px -157px;}
+        .menu-cont .item b.i-new{background:url(http://i.sfbest.com/html/images/fresh_bg.png) no-repeat -120px -157px;}
+        .menu-cont .item .cm{line-height:20px;margin-top:4px;overflow:hidden;zoom:1;}
+        .menu-cont .item .cm a{float:left;margin-right:15px;display:inline;color:#969696;white-space:nowrap;}
+        .menu-cont .item .cm a:hover{text-decoration:none;color:#69af00;}
+        .fresh-new-cont{width:1000px;margin-left:200px;background:url(http://i.sfbest.com/html/images/fresh_shadow.png) no-repeat left bottom;height:380px;}
+        .product-hd{height:84px;overflow:hidden;zoom:1;font-family:"microsoft yahei";}
+        .product-hd .ct{float:left;background:url(http://i.sfbest.com/html/images/fresh_bg.png) no-repeat 0 -182px;height:53px;line-height:53px;padding-left:90px;font-size:22px;color:#333333;padding-top:10px;}
+        .product-hd .cm{float:right;background:url(http://i.sfbest.com/html/images/fresh_line.png) no-repeat right bottom;width:242px;height:33px;padding-top:28px;}
+        .product-hd .cm span{position:relative;padding-left:40px;font-size:14px;}
+        .product-hd .cm span b{width:16px;height:16px;position:absolute;left:15px;top:2px;}
+        .product-hd .cm .t1{margin-right:10px;}
+        .product-hd .cm .t1 b{background:url(http://i.sfbest.com/html/images/fresh_bg.png) no-repeat -24px -157px;}
+        .product-hd .cm .t2 b{background:url(http://i.sfbest.com/html/images/fresh_bg.png) no-repeat -40px -157px;}
+        .product-bd{height:293px;width:1000px;overflow:hidden;zoom:1;}
+        .product-box{width:822px;height:272px;margin-left:50px;_display:inline;background:url(http://i.sfbest.com/html/images/fresh_new_bg.png) no-repeat;float:left;overflow:hidden;}
+        .product-temp{padding-top:20px;padding-left:30px;padding-right:10px;overflow:hidden;zoom:1;}
+        .product-temp .cm{width:150px;margin:0 20px;float:left;text-align:center;font-size:18px;font-family:"microsoft yahei";height:40px;line-height:40px;overflow:hidden;}
+        .product-temp .temp1{color:#075591;}
+        .product-temp .temp2{color:#0D6DB7;}
+        .product-temp .temp3{color:#0096FF;}
+        .product-temp .temp4{color:#78A1FF;}
+        .item-list{width:150px;height:190px;margin:0 20px;}
+        .item-list .p-img{position:relative;width:150px;height:150px;overflow:hidden;}
+        .item-list .p-img img{width:150px;height:150px;}
+        .item-list .p-name{margin-top:20px;height:20px;line-height:20px;overflow:hidden;white-space:nowrap;color:#333333;}
+        .item-list .p-name a:link,.item-list .p-name a:visited{color:#333333;}
+        .item-list .p-price{height:24px;width:80px;position:absolute;right:0;bottom:0;overflow:hidden;white-space:nowrap;}
+        .item-list .p-price .bg-mask{background-color:#ffffff;filter:alpha(opacity=70);opacity:0.7;display:block;position:absolute;right:0;bottom:0;height:24px;width:80px;}
+        .item-list .p-price .price{position:absolute;right:0;bottom:0;width:80px;text-align:center;line-height:24px;font-family:Arial;color:#333333;font-size:16px;display:block;}
+        .item-list .price .rmb{font-family:"microsoft yahei";font-size:14px;}
+        .item-list .p-addcart{height:24px;width:150px;position:absolute;right:0;bottom:-24px;cursor:pointer;}
+        .item-list .p-addcart .bg1-mask{background:#669900;filter:alpha(opacity=80);opacity:0.8;position:absolute;right:0;bottom:0;display:block;height:24px;width:150px;}
+        .item-list .p-addcart a{color:#ffffff;position:absolute;right:33px;bottom:0;display:block;background:url(http://i.sfbest.com/html/images/indexsprite.png) no-repeat -66px -177px;height:24px;width:60px;line-height:24px;padding-left:20px;text-decoration:none;}
+        .item-list .outBtn .bg1-mask{background:#969696;filter:alpha(opacity=95);-moz-opacity:0.95;opacity:0.95;right:0;bottom:0;display:block;height:24px;width:150px;}
+        .item-list .outBtn{position:absolute;width:150px;height:24px;bottom:-24px;cursor:pointer;}
+        .item-list .outBtn a{ padding:0;background:none; text-align:center; width:100%;display:block;right:0;}
+        .product-item{padding-left:30px;padding-right:10px;overflow:hidden;zoom:1;height:190px;overflow:hidden;position:relative;}
+        .product-item .item{width:190px;float:left;position:relative;overflow:hidden;top:0;}
+        .one-arm-machine{float:left;height:204px;width:125px;padding-top:68px;}
+        .arm-operator{width:91px;height:192px;position:relative;background:url(http://i.sfbest.com/html/images/fresh_laohuji.png) no-repeat left bottom;}
+        .arm-curr{background:url(http://i.sfbest.com/html/images/fresh_laohuji2.png) no-repeat left bottom;}
+        .arm-operator .arm-btn{width:80px;height:80px;margin-left:11px;position:absolute;top:0;cursor:pointer;background:url(http://i.sfbest.com/html/images/fresh_arm_circle.png) no-repeat;}
+        .arm-operator .arm-btn .arm-txt{width:80px;height:30px;text-align:center;position:absolute;top:25px;display:block;line-height:30px;font-family:"microsoft yahei";font-size:16px;color:white;}
+        .fresh-floor{margin-top:10px;}
+        .floor-hd{height:42px;overflow:hidden;zoom:1;}
+        .floor-name{height:33px;width:220px;float:left;text-indent:-9999px;border-bottom:2px solid #76ac25;padding-top:7px;}
+        .floor-name .fruit{background:url(http://i.sfbest.com/html/images/fresh_bg.png) no-repeat;height:33px;width:220px;}
+        .floor-name .meat{background:url(http://i.sfbest.com/html/images/fresh_bg.png) no-repeat 0 -33px;height:33px;width:220px;}
+        .floor-name .seafood{background:url(http://i.sfbest.com/html/images/fresh_bg.png) no-repeat 0 -66px;height:33px;width:220px;}
+        .floor-name .more{background:url(http://i.sfbest.com/html/images/fresh_bg.png) no-repeat 0 -99px;height:33px;width:220px;}
+        .floor-link{height:33px;width:220px;display:block;}
+        .floor-side{float:left;width:948px;height:40px;margin-left:32px;display:inline;border-bottom:1px solid #333333;overflow:hidden;zoom:1;font-size:14px;}
+        .floor-hd-left{float:left;border-left:1px solid #dcdcdc;margin-top:16px;}
+        .floor-hd-left a{float:left;display:block;width:90px;height:16px;text-align:center;border-right:1px solid #dcdcdc;line-height:16px;overflow:hidden;}
+        .floor-hd-left a:hover{color:#669900;text-decoration:none;}
+        .floor-hd-more{float:right;padding-right:20px;height:24px;width:127px;position:relative;text-align:right;top:0;padding-top:16px;font-family:"宋体";overflow:hidden;}
+        .floor-hd-more a{display:block;text-decoration:none;}
+        .floor-hd-more a:hover{color:#669900}
+        .floor-hd-more b{width:82px;height:40px;position:absolute;top:0;right:65px;}
+        .floor-hd-more i{width:82px;height:40px;position:absolute;top:40px;right:65px;}
+        .floor-hd-more .f-1{background:url(http://i.sfbest.com/html/images/fresh_animate.png) no-repeat;}
+        .floor-hd-more .i-1{background:url(http://i.sfbest.com/html/images/fresh_animate.png) no-repeat 0 -40px;}
+        .floor-hd-more .f-2{background:url(http://i.sfbest.com/html/images/fresh_animate.png) no-repeat 0 -80px;;}
+        .floor-hd-more .i-2{background:url(http://i.sfbest.com/html/images/fresh_animate.png) no-repeat 0 -120px;}
+        .floor-hd-more .f-3{background:url(http://i.sfbest.com/html/images/fresh_animate.png) no-repeat 0 -160px;}
+        .floor-hd-more .i-3{background:url(http://i.sfbest.com/html/images/fresh_animate.png) no-repeat 0 -200px;}
+        .product-list{width:1200px;}
+        .product-list ul{width:1210px;}
+        .product-list .item{float:left;width:230px;margin-right:12px;height:330px;padding-top:10px;}
+        .product-list .item.fore{padding-top:0;height:340px;}
+        .product-list .item.fore img{width:220px;height:340px;}
+        .product-list .p-item{width:210px;padding:8px;height:310px;position:relative;margin:0 auto;overflow:hidden;}
+        .product-list .item.hover .p-item{padding-bottom:6px;;box-shadow:0 0 6px #eaeaea;position:relative;}
+        .product-list .p-img{margin-bottom:15px;}
+        .product-list .p-img img{width:210px;}
+        .product-list .title-a,.product-list .title-b{line-height:20px;height:20px;overflow:hidden;}
+        .product-list .title-b{color:#EA5404;}
+        .product-list .title-b a:link,.product-list .title-b a:visited{color:#ea5404;}
+        .product-list .title-c{line-height:20px;height:40px;overflow:hidden;}
+        .product-list .p-price{margin:8px 0 5px 0;height:20px;overflow:hidden;zoom:1;}
+        .product-list .p-price span{ float:left;margin-right:5px;_display:inline;line-height:20px;}
+        .product-list .p-now{font-family:Microsoft YaHei;color:#ff4800;font-size:14px;}
+        .product-list .p-now strong{font-size:20px;font-weight:normal;font-family:Arial;}
+        .product-list .p-nor{font-family:Arial;text-decoration: line-through;}
+        .product-list .p-btn{height:22px;width:80px;background-color:#76ac25;border-radius:3px;text-align:center;color:#fff;cursor:pointer;line-height:22px;position:absolute;bottom:20px;right:20px;display:none;}
+        .product-list .p-btn a{color:#fff;text-decoration:none;}
+        .product-list .outBtn{height:22px;width:70px;border-radius:3px;background-color:#dcdcdc;text-align:center;color:#fff;line-height:22px;position:absolute;bottom:20px;right:20px;cursor:default;display:none;}
+        .product-list .outBtn a{color:#fff;cursor:default;text-decoration:none;}
+        .product-list .item.hover .p-btn,.product-list .item.hover .outBtn{display:block;}
+        .sf-slider {height: 380px;left: 0;position: absolute;top: 0;width: 100%;z-index: 0;}
+        .sf-slider .sf-s-wrap {height: 380px; display:none;}
+        .sf-slider .sf-s-wrap .item {height: 380px;left: 0;overflow: hidden;position: absolute;top: 0;width: 100%;z-index: 0;}
+        .sf-slider .sf-s-wrap .item .i-wrap {height: 380px;margin: 0 auto;width: 1200px;}
+        .sf-slider .sf-s-wrap .item .i-wrap .i-inner {height: 100%;position: relative;width: 760px;margin-left:200px;}
+        .sf-slider .sf-s-wrap .item .i-wrap .i-img {display: block;position: absolute;z-index: 1;}
+        .sf-slider .sf-s-wrap .item .i-wrap .i-img img {width:760px;height:380px;}
+        .sf-slider .sf-s-wrap .item .i-wrap .i-img.site-1 {left:0;top:0;z-index: 2;}
+        .sf-slider .sf-s-wrap .item.selected {z-index: 1;}
+        .sf-slider .sf-s-trigger {bottom: 0;position: absolute;text-align: center;width: 100%;z-index: 5;}
+        .sf-slider .sf-s-trigger a {background-color:#646464;filter:alpha(opacity=80);opacity:0.8;border-radius:50%;cursor: pointer;display: inline-block;height: 25px;margin: 0 5px 15px 0;position: relative;width:25px;text-align:center;line-height:25px;font-size:14px;text-decoration:none;color:white;*display:inline;+zoom:1;}
+        .sf-slider .sf-s-trigger a.curr {background-color:#ffa827;}
+        .fresh-ads{padding:10px 0;}
+        .fresh-ads img{width:1200px;height:100px;}
+        .backToTop {background:none;border-bottom:0 none;font-size: 0;height: 0;line-height: 0;overflow: hidden;width: 0;}
+    </style>
+
+    <script src="http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <script type="text/javascript" src="http://sandbox.runjs.cn/uploads/rs/282/lnxxj18e/jquery.easing.js"></script>
+    <script type="text/javascript" src="http://sandbox.runjs.cn/uploads/rs/282/lnxxj18e/fresh.js"></script>
+
+
+    <script>
+        var machine_time;
+        var isBegin = false;
+        $(function(){
+            //sfAddCart.init();
+            iconShow();
+            $(".item-list .p-img").hover(function(){
+                $(this).find(".p-price").animate({"bottom":"24"},250);
+                $(this).find(".p-addcart").animate({"bottom":"0"},250);
+            },function(){
+                $(this).find(".p-price").animate({"bottom":"0"},250);
+                $(this).find(".p-addcart").animate({"bottom":"-24"},250);
+            });
+            $(".product-list .item").hover(function(){
+                $(this).addClass("hover");
+            },function(){
+                $(this).removeClass("hover");
+            });
+            $(".floor-hd-more").mouseenter(function(){
+                var This = $(this);
+                This.find("b").animate({"top":"40"},600,function(){This.find("i").animate({"top":"0"});});
+            });
+            //如果没有数据下期预告不可点击
+            $(".time-line .t2").click(function(){
+                if (!$(".hot-cont").hasClass("next")){
+                    $(".hot-cont").addClass("next");
+                    $(".hot-cont").find(".t1").html("下期预告");
+                    $(".hot-cont").find(".t2").html("今日抢鲜");
+                    $(".hot-cont").find(".c2").removeClass("hide");
+                    $(".hot-cont").find(".c1").addClass("hide");
+                    $(".hot-cont").find(".bprice").hide();
+
+                }else{
+                    $(".hot-cont").removeClass("next");
+                    $(".hot-cont").find(".t1").html("今日抢鲜");
+                    $(".hot-cont").find(".t2").html("下期预告");
+                    $(".hot-cont").find(".c1").removeClass("hide");
+                    $(".hot-cont").find(".c2").addClass("hide");
+                    $(".hot-cont").find(".bprice").show();
+                }
+
+            });
+            var u = 190;
+            $('.arm-btn').click(function(){
+                clearInterval(machine_time);
+                $(".arm-operator").addClass("arm-curr");
+                $(".arm-btn").animate({"top":"40"},250,function(){$(".arm-btn").animate({"top":"0"},250,function(){$(".arm-operator").removeClass("arm-curr")})});
+                $(".product-item .item").css('top',0);
+                if(isBegin) return false;
+                isBegin = true;
+                var num_arr = numRand();
+                $(".product-item .item").each(function(index){
+                    var _num = $(this);
+                    setTimeout(function(){
+                        _num.animate({
+                            top: -(u*num_arr[index])
+                        },{
+                            duration: 300+index*300,
+                            easing: "easeInOutQuad",
+                            complete: function(){
+                                if(!_num.find(".item-list").eq(num_arr[index]).hasClass("price_list0")){_num.find(".item-list").eq(num_arr[index]).addClass("price_list0 flag"+index+num_arr[index]);getAllPrice("flag"+index+num_arr[index], 'priceK_');}
+                                if(index==3) isBegin = false;
+                            }
+                        });
+                    }, index * 200);
+                });
+            });
+            arm_machine();
+            $(".arm-btn").hover(function(){
+                clearInterval(machine_time);
+                $(".arm-btn").animate({"top":"5"},250);
+            },function(){
+                $(".arm-btn").animate({"top":"0"},250);
+                arm_machine();
+            });
+            //加载价格
+            getAllPrice('price_list2', 'priceT_');
+            //新鲜入库
+            getAllPrice('price_list0', 'priceK_');
+            //楼层
+            getAllPrice('price_list1', 'priceL_');
+            //后加载图片
+            /*ua = window.navigator.userAgent;
+             var tnumber = ua.indexOf('iPad')>=1?400:200;
+             $('img.lazy').lazyload({
+             placeholder : "http://i.sfbest.com/html/images/blank.gif",
+             threshold : tnumber
+             });
+             $('img.lazy_load').lazyload({
+             placeholder : "http://i.sfbest.com/html/images/blank.gif",
+             event : "sporty"
+             });*/
+        });
+
+        function getAllPrice(id, css_id){
+            var p_ids = '';
+            var e_ids = '';
+            $("."+id).each(
+                    function (){
+                        var goodsId = $(this).attr('goods');
+                        var eid = $(this).attr('eid');
+                        if(p_ids){
+                            p_ids = p_ids + ',' + goodsId;
+                        }else{
+                            p_ids = goodsId;
+                        }
+                        if(e_ids){
+                            e_ids = e_ids + ',' + eid;
+                        }else{
+                            e_ids = eid;
+                        }
+                    }
+            );
+            p_ids = p_ids.replace(/,undefined/g,'');
+            e_ids = e_ids.replace(/,undefined/g,'');
+            if(p_ids && e_ids){
+                $.post("/product/getAllPrice/",{pids:p_ids,eids:e_ids},function(str){
+                    if(str){
+                        for(var i=0;i<str.length;i++){
+                            var e_id = str[i]['eid'];
+                            if(parseFloat(str[i].sfprice) == parseFloat(str[i].price)){
+                                if(css_id == 'priceK_'){
+                                    $("#"+css_id+e_id).html('￥'+str[i]['sfprice'] );
+                                }else if(css_id == 'priceT_'){
+                                    $("#"+css_id+e_id).html('<span>￥</span>'+str[i]['sfprice'] );
+                                }else{
+                                    //$("#"+css_id+e_id).html('<b>￥'+ str[i]['sfprice'] +'</b>');
+                                    $("#"+css_id+e_id).html('<span class="p-now">￥<strong>'+str[i]['sfprice'] +'</strong></span>');
+                                }
+                            }else{
+                                if(css_id == 'priceK_'){
+                                    $("#"+css_id+e_id).html('￥'+str[i]['price'] );
+                                }else if(css_id == 'priceT_'){
+                                    $("#"+css_id+e_id).html('<span>￥</span>'+str[i]['price'] );
+                                }else{
+                                    //$("#"+css_id+e_id).html('<b>￥'+ str[i]['price'] + '</b><font>￥'+str[i]['sfprice']+'</font>');
+                                    $("#"+css_id+e_id).html('<span class="p-now">￥<strong>'+str[i]['price'] +'</strong></span>');
+                                }
+                            }
+                            if($.trim(str[i].tag_img) != '' && (css_id == 'priceL_')){
+                                //$("#"+css_id+e_id).parent().append('<span class="icon-cx"><img src="'+str[i].tag_img+'" /></span>');
+                            }
+                            if ( typeof(str[i].presell) !== 'undefined'){
+                                if(css_id == 'priceK_'){
+                                    $("#"+css_id+e_id).html('￥'+str[i].presell.price);
+                                }else if(css_id == 'priceT_'){
+                                    $("#"+css_id+e_id).html('<span>￥</span>'+str[i].presell.price );
+                                }else{
+                                    //$("#"+css_id+e_id).html('<b>￥'+ str[i].presell.price + '</b><font>￥'+str[i]['sfprice']+'</font>');
+                                    $("#"+css_id+e_id).html('<span class="p-now">￥<strong>'+str[i].presell.price +'</strong></span>');
+                                }
+                                //预售商品不能加入购物车
+                                $("#cx_"+e_id).find(".p-btn").remove();
+                                $("#cx_"+e_id).find(".p-addcart").remove();
+                            }
+                        }
+                    }
+                },"json");
+            }
+        }
+
+        function arm_machine(){
+            machine_time = setInterval(function(){
+                $(".arm-txt").stop().animate({"top":"37"},300,function(){
+                    $(".arm-txt").animate({"top":"25"},300,function(){$(".arm-txt").animate({"top":"37"},300,function(){$(".arm-txt").animate({"top":"25"},300)})})});
+            },5000);
+        }
+        function numRand() {
+            var rand= [];
+            for(var i = 0;i<4;i++){
+                var itemId = $(".product-item .item").eq(i).attr("item-id");
+                var len = $(".product-item .item").eq(i).find(".item-list").length - 1;
+                var num = parseInt((Math.random() * len + 1));
+                while (itemId == num) {
+                    num = parseInt((Math.random() * len + 1));
+                }
+                $(".product-item .item").eq(i).attr("item-id",num);
+                rand.push(num);
+            }
+            return rand;
+        }
+        function iconShow(){
+            return 1;
+        };
+
+
+    </script>
+
+
+</head>
+<body>
+
+
+<div class="product-bd">
+    <div class="product-box">
+        <div class="product-temp">
+            <div class="cm temp1">-18℃冷冻区</div>
+            <div class="cm temp2">-18℃冷冻区</div>
+            <div class="cm temp3">0-8℃冷藏区</div>
+            <div class="cm temp4">8-10℃冷藏区</div>
+        </div>
+        <div class="product-item">
+            <div class="item" item-id="1" id="product_item261" style="top: -190px;">
+                <div class="item-list price_list0" goods="36766" eid="b_36766_261" id="cx_b_36766_261">
+                    <div class="p-img"><a href="http://www.sfbest.com/html/products/37/1800036766.html#trackref=sfbest_channel_fresh_new_item1-1" target="_blank" title="大昌食品   烹烹享 西冷牛排 150g" alt="大昌食品   烹烹享 西冷牛排 150g"><img class="" src="http://p02.sfbest.com/2014/1800036766/middle_1800036766_3_11/150x150.jpg" alt="大昌食品   烹烹享 西冷牛排 150g" title="大昌食品   烹烹享 西冷牛排 150g"></a>
+                        <div class="p-price"><span class="bg-mask"></span><span class="price"><span class="rmb" id="priceK_b_36766_261">￥21</span></span></div>
+                        <div class="p-addcart p-btn"><span class="bg1-mask"></span><a href="javascript:void(0);" data_url="http://p02.sfbest.com/2014/1800036766/middle_1800036766_3_11/150x150.jpg" pid="36766" indexflag="1">加入购物车</a></div>
+                    </div>
+                    <div class="p-name"><a href="http://www.sfbest.com/html/products/37/1800036766.html#trackref=sfbest_channel_fresh_new_item1-1" target="_blank" title="大昌食品   烹烹享 西冷牛排 150g" alt="大昌食品   烹烹享 西冷牛排 150g">大昌食品   烹烹享 西冷牛排 150g</a></div>
+                </div>
+                <div class="item-list  price_list0 flag01" goods="24143" eid="b_24143_261" id="cx_b_24143_261">
+                    <div class="p-img"><a href="http://www.sfbest.com/html/products/25/1800024143.html#trackref=sfbest_channel_fresh_new_item1-2" target="_blank" title="天玛生态 沙漠土鸡琵琶腿 1000g" alt="天玛生态 沙漠土鸡琵琶腿 1000g"><img class="" src="http://p02.sfbest.com/2013/1800024143/middle_1800024143_1_14/150x150.jpg" alt="天玛生态 沙漠土鸡琵琶腿 1000g" title="天玛生态 沙漠土鸡琵琶腿 1000g"></a>
+                        <div class="p-price" style="bottom: 0px;"><span class="bg-mask"></span><span class="price"><span class="rmb" id="priceK_b_24143_261">￥22.8</span></span></div>
+                        <div class="p-addcart p-btn" style="bottom: -24px;"><span class="bg1-mask"></span><a href="javascript:void(0);" data_url="http://p02.sfbest.com/2013/1800024143/middle_1800024143_1_14/150x150.jpg" pid="24143" indexflag="1">加入购物车</a></div>
+                    </div>
+                    <div class="p-name"><a href="http://www.sfbest.com/html/products/25/1800024143.html#trackref=sfbest_channel_fresh_new_item1-2" target="_blank" title="天玛生态 沙漠土鸡琵琶腿 1000g" alt="天玛生态 沙漠土鸡琵琶腿 1000g">天玛生态 沙漠土鸡琵琶腿 1000g</a></div>
+                </div>
+                <div class="item-list  price_list0 flag02" goods="37182" eid="b_37182_261" id="cx_b_37182_261">
+                    <div class="p-img"><a href="http://www.sfbest.com/html/products/38/1800037182.html#trackref=sfbest_channel_fresh_new_item1-3" target="_blank" title="精气神 山黑猪精品五花肉400g" alt="精气神 山黑猪精品五花肉400g"><img class="" src="http://p02.sfbest.com/2014/1800037182/middle_1800037182_3_10/150x150.jpg" alt="精气神 山黑猪精品五花肉400g" title="精气神 山黑猪精品五花肉400g"></a>
+                        <div class="p-price"><span class="bg-mask"></span><span class="price"><span class="rmb" id="priceK_b_37182_261">￥35.8</span></span></div>
+                        <div class="p-addcart p-btn"><span class="bg1-mask"></span><a href="javascript:void(0);" data_url="http://p02.sfbest.com/2014/1800037182/middle_1800037182_3_10/150x150.jpg" pid="37182" indexflag="1">加入购物车</a></div>
+                    </div>
+                    <div class="p-name"><a href="http://www.sfbest.com/html/products/38/1800037182.html#trackref=sfbest_channel_fresh_new_item1-3" target="_blank" title="精气神 山黑猪精品五花肉400g" alt="精气神 山黑猪精品五花肉400g">精气神 山黑猪精品五花肉400g</a></div>
+                </div>
+                <div class="item-list " goods="37187" eid="b_37187_261" id="cx_b_37187_261">
+                    <div class="p-img"><a href="http://www.sfbest.com/html/products/38/1800037187.html#trackref=sfbest_channel_fresh_new_item1-4" target="_blank" title="精气神 山黑猪展肉 400g" alt="精气神 山黑猪展肉 400g"><img class="" src="http://p02.sfbest.com/2014/1800037187/middle_1800037187_3_10/150x150.jpg" alt="精气神 山黑猪展肉 400g" title="精气神 山黑猪展肉 400g"></a>
+                        <div class="p-price"><span class="bg-mask"></span><span class="price"><span class="rmb" id="priceK_b_37187_261"></span></span></div>
+                        <div class="p-addcart p-btn"><span class="bg1-mask"></span><a href="javascript:void(0);" data_url="http://p02.sfbest.com/2014/1800037187/middle_1800037187_3_10/150x150.jpg" pid="37187" indexflag="1">加入购物车</a></div>
+                    </div>
+                    <div class="p-name"><a href="http://www.sfbest.com/html/products/38/1800037187.html#trackref=sfbest_channel_fresh_new_item1-4" target="_blank" title="精气神 山黑猪展肉 400g" alt="精气神 山黑猪展肉 400g">精气神 山黑猪展肉 400g</a></div>
+                </div>
+                <div class="item-list " goods="55093" eid="b_55093_261" id="cx_b_55093_261">
+                    <div class="p-img"><a href="http://www.sfbest.com/html/products/56/1800055093.html#trackref=sfbest_channel_fresh_new_item1-5" target="_blank" title="皇上皇 金味腊肠 380g" alt="皇上皇 金味腊肠 380g"><img class="" src="http://p02.sfbest.com/2014/1800055093/middle_1800055093_1_15/150x150.jpg" alt="皇上皇 金味腊肠 380g" title="皇上皇 金味腊肠 380g"></a>
+                        <div class="p-price"><span class="bg-mask"></span><span class="price"><span class="rmb" id="priceK_b_55093_261"></span></span></div>
+                        <div class="p-addcart p-btn"><span class="bg1-mask"></span><a href="javascript:void(0);" data_url="http://p02.sfbest.com/2014/1800055093/middle_1800055093_1_15/150x150.jpg" pid="55093" indexflag="1">加入购物车</a></div>
+                    </div>
+                    <div class="p-name"><a href="http://www.sfbest.com/html/products/56/1800055093.html#trackref=sfbest_channel_fresh_new_item1-5" target="_blank" title="皇上皇 金味腊肠 380g" alt="皇上皇 金味腊肠 380g">皇上皇 金味腊肠 380g</a></div>
+                </div>
+                <div class="item-list " goods="8786" eid="b_8786_261" id="cx_b_8786_261">
+                    <div class="p-img"><a href="http://www.sfbest.com/html/products/9/1800008786.html#trackref=sfbest_channel_fresh_new_item1-6" target="_blank" title="百年栗园 北京油鸡公鸡 1000g" alt="百年栗园 北京油鸡公鸡 1000g"><img class="" src="http://p02.sfbest.com/2014/1800008786/middle_1800008786_3_3/150x150.jpg" alt="百年栗园 北京油鸡公鸡 1000g" title="百年栗园 北京油鸡公鸡 1000g"></a>
+                        <div class="p-price"><span class="bg-mask"></span><span class="price"><span class="rmb" id="priceK_b_8786_261"></span></span></div>
+                        <div class="p-addcart p-btn"><span class="bg1-mask"></span><a href="javascript:void(0);" data_url="http://p02.sfbest.com/2014/1800008786/middle_1800008786_3_3/150x150.jpg" pid="8786" indexflag="1">加入购物车</a></div>
+                    </div>
+                    <div class="p-name"><a href="http://www.sfbest.com/html/products/9/1800008786.html#trackref=sfbest_channel_fresh_new_item1-6" target="_blank" title="百年栗园 北京油鸡公鸡 1000g" alt="百年栗园 北京油鸡公鸡 1000g">百年栗园 北京油鸡公鸡 1000g</a></div>
+                </div>
+                <div class="item-list  price_list0 flag06" goods="18763" eid="b_18763_261" id="cx_b_18763_261">
+                    <div class="p-img"><a href="http://www.sfbest.com/html/products/19/1800018763.html#trackref=sfbest_channel_fresh_new_item1-7" target="_blank" title="科尔沁 牛肉串（碳烧香辣） 400g" alt="科尔沁 牛肉串（碳烧香辣） 400g"><img class="" src="http://p02.sfbest.com/2013/1800018763/middle_1800018763_2_13/150x150.jpg" alt="科尔沁 牛肉串（碳烧香辣） 400g" title="科尔沁 牛肉串（碳烧香辣） 400g"></a>
+                        <div class="p-price"><span class="bg-mask"></span><span class="price"><span class="rmb" id="priceK_b_18763_261">￥36</span></span></div>
+                        <div class="p-addcart p-btn"><span class="bg1-mask"></span><a href="javascript:void(0);" data_url="http://p02.sfbest.com/2013/1800018763/middle_1800018763_2_13/150x150.jpg" pid="18763" indexflag="1">加入购物车</a></div>
+                    </div>
+                    <div class="p-name"><a href="http://www.sfbest.com/html/products/19/1800018763.html#trackref=sfbest_channel_fresh_new_item1-7" target="_blank" title="科尔沁 牛肉串（碳烧香辣） 400g" alt="科尔沁 牛肉串（碳烧香辣） 400g">科尔沁 牛肉串（碳烧香辣） 400g</a></div>
+                </div>
+                <div class="item-list  price_list0 flag07" goods="18765" eid="b_18765_261" id="cx_b_18765_261">
+                    <div class="p-img"><a href="http://www.sfbest.com/html/products/19/1800018765.html#trackref=sfbest_channel_fresh_new_item1-8" target="_blank" title="科尔沁 牛肉丸（五香味） 200g" alt="科尔沁 牛肉丸（五香味） 200g"><img class="" src="http://p02.sfbest.com/2013/1800018765/middle_1800018765_1_11/150x150.jpg" alt="科尔沁 牛肉丸（五香味） 200g" title="科尔沁 牛肉丸（五香味） 200g"></a>
+                        <div class="p-price"><span class="bg-mask"></span><span class="price"><span class="rmb" id="priceK_b_18765_261">￥15.8</span></span></div>
+                        <div class="p-addcart p-btn"><span class="bg1-mask"></span><a href="javascript:void(0);" data_url="http://p02.sfbest.com/2013/1800018765/middle_1800018765_1_11/150x150.jpg" pid="18765" indexflag="1">加入购物车</a></div>
+                    </div>
+                    <div class="p-name"><a href="http://www.sfbest.com/html/products/19/1800018765.html#trackref=sfbest_channel_fresh_new_item1-8" target="_blank" title="科尔沁 牛肉丸（五香味） 200g" alt="科尔沁 牛肉丸（五香味） 200g">科尔沁 牛肉丸（五香味） 200g</a></div>
+                </div>
+                <div class="item-list " goods="56959" eid="b_56959_261" id="cx_b_56959_261">
+                    <div class="p-img"><a href="http://www.sfbest.com/html/products/57/1800056959.html#trackref=sfbest_channel_fresh_new_item1-9" target="_blank" title="佳尚新蔬 速冻笋块 500g" alt="佳尚新蔬 速冻笋块 500g"><img class="" src="http://p02.sfbest.com/2014/1800056959/middle_1800056959_1_1/150x150.jpg" alt="佳尚新蔬 速冻笋块 500g" title="佳尚新蔬 速冻笋块 500g"></a>
+                        <div class="p-price"><span class="bg-mask"></span><span class="price"><span class="rmb" id="priceK_b_56959_261"></span></span></div>
+                        <div class="p-addcart p-btn"><span class="bg1-mask"></span><a href="javascript:void(0);" data_url="http://p02.sfbest.com/2014/1800056959/middle_1800056959_1_1/150x150.jpg" pid="56959" indexflag="1">加入购物车</a></div>
+                    </div>
+                    <div class="p-name"><a href="http://www.sfbest.com/html/products/57/1800056959.html#trackref=sfbest_channel_fresh_new_item1-9" target="_blank" title="佳尚新蔬 速冻笋块 500g" alt="佳尚新蔬 速冻笋块 500g">佳尚新蔬 速冻笋块 500g</a></div>
+                </div>
+                <div class="item-list " goods="143220" eid="b_143220_261" id="cx_b_143220_261">
+                    <div class="p-img"><a href="http://www.sfbest.com/html/products/144/1800143220.html#trackref=sfbest_channel_fresh_new_item1-10" target="_blank" title="荷美尔Hormel经典生煎培根 120g*6" alt="荷美尔Hormel经典生煎培根 120g*6"><img class="" src="http://p02.sfbest.com/2015/1800058883/middle_1800058883_1_11/150x150.jpg" alt="荷美尔Hormel经典生煎培根 120g*6" title="荷美尔Hormel经典生煎培根 120g*6"></a>
+                        <div class="p-price"><span class="bg-mask"></span><span class="price"><span class="rmb" id="priceK_b_143220_261"></span></span></div>
+                        <div class="p-addcart p-btn"><span class="bg1-mask"></span><a href="javascript:void(0);" data_url="http://p02.sfbest.com/2015/1800058883/middle_1800058883_1_11/150x150.jpg" pid="143220" indexflag="1">加入购物车</a></div>
+                    </div>
+                    <div class="p-name"><a href="http://www.sfbest.com/html/products/144/1800143220.html#trackref=sfbest_channel_fresh_new_item1-10" target="_blank" title="荷美尔Hormel经典生煎培根 120g*6" alt="荷美尔Hormel经典生煎培根 120g*6">荷美尔Hormel经典生煎培根 120g*6</a></div>
+                </div>
+            </div>
+            <div class="item" item-id="5" id="product_item263" style="top: -950px;">
+                <div class="item-list price_list0" goods="43000" eid="b_43000_263" id="cx_b_43000_263">
+                    <div class="p-img"><a href="http://www.sfbest.com/html/products/43/1800043000.html#trackref=sfbest_channel_fresh_new_item2-1" target="_blank" title="CP泰国正大 巴沙鱼片 800g" alt="CP泰国正大 巴沙鱼片 800g"><img class="" src="http://p02.sfbest.com/2014/1800043000/middle_1800043000_1_2/150x150.jpg" alt="CP泰国正大 巴沙鱼片 800g" title="CP泰国正大 巴沙鱼片 800g"></a>
+                        <div class="p-price"><span class="bg-mask"></span><span class="price"><span class="rmb" id="priceK_b_43000_263">￥34.8</span></span></div>
+                        <div class="p-addcart p-btn"><span class="bg1-mask"></span><a href="javascript:void(0);" data_url="http://p02.sfbest.com/2014/1800043000/middle_1800043000_1_2/150x150.jpg" pid="43000" indexflag="1">加入购物车</a></div>
+                    </div>
+                    <div class="p-name"><a href="http://www.sfbest.com/html/products/43/1800043000.html#trackref=sfbest_channel_fresh_new_item2-1" target="_blank" title="CP泰国正大 巴沙鱼片 800g" alt="CP泰国正大 巴沙鱼片 800g">CP泰国正大 巴沙鱼片 800g</a></div>
+                </div>
+                <div class="item-list " goods="33005" eid="b_33005_263" id="cx_b_33005_263">
+                    <div class="p-img"><a href="http://www.sfbest.com/html/products/34/1800033005.html#trackref=sfbest_channel_fresh_new_item2-2" target="_blank" title="正泓顺业 阿根廷红虾10/20 2000g" alt="正泓顺业 阿根廷红虾10/20 2000g"><img class="" src="http://p02.sfbest.com/2014/1800033005/middle_1800033005_1_6/150x150.jpg" alt="正泓顺业 阿根廷红虾10/20 2000g" title="正泓顺业 阿根廷红虾10/20 2000g"></a>
+                        <div class="p-price"><span class="bg-mask"></span><span class="price"><span class="rmb" id="priceK_b_33005_263"></span></span></div>
+                        <div class="p-addcart p-btn"><span class="bg1-mask"></span><a href="javascript:void(0);" data_url="http://p02.sfbest.com/2014/1800033005/middle_1800033005_1_6/150x150.jpg" pid="33005" indexflag="1">加入购物车</a></div>
+                    </div>
+                    <div class="p-name"><a href="http://www.sfbest.com/html/products/34/1800033005.html#trackref=sfbest_channel_fresh_new_item2-2" target="_blank" title="正泓顺业 阿根廷红虾10/20 2000g" alt="正泓顺业 阿根廷红虾10/20 2000g">正泓顺业 阿根廷红虾10/20 2000g</a></div>
+                </div>
+                <div class="item-list  price_list0 flag12" goods="58231" eid="b_58231_263" id="cx_b_58231_263">
+                    <div class="p-img"><a href="http://www.sfbest.com/html/products/59/1800058231.html#trackref=sfbest_channel_fresh_new_item2-3" target="_blank" title="大洋世家oceanfamily 舟山野生三去米鱼 480g" alt="大洋世家oceanfamily 舟山野生三去米鱼 480g"><img class="" src="http://p02.sfbest.com/2015/1800058231/middle_1800058231_1_11/150x150.jpg" alt="大洋世家oceanfamily 舟山野生三去米鱼 480g" title="大洋世家oceanfamily 舟山野生三去米鱼 480g"></a>
+                        <div class="p-price"><span class="bg-mask"></span><span class="price"><span class="rmb" id="priceK_b_58231_263">￥29.9</span></span></div>
+                        <div class="p-addcart p-btn"><span class="bg1-mask"></span><a href="javascript:void(0);" data_url="http://p02.sfbest.com/2015/1800058231/middle_1800058231_1_11/150x150.jpg" pid="58231" indexflag="1">加入购物车</a></div>
+                    </div>
+                    <div class="p-name"><a href="http://www.sfbest.com/html/products/59/1800058231.html#trackref=sfbest_channel_fresh_new_item2-3" target="_blank" title="大洋世家oceanfamily 舟山野生三去米鱼 480g" alt="大洋世家oceanfamily 舟山野生三去米鱼 480g">大洋世家oceanfamily 舟山野生三去米鱼 480g</a></div>
+                </div>
+                <div class="item-list " goods="33297" eid="b_33297_263" id="cx_b_33297_263">
+                    <div class="p-img"><a href="http://www.sfbest.com/html/products/34/1800033297.html#trackref=sfbest_channel_fresh_new_item2-4" target="_blank" title="巨业 鱿鱼圈 300g" alt="巨业 鱿鱼圈 300g"><img class="" src="http://p02.sfbest.com/2014/1800033297/middle_1800033297_1_1/150x150.jpg" alt="巨业 鱿鱼圈 300g" title="巨业 鱿鱼圈 300g"></a>
+                        <div class="p-price"><span class="bg-mask"></span><span class="price"><span class="rmb" id="priceK_b_33297_263"></span></span></div>
+                        <div class="p-addcart p-btn"><span class="bg1-mask"></span><a href="javascript:void(0);" data_url="http://p02.sfbest.com/2014/1800033297/middle_1800033297_1_1/150x150.jpg" pid="33297" indexflag="1">加入购物车</a></div>
+                    </div>
+                    <div class="p-name"><a href="http://www.sfbest.com/html/products/34/1800033297.html#trackref=sfbest_channel_fresh_new_item2-4" target="_blank" title="巨业 鱿鱼圈 300g" alt="巨业 鱿鱼圈 300g">巨业 鱿鱼圈 300g</a></div>
+                </div>
+                <div class="item-list  price_list0 flag14" goods="54935" eid="b_54935_263" id="cx_b_54935_263">
+                    <div class="p-img"><a href="http://www.sfbest.com/html/products/55/1800054935.html#trackref=sfbest_channel_fresh_new_item2-5" target="_blank" title="大洋世家oceanfamily 烧烤阿根廷即食鱿鱼条 280g" alt="大洋世家oceanfamily 烧烤阿根廷即食鱿鱼条 280g"><img class="" src="http://p02.sfbest.com/2014/1800054935/middle_1800054935_1_14/150x150.jpg" alt="大洋世家oceanfamily 烧烤阿根廷即食鱿鱼条 280g" title="大洋世家oceanfamily 烧烤阿根廷即食鱿鱼条 280g"></a>
+                        <div class="p-price"><span class="bg-mask"></span><span class="price"><span class="rmb" id="priceK_b_54935_263">￥35</span></span></div>
+                        <div class="p-addcart p-btn"><span class="bg1-mask"></span><a href="javascript:void(0);" data_url="http://p02.sfbest.com/2014/1800054935/middle_1800054935_1_14/150x150.jpg" pid="54935" indexflag="1">加入购物车</a></div>
+                    </div>
+                    <div class="p-name"><a href="http://www.sfbest.com/html/products/55/1800054935.html#trackref=sfbest_channel_fresh_new_item2-5" target="_blank" title="大洋世家oceanfamily 烧烤阿根廷即食鱿鱼条 280g" alt="大洋世家oceanfamily 烧烤阿根廷即食鱿鱼条 280g">大洋世家oceanfamily 烧烤阿根廷即食鱿鱼条 280g</a></div>
+                </div>
+                <div class="item-list  price_list0 flag15" goods="8967" eid="b_8967_263" id="cx_b_8967_263">
+                    <div class="p-img"><a href="http://www.sfbest.com/html/products/9/1800008967.html#trackref=sfbest_channel_fresh_new_item2-6" target="_blank" title="Figo 纯正墨鱼丸  200g" alt="Figo 纯正墨鱼丸  200g"><img class="" src="http://p02.sfbest.com/2014/1800008967/middle_1800008967_1_1/150x150.jpg" alt="Figo 纯正墨鱼丸  200g" title="Figo 纯正墨鱼丸  200g"></a>
+                        <div class="p-price" style="bottom: 0px;"><span class="bg-mask"></span><span class="price"><span class="rmb" id="priceK_b_8967_263">￥19.9</span></span></div>
+                        <div class="p-addcart p-btn" style="bottom: -24px;"><span class="bg1-mask"></span><a href="javascript:void(0);" data_url="http://p02.sfbest.com/2014/1800008967/middle_1800008967_1_1/150x150.jpg" pid="8967" indexflag="1">加入购物车</a></div>
+                    </div>
+                    <div class="p-name"><a href="http://www.sfbest.com/html/products/9/1800008967.html#trackref=sfbest_channel_fresh_new_item2-6" target="_blank" title="Figo 纯正墨鱼丸  200g" alt="Figo 纯正墨鱼丸  200g">Figo 纯正墨鱼丸  200g</a></div>
+                </div>
+                <div class="item-list  price_list0 flag16" goods="126491" eid="b_126491_263" id="cx_b_126491_263">
+                    <div class="p-img"><a href="http://www.sfbest.com/html/products/127/1800126491.html#trackref=sfbest_channel_fresh_new_item2-7" target="_blank" title="海买 北极甜虾120-150 400g" alt="海买 北极甜虾120-150 400g"><img class="" src="http://p02.sfbest.com/2015/1800126491/middle_1800126491_1_1/150x150.jpg" alt="海买 北极甜虾120-150 400g" title="海买 北极甜虾120-150 400g"></a>
+                        <div class="p-price"><span class="bg-mask"></span><span class="price"><span class="rmb" id="priceK_b_126491_263">￥23.8</span></span></div>
+                        <div class="p-addcart p-btn"><span class="bg1-mask"></span><a href="javascript:void(0);" data_url="http://p02.sfbest.com/2015/1800126491/middle_1800126491_1_1/150x150.jpg" pid="126491" indexflag="1">加入购物车</a></div>
+                    </div>
+                    <div class="p-name"><a href="http://www.sfbest.com/html/products/127/1800126491.html#trackref=sfbest_channel_fresh_new_item2-7" target="_blank" title="海买 北极甜虾120-150 400g" alt="海买 北极甜虾120-150 400g">海买 北极甜虾120-150 400g</a></div>
+                </div>
+                <div class="item-list " goods="136040" eid="b_136040_263" id="cx_b_136040_263">
+                    <div class="p-img"><a href="http://www.sfbest.com/html/products/137/1800136040.html#trackref=sfbest_channel_fresh_new_item2-8" target="_blank" title="8千米 南极冰鱼（整条蝴蝶片） 400g" alt="8千米 南极冰鱼（整条蝴蝶片） 400g"><img class="" src="http://p02.sfbest.com/2015/1800136040/middle_1800136040_1_10/150x150.jpg" alt="8千米 南极冰鱼（整条蝴蝶片） 400g" title="8千米 南极冰鱼（整条蝴蝶片） 400g"></a>
+                        <div class="p-price"><span class="bg-mask"></span><span class="price"><span class="rmb" id="priceK_b_136040_263"></span></span></div>
+                        <div class="p-addcart p-btn"><span class="bg1-mask"></span><a href="javascript:void(0);" data_url="http://p02.sfbest.com/2015/1800136040/middle_1800136040_1_10/150x150.jpg" pid="136040" indexflag="1">加入购物车</a></div>
+                    </div>
+                    <div class="p-name"><a href="http://www.sfbest.com/html/products/137/1800136040.html#trackref=sfbest_channel_fresh_new_item2-8" target="_blank" title="8千米 南极冰鱼（整条蝴蝶片） 400g" alt="8千米 南极冰鱼（整条蝴蝶片） 400g">8千米 南极冰鱼（整条蝴蝶片） 400g</a></div>
+                </div>
+                <div class="item-list " goods="136034" eid="b_136034_263" id="cx_b_136034_263">
+                    <div class="p-img"><a href="http://www.sfbest.com/html/products/137/1800136034.html#trackref=sfbest_channel_fresh_new_item2-9" target="_blank" title="8千米 调味野生红鲷 600g" alt="8千米 调味野生红鲷 600g"><img class="" src="http://p02.sfbest.com/2015/1800136034/middle_1800136034_1_10/150x150.jpg" alt="8千米 调味野生红鲷 600g" title="8千米 调味野生红鲷 600g"></a>
+                        <div class="p-price"><span class="bg-mask"></span><span class="price"><span class="rmb" id="priceK_b_136034_263"></span></span></div>
+                        <div class="p-addcart p-btn"><span class="bg1-mask"></span><a href="javascript:void(0);" data_url="http://p02.sfbest.com/2015/1800136034/middle_1800136034_1_10/150x150.jpg" pid="136034" indexflag="1">加入购物车</a></div>
+                    </div>
+                    <div class="p-name"><a href="http://www.sfbest.com/html/products/137/1800136034.html#trackref=sfbest_channel_fresh_new_item2-9" target="_blank" title="8千米 调味野生红鲷 600g" alt="8千米 调味野生红鲷 600g">8千米 调味野生红鲷 600g</a></div>
+                </div>
+                <div class="item-list " goods="56909" eid="b_56909_263" id="cx_b_56909_263">
+                    <div class="p-img"><a href="http://www.sfbest.com/html/products/57/1800056909.html#trackref=sfbest_channel_fresh_new_item2-10" target="_blank" title="ogood 南美白对虾风味烤虾干  300g" alt="ogood 南美白对虾风味烤虾干  300g"><img class="" src="http://p02.sfbest.com/2014/1800056909/middle_1800056909_1_1/150x150.jpg" alt="ogood 南美白对虾风味烤虾干  300g" title="ogood 南美白对虾风味烤虾干  300g"></a>
+                        <div class="p-price"><span class="bg-mask"></span><span class="price"><span class="rmb" id="priceK_b_56909_263"></span></span></div>
+                        <div class="p-addcart p-btn"><span class="bg1-mask"></span><a href="javascript:void(0);" data_url="http://p02.sfbest.com/2014/1800056909/middle_1800056909_1_1/150x150.jpg" pid="56909" indexflag="1">加入购物车</a></div>
+                    </div>
+                    <div class="p-name"><a href="http://www.sfbest.com/html/products/57/1800056909.html#trackref=sfbest_channel_fresh_new_item2-10" target="_blank" title="ogood 南美白对虾风味烤虾干  300g" alt="ogood 南美白对虾风味烤虾干  300g">ogood 南美白对虾风味烤虾干  300g</a></div>
+                </div>
+            </div>
+            <div class="item" item-id="9" id="product_item269" style="top: -1710px;">
+                <div class="item-list price_list0" goods="138374" eid="b_138374_269" id="cx_b_138374_269">
+                    <div class="p-img"><a href="http://www.sfbest.com/html/products/139/1800138374.html#trackref=sfbest_channel_fresh_new_item3-1" target="_blank" title="果郡王 泰国进口山竹5斤装 新鲜 热带进口水果 死竹坏竹包赔（偏远地区不发货） 2500g" alt="果郡王 泰国进口山竹5斤装 新鲜 热带进口水果 死竹坏竹包赔（偏远地区不发货） 2500g"><img class="" src="http://p02.sfbest.com/2015/1800138374/middle_w_1800138374_1_1/150x150.jpg" alt="果郡王 泰国进口山竹5斤装 新鲜 热带进口水果 死竹坏竹包赔（偏远地区不发货） 2500g" title="果郡王 泰国进口山竹5斤装 新鲜 热带进口水果 死竹坏竹包赔（偏远地区不发货） 2500g"></a>
+                        <div class="p-price"><span class="bg-mask"></span><span class="price"><span class="rmb" id="priceK_b_138374_269">￥99</span></span></div>
+                        <div class="p-addcart p-btn"><span class="bg1-mask"></span><a href="javascript:void(0);" data_url="http://p02.sfbest.com/2015/1800138374/middle_w_1800138374_1_1/150x150.jpg" pid="138374" indexflag="1">加入购物车</a></div>
+                    </div>
+                    <div class="p-name"><a href="http://www.sfbest.com/html/products/139/1800138374.html#trackref=sfbest_channel_fresh_new_item3-1" target="_blank" title="果郡王 泰国进口山竹5斤装 新鲜 热带进口水果 死竹坏竹包赔（偏远地区不发货） 2500g" alt="果郡王 泰国进口山竹5斤装 新鲜 热带进口水果 死竹坏竹包赔（偏远地区不发货） 2500g">果郡王 泰国进口山竹5斤装 新鲜 热带进口水果 死竹坏竹包赔（偏远地区不发货） 2500g</a></div>
+                </div>
+                <div class="item-list  price_list0 flag21" goods="56503" eid="b_56503_269" id="cx_b_56503_269">
+                    <div class="p-img"><a href="http://www.sfbest.com/html/products/57/1800056503.html#trackref=sfbest_channel_fresh_new_item3-2" target="_blank" title="精选 美国新奇士柠檬5粒" alt="精选 美国新奇士柠檬5粒"><img class="" src="http://p02.sfbest.com/2014/1800056503/middle_1800056503_1_18/150x150.jpg" alt="精选 美国新奇士柠檬5粒" title="精选 美国新奇士柠檬5粒"></a>
+                        <div class="p-price"><span class="bg-mask"></span><span class="price"><span class="rmb" id="priceK_b_56503_269">￥26.8</span></span></div>
+                        <div class="p-addcart p-btn"><span class="bg1-mask"></span><a href="javascript:void(0);" data_url="http://p02.sfbest.com/2014/1800056503/middle_1800056503_1_18/150x150.jpg" pid="56503" indexflag="1">加入购物车</a></div>
+                    </div>
+                    <div class="p-name"><a href="http://www.sfbest.com/html/products/57/1800056503.html#trackref=sfbest_channel_fresh_new_item3-2" target="_blank" title="精选 美国新奇士柠檬5粒" alt="精选 美国新奇士柠檬5粒">精选 美国新奇士柠檬5粒</a></div>
+                </div>
+                <div class="item-list  price_list0 flag22" goods="148277" eid="b_148277_269" id="cx_b_148277_269">
+                    <div class="p-img"><a href="http://www.sfbest.com/html/products/149/1800148277.html#trackref=sfbest_channel_fresh_new_item3-3" target="_blank" title="花果山 新西兰皇后红玫瑰苹果12个装(170-180g) 12粒" alt="花果山 新西兰皇后红玫瑰苹果12个装(170-180g) 12粒"><img class="" src="http://p02.sfbest.com/2015/1800148277/middle_w_1800148277_1_1/150x150.jpg" alt="花果山 新西兰皇后红玫瑰苹果12个装(170-180g) 12粒" title="花果山 新西兰皇后红玫瑰苹果12个装(170-180g) 12粒"></a>
+                        <div class="p-price"><span class="bg-mask"></span><span class="price"><span class="rmb" id="priceK_b_148277_269">￥88</span></span></div>
+                        <div class="p-addcart p-btn"><span class="bg1-mask"></span><a href="javascript:void(0);" data_url="http://p02.sfbest.com/2015/1800148277/middle_w_1800148277_1_1/150x150.jpg" pid="148277" indexflag="1">加入购物车</a></div>
+                    </div>
+                    <div class="p-name"><a href="http://www.sfbest.com/html/products/149/1800148277.html#trackref=sfbest_channel_fresh_new_item3-3" target="_blank" title="花果山 新西兰皇后红玫瑰苹果12个装(170-180g) 12粒" alt="花果山 新西兰皇后红玫瑰苹果12个装(170-180g) 12粒">花果山 新西兰皇后红玫瑰苹果12个装(170-180g) 12粒</a></div>
+                </div>
+                <div class="item-list " goods="125975" eid="b_125975_269" id="cx_b_125975_269">
+                    <div class="p-img"><a href="http://www.sfbest.com/html/products/126/1300125975.html#trackref=sfbest_channel_fresh_new_item3-4" target="_blank" title="世果汇四川安岳尤力克黄柠檬8个（发全国非偏远）*2箱" alt="世果汇四川安岳尤力克黄柠檬8个（发全国非偏远）*2箱"><img class="" src="http://p02.sfbest.com/2015/1300125975/middle_w_1300125975_1_1/150x150.jpg" alt="世果汇四川安岳尤力克黄柠檬8个（发全国非偏远）*2箱" title="世果汇四川安岳尤力克黄柠檬8个（发全国非偏远）*2箱"></a>
+                        <div class="p-price"><span class="bg-mask"></span><span class="price"><span class="rmb" id="priceK_b_125975_269"></span></span></div>
+                        <div class="p-addcart p-btn"><span class="bg1-mask"></span><a href="javascript:void(0);" data_url="http://p02.sfbest.com/2015/1300125975/middle_w_1300125975_1_1/150x150.jpg" pid="125975" indexflag="1">加入购物车</a></div>
+                    </div>
+                    <div class="p-name"><a href="http://www.sfbest.com/html/products/126/1300125975.html#trackref=sfbest_channel_fresh_new_item3-4" target="_blank" title="世果汇四川安岳尤力克黄柠檬8个（发全国非偏远）*2箱" alt="世果汇四川安岳尤力克黄柠檬8个（发全国非偏远）*2箱">世果汇四川安岳尤力克黄柠檬8个（发全国非偏远）*2箱</a></div>
+                </div>
+                <div class="item-list " goods="56497" eid="b_56497_269" id="cx_b_56497_269">
+                    <div class="p-img"><a href="http://www.sfbest.com/html/products/57/1800056497.html#trackref=sfbest_channel_fresh_new_item3-5" target="_blank" title="精选墨西哥 牛油果2粒" alt="精选墨西哥 牛油果2粒"><img class="" src="http://p02.sfbest.com/2014/1800056497/middle_1800056497_1_11/150x150.jpg" alt="精选墨西哥 牛油果2粒" title="精选墨西哥 牛油果2粒"></a>
+                        <div class="p-price"><span class="bg-mask"></span><span class="price"><span class="rmb" id="priceK_b_56497_269"></span></span></div>
+                        <div class="p-addcart p-btn"><span class="bg1-mask"></span><a href="javascript:void(0);" data_url="http://p02.sfbest.com/2014/1800056497/middle_1800056497_1_11/150x150.jpg" pid="56497" indexflag="1">加入购物车</a></div>
+                    </div>
+                    <div class="p-name"><a href="http://www.sfbest.com/html/products/57/1800056497.html#trackref=sfbest_channel_fresh_new_item3-5" target="_blank" title="精选墨西哥 牛油果2粒" alt="精选墨西哥 牛油果2粒">精选墨西哥 牛油果2粒</a></div>
+                </div>
+                <div class="item-list " goods="4967" eid="b_4967_269" id="cx_b_4967_269">
+                    <div class="p-img"><a href="http://www.sfbest.com/html/products/5/1800005693.html#trackref=sfbest_channel_fresh_new_item3-6" target="_blank" title="归原Green Yard 有机鲜牛奶 243ml" alt="归原Green Yard 有机鲜牛奶 243ml"><img class="" src="http://p02.sfbest.com/2013/1800005693/middle_1800005693_1_3/150x150.jpg" alt="归原Green Yard 有机鲜牛奶 243ml" title="归原Green Yard 有机鲜牛奶 243ml"></a>
+                        <div class="p-price"><span class="bg-mask"></span><span class="price"><span class="rmb" id="priceK_b_4967_269"></span></span></div>
+                        <div class="p-addcart p-btn"><span class="bg1-mask"></span><a href="javascript:void(0);" data_url="http://p02.sfbest.com/2013/1800005693/middle_1800005693_1_3/150x150.jpg" pid="4967" indexflag="1">加入购物车</a></div>
+                    </div>
+                    <div class="p-name"><a href="http://www.sfbest.com/html/products/5/1800005693.html#trackref=sfbest_channel_fresh_new_item3-6" target="_blank" title="归原Green Yard 有机鲜牛奶 243ml" alt="归原Green Yard 有机鲜牛奶 243ml">归原Green Yard 有机鲜牛奶 243ml</a></div>
+                </div>
+                <div class="item-list " goods="4965" eid="b_4965_269" id="cx_b_4965_269">
+                    <div class="p-img"><a href="http://www.sfbest.com/html/products/5/1800005688.html#trackref=sfbest_channel_fresh_new_item3-7" target="_blank" title="归原Green Yard 有机调味酸奶 250g" alt="归原Green Yard 有机调味酸奶 250g"><img class="" src="http://p02.sfbest.com/2014/1800005688/middle_1800005688_1_1_1/150x150.jpg" alt="归原Green Yard 有机调味酸奶 250g" title="归原Green Yard 有机调味酸奶 250g"></a>
+                        <div class="p-price"><span class="bg-mask"></span><span class="price"><span class="rmb" id="priceK_b_4965_269"></span></span></div>
+                        <div class="p-addcart p-btn"><span class="bg1-mask"></span><a href="javascript:void(0);" data_url="http://p02.sfbest.com/2014/1800005688/middle_1800005688_1_1_1/150x150.jpg" pid="4965" indexflag="1">加入购物车</a></div>
+                    </div>
+                    <div class="p-name"><a href="http://www.sfbest.com/html/products/5/1800005688.html#trackref=sfbest_channel_fresh_new_item3-7" target="_blank" title="归原Green Yard 有机调味酸奶 250g" alt="归原Green Yard 有机调味酸奶 250g">归原Green Yard 有机调味酸奶 250g</a></div>
+                </div>
+                <div class="item-list  price_list0 flag27" goods="126265" eid="b_126265_269" id="cx_b_126265_269">
+                    <div class="p-img"><a href="http://www.sfbest.com/html/products/127/1800126265.html#trackref=sfbest_channel_fresh_new_item3-8" target="_blank" title="富果Frutco 100%NFC猕猴桃复合果汁 350ml" alt="富果Frutco 100%NFC猕猴桃复合果汁 350ml"><img class="" src="http://p02.sfbest.com/2015/1800126265/middle_1800126265_1_10/150x150.jpg" alt="富果Frutco 100%NFC猕猴桃复合果汁 350ml" title="富果Frutco 100%NFC猕猴桃复合果汁 350ml"></a>
+                        <div class="p-price"><span class="bg-mask"></span><span class="price"><span class="rmb" id="priceK_b_126265_269">￥18.8</span></span></div>
+                        <div class="p-addcart p-btn"><span class="bg1-mask"></span><a href="javascript:void(0);" data_url="http://p02.sfbest.com/2015/1800126265/middle_1800126265_1_10/150x150.jpg" pid="126265" indexflag="1">加入购物车</a></div>
+                    </div>
+                    <div class="p-name"><a href="http://www.sfbest.com/html/products/127/1800126265.html#trackref=sfbest_channel_fresh_new_item3-8" target="_blank" title="富果Frutco 100%NFC猕猴桃复合果汁 350ml" alt="富果Frutco 100%NFC猕猴桃复合果汁 350ml">富果Frutco 100%NFC猕猴桃复合果汁 350ml</a></div>
+                </div>
+                <div class="item-list " goods="58979" eid="b_58979_269" id="cx_b_58979_269">
+                    <div class="p-img"><a href="http://www.sfbest.com/html/products/59/1800058979.html#trackref=sfbest_channel_fresh_new_item3-9" target="_blank" title="旺泰佳 粉茄 350g" alt="旺泰佳 粉茄 350g"><img class="" src="http://p02.sfbest.com/2015/1800058979/middle_1800058979_1_1/150x150.jpg" alt="旺泰佳 粉茄 350g" title="旺泰佳 粉茄 350g"></a>
+                        <div class="p-price"><span class="bg-mask"></span><span class="price"><span class="rmb" id="priceK_b_58979_269"></span></span></div>
+                        <div class="p-addcart p-btn"><span class="bg1-mask"></span><a href="javascript:void(0);" data_url="http://p02.sfbest.com/2015/1800058979/middle_1800058979_1_1/150x150.jpg" pid="58979" indexflag="1">加入购物车</a></div>
+                    </div>
+                    <div class="p-name"><a href="http://www.sfbest.com/html/products/59/1800058979.html#trackref=sfbest_channel_fresh_new_item3-9" target="_blank" title="旺泰佳 粉茄 350g" alt="旺泰佳 粉茄 350g">旺泰佳 粉茄 350g</a></div>
+                </div>
+                <div class="item-list  price_list0 flag29" goods="145148" eid="b_145148_269" id="cx_b_145148_269">
+                    <div class="p-img"><a href="http://www.sfbest.com/html/products/146/1800145148.html#trackref=sfbest_channel_fresh_new_item3-10" target="_blank" title="旺泰佳 水果黄瓜 450g" alt="旺泰佳 水果黄瓜 450g"><img class="" src="http://p02.sfbest.com/2015/1800145148/middle_1800145148_1_1/150x150.jpg" alt="旺泰佳 水果黄瓜 450g" title="旺泰佳 水果黄瓜 450g"></a>
+                        <div class="p-price"><span class="bg-mask"></span><span class="price"><span class="rmb" id="priceK_b_145148_269">￥11.5</span></span></div>
+                        <div class="p-addcart p-btn"><span class="bg1-mask"></span><a href="javascript:void(0);" data_url="http://p02.sfbest.com/2015/1800145148/middle_1800145148_1_1/150x150.jpg" pid="145148" indexflag="1">加入购物车</a></div>
+                    </div>
+                    <div class="p-name"><a href="http://www.sfbest.com/html/products/146/1800145148.html#trackref=sfbest_channel_fresh_new_item3-10" target="_blank" title="旺泰佳 水果黄瓜 450g" alt="旺泰佳 水果黄瓜 450g">旺泰佳 水果黄瓜 450g</a></div>
+                </div>
+            </div>
+            <div class="item" item-id="7" id="product_item271" style="top: -1330px;">
+                <div class="item-list price_list0" goods="145198" eid="b_145198_271" id="cx_b_145198_271">
+                    <div class="p-img"><a href="http://www.sfbest.com/html/products/146/1800145198.html#trackref=sfbest_channel_fresh_new_item4-1" target="_blank" title="花果山 南非进口红西柚8个装 8个装" alt="花果山 南非进口红西柚8个装 8个装"><img class="" src="http://p02.sfbest.com/2015/1800145198/middle_w_1800145198_1_1/150x150.jpg" alt="花果山 南非进口红西柚8个装 8个装" title="花果山 南非进口红西柚8个装 8个装"></a>
+                        <div class="p-price"><span class="bg-mask"></span><span class="price"><span class="rmb" id="priceK_b_145198_271">￥49</span></span></div>
+                        <div class="p-addcart p-btn"><span class="bg1-mask"></span><a href="javascript:void(0);" data_url="http://p02.sfbest.com/2015/1800145198/middle_w_1800145198_1_1/150x150.jpg" pid="145198" indexflag="1">加入购物车</a></div>
+                    </div>
+                    <div class="p-name"><a href="http://www.sfbest.com/html/products/146/1800145198.html#trackref=sfbest_channel_fresh_new_item4-1" target="_blank" title="花果山 南非进口红西柚8个装 8个装" alt="花果山 南非进口红西柚8个装 8个装">花果山 南非进口红西柚8个装 8个装</a></div>
+                </div>
+                <div class="item-list " goods="125305" eid="b_125305_271" id="cx_b_125305_271">
+                    <div class="p-img"><a href="http://www.sfbest.com/html/products/126/1800125305.html#trackref=sfbest_channel_fresh_new_item4-2" target="_blank" title="果色果香 海南青皮芒果大青芒 2.5kg" alt="果色果香 海南青皮芒果大青芒 2.5kg"><img class="" src="http://p02.sfbest.com/2015/1800125305/middle_w_1800125305_1_1/150x150.jpg" alt="果色果香 海南青皮芒果大青芒 2.5kg" title="果色果香 海南青皮芒果大青芒 2.5kg"></a>
+                        <div class="p-price"><span class="bg-mask"></span><span class="price"><span class="rmb" id="priceK_b_125305_271"></span></span></div>
+                        <div class="p-addcart p-btn"><span class="bg1-mask"></span><a href="javascript:void(0);" data_url="http://p02.sfbest.com/2015/1800125305/middle_w_1800125305_1_1/150x150.jpg" pid="125305" indexflag="1">加入购物车</a></div>
+                    </div>
+                    <div class="p-name"><a href="http://www.sfbest.com/html/products/126/1800125305.html#trackref=sfbest_channel_fresh_new_item4-2" target="_blank" title="果色果香 海南青皮芒果大青芒 2.5kg" alt="果色果香 海南青皮芒果大青芒 2.5kg">果色果香 海南青皮芒果大青芒 2.5kg</a></div>
+                </div>
+                <div class="item-list  price_list0 flag32" goods="145654" eid="b_145654_271" id="cx_b_145654_271">
+                    <div class="p-img"><a href="http://www.sfbest.com/html/products/146/1800145654.html#trackref=sfbest_channel_fresh_new_item4-3" target="_blank" title="果果巴巴 新疆哈密瓜3-4斤/只 西域蜜瓜 新鲜时令国产精品水果 包甜 2只" alt="果果巴巴 新疆哈密瓜3-4斤/只 西域蜜瓜 新鲜时令国产精品水果 包甜 2只"><img class="" src="http://p02.sfbest.com/2015/1800145654/middle_w_1800145654_1_7/150x150.jpg" alt="果果巴巴 新疆哈密瓜3-4斤/只 西域蜜瓜 新鲜时令国产精品水果 包甜 2只" title="果果巴巴 新疆哈密瓜3-4斤/只 西域蜜瓜 新鲜时令国产精品水果 包甜 2只"></a>
+                        <div class="p-price"><span class="bg-mask"></span><span class="price"><span class="rmb" id="priceK_b_145654_271">￥59</span></span></div>
+                        <div class="p-addcart p-btn"><span class="bg1-mask"></span><a href="javascript:void(0);" data_url="http://p02.sfbest.com/2015/1800145654/middle_w_1800145654_1_7/150x150.jpg" pid="145654" indexflag="1">加入购物车</a></div>
+                    </div>
+                    <div class="p-name"><a href="http://www.sfbest.com/html/products/146/1800145654.html#trackref=sfbest_channel_fresh_new_item4-3" target="_blank" title="果果巴巴 新疆哈密瓜3-4斤/只 西域蜜瓜 新鲜时令国产精品水果 包甜 2只" alt="果果巴巴 新疆哈密瓜3-4斤/只 西域蜜瓜 新鲜时令国产精品水果 包甜 2只">果果巴巴 新疆哈密瓜3-4斤/只 西域蜜瓜 新鲜时令国产精品水果 包甜 2只</a></div>
+                </div>
+                <div class="item-list " goods="145336" eid="b_145336_271" id="cx_b_145336_271">
+                    <div class="p-img"><a href="http://www.sfbest.com/html/products/146/1800145336.html#trackref=sfbest_channel_fresh_new_item4-4" target="_blank" title="誉福园 【誉福园】现摘现发新鲜秭归夏橙10斤装 酸甜爽口送榨汁器 5000g" alt="誉福园 【誉福园】现摘现发新鲜秭归夏橙10斤装 酸甜爽口送榨汁器 5000g"><img class="" src="http://p02.sfbest.com/2015/1800145336/middle_w_1800145336_1_5/150x150.jpg" alt="誉福园 【誉福园】现摘现发新鲜秭归夏橙10斤装 酸甜爽口送榨汁器 5000g" title="誉福园 【誉福园】现摘现发新鲜秭归夏橙10斤装 酸甜爽口送榨汁器 5000g"></a>
+                        <div class="p-price"><span class="bg-mask"></span><span class="price"><span class="rmb" id="priceK_b_145336_271"></span></span></div>
+                        <div class="p-addcart p-btn"><span class="bg1-mask"></span><a href="javascript:void(0);" data_url="http://p02.sfbest.com/2015/1800145336/middle_w_1800145336_1_5/150x150.jpg" pid="145336" indexflag="1">加入购物车</a></div>
+                    </div>
+                    <div class="p-name"><a href="http://www.sfbest.com/html/products/146/1800145336.html#trackref=sfbest_channel_fresh_new_item4-4" target="_blank" title="誉福园 【誉福园】现摘现发新鲜秭归夏橙10斤装 酸甜爽口送榨汁器 5000g" alt="誉福园 【誉福园】现摘现发新鲜秭归夏橙10斤装 酸甜爽口送榨汁器 5000g">誉福园 【誉福园】现摘现发新鲜秭归夏橙10斤装 酸甜爽口送榨汁器 5000g</a></div>
+                </div>
+                <div class="item-list " goods="137629" eid="b_137629_271" id="cx_b_137629_271">
+                    <div class="p-img"><a href="http://www.sfbest.com/html/products/138/1800137629.html#trackref=sfbest_channel_fresh_new_item4-5" target="_blank" title="阳山 阳山水蜜桃四季平安礼盒 （150g-200g）*12" alt="阳山 阳山水蜜桃四季平安礼盒 （150g-200g）*12"><img class="" src="http://p02.sfbest.com/2015/1800137629/middle_w_1800137629_1_1/150x150.jpg" alt="阳山 阳山水蜜桃四季平安礼盒 （150g-200g）*12" title="阳山 阳山水蜜桃四季平安礼盒 （150g-200g）*12"></a>
+                        <div class="p-price"><span class="bg-mask"></span><span class="price"><span class="rmb" id="priceK_b_137629_271"></span></span></div>
+                        <div class="p-addcart p-btn"><span class="bg1-mask"></span><a href="javascript:void(0);" data_url="http://p02.sfbest.com/2015/1800137629/middle_w_1800137629_1_1/150x150.jpg" pid="137629" indexflag="1">加入购物车</a></div>
+                    </div>
+                    <div class="p-name"><a href="http://www.sfbest.com/html/products/138/1800137629.html#trackref=sfbest_channel_fresh_new_item4-5" target="_blank" title="阳山 阳山水蜜桃四季平安礼盒 （150g-200g）*12" alt="阳山 阳山水蜜桃四季平安礼盒 （150g-200g）*12">阳山 阳山水蜜桃四季平安礼盒 （150g-200g）*12</a></div>
+                </div>
+                <div class="item-list " goods="121029" eid="b_121029_271" id="cx_b_121029_271">
+                    <div class="p-img"><a href="http://www.sfbest.com/html/products/122/1800121029.html#trackref=sfbest_channel_fresh_new_item4-6" target="_blank" title="世果汇 广西百香果 18个装" alt="世果汇 广西百香果 18个装"><img class="" src="http://p02.sfbest.com/2015/1800121029/middle_w_1800121029_1_6/150x150.jpg" alt="世果汇 广西百香果 18个装" title="世果汇 广西百香果 18个装"></a>
+                        <div class="p-price"><span class="bg-mask"></span><span class="price"><span class="rmb" id="priceK_b_121029_271"></span></span></div>
+                        <div class="p-addcart p-btn"><span class="bg1-mask"></span><a href="javascript:void(0);" data_url="http://p02.sfbest.com/2015/1800121029/middle_w_1800121029_1_6/150x150.jpg" pid="121029" indexflag="1">加入购物车</a></div>
+                    </div>
+                    <div class="p-name"><a href="http://www.sfbest.com/html/products/122/1800121029.html#trackref=sfbest_channel_fresh_new_item4-6" target="_blank" title="世果汇 广西百香果 18个装" alt="世果汇 广西百香果 18个装">世果汇 广西百香果 18个装</a></div>
+                </div>
+                <div class="item-list " goods="52864" eid="b_52864_271" id="cx_b_52864_271">
+                    <div class="p-img"><a href="http://www.sfbest.com/html/products/53/1800052864.html#trackref=sfbest_channel_fresh_new_item4-7" target="_blank" title="高邦喜 鳕鱼肠(奶酪味) 225g" alt="高邦喜 鳕鱼肠(奶酪味) 225g"><img class="" src="http://p02.sfbest.com/2014/1800052864/middle_1800052864_1_1/150x150.jpg" alt="高邦喜 鳕鱼肠(奶酪味) 225g" title="高邦喜 鳕鱼肠(奶酪味) 225g"></a>
+                        <div class="p-price"><span class="bg-mask"></span><span class="price"><span class="rmb" id="priceK_b_52864_271"></span></span></div>
+                        <div class="p-addcart p-btn"><span class="bg1-mask"></span><a href="javascript:void(0);" data_url="http://p02.sfbest.com/2014/1800052864/middle_1800052864_1_1/150x150.jpg" pid="52864" indexflag="1">加入购物车</a></div>
+                    </div>
+                    <div class="p-name"><a href="http://www.sfbest.com/html/products/53/1800052864.html#trackref=sfbest_channel_fresh_new_item4-7" target="_blank" title="高邦喜 鳕鱼肠(奶酪味) 225g" alt="高邦喜 鳕鱼肠(奶酪味) 225g">高邦喜 鳕鱼肠(奶酪味) 225g</a></div>
+                </div>
+                <div class="item-list  price_list0 flag37" goods="30209" eid="b_30209_271" id="cx_b_30209_271">
+                    <div class="p-img"><a href="http://www.sfbest.com/html/products/31/1800030209.html#trackref=sfbest_channel_fresh_new_item4-8" target="_blank" title="海地村 特制鳕鱼肠(28g*3根) 84g" alt="海地村 特制鳕鱼肠(28g*3根) 84g"><img class="" src="http://p02.sfbest.com/2013/1800030209/middle_1800030209_1_1/150x150.jpg" alt="海地村 特制鳕鱼肠(28g*3根) 84g" title="海地村 特制鳕鱼肠(28g*3根) 84g"></a>
+                        <div class="p-price" style="bottom: 0px;"><span class="bg-mask"></span><span class="price"><span class="rmb" id="priceK_b_30209_271">￥13.9</span></span></div>
+                        <div class="p-addcart p-btn" style="bottom: -24px;"><span class="bg1-mask"></span><a href="javascript:void(0);" data_url="http://p02.sfbest.com/2013/1800030209/middle_1800030209_1_1/150x150.jpg" pid="30209" indexflag="1">加入购物车</a></div>
+                    </div>
+                    <div class="p-name"><a href="http://www.sfbest.com/html/products/31/1800030209.html#trackref=sfbest_channel_fresh_new_item4-8" target="_blank" title="海地村 特制鳕鱼肠(28g*3根) 84g" alt="海地村 特制鳕鱼肠(28g*3根) 84g">海地村 特制鳕鱼肠(28g*3根) 84g</a></div>
+                </div>
+                <div class="item-list " goods="136444" eid="b_136444_271" id="cx_b_136444_271">
+                    <div class="p-img"><a href="http://www.sfbest.com/html/products/137/1800136444.html#trackref=sfbest_channel_fresh_new_item4-9" target="_blank" title="佳沛zespri 佳沛 奇异绿果 6粒 600g" alt="佳沛zespri 佳沛 奇异绿果 6粒 600g"><img class="" src="http://p02.sfbest.com/2015/1800136444/middle_1800136444_1_10/150x150.jpg" alt="佳沛zespri 佳沛 奇异绿果 6粒 600g" title="佳沛zespri 佳沛 奇异绿果 6粒 600g"></a>
+                        <div class="p-price"><span class="bg-mask"></span><span class="price"><span class="rmb" id="priceK_b_136444_271"></span></span></div>
+                        <div class="p-addcart p-btn"><span class="bg1-mask"></span><a href="javascript:void(0);" data_url="http://p02.sfbest.com/2015/1800136444/middle_1800136444_1_10/150x150.jpg" pid="136444" indexflag="1">加入购物车</a></div>
+                    </div>
+                    <div class="p-name"><a href="http://www.sfbest.com/html/products/137/1800136444.html#trackref=sfbest_channel_fresh_new_item4-9" target="_blank" title="佳沛zespri 佳沛 奇异绿果 6粒 600g" alt="佳沛zespri 佳沛 奇异绿果 6粒 600g">佳沛zespri 佳沛 奇异绿果 6粒 600g</a></div>
+                </div>
+                <div class="item-list  price_list0 flag39" goods="147008" eid="b_147008_271" id="cx_b_147008_271">
+                    <div class="p-img"><a href="http://www.sfbest.com/html/products/148/1800147008.html#trackref=sfbest_channel_fresh_new_item4-10" target="_blank" title="花果山 越南红心火龙果5斤装 5斤" alt="花果山 越南红心火龙果5斤装 5斤"><img class="" src="http://p02.sfbest.com/2015/1800147008/middle_w_1800147008_1_1/150x150.jpg" alt="花果山 越南红心火龙果5斤装 5斤" title="花果山 越南红心火龙果5斤装 5斤"></a>
+                        <div class="p-price"><span class="bg-mask"></span><span class="price"><span class="rmb" id="priceK_b_147008_271">￥59</span></span></div>
+                        <div class="p-addcart p-btn"><span class="bg1-mask"></span><a href="javascript:void(0);" data_url="http://p02.sfbest.com/2015/1800147008/middle_w_1800147008_1_1/150x150.jpg" pid="147008" indexflag="1">加入购物车</a></div>
+                    </div>
+                    <div class="p-name"><a href="http://www.sfbest.com/html/products/148/1800147008.html#trackref=sfbest_channel_fresh_new_item4-10" target="_blank" title="花果山 越南红心火龙果5斤装 5斤" alt="花果山 越南红心火龙果5斤装 5斤">花果山 越南红心火龙果5斤装 5斤</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="one-arm-machine">
+        <div class="arm-operator">
+            <div class="arm-btn" title="点我吧！" style="top: 0px;"><span class="arm-txt" style="top: 33.1918666666667px;">"鲜一下"</span></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

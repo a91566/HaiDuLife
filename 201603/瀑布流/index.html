@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+      }
+      #box{
+        width: 1200px;
+        margin:0 auto;
+      }
+      #box ul{
+        float: left;
+        width: 300px;
+        margin: 20px;
+        /*background: lightgreen;*/
+      }
+      #box ul img{
+        width:300px;
+        margin-bottom: 10px;
+      }
+    </style>
+    <script type='text/javascript'>
+
+      // 获取最短 ul 的索引
+      function checkMinHeight(obj){
+          var height = 100000;
+          var index = 0;
+          for(var i=0;i<obj.length;i++){
+            var now_height = obj[i].offsetHeight;
+            if(now_height < height){
+              height = now_height;
+              index = i;
+            }
+          }
+          //iiiiii
+          //wwwwww
+          //alert(obj[0].offsetHeight+'///'+obj[1].offsetHeight+'///'+obj[2].offsetHeight);
+          return index;
+      }
+
+      window.onload=function(){
+        //获取元素 get element function
+        var oBox=document.getElementById('box');
+        var oUl =document.getElementsByTagName('ul');
+        //获取浏览器的高度
+        var vH = document.documentElement.clientHeight;
+        loadImg();
+
+        //滚动加载
+        window.onscroll=function(){
+          var sT = document.documentElement.scrollTop || document.body.scrollTop;
+
+          //滚动条的高度 + 浏览器的高度 = 内容区域的高度
+          if(sT + vH > document.body.scrollHeight-100){
+            loadImg();
+          }
+        }
+
+
+        //加载
+        function loadImg(){
+          var now_index=0;
+          for(var i=1;i<32;i++){
+            var oImg = document.createElement('img');
+            oImg.src = './img/' + i + '.jpg';
+
+            var oLi = document.createElement('li');
+            oLi.appendChild(oImg);
+
+            //获取最小ul的索引
+            //var min_index = checkMinHeight(oUl);
+            //oUl[min_index].appendChild(oLi);
+
+            oUl[now_index].appendChild(oLi);
+            now_index++;
+            if(now_index == oUl.length){
+              now_index=0;
+            }
+          }
+        }
+
+      }
+    </script>
+  </head>
+  <body>
+      <div id="box">
+        <ul></ul>
+        <ul></ul>
+        <ul></ul>
+      </div>
+  </body>
+</html>

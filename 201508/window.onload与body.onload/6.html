@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript">
+        alert('1');
+        window.onload=function()
+        {
+            fnABC();  //这个函数不会被执行，
+        };
+        window.onload=function()
+        {
+            fnABCD();
+        };
+        function fnABC()
+        {
+            alert('2');
+        }
+        function fnABCD()
+        {
+            alert('5');
+        }
+        alert('3');
+    </script>
+</head>
+<body onload="alert('4');">
+执行顺序：1354.window.onload存在多个的时候只会执行一个,且是后面一个
+</body>
+</html>

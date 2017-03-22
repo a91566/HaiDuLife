@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{height: 800px;background: lightcyan;}
+        ul{margin: 0;padding: 0;list-style: none;height: 50px;position: relative;top: 0;left: 0;}
+        li{float: left;height: 50px;width: 200px;line-height: 50px;text-align: center;background: orangered;margin-left: 2px;}
+    </style>
+    <script src="http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $(window).scroll(function(){
+                if($(window).scrollTop()>=2400)
+                {
+                    $("#ul1").css({
+                        'position': 'fixed',
+                        'left':0,
+                        'top':0
+                    });
+                }
+                else
+                {
+                    $("#ul1").css({
+                        'position': 'inherit'
+                    });
+                }
+            });
+            $("li").click(function(){
+                alert($(window).scrollTop());
+            });
+        })
+    </script>
+</head>
+<body>
+    <div>1</div>
+    <div style="background: lightgreen">2</div>
+    <div>3</div>
+    <div style="background: lightgreen">
+        <ul id="ul1">
+            <li>你信不信</li>
+            <li>这一行</li>
+            <li>会被固定住</li>
+        </ul>
+    </div>
+    <div>5</div>
+    <div style="background: lightgreen">6</div>
+    <div>7</div>
+    <div style="background: lightgreen">8</div>
+</body>
+</html>
