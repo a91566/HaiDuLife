@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        #div1{width: 100px;height: 100px;background: red;position: absolute;
+            filter: alpha(opacity:30);opacity: 0.3}
+    </style>
+    <script>
+        <!--运动框架，请不要更更改，20150731-->
+        function getStyle(obj,name)
+        {
+            if(obj.currentStyle)
+            {
+                return obj.currentStyle[name];
+            }
+            else
+            {
+                return getComputedStyle(obj,false)[name];
+            }
+        }
+        function startMove(obj,json,fnEnd)
+        {
+            clearInterval(obj.tmrMove);
+            obj.tmrMove=setInterval(function()
+            {
+                for (var attr in json)
+                {
+                    var bSTop=true;
+                    var iCurr = 0;
+                    if (attr == 'opacity') {
+                        iCurr = Math.round(parseFloat(getStyle(obj, attr)) * 100);
+                        //这里要注意区分
+                    }
+                    else {
+                        iCurr = parseInt(getStyle(obj, attr));
+                    }
+                    var iSpeed = (json[attr] - iCurr) / 6;
+                    iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+                    if (iCurr != json[attr])
+                    {
+                        bSTop=false;
+                    }
+
+
+                    if (attr == 'opacity') {
+                        obj.style.filter = 'alpha(opacity:' + (iCurr + iSpeed) + ')';
+                        obj.style.opacity = (iCurr + iSpeed) / 100;
+                        //这里要注意区分
+                    }
+                    else {
+                        obj.style[attr] = iCurr + iSpeed + 'px';
+                    }
+
+
+                    if(bSTop)
+                    {
+                        clearInterval(obj.tmrMove);
+                        if (fnEnd)fnEnd();
+                    }
+                 }
+            },30);
+        }
+        <!--end 运动框架，请不要更更改-->
+
+        window.onload= function ()
+        {
+            var oDiv=document.getElementById("div1");
+            var oBtn=document.getElementById("btn1");
+
+            oBtn.onclick=function(){
+                startMove(oDiv,{width:150,height:300,opacity:100,top:500});
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="Move" id="btn1"/>
+
+    <div id="div1">
+
+    </div>
+</body>
+</html>

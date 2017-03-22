@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #divbtn{text-align: center}
+        #divimg{width:700px;height:454px;margin: auto;z-index: 1;position: relative;}
+        li{list-style: none;float: left;position: absolute;}
+    </style>
+    <script>
+        window.onload= function ()
+        {
+
+            var oDiv=document.getElementById('divimg');
+            var aLi=oDiv.getElementsByTagName('li');
+            for(var i=0;i<aLi.length;i++)
+            {
+                aLi[i].index=i;
+            }
+
+            setInterval(function(){
+                nowzIndex=nowzIndex+1;
+
+                //先把当前这一张渐隐
+                startMove(aLi[nowimgIndex],0,'opacity');
+
+                //如果在最后一张，返回到第一张
+                if(nowimgIndex==2)
+                {
+                    nowimgIndex=-1;
+                }
+
+                //显示下一张
+                nowimgIndex=nowimgIndex+1;
+
+                //当前这一张的图片的zindex往上加1
+                aLi[nowimgIndex].style.zIndex=nowzIndex;
+
+                //先设置为半透明
+                aLi[nowimgIndex].style.filter='alpha(opacity:30)';
+                aLi[nowimgIndex].style.opacity=0.3;
+                //慢慢变为透明
+                startMove(aLi[nowimgIndex],100,'opacity');
+
+            },4000);
+        };
+
+        var nowzIndex=1;
+        var nowimgIndex=0;
+
+        <!--运动框架，请不要更更改-->
+        function getStyle(obj,name)
+        {
+            if(obj.currentStyle)
+            {
+                return obj.currentStyle[name];
+            }
+            else
+            {
+                return getComputedStyle(obj,false)[name];
+            }
+        }
+        function startMove(obj,iTarget,attr)
+        {
+            clearInterval(obj.tmrMove);
+            obj.tmrMove=setInterval(function(){
+                var iCurr=0;
+                if(attr=='opacity')
+                {
+                    iCurr=parseFloat(getStyle(obj,attr))*100;
+                    //这里要注意区分
+                }
+                else
+                {
+                    iCurr=parseInt(getStyle(obj,attr));
+                }
+                var iSpeed=(iTarget-iCurr)/6;
+                iSpeed=iSpeed>0?Math.ceil(iSpeed):Math.floor(iSpeed);
+                if(iCurr==iTarget)
+                {
+                    clearInterval(obj.tmrMove);
+                }
+                else
+                {
+                    if(attr=='opacity')
+                    {
+                        obj.style.filter='alpha(opacity:'+(iCurr+iSpeed)+')';
+                        obj.style.opacity=(iCurr+iSpeed)/100;
+                        //这里要注意区分
+                    }
+                    else
+                    {
+                        obj.style[attr]=iCurr+iSpeed+'px';
+                    }
+                }
+            },30);
+        }
+        <!--end 运动框架，请不要更更改-->
+    </script>
+</head>
+<body>
+    <div id="divimg">
+        <ul>
+            <!--s89dsad-->
+            <li id="li1" style="z-index: 1;"><img src="../images/1.jpg" alt=""/></li>
+            <li id="li2"><img src="../images/2.jpg" alt=""/></li>
+            <li id="li3"><img src="../images/3.jpg" alt=""/></li>
+        </ul>
+    </div>
+</body>
+</html>

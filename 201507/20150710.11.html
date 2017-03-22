@@ -1,0 +1,1319 @@
+
+<html lang="zh">
+<head><meta charset="utf-8" />
+<script src="http://img.taoxie.com/js/2014/uaredirect.js" type="text/javascript"></script>
+<script type="text/javascript" async="" src="http://stats.g.doubleclick.net/dc.js"></script>
+<style>
+@charset "utf-8";
+.slide-skin{
+	position: relative;
+	z-index: 1;
+	height: 430px;
+	width: 100%;
+}
+.slide-box li{
+	display: block;
+	height: 430px;
+	position: absolute;
+	width: 100%;
+	top:0;
+/*	filter:alpha(opacity=0);
+	opacity:0;
+	-moz-opacity:0;*/
+	background-position: center top;
+}
+.slide-box li a{
+	display: block;
+	width: 100%;
+	height: 430px;
+	position: relative;
+}
+.slide-main{
+	position: relative;
+	top: 0;
+	left: 0;
+}
+.slide-main .trigger{
+	position: absolute;
+	top: 390px;
+	left: 300px;
+}
+.slide-main .slide-right{
+	position: absolute;
+	top: 15px;
+	right: 0;
+}
+.slide-main .slide-right img{
+	vertical-align: middle;
+}
+.slide-main .slide-right .promise{
+	border-bottom:1px solid #ddd;
+}
+.slide-main .slide-right .slide-ad{
+	border-top:1px solid #fff;
+}
+.trigger li{
+	float: left;
+	margin-right: 5px;
+	display: inline;
+}
+.trigger a{
+	float: left;
+	width: 20px;
+	height: 20px;
+	background:url(http://img.taoxie.com/wp/2013/default/trigger_normal.png);
+	text-align: center;
+	font:14px/20px Arial;
+}
+.trigger .active a{
+	background:url(http://img.taoxie.com/wp/2013/default/trigger_active.png);
+	color: #fff;
+}
+.trigger a.active:link,.trigger a.active:visited{
+	color: #fff;
+}
+.trigger a:hover{
+	text-decoration: none;
+}
+
+.brand-wrap{
+	border: 3px solid #dedede;
+	background: #fff;
+	padding: 5px 30px;
+	position: relative;
+	margin-bottom:10px;
+}
+.brand-wrap a.prev, .brand-wrap a.next{
+	position: absolute;
+	top: 18px;
+	width: 26px;
+	height: 47px;
+	text-indent: -999em;
+}
+.brand-wrap a.prev{
+	left: 0;
+	background: url(http://img.taoxie.com/wp/2013/default/scroll_prev.gif) no-repeat;
+}
+.brand-wrap a.prev:hover{
+	background: url(http://img.taoxie.com/wp/2013/default/scroll_prev_active.gif) no-repeat;	
+}
+.brand-wrap a.next{
+	right: 0;
+	background: url(http://img.taoxie.com/wp/2013/default/scroll_next.gif) no-repeat;
+}
+.brand-wrap a.next:hover{
+	background: url(http://img.taoxie.com/wp/2013/default/scroll_next_active.gif) no-repeat;	
+}
+.brand-wrap .clip{
+	width: 1135px;
+	overflow: hidden;
+	position: relative;
+}
+.brand-wrap .container{
+	width:10000px;
+}
+.brand-wrap ul{
+	float: left;
+}
+.brand-wrap li{
+	float: left;
+	width: 70px;
+	height: 68px;
+	border-right: 1px solid #ddd;
+	text-align: center;
+}
+.brand-wrap li a{
+	display: block;
+	width: 70px;
+	height: 68px;
+}
+.brand-wrap li i{
+	display: block;
+	width: 56px;
+	height: 42px;
+	margin: 0 auto 5px;
+}
+
+.grid{
+	float: left;
+	margin-right: 10px;
+}
+.grid-890{
+	width: 890px;
+}
+.grid-300{
+	width: 300px;
+}
+.grid-230{
+	width: 230px;
+}
+.grid-460{
+	width: 460px;
+}
+.grid-340{
+	width: 340px;
+}
+.grid-378{
+	width: 378px;
+}
+.grid-last{
+	margin-right: 0;
+}
+
+.tab-box .tab-nav{
+	height: 38px;
+	background: url(http://img.taoxie.com/wp/2013/default/tab_nav.gif) repeat-x;
+	border: 1px solid #ddd;
+	border-bottom: none;
+}
+.tab-box .tab-nav ul{
+	float: left;
+	border-right: 1px solid #fff;
+}
+.tab-box .tab-nav li{
+	float: left;
+	border-left:1px solid #fff;
+	border-right: 1px solid #ddd;
+}
+.tab-box .tab-nav li a{
+	float: left;
+	height: 38px;
+	width: 130px;
+	text-align: center;
+	font:bold 14px/38px 'Microsoft Yahei';
+	color: #333;
+}
+.tab-box .tab-nav li.active{
+	background: #fff;
+	height: 39px;
+	position: relative;
+	margin-bottom: -1px;
+}
+.tab-box .tab-nav li.active a{
+	position: relative;
+	border-top: 2px solid #df0011;
+	margin: -1px;
+}
+.tab-box .tab-nav li a:hover,.tab-box .tab-nav li a:active{
+	text-decoration: none;
+}
+.tab-box .tab-content{
+	padding: 16px 8px;
+	border: 1px solid #ddd;
+	*zoom:1;
+	height: 289px;
+	overflow: hidden;
+}
+
+.list-1 li{
+	border: 1px solid #ddd;
+	padding: 10px;
+	width: 180px;
+	float: left;
+	margin: 0 8px;
+	display: inline;
+}
+.list-1 .timer{
+	border-bottom: 1px dotted #ddd;
+	text-align: center;
+	padding-bottom: 5px;
+	height: 16px;
+	line-height: 16px;
+}
+.list-1 .timer em{
+	font-size: 16px;
+}
+.list-1 .pic{
+	text-align: center;
+	width: 180px;
+	height: 180px;
+	position: relative;
+}
+.list-1 .pic a{
+	display: table-cell;
+	vertical-align: middle;
+	width: 180px;
+	height: 180px;
+	
+	*display: block;
+	*font-family: Arial;
+	*font-size: 154px;
+}
+.list-1 .pic img{
+	vertical-align: middle;
+}
+.list-1 .streight-down{
+	background: url(http://img.taoxie.com/wp/2013/default/streight_down.gif) no-repeat;
+	width: 39px;
+	height: 46px;
+	color: #fff;
+	padding-top: 5px;
+	font-size: 14px;
+	line-height: 20px;
+	position: absolute;
+	left: 0;
+	top:0;
+}
+.list-1 .streight-down em{
+	font-size: 16px;
+	font-family: Arial;
+}
+.list-1 .name{
+	line-height: 18px;
+	height: 36px;
+	overflow: hidden;
+}
+.list-1 .price{
+	margin-top: 5px;
+	border-top: 1px dotted #ddd;
+	padding-top: 5px;
+}
+.list-1 .price em{
+	font-family: Thoma, 'Microsoft Yahei';
+	color: #df0011;
+	font-size: 16px;
+	line-height: 18px;
+	vertical-align: middle;
+}
+.list-2{
+	padding: 0 4px;
+}
+.list-2 li{
+	float: left;
+	width: 180px;
+	margin: 0 18px;
+	display: inline;
+}
+.list-2 .pic{
+	height: 180px;
+	width: 180px;
+	text-align: center;
+    position: relative;
+}
+.list-2 .pic .icons{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 69px;
+	height: 66px;
+	display: block;
+}
+.list-2 .pic .icon-miao{
+	/*background: url(http://img.taoxie.com/wp/2013/icon_miao.jpg) no-repeat;*/
+	background: url(http://img.taoxie.com/wp/2013/icon_miao.png) no-repeat;
+}
+.list-2 .pic a{
+	height: 180px;
+	width: 180px;
+	display: table-cell;
+	vertical-align: middle;
+
+	*display: block;
+	*font-family: Arial;
+	*font-size: 154px;
+}
+.list-2 .pic img{
+	vertical-align: middle;
+}
+.list-2 .name{
+	height: 22px;
+	line-height: 22px;
+	overflow: hidden;
+	margin-top:5px;
+}
+.list-2 .buy{
+	/*background: url(http://img.taoxie.com/wp/2013/default/buy.gif) no-repeat;*/
+	width: 166px;
+	height: 25px;
+	padding: 5px 0;
+	position: relative;
+	color: #000;
+	font:14px/25px thoma, 'Microsoft Yahei';
+}
+.list-2 .buy em{
+	font-size: 22px;
+}
+.list-2 .buy a{
+	position: absolute;
+	right: 0;
+	top: 5px;
+	width: 56px;
+	height: 25px;
+	text-indent: -999em;
+	background: url(http://img.taoxie.com/wp/2013/default/buy2.gif) no-repeat;
+}
+.list-2 .market-price{
+	margin-top:5px;
+}
+.list-2 .timer{
+	margin-top:5px;
+	background: url(http://img.taoxie.com/wp/2013/default/clock.gif) no-repeat;
+	padding-left: 20px;
+}
+.list-2 .timer em{
+	color: #df0011;
+}
+.list-3{
+	padding: 20px 6px;
+}
+.list-3 li{
+	float: left;
+	width: 180px;
+	margin: 0 17px;
+	display: inline;
+}
+.list-3 .pic{
+	width: 180px;
+	height: 220px;
+	position: relative;
+	text-align: center;
+}
+.list-3 .pic img{
+	vertical-align: middle;
+}
+.list-3 .pic:hover{
+	border: 1px solid #ddd;
+	padding: 1px;
+	position: relative;
+	margin: -2px;
+}
+.list-3 .pic .brand-name{
+	position: absolute;
+	left: 0;
+	bottom:0;
+	opacity: .8;
+	-moz-opacity:.8;
+	filter:alpha(opacity=80);
+	height: 32px;
+	width: 180px;
+	background: #000;
+	color: #fff;
+	line-height: 32px;
+	font-size: 14px;
+	z-index: 2;
+}
+.list-3 .pic:hover .brand-name{
+	left: 1px;
+	bottom: 1px;
+}
+.list-3 .name{
+	font-size: 16px;
+	line-height: 18px;
+	text-align: center;
+	margin-top: 10px;
+	font-family: 'Microsoft Yahei';
+}
+.list-4{
+	padding: 7px 0;
+}
+.list-4 li{
+	width: 180px;
+	border: 8px solid #fff;
+	float: left;
+	margin: 0 11px;
+	display: inline;
+}
+.list-4 li:hover{
+	border-color: #ededed;
+	background: #ededed;
+}
+.list-4 .pic{
+	width: 180px;
+	height: 180px;
+	text-align: center;
+	background: #fff;
+	position: relative;
+}
+.list-4 .pic .icons{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 57px;
+	height: 57px;
+	display: block;
+}
+.list-4 .pic .icon-new{
+	background: url(http://img.taoxie.com/wp/2013/icon_new.png) no-repeat;
+}
+.list-4 .pic a{
+	width: 180px;
+	height: 180px;
+	display: table-cell;
+	vertical-align: middle;
+
+	*display: block;
+	*font-family: Arial;
+	*font-size: 154px;
+}
+.list-4 .pic img{
+	vertical-align: middle;
+}
+.list-4 .name{
+	margin-top: 8px;
+	line-height: 18px;
+	height: 18px;
+	white-space: nowrap;
+	overflow: hidden;
+	width: 180px;
+}
+.list-4 .market-price{
+	margin-top: 5px;
+	line-height: 18px;
+}
+.list-4 .market-price del{
+	color: #999;
+}
+.list-4 .price{
+	margin-top: 6px;
+	line-height: 24px;
+}
+.list-4 .price em{
+	color: #df0011;
+	font-size: 16px;
+	vertical-align: middle;
+}
+.list-5{
+	padding: 7px 0;
+}
+.list-5 li{
+	width: 180px;
+	border: 8px solid #fff;
+	float: left;
+	margin: 0 11px;
+	display: inline;
+}
+.list-5 li:hover{
+	border-color: #ededed;
+	background: #ededed;
+}
+.list-5 .pic{
+	width: 180px;
+	height: 180px;
+	text-align: center;
+	background: #fff;
+	position: relative;
+}
+.list-5 .pic .icons{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 57px;
+	height: 57px;
+	display: block;
+}
+.list-5 .pic .icon-new{
+	background: url(http://img.taoxie.com/wp/2013/icon_new.png) no-repeat;
+}
+.list-5 .pic a{
+	width: 180px;
+	height: 180px;
+	display: table-cell;
+	vertical-align: middle;
+
+	*display: block;
+	*font-family: Arial;
+	*font-size: 154px;
+}
+.list-5 .pic img{
+	vertical-align: middle;
+}
+.list-5 .name{
+	margin-top: 12px;
+	line-height: 20px;
+	height: 60px;
+	text-align:center;
+	/* white-space: nowrap; */
+	/* overflow: hidden; */
+	/* width: 180px; */
+	font-size: 14px;
+	/* word-wrap: break-word; */
+	/* word-break: normal; */
+	/* width: 180px; */
+}
+.list-5 .market-price{
+	margin-top: 5px;
+	line-height: 18px;
+}
+.list-5 .market-price del{
+	color: #999;
+}
+.list-5 .price{
+	margin-top: 6px;
+	line-height: 24px;
+}
+.list-5 .price em{
+	color: #df0011;
+	font-size: 16px;
+	vertical-align: middle;
+}
+
+.affiche{
+	border: 3px solid #ddd;
+	background: #fff;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+.affiche .hd em{
+	font-weight: bold;
+}
+.affiche .hd a{
+	float: right;
+	font-family: Simsun;
+}
+.affiche .bd{
+	padding-top: 8px;
+	*zoom:1;
+}
+.affiche li{
+	line-height: 20px;
+	background: url(http://img.taoxie.com/wp/2013/default/affiche_ar.gif) 0 no-repeat;
+	padding-left: 10px;
+}
+.affiche a.hl:link,.affiche a.hl:visited{
+	color: #df0011;
+}
+.ads img{
+	border: 1px solid #ddd;
+	vertical-align: middle;
+}
+
+
+.floor{
+	width: 1200px;
+	margin: 0 auto 20px;
+}
+
+.floor .floor-hd{
+	border-bottom-width: 5px;
+	border-bottom-style: solid;
+	position: relative;
+
+	height: 42px;
+}
+.floor .floor-hd .hots{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 184px;
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.cat{
+	font-size: 26px;
+	line-height: 42px;
+	float: left;
+	width: 300px;
+	font-family: 'Microsoft Yahei';
+}
+.cat em{
+	float: left;
+	width: 70px;
+	height: 42px;
+	margin-right: 10px;
+	text-align: center;
+
+	line-height: 42px;
+	font-size: 36px;
+	color: #fff;
+	font-family: 'Century Gothic'; /* 字体限制 */
+	font-weight: bold;
+	font-style: italic;
+}
+.cat-link{
+	float: left;
+	padding: 10px 0;
+	font-family: simsun;
+	line-height: 22px;
+}
+.cat-link a:hover{text-decoration:none;color: #fff;}
+.attrs{
+	background-color: #f4f4f4;
+	padding: 0 5px 5px;
+	float: left;
+	width: 167px;
+}
+.brands{
+	position: relative;
+	margin: -1px 0 0 -1px;
+	height:400px;
+}
+.brands li{
+	float: left;
+	margin: 1px 0 0 1px;
+	display: inline;
+	background-color: #fff;
+	width: 83px;
+	height: 56px;
+	text-align: center;
+}
+.brands li img{
+	width:56px;
+	height:42px;
+	margin-top:0px;
+	margin-top:8px !important;
+}
+.sizes, .colors{
+	position: relative;
+	margin: 6px 0 0 -2px;
+}
+.sizes li, .colors li{
+	float: left;
+	margin: 2px 0 0 2px;
+	display: inline;
+	width: 26px;
+	height: 26px;
+	line-height: 26px;
+}
+.sizes li{
+	background-color: #bdbdbd;
+	color: #fff;
+	text-align: center;
+
+	font-family: 'Microsoft Yahei';
+	font-size: 18px;
+}
+
+.colors li a{
+	width:28px;
+	height:28px;
+	text-indent:-99em;
+	overflow:hidden;
+	 display:block;
+}
+
+
+.floor-main{
+	float: left;
+	width: 839px;
+}
+.product-larger{
+	float: left;
+	width: 338px;
+}
+.product-larger li{
+	border-bottom: 1px solid #f4f4f4; border-left:1px solid #f4f4f4
+}
+.product-larger1{
+	float: left;
+	width: 501px;
+}
+.product-larger1 li{
+	border-bottom: 1px solid #f4f4f4; border-left:1px solid #f4f4f4
+}
+.products img,
+.product-larger img,.product-larger1 img{
+	vertical-align: middle;
+}
+.products{
+	float: left;
+	width: 501px;
+	position: relative;
+	margin-left: -1px;
+}
+.products li{
+	float: left;
+	border-left: 1px solid #f4f4f4;
+	border-bottom: 1px solid #f4f4f4;
+	width: 166px;
+	height: 166px;
+}
+.products-1{
+	float: left;
+	width: 334px;
+	position: relative;
+	margin-left: -1px;
+}
+.products-1 li{
+	float: left;
+	border-left: 1px solid #f4f4f4;
+	border-bottom: 1px solid #f4f4f4;
+	width: 166px;
+	height: 166px;
+}
+.products1{
+	float: left;
+	width: 167px;
+	position: relative;
+	margin-left: -1px;
+}
+.products1 li{
+	float: left;
+	border-left: 1px solid #f4f4f4;
+	border-bottom: 1px solid #f4f4f4;
+	width: 166px;
+	height: 166px;
+}
+
+.products2{
+	float: left;
+	width: 334px;
+	position: relative;
+	margin-left: -1px;
+}
+.products2 li{
+	float: left;
+	border-left: 1px solid #f4f4f4;
+	border-bottom: 1px solid #f4f4f4;
+	width: 334px;
+	height: 166px;
+}
+.rank-box{
+	float: left;
+	border-left: 1px solid #f4f4f4;
+	width: 183px;
+}
+.rank li{
+	border-bottom: 1px solid #f4f4f4;
+	border-right: 1px solid #f4f4f4;
+	height: 32px;
+	padding: 0 5px;
+	line-height: 32px;
+	text-align:center;
+}
+.rank em{
+	float: left;
+	width: 10px;
+	font-weight: bold;
+	font-size: 14px;
+	font-family: simsun;
+	line-height: 32px;
+	text-align: center;
+}
+.rank .pic{
+	float: left;
+	width: 34px;
+	height: 20px;
+	text-align: center;
+	background-color: #ffffff;
+	margin-top: 2px;
+}
+.rank .name{
+	float: left;
+	width: 70px;
+}
+.rank .name:link,
+.rank .name:visited{
+	color: #ababab;
+}
+.rank .sales{
+	float: left;
+	width: 56px;
+}
+.rank .sales i{
+	font-style: normal;
+	color: #ffa200;
+}
+/* 青绿 */
+.f1 .cat{
+	color: #5ad9bc;
+}
+.f1 .cat em{
+	background: #5ad9bc;
+}
+.f1 .floor-hd{
+	border-bottom-color: #5ad9bc;
+}
+.f1 .floor-hd .hots{
+	background-color: #def7f2;
+	color: #4fb49d;
+}
+.f1 .rank em, .f1 .rank .sales{
+	color: #4fb49d;
+}
+.f1 .cat-link, .f1 .cat-link a:link,
+.f1 .cat-link a:visited{
+	color: #5ad9bc;
+}
+
+.f2 .cat{
+	color: #f8c1d8;
+}
+.f2 .cat em{
+	background: #f8c1d8;
+}
+.f2 .floor-hd{
+	border-bottom-color: #f8c1d8;
+}
+.f2 .floor-hd .hots{
+	background-color: #feeff5;
+	color: #d882a6;
+}
+.f2 .rank em, .f2 .rank .sales{
+	color: #d882a6;
+}
+.f2 .cat-link, .f2 .cat-link a:link,
+.f2 .cat-link a:visited{
+	color: #f8c1d8;
+}
+
+.f3 .cat{
+	color: #96c8df;
+}
+.f3 .cat em{
+	background: #96c8df;
+}
+.f3 .floor-hd{
+	border-bottom-color: #96c8df;
+}
+.f3 .floor-hd .hots{
+	background-color: #dfeef5;
+	color: #76a7be;
+}
+.f3 .rank em, .f3 .rank .sales{
+	color: #76a7be;
+}
+.f3 .cat-link, .f3 .cat-link a:link,
+.f3 .cat-link a:visited{
+	color: #96c8df;
+}
+
+
+.f4 .cat{
+	color: #cbc0a0;
+}
+.f4 .cat em{
+	background: #cbc0a0;
+}
+.f4 .floor-hd{
+	border-bottom-color: #cbc0a0;
+}
+.f4 .floor-hd .hots{
+	background-color: #efece3;
+	color: #ad9f72;
+}
+.f4 .rank em, .f4 .rank .sales{
+	color: #ad9f72;
+}
+.f4 .cat-link, .f4 .cat-link a:link,
+.f4 .cat-link a:visited{
+	color: #ad9f72;
+}
+
+
+.f5 .cat{
+	color: #badf96;
+}
+.f5 .cat em{
+	background: #badf96;
+}
+.f5 .floor-hd{
+	border-bottom-color: #badf96;
+}
+.f5 .floor-hd .hots{
+	background-color: #eaf5df;
+	color: #8daa71;
+}
+.f5 .rank em, .f5 .rank .sales{
+	color: #8daa71;
+}
+.f5 .cat-link, .f5 .cat-link a:link,
+.f5 .cat-link a:visited{
+	color: #badf96;
+}
+
+
+.brandlogo {
+	background:url(http://img.taoxie.com/brand/logos.gif) no-repeat;
+	width:56px;
+	height:42px;
+	display:block;
+	text-indent:-99999em;
+}
+.nike {
+	background-position:0 0;
+}
+.adidas {
+	background-position:0 -44px;
+}
+.converse {
+	background-position:0 -88px;
+}
+.anta {
+	background-position:0 -132px;
+}
+.xtep {
+	background-position:0 -176px;
+}
+.sport361 {
+	background-position:0 -220px;
+}
+.erke {
+	background-position:0 -264px;
+}
+.voit {
+	background-position:0 -308px;
+}
+.lining {
+	background-position:0 -352px;
+}
+.belle {
+	background-position:0 -396px;
+}
+.qianda {
+	background-position:0 -440px;
+}
+.q-sport {
+	background-position:0 -484px;
+}
+.fandei {
+	background-position:0 -528px;
+}
+.wish {
+	background-position:0 -572px;
+}
+.coqui {
+	background-position:0 -616px;
+}
+.flyke {
+	background-position:0 -660px;
+}
+.balang {
+	background-position:0 -704px;
+}
+.tata {
+	background-position:0 -748px;
+}
+.teenmix {
+	background-position:0 -792px;
+}
+.staccato {
+	background-position:0 -836px;
+}
+.basto {
+	background-position:0 -880px;
+}
+.senda {
+	background-position:0 -924px;
+}
+.farino {
+	background-position:0 -968px;
+}
+.manzanitasol {
+	background-position:0 -1012px;
+}
+.daphne {
+	background-position:0 -1056px;
+}
+.hi-tec {
+	background-position:0 -1100px;
+}
+.piipiinoo {
+	background-position:0 -1144px;
+}
+.nike360 {
+	background-position:0 -1188px;
+}
+.originals {
+	background-position:0 -1232px;
+}
+.buyiniao {
+	background-position:0 -1276px;
+}
+.innet {
+	background-position:0 -1320px;
+}
+.raysys {
+	background-position:0 -1364px;
+}
+.gertop {
+	background-position:0 -1408px;
+}
+.josiny {
+	background-position:0 -1452px;
+}
+.qiaodan {
+	background-position:0 -1496px;
+}
+.kbird, .grn-group {
+	background-position:0 -1540px;
+}
+.zero {
+	background-position:0 -1584px;
+}
+/* 新品牌 2013-7-22 Add By CTL Start */
+.puma {
+    background-position:0 -1628px;
+}
+.newbalance {
+    background-position:0 -1672px;
+}
+/* 新品牌 2013-7-22 Add By CTL End */
+
+.hellokitty{
+	background-position: 0 -1716px;
+}
+.disney{
+	background-position: 0 -1760px;
+}
+/* 新品牌 2014-1-1*/
+.emporio-armani{
+	background-position: 0 -1846px;
+}
+.fendi{
+	background-position: 0 -1936px;
+}
+.fendi{
+	background-position: 0 -1936px;
+}
+.dolce-gabbana{
+	background-position: 0 -1804px;
+}
+.salvatoreferragamo{
+	background-position: 0 -2024px;
+}
+.prada{
+	background-position: 0 -1892px;
+}
+.versace-collection{
+	background-position: 0 -1980px;
+}
+.armani-jeans{
+	background-position: 0 -2068px;
+}
+/* 新品牌 2014-1-1*/
+
+
+/* 新品牌 2014-3-29 */
+.red-dragonfly{
+	background-position: 0 -2112px;
+}
+.comely{
+	background-position: 0 -2156px;
+}
+.hotwind{
+	background-position: 0 -2200px;
+}
+.st-sat{
+	background-position: 0 -2244px;
+}
+/* 新品牌 2014-3-29 */
+
+
+/* 新品牌 2014-4-14 */
+.fed{
+	background-position: 0 -2288px;
+}
+.aokang{
+	background-position: 0 -2332px;
+}
+.bata{
+	background-position: 0 -2376px;
+}
+
+.bailingliren{
+	background-position: 0 -2420px;
+}
+.basto{
+	background-position: 0 -2464px;
+}
+.dusto{
+	background-position: 0 -2508px;
+}
+.fuguiniao{
+	background-position: 0 -2552px;
+}
+.harson{
+	background-position: 0 -2596px;
+}
+.playboy{
+	background-position: 0 -2640px;
+}
+.kisscat{
+	background-position: 0 -2684px;
+}
+.cardanro{
+	background-position: 0 -2728px;
+}
+.kadina{
+	background-position: 0 -2772px;
+}
+.kangnai{
+	background-position: 0 -2816px;
+}
+.J-M{
+	background-position: 0 -2860px;
+}
+.lesaunda{
+	background-position: 0 -2904px;
+}
+.camel{
+	background-position: 0 -2948px;
+}
+.mulinsen{
+	background-position: 0 -2992px;
+}
+.olunpo{
+	background-position: 0 -3036px;
+}
+.cbanner{
+	background-position: 0 -3080px;
+}
+.senda{
+	background-position: 0 -3124px;
+}
+.selftrend{
+	background-position: 0 -3168px;
+}
+.simier{
+	background-position: 0 -3212px;
+}
+.top-gloria{
+	background-position: 0 -3256px;
+}
+.shoebox{
+	background-position: 0 -3300px;
+}
+.exull{
+	background-position: 0 -3344px;
+}
+.yearcon{
+	background-position: 0 -3388px;
+}
+.josiny{
+	background-position: 0 -3432px;
+}
+.plover{
+	background-position: 0 -3476px;
+}
+.balachine100{
+	background-position: 0 -3520px;
+}
+.diadora{
+	background-position: 0 -3564px;
+}
+.mizuno{
+	background-position: 0 -3608px;
+}
+.diesel{
+	background-position: 0 -3652px;
+}
+.dirk-bikkembergs{
+	background-position: 0 -3696px;
+}
+.ygaor{
+	background-position: 0 -3740px;
+}
+.glu{
+	background-position: 0 -3784px;
+}
+.snoopy{
+	background-position: 0 -3828px;
+}
+.deerway{
+	background-position: 0 -3872px;
+}
+.cba{
+	background-position: 0 -3916px;
+}
+.toread{
+	background-position: 0 -3960px;
+	}
+.telent{
+	background-position: 0 -4004px;
+	}
+.meike{
+	background-position: 0 -4048px;
+}
+.yinbao{
+	background-position: 0 -4092px;
+}
+.saiqi{
+	background-position: 0 -4136px;
+}
+.liuliu
+{
+	background-position: 0 -4180px;
+}
+.wumingliangpin
+{
+	background-position: 0 -4224px;
+}
+.oufude
+{
+	background-position: 0 -4268px;
+}
+.qiankun
+{
+	background-position: 0 -4312px;
+}
+.jingqi
+{
+	background-position: 0 -4356px;
+}
+.bazhiyue
+{
+	background-position: 0 -4400px;
+}
+.taomeixie
+{
+	background-position: 0 -4444px;
+}
+.buji
+{
+	background-position: 0 -4488px;
+}
+.qingmei
+{
+	background-position: 0 -4532px;
+}
+
+.maiwei
+{
+	background-position: 0 -4576px;
+}
+/* 新品牌 2014-4-14 */
+</style>
+<script>
+	 new TaoXie.TabSlide("slide", { tabParentClass: 'trigger', contentParentClass: "slide-box", effect: "fade", autoPlay: true });
+</script>
+</head>
+<body>
+<div id="slide" class="slide-skin">
+        <ul class="slide-box">
+            
+                    <li style="opacity: 0; display: none; background-image: url(http://pics.taoxie.com/Pics/txi/20150708/13850006729627.jpg);" class="hide">
+                        <div class="w1200"><a name="__AD_bigeye1" href="http://www.taoxie.com/activity/duoshou/index.html" target="_blank" rel="nofollow"></a></div>
+                    </li>
+                
+                    <li style="opacity: 0; display: none; background-image: url(http://pics.taoxie.com/Pics/txi/20150703/9374857197791.jpg);" class="hide">
+                        <div class="w1200"><a name="__AD_bigeye2" href="http://www.taoxie.com/shoes-0-361-15/" target="_blank" rel="nofollow"></a></div>
+                    </li>
+                
+                    <li style="opacity: 1; display: block; background-image: url(http://pics.taoxie.com/Pics/txi/20150508/4093145314763.jpg);" class="hide">
+                        <div class="w1200"><a name="__AD_bigeye3" href="http://www.taoxie.com/activity/bambooman/index.html" target="_blank" rel="nofollow"></a></div>
+                    </li>
+                
+                    <li style="opacity: 0; display: none; background-image: url(http://pics.taoxie.com/Pics/txi/20150527/20352859537826.jpg);" class="hide">
+                        <div class="w1200"><a name="__AD_bigeye4" href="http://www.taoxie.com/xtep/" target="_blank" rel="nofollow"></a></div>
+                    </li>
+                
+        </ul>
+        <div class="w1200 slide-main">
+            <ul class="trigger">
+                
+                        <li class=""><a href="javascript:;">1</a></li>
+                    
+                        <li class=""><a href="javascript:;">2</a></li>
+                    
+                        <li class="active"><a href="javascript:;">3</a></li>
+                    
+                        <li class=""><a href="javascript:;">4</a></li>
+                    
+            </ul>
+            <div class="slide-right">
+                <div class="promise">
+                    <img src="http://img.taoxie.com/wp/2013/promise.png" lazyload="http://img.taoxie.com/wp/2013/promise.png" alt="">
+                </div>
+                <div class="slide-ad">
+                    <a name="__AD_lunboyouce1" href="http://www.taoxie.com/shoes-0-0-16/" target="_blank" rel="nofollow">
+                            <img src="http://pics.taoxie.com/Pics/txi/20150702/8533638134728.jpg" lazyload="http://pics.taoxie.com/Pics/txi/20150702/8533638134728.jpg"></a> 
+                </div>
+            </div>
+        </div>
+    </div>
+		</body>
+</html>
+	

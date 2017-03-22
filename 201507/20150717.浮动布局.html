@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .div-parent{height: 200px;width: 98%;border: 2px solid black;margin-top: 5px;}
+        #div1{height: 20px;width:200px;border: 2px dotted red;margin: 5px;float: left;}
+        #div2{height: 30px;width:200px;border: 2px dotted green;margin: 5px;}
+        #div3{height: 20px;width:200px;border: 2px dotted blue;margin: 5px;}
+        .div-float{height: 100px;width: 100px;border: 2px dotted orange;float: left;margin: 10px;}
+
+        .div-parent2{width: 98%;border: 2px solid black;margin-top: 55px;}
+        .div-float2{width: 100px;border: 2px dotted orange;float: left;margin: 10px;}
+
+        .clear{clear: both}
+    </style>
+</head>
+<body>
+    <div class="div-parent">
+        <div id="div1">1</div>
+        <div id="div2">2</div>
+        <div id="div3">3</div>
+    </div>
+
+    <div class="div-parent">
+        <div class="div-float"></div>
+        <div class="div-float"></div>
+        <div class="div-float"></div>
+    </div>
+
+    <div class="div-parent">
+        <div class="div-float">
+            理想中的效果是父层和上部层贴边显示，子层距离父层顶部有200px的距离，在ie中正常，
+            但是在ff中却出现问题，子层和父层贴边了，而父层和上部层却间隔了200px。
+        </div>
+        <div class="div-float"></div>
+        <div class="div-float"></div>
+    </div>
+
+    <div class="div-parent2">
+        <div class="div-float2">
+            理想中的效果是父层和上部层贴边显示，子层距离父层顶部有200px的距离，在ie中正常，
+            但是在ff中却出现问题，子层和父层贴边了，而父层和上部层却间隔了200px。
+        </div>
+        <div class="div-float2"></div>
+        <div class="div-float2"></div>
+        <div class="clear"></div>
+    </div>
+
+
+</body>
+</html>

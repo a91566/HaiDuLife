@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1{width: 780px;height: 500px;border: 1px solid #666;text-align: center;}
+    </style>
+    <script>
+        window.onload= function ()
+        {
+            var oDiv=document.getElementById('div1');
+            var oImg=document.getElementById('img1');
+
+            oDiv.onmouseover= function () {
+                startMove(oImg,600,'width');
+                startMove(oImg,330,'height');
+            };
+            oDiv.onmouseout= function () {
+                startMove(oImg,730,'width');
+                startMove(oImg,454,'height');
+            };
+
+        };
+
+        function getStyle(obj,name)
+        {
+            if(obj.currentStyle)
+            {
+                return obj.currentStyle[name];
+            }
+            else
+            {
+                return getComputedStyle(obj,false)[name];
+            }
+        }
+        function startMove(obj,iTarget,attr)
+        {
+            clearInterval(obj.tmrMove);
+            obj.tmrMove=setInterval(function(){
+                var iCurr=0;
+                if(attr=='opacity')
+                {
+                    iCurr=parseFloat(getStyle(obj,attr))*100;
+                    //这里要注意区分
+                }
+                else
+                {
+                    iCurr=parseInt(getStyle(obj,attr));
+                }
+                var iSpeed=(iTarget-iCurr)/3;
+                iSpeed=iSpeed>0?Math.ceil(iSpeed):Math.floor(iSpeed);
+                if(iCurr==iTarget)
+                {
+                    clearInterval(obj.tmrMove);
+                }
+                else
+                {
+                    if(attr=='opacity')
+                    {
+                        obj.style.filter='alpha(opacity:'+(iCurr+iSpeed)+')';
+                        obj.style.opacity=(iCurr+iSpeed)/100;
+                        //这里要注意区分
+                    }
+                    else
+                    {
+                        obj.style[attr]=iCurr+iSpeed+'px';
+                    }
+                }
+            },30);
+        }
+    </script>
+</head>
+<body>
+    <div id="div1">
+        <img src="1.jpg" id="img1" alt=""/>
+    </div>
+</body>
+</html>

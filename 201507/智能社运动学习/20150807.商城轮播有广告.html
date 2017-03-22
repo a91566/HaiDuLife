@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #pagetop-palyopacity{border: 1px solid #666;width: 1190px;height: 440px;margin-bottom: 0;
+        position: relative;}
+        .pt-po{z-index: 1;position: absolute;display: inline;width: 1190px;height: 440px;margin: 0;}
+
+        .pt-po img{width: 1190px;height: 440px;margin: 0;}
+        .pt-po-ol{z-index: 99999;position: absolute;list-style-type: none;bottom: 0;}
+        .pt-po-ol li{float: left;margin: 5px;width: 30px;height:30px;border-radius:30px;line-height: 30px;
+            text-align: center;color: #FFFFFF;}
+        .pt-liactive{background: #39b3d7;}
+        .ptpo-ad{z-index: 99999;position: absolute;right: 0px;width: 180px;height: 440px;}
+        .ptpo-ad img{width: 180px;height: 219px;transition-duration: .4s;}
+        .ptpo-ad img:hover{transform: translateX(-5px);}
+    </style>
+    <script>
+        <!--运动框架,请不要更更改,20150803-->
+        function getStyle(obj,name)
+        {
+            if(obj.currentStyle)
+            {
+                return obj.currentStyle[name];
+            }
+            else
+            {
+                return getComputedStyle(obj,false)[name];
+            }
+        }
+        function startMove(obj,json,fnEnd)
+        {
+            clearInterval(obj.tmrMove);
+            obj.tmrMove=setInterval(function()
+            {
+                for (var attr in json)
+                {
+                    var bSTop=true;
+                    var iCurr = 0;
+                    if (attr == 'opacity') {
+                        iCurr = Math.round(parseFloat(getStyle(obj, attr)) * 100);
+                        //这里要注意区分
+                    }
+                    else {
+                        iCurr = parseInt(getStyle(obj, attr));
+                    }
+                    var iSpeed = (json[attr] - iCurr) / 6;
+                    iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+                    if (iCurr != json[attr])
+                    {
+                        bSTop=false;
+                    }
+
+
+                    if (attr == 'opacity') {
+                        obj.style.filter = 'alpha(opacity:' + (iCurr + iSpeed) + ')';
+                        obj.style.opacity = (iCurr + iSpeed) / 100;
+                        //这里要注意区分
+                    }
+                    else {
+                        obj.style[attr] = iCurr + iSpeed + 'px';
+                    }
+
+
+                    if(bSTop)
+                    {
+                        clearInterval(obj.tmrMove);
+                        document.title=obj.style.left;
+                        if (fnEnd)fnEnd();
+                    }
+                }
+            },30);
+        }
+        <!--end 运动框架，请不要更更改-->
+
+        window.onload= function ()
+        {
+            var oDivPtpoMain=document.getElementById("pagetop-palyopacity");
+            var aDivPtpo=oDivPtpoMain.getElementsByClassName("pt-po");
+            var aBtnPtpo=oDivPtpoMain.getElementsByClassName("pt-po-ol")[0].getElementsByTagName("li");
+            var nowIndex=0;
+            var nowZIndex=2;
+
+            for(var i=0;i<aBtnPtpo.length;i++)
+            {
+                aBtnPtpo[i].index=i;
+                aBtnPtpo[i].onclick=function()
+                {
+                    nowIndex=this.index;
+                    tab();
+                    aBtnPtpo[i].className=".pt-liactive";
+                }
+            }
+
+            function tab()
+            {
+
+                nowZIndex++;
+                aDivPtpo[nowIndex].style.zIndex=nowZIndex;
+
+
+                var oPtpoPicShow=aDivPtpo[nowIndex].getElementsByTagName("img")[0];
+                oPtpoPicShow.style.filter='alpha(opacity:10)';
+                oPtpoPicShow.style.opacity=0.1;
+                startMove(oPtpoPicShow,{opacity:100});
+
+
+                for(var i=0;i<aBtnPtpo.length;i++)
+                {
+                    aBtnPtpo[i].className="";
+                }
+                aBtnPtpo[nowIndex].className="pt-liactive";
+
+            }
+
+            function next()
+            {
+                nowIndex++;
+                if(nowIndex==aBtnPtpo.length)
+                {
+                    nowIndex=0;
+                }
+                tab();
+            }
+
+            var tmrMove=setInterval(next,2000);
+
+            oDivPtpoMain.onmouseover=function(){
+                clearInterval(tmrMove);
+            }
+            oDivPtpoMain.onmouseout=function(){
+                tmrMove=setInterval(next,2000);
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <div id="pagetop-palyopacity">
+        <div class="pt-po" style="z-index: 2;">
+            <a><img src="../images/1.jpg" alt=""/></a>
+        </div>
+        <div class="pt-po">
+            <a><img src="../images/2.jpg" alt=""/></a>
+        </div>
+        <div class="pt-po">
+            <a><img src="../images/3.jpg" alt=""/></a>
+        </div>
+        <ol class="pt-po-ol">
+            <li class="pt-liactive">1</li>
+            <li>2</li>
+            <li>3</li>
+        </ol>
+        <div class="ptpo-ad">
+            <a target="_blank" href="http://www.968111.com">
+                <img src="../images/0806.1.png" alt=""/>
+            </a>
+            <a target="_blank" href="http://www.968111.com">
+                <img src="../images/0806.2.png" alt=""/>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

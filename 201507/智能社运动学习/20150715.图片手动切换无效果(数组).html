@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #divbtn{text-align: center}
+        #divimg{width:700px;height:454px;margin: auto;z-index: 1;position: relative;}
+        li{list-style: none;float: left;position: absolute;}
+    </style>
+    <script>
+        window.onload= function ()
+        {
+
+            var oDiv=document.getElementById('divbtn');
+            var aBtn=oDiv.getElementsByTagName('input');
+            for(var i=0;i<aBtn.length;i++)
+            {
+                if(aBtn[i].type=='button')
+                {
+                    aBtn[i].index=i;
+                    aBtn[i].onclick= function ()
+                    {
+                        var oImg=document.getElementById('img1');
+                        oImg.src=aImg[this.index];
+                    }
+                }
+            }
+        };
+
+        var aImg = new Array();
+        aImg[0]="images/1.jpg";
+        aImg[1]="images/2.jpg";
+        aImg[2]="images/3.jpg";
+
+    </script>
+</head>
+<body>
+    <div id="divbtn">
+        <input type="button" value="1"/>
+        <input type="button" value="2"/>
+        <input type="button" value="3"/>
+    </div>
+    <div id="divimg">
+        <img id="img1" src="../images/1.jpg" alt=""/>
+    </div>
+</body>
+</html>

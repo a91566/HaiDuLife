@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{padding: 1px;margin: 1px;}
+        #main{border: 1px solid #666;width: 800px;height: 800px;margin-bottom: 0;}
+        #bigimg{border: 1px solid #666;width: 750px;height: 470px;margin-bottom: 0;}
+        .item{z-index: 1;position: absolute;display: inline;}
+
+        #smallimg{border: 1px solid #666;margin-top:0;border-top: none;width: 750px;height: 210px;}
+        #smallimg img{width: 230px;height: 200px;opacity: 0.5;margin: 4px;}
+        #smallimg a{display: inline-block;}
+    </style>
+    <script>
+        <!--运动框架，请不要更更改 2015-07-30-->
+        function getStyle(obj,name)
+        {
+            if(obj.currentStyle)
+            {
+                return obj.currentStyle[name];
+            }
+            else
+            {
+                return getComputedStyle(obj,false)[name];
+            }
+        }
+        function startMove(obj,iTarget,attr)
+        {
+            clearInterval(obj.tmrMove);
+            obj.tmrMove=setInterval(function(){
+                var iCurr=0;
+                if(attr=='opacity')
+                {
+                    iCurr=parseFloat(getStyle(obj,attr))*100;
+                    //这里要注意区分
+                }
+                else
+                {
+                    iCurr=parseInt(getStyle(obj,attr));
+                }
+                var iSpeed=(iTarget-iCurr)/6;
+                iSpeed=iSpeed>0?Math.ceil(iSpeed):Math.floor(iSpeed);
+                if(iCurr==iTarget)
+                {
+                    clearInterval(obj.tmrMove);
+                }
+                else
+                {
+                    if(attr=='opacity')
+                    {
+                        obj.style.filter='alpha(opacity:'+(iCurr+iSpeed)+')';
+                        obj.style.opacity=(iCurr+iSpeed)/100;
+                        //这里要注意区分
+                    }
+                    else
+                    {
+                        obj.style[attr]=iCurr+iSpeed+'px';
+                    }
+                }
+            },30);
+        }
+        <!--end 运动框架，请不要更更改-->
+
+        window.onload= function ()
+        {
+            var divbig=document.getElementById("bigimg");
+            var oDivBigs=divbig.getElementsByTagName("div");
+            
+
+            var divsmall=document.getElementById("smallimg");
+            var oImgSmalls=divsmall.getElementsByTagName("img");
+
+            var nowzIndex=2;
+            var nowShowIndex=0;
+            var preShowIndex=0;
+
+
+
+            for(var i=0;i<oImgSmalls.length;i++)
+            {
+                oImgSmalls[i].index=i;
+                oImgSmalls[i].onmouseover=function ()
+                {
+                    startMove(this,100,"opacity");
+
+                    if(nowShowIndex!=this.index)
+                    {
+                        preShowIndex=nowShowIndex;//上一个
+                        nowShowIndex=this.index;
+
+                        oDivBigs[nowShowIndex].style.zIndex=nowzIndex++;
+
+                        //处理上一个的动作
+                        var oPreBigPic=oDivBigs[preShowIndex].getElementsByTagName("img")[0];
+                        startMove(oPreBigPic,0,"opacity");
+
+                        //这一个动作
+                        var oBigPic=oDivBigs[nowShowIndex].getElementsByTagName("img")[0];
+                        oBigPic.style.height=0;
+                        oBigPic.style.width=730;
+
+                        oBigPic.style.filter='alpha(opacity:100)';
+                        oBigPic.style.opacity=1;
+                        startMove(oBigPic,454,"height");
+                    }
+                }
+            }
+
+
+            function autoChange ()
+            {
+                preShowIndex=nowShowIndex;//上一个
+                if(nowShowIndex==2)
+                {
+                    nowShowIndex=0;
+                }
+                else
+                {
+                    nowShowIndex++;
+                }
+
+                oDivBigs[nowShowIndex].style.zIndex=nowzIndex++;
+
+                //处理上一个的动作
+                var oPreBigPic=oDivBigs[preShowIndex].getElementsByTagName("img")[0];
+                startMove(oPreBigPic,0,"opacity");
+
+                //这一个动作
+                var oBigPic=oDivBigs[nowShowIndex].getElementsByTagName("img")[0];
+                oBigPic.style.height=0;
+                oBigPic.style.filter='alpha(opacity:100)';
+                oBigPic.style.opacity=1;
+                startMove(oBigPic,454,"height");
+            }
+
+
+            //自动播放
+//            var divmain=document.getElementById("main");
+//            var tmrChange= setInterval(autoChange,2000);
+//            divmain.onmouseover=function()
+//            {
+//                clearInterval(tmrChange);
+//            }
+//            divmain.onmouseout=function()
+//            {
+//                tmrChange= setInterval(autoChange,2000);
+//            }
+
+        }
+    </script>
+</head>
+<body>
+    <div id="main">
+        <div id="bigimg">
+            <div class="item" style="z-index: 2;height: 454px;">
+                <a><img src="../images/1.jpg" alt=""/></a>
+            </div>
+            <div class="item">
+                <a><img style="height: 0px;" src="../images/2.jpg" alt=""/></a>
+            </div>
+            <div class="item">
+                <a><img style="height: 0px;" src="../images/3.jpg" alt=""/></a>
+            </div>
+        </div>
+        <div id="smallimg">
+            <a><img src="../images/1.jpg" alt=""/></a>
+            <a><img src="../images/2.jpg" alt=""/></a>
+            <a><img src="../images/3.jpg" alt=""/></a>
+        </div>
+    </div>
+</body>
+</html>

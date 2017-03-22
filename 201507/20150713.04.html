@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title></title> 
+	</head> 
+		<style>
+		
+		</style>
+		
+		<script>
+			$id:function(id){return document.getElementById(id);},
+			//以标签名获取文档对象
+			$tag:function(tagName,obj){return (obj ?obj : document).getElementsByTagName(tagName);	},
+			以class获取文档对象
+			 $c：function (claN,obj){
+			   var tag = $tag('*'),reg = new RegExp('(^|\\s)'+claN+'(\\s|$)'),arr=[];
+			   for(var i=0;i<tag.length;i++){
+				if (reg.test(tag[i].className)){
+				   arr.push(tag[i]);
+				 }
+			   }
+			   return arr;
+			}
+			
+			$add:function(obj,claN){
+			reg = new RegExp('(^|\\s)'+claN+'(\\s|$)');
+			if (!reg.test(obj.className)){
+			obj.className += ' '+claN;
+			}
+			},
+			//移除classs
+			$remve:function(obj,claN){var cla=obj.className,reg="/\\s*"+claN+"\\b/g";obj.className=cla?cla.replace(eval(reg),''):''},
+			
+			css:function(obj,attr,value){
+			if(value){
+			 obj.style[attr] = value;
+			}else{
+			  return  typeof window.getComputedStyle != 'undefined' ? window.getComputedStyle(obj,null)[attr] : obj.currentStyle[attr];
+			  }
+			},
+			
+			easing ={
+			linear:function(t,b,c,d){return c*t/d + b;},
+			swing:function(t,b,c,d) {return -c/2 * (Math.cos(Math.PI*t/d) - 1) + b;},
+			easeIn:function(t,b,c,d){return c*(t/=d)*t*t*t + b;},
+			easeOut:function(t,b,c,d){return -c*((t=t/d-1)*t*t*t - 1) + b;},
+			easeInOut:function(t,b,c,d){return ((t/=d/2) < 1)?(c/2*t*t*t*t + b):(-c/2*((t-=2)*t*t*t - 2) + b);}
+			}
+		</script>	
+	<body>
+		<div class="slide" id="slide">
+			<div class="img-div">
+				<img src="images/11.jpg" title="图片1"/>
+				<img src="images/12.jpg" title="图片2"/>
+				<img src="images/13.jpg" title="图片3"/>
+			</div>
+			<div class="slide-btn">
+				<a href="#" class="hover">●</a>
+				<a href="#">●</a>
+				<a href="#">●</a>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>美食网 - 发布美食</title>
+
+    <link rel="stylesheet" href="main.css"/>
+</head>
+<body>
+<div class="header">
+    <div class="login-bar">
+        <a href="" class="qq-login">QQ登陆</a>
+        <a href="" class="wb-login">微博登录</a>
+    </div>
+    <div class="logo">
+        <img src="images/new_year_logo.gif" alt="美食网"/>
+    </div>
+    <div class="nav">
+        <ul>
+            <li>
+                <a href="home.html">主页</a>
+            </li>
+            <li>
+                <a href="recipes.html">美食列表</a>
+            </li>
+            <li>
+                <a href="#">讨论组</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="main-content">
+    <h1>发布美食</h1>
+    <table class="suggest">
+        <tr>
+            <td class="td-label">
+                <label for="msName">食品名称</label>
+            </td>
+            <td>
+                <input type="text" id="msName" name="msName"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="td-label">
+                <label for="photos">上传成品图</label>
+            </td>
+            <td>
+                <input type="file" value="0" id="photos"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="td-label">
+                <label for="msType">美食类型</label>
+            </td>
+            <td>
+                <input type="radio" id="yc" name="msType" checked/>
+                <label for="yc">原创</label>
+                <input type="radio" id="zz" name="msType"/>
+                <label for="zz">转载</label>
+            </td>
+        </tr>
+        <tr>
+            <td class="td-label">
+                <label for="count">人数</label>
+            </td>
+            <td>
+                <select name="count" id="count">
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="td-label">
+                <label for="matl">材料</label>
+            </td>
+            <td>
+                <textarea name="matl" id="matl" cols="30" rows="8"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td class="td-label">
+                <label for="zzgc">制作过程</label>
+            </td>
+            <td>
+                <textarea name="zzgc" id="zzgc" cols="30" rows="15"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="checkbox" id="newsmail" checked/>
+                <label for="newsmail">订阅新闻邮件</label>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="td-btn">
+                <input type="submit" value="发布"/>
+                <input type="reset" value="重新填写"/>
+            </td>
+        </tr>
+        <tr>
+
+        </tr>
+    </table>
+</div>
+<div class="footer">
+    &copy &copy &copy
+</div>
+
+</body>
+</html>

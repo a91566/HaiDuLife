@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #divbtn{text-align: center}
+        #divimg{width:700px;height:454px;margin: auto;z-index: 1;position: relative;}
+        li{list-style: none;float: left;position: absolute;}
+    </style>
+    <script>
+        window.onload= function ()
+        {
+            var oImg=document.getElementById('img1');
+            setInterval(function ()
+            {
+                nowIndex=nowIndex+1;
+                oImg.src=aImg[nowIndex];
+                document.title=nowIndex;
+                if(nowIndex==2)
+                {
+                    nowIndex=-1;
+                }
+            },1000);
+
+        };
+
+        var nowIndex=0;
+        var aImg = new Array();
+        aImg[0]="images/1.jpg";
+        aImg[1]="images/2.jpg";
+        aImg[2]="images/3.jpg";
+
+    </script>
+</head>
+<body>
+    <div id="divimg">
+        <img id="img1" src="../images/1.jpg" alt=""/>
+    </div>
+</body>
+</html>

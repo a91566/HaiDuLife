@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1{width: 200px;height: 200px;background: red;float: left;}
+        #div2{width: 200px;height: 200px;background: yellow;margin-left:20px;float: left;}
+    </style>
+    <script>
+        window.onload= function ()
+        {
+            var oDiv=document.getElementById('div1');
+
+            oDiv.onmouseover= function () {
+                startMove(this,600);
+            };
+            oDiv.onmouseout= function () {
+                startMove(this,200);
+            };
+
+            oDiv=document.getElementById('div2');
+            oDiv.onmouseover= function () {
+                startMove2(this,600);
+            };
+            oDiv.onmouseout= function () {
+                startMove2(this,200);
+            };
+        };
+        function startMove(obj,iTarget)
+        {
+            clearInterval(obj.tmrMove);
+            obj.tmrMove=setInterval(function(){
+                var iSpeed=(iTarget-obj.offsetHeight)/6;
+                iSpeed=iSpeed>0?Math.ceil(iSpeed):Math.floor(iSpeed);
+                if(obj.offsetHeight==iTarget)
+                {
+                    clearInterval(obj.tmrMove);
+                }
+                else
+                {
+                    obj.style.height=obj.offsetHeight+iSpeed+'px';
+                }
+            },30);
+        }
+        function startMove2(obj,iTarget)
+        {
+            clearInterval(obj.tmrMove);
+            obj.tmrMove=setInterval(function(){
+                var iSpeed=(iTarget-obj.offsetWidth)/6;
+                iSpeed=iSpeed>0?Math.ceil(iSpeed):Math.floor(iSpeed);
+                if(obj.offsetWidth==iTarget)
+                {
+                    clearInterval(obj.tmrMove);
+                }
+                else
+                {
+                    obj.style.width=obj.offsetWidth+iSpeed+'px';
+                }
+            },30);
+        }
+    </script>
+</head>
+<body>
+    <div id="div1"></div>
+    <div id="div2"></div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1{width: 100px;height: 150px;background: red;position: absolute;right: 0;bottom: 0}
+        #div2{width: 100px;height: 150px;background: greenyellow;position: fixed;left: 150px;bottom: 0}
+        #div3{width: 100px;background: yellow;position: fixed;left: 0;bottom: 0;top: 0}
+    </style>
+    <script>
+        window.onscroll= function ()
+        {
+            var oDiv=document.getElementById('div1');
+            var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+            var divtop=parseInt((document.documentElement.clientHeight-oDiv.offsetHeight)/2)+scrollTop;
+            startMove(divtop);
+            //oDiv.style.top=document.documentElement.clientHeight-oDiv.offsetHeight+scrollTop+'px';
+        }
+
+        var tmrMove=null;
+        function startMove(iTarget)
+        {
+            var oDiv=document.getElementById('div1');
+            clearInterval(tmrMove);
+            tmrMove=setInterval(function(){
+                var iSpeed=iTarget-oDiv.offsetTop;
+                iSpeed=iSpeed/6;
+                iSpeed=iSpeed>0?Math.ceil(iSpeed):Math.floor(iSpeed);
+
+                if(oDiv.offsetTop==iTarget)
+                {
+                    clearInterval(tmrMove);
+                }
+                else
+                {
+                    document.getElementById('txt1').value=oDiv.offsetTop;
+                    oDiv.style.top=oDiv.offsetTop+iSpeed+'px';
+                }
+            },30);
+        }
+    </script>
+</head>
+<body style="height: 3000px;">
+    <input type="text" id="txt2" value="这个文本框会固定在顶部" style="position: fixed;right: 200px;top: 0;"/>
+    <input type="text" id="txt1" style="position: fixed;right: 0;top: 0;"/>
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        #div1{width: 730px;height: 454px;border: 1px solid black;margin: 0 auto;
+            display:block;position: relative;overflow: hidden;}
+        ol{z-index: 30;position: absolute;list-style-type: none;bottom:0px;
+            right: 10px;margin-bottom: 5px;}
+        ol li{float: left;margin: 5px;width: 25px;height:25px;border-radius:25px;line-height: 25px;
+            text-align: center;background: gray;color: #FFFFFF;}
+        .liactive{background: #39b3d7;}
+        #ul1{width: 5730px;height: 454px;margin: 0;padding: 0;list-style: none;left: 0px;
+            position: absolute;}
+        #ul1 li{display: inline-block;margin: 0;padding: 0;width: 730px;height: 454px;
+            border: 0;white-space:nowrap;}
+        #ul1 img{width:730px;height:454px;}
+    </style>
+    <script>
+        <!--运动框架，请不要更更改，20150803-->
+        function getStyle(obj,name)
+        {
+            if(obj.currentStyle)
+            {
+                return obj.currentStyle[name];
+            }
+            else
+            {
+                return getComputedStyle(obj,false)[name];
+            }
+        }
+        function startMove(obj,json,fnEnd)
+        {
+            clearInterval(obj.tmrMove);
+            obj.tmrMove=setInterval(function()
+            {
+                for (var attr in json)
+                {
+                    var bSTop=true;
+                    var iCurr = 0;
+                    if (attr == 'opacity') {
+                        iCurr = Math.round(parseFloat(getStyle(obj, attr)) * 100);
+                        //这里要注意区分
+                    }
+                    else {
+                        iCurr = parseInt(getStyle(obj, attr));
+                    }
+                    var iSpeed = (json[attr] - iCurr) / 6;
+                    iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+                    if (iCurr != json[attr])
+                    {
+                        bSTop=false;
+                    }
+
+
+                    if (attr == 'opacity') {
+                        obj.style.filter = 'alpha(opacity:' + (iCurr + iSpeed) + ')';
+                        obj.style.opacity = (iCurr + iSpeed) / 100;
+                        //这里要注意区分
+                    }
+                    else {
+                        obj.style[attr] = iCurr + iSpeed + 'px';
+                    }
+
+
+                    if(bSTop)
+                    {
+                        clearInterval(obj.tmrMove);
+                        document.title=obj.style.left;
+                        if (fnEnd)fnEnd();
+                    }
+                }
+            },30);
+        }
+        <!--end 运动框架，请不要更更改-->
+
+        window.onload= function ()
+        {
+            var oDiv=document.getElementById("div1");
+            var oUl=document.getElementById("ul1");
+            var aBtn=document.getElementsByTagName("ol")[0].getElementsByTagName("li");
+            var nowIndex=0;
+
+            for(var i=0;i<aBtn.length;i++)
+            {
+                aBtn[i].index=i;
+                aBtn[i].onclick=function()
+                {
+                    nowIndex=this.index;
+
+                    tab();
+                }
+            }
+
+            function tab()
+            {
+                for(var i=0;i<aBtn.length;i++)
+                {
+                    aBtn[i].className="";
+                }
+                startMove(oUl,{left:-730*nowIndex});
+                aBtn[nowIndex].className="liactive";
+            }
+
+            function next()
+            {
+                nowIndex++;
+                if(nowIndex==aBtn.length)
+                {
+                    nowIndex=0;
+                }
+                tab();
+            }
+
+            var tmrMove=setInterval(next,2000);
+
+            oDiv.onmouseover=function(){
+                clearInterval(tmrMove);
+            }
+            oDiv.onmouseout=function(){
+                tmrMove=setInterval(next,2000);
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <div id="div1">
+        <ol>
+            <li class="liactive">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ol>
+        <ul id="ul1">
+            <!--li之间的写法要注意不要换行-->
+            <li>
+                <img src="../images/1.jpg" alt=""/>
+            </li><li>
+                <img src="../images/2.jpg" alt=""/>
+            </li><li>
+                <img src="../images/3.jpg" alt=""/>
+            </li><li>
+                <img src="../images/4.jpg" alt=""/>
+            </li><li>
+                <img src="../images/5.jpg" alt=""/>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

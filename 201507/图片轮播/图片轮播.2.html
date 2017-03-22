@@ -1,0 +1,45 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+  <title>images</title> 
+    <style>
+	#zdiv{
+		height:1800px;
+		border:1px solid red;
+	}
+	body{
+		margin-left:0px;
+		margin-right:0px;
+		padding: 0px; 
+	}
+	#zimg{
+	 width:100%;
+	}
+  </style>
+ <script type="text/javascript"> 
+  var curIndex = 0; 
+  var timeInterval = 3000; 
+  var arr = new Array(); 
+  arr[0] = "http://img.zhuyun.cn/M00/6A/9B/wKgJNFWd0hWAICSCAARZJEL77JA659.jpg"; 
+  arr[1] = "http://img.zhuyun.cn/M00/6A/9B/wKgJNFWd0hSACZMDAAWFohwQ63I596.jpg"; 
+  arr[2] = "http://img.zhuyun.cn/M00/6A/9B/wKgJNFWd0hOAVaOSAAHtaJeeja0780.jpg"; 
+  arr[3] = "http://img.zhuyun.cn/M00/6A/9B/wKgJNFWd0hOAXwwDAALxehzLv38278.jpg"; 
+  setInterval(changeImg,timeInterval); 
+  function changeImg() { 
+   var obj = document.getElementById("zimg"); 
+   if (curIndex == arr.length-1) { 
+    curIndex = 0; 
+   } else { 
+    curIndex += 1; 
+     } 
+   obj.src = arr[curIndex]; 
+  } 
+ </script> 
+
+ </head> 
+ <body> 
+  <img id = "zimg" src = "http://img.zhuyun.cn/M00/6A/9B/wKgJNFWd0hWAICSCAARZJEL77JA659.jpg" /> 
+ </body> 
+</html> 

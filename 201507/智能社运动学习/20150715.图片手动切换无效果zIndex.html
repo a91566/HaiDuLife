@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #divbtn{text-align: center}
+        #divimg{width:700px;height:454px;margin: auto;z-index: 1;position: relative;}
+        li{list-style: none;float: left;position: absolute;}
+    </style>
+    <script>
+        var nowIndex=1;
+        function add1(){
+            var oLi=document.getElementById('li1');
+
+            nowIndex=nowIndex+1;
+            oLi.style.zIndex=nowIndex;
+        }
+        function add2(){
+            var oLi=document.getElementById('li2');
+
+            nowIndex=nowIndex+1;
+            oLi.style.zIndex=nowIndex;
+        }
+        function add3(){
+            var oLi=document.getElementById('li3');
+
+            nowIndex=nowIndex+1;
+            oLi.style.zIndex=nowIndex;
+        }
+    </script>
+</head>
+<body>
+    <div id="divbtn">
+        <input type="button" value="1" onclick="add1()"/>
+        <input type="button" value="2" onclick="add2()"/>
+        <input type="button" value="3" onclick="add3()"/>
+    </div>
+    <div id="divimg">
+        <ul>
+            <li id="li1" style="z-index: 1;"><img src="../images/1.jpg" alt=""/></li>
+            <li id="li2"><img src="../images/2.jpg" alt=""/></li>
+            <li id="li3"><img src="../images/3.jpg" alt=""/></li>
+        </ul>
+    </div>
+</body>
+</html>

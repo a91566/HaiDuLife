@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .zsbTest{width: 100px;height: 50px;background: sandybrown;margin-top: 10px;}
+    </style>
+    <script>
+        window.onload= function () {
+            //var aDiv=document.getElementsByTagName('div');
+            var aDiv=document.getElementsByClassName('zsbTest');
+        //这段代码放在筑云的系统里边不可用
+
+            for(var i=0;i<aDiv.length;i++)
+            {
+                aDiv[i].tmrMove=null;//加一个自定义属性,否则每个div之间会干扰
+                aDiv[i].onmouseover= function () {
+                    startMove(this,600);
+                };
+
+                aDiv[i].onmouseout= function () {
+                    startMove(this,100);
+                };
+            }
+        };
+        function startMove(obj,iTarget)
+        {
+            clearInterval(obj.tmrMove);
+            obj.tmrMove=setInterval(function(){
+                var iSpeed=(iTarget-obj.offsetWidth)/7;
+                iSpeed=iSpeed>0?Math.ceil(iSpeed):Math.floor(iSpeed);
+
+                if(iTarget==obj.offsetWidth)
+                {
+                    clearInterval(obj.tmrMove);
+                }
+                else
+                {
+                    obj.style.width=obj.offsetWidth+iSpeed+'px';
+                    //offsetWidth 在这里用offset实际上是有bug的，div加上边框就不行了
+                }
+            },30);
+        }
+    </script>
+</head>
+<body>
+<div class="zsbTest"></div>
+<div class="zsbTest"></div>
+<div class="zsbTest"></div>
+</body>
+</html>

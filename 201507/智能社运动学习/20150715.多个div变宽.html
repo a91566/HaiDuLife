@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .zsbTest{width: 100px;height: 50px;background: sandybrown;margin-top: 10px;border:5px solid black;}
+    </style>
+    <script>
+        window.onload= function () {
+            //var aDiv=document.getElementsByTagName('div');
+            var aDiv=document.getElementsByClassName('zsbTest');
+        //这段代码放在筑云的系统里边不可用
+
+            for(var i=0;i<aDiv.length;i++)
+            {
+                aDiv[i].tmrMove=null;//加一个自定义属性,否则每个div之间会干扰
+                aDiv[i].onmouseover= function () {
+                    startMove(this,600);
+                };
+
+                aDiv[i].onmouseout= function () {
+                    startMove(this,100);
+                };
+            }
+        };
+
+        function getStyle(obj,name)
+        {
+            if(obj.currentStyle)
+            {
+                return obj.currentStyle[name];
+            }
+            else
+            {
+                return getComputedStyle(obj,false)[name];
+            }
+        }
+
+        function startMove(obj,iTarget)
+        {
+            clearInterval(obj.tmrMove);
+            obj.tmrMove=setInterval(function(){
+                var iWidth=parseInt(getStyle(obj,'width'));
+                var iSpeed=(iTarget-iWidth)/7;
+                iSpeed=iSpeed>0?Math.ceil(iSpeed):Math.floor(iSpeed);
+
+                if(iWidth==iTarget)
+                {
+                    clearInterval(obj.tmrMove);
+                }
+                else
+                {
+                    obj.style.width=iWidth+iSpeed+'px';
+                }
+            },30);
+        }
+    </script>
+</head>
+<body>
+<div class="zsbTest"></div>
+<div class="zsbTest"></div>
+<div class="zsbTest"></div>
+</body>
+</html>

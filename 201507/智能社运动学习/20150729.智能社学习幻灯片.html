@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{padding: 1px;margin: 1px;}
+        #bigimg{border: 1px solid #666;width: 750px;height: 470px;margin-bottom: 0;}
+        .item{z-index: 1;position: absolute;display: inline;}
+
+        #smallimg{border: 1px solid #666;margin-top:0;border-top: none;width: 750px;height: 210px;}
+        #smallimg img{width: 230px;height: 200px;opacity: 0.5;margin: 4px;}
+        #smallimg a{display: inline-block;}
+    </style>
+    <script>
+        window.onload= function ()
+        {
+            var divbig=document.getElementById("bigimg");
+            var oDivBigs=divbig.getElementsByTagName("div");
+
+
+            var divsmall=document.getElementById("smallimg");
+            var oImgSmalls=divsmall.getElementsByTagName("img");
+
+            var nowzIndex=2;
+            for(var i=0;i<oImgSmalls.length;i++)
+            {
+                oImgSmalls[i].index=i;
+                oImgSmalls[i].onmouseover=function()
+                {
+                    oDivBigs[this.index].style.zIndex=nowzIndex++;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="bigimg">
+        <div class="item" style="z-index: 2;">
+            <a><img src="../images/1.jpg" alt=""/></a>
+        </div>
+        <div class="item">
+            <a><img src="../images/2.jpg" alt=""/></a>
+        </div>
+        <div class="item">
+            <a><img src="../images/3.jpg" alt=""/></a>
+        </div>
+    </div>
+    <div id="smallimg">
+        <a><img src="../images/1.jpg" alt=""/></a>
+        <a><img src="../images/2.jpg" alt=""/></a>
+        <a><img src="../images/3.jpg" alt=""/></a>
+    </div>
+</body>
+</html>
