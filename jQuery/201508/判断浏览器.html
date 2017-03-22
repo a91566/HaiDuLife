@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script>
+//        $(function() {
+//
+//            if(/firefox/.test(navigator.userAgent.toLowerCase())){
+//                alert('a');
+//            }
+//            if ($.browser.msie) {
+//                alert("this is msie");
+//            }
+//            else if ($.browser.safari) {
+//                alert("this is safari!");
+//            }
+//            else if ($.browser.mozilla) {
+//                alert("this is mozilla!");
+//            }
+//            else if ($.browser.opera) {
+//                alert("this is opera");
+//            }
+//            else if ($.browser.chrome) {
+//                alert("this is chrome");
+//            }
+//            else {
+//                alert("i don't konw!");
+//            }
+//        });
+        $(function() {
+        var explorer =navigator.userAgent ;
+        //ie
+        if (explorer.indexOf("MSIE") >= 0) {
+            alert("ie");
+        }
+//firefox
+        else if (explorer.indexOf("Firefox") >= 0) {
+            alert("Firefox");
+        }
+//Chrome
+        else if(explorer.indexOf("Chrome") >= 0){
+            alert("Chrome");
+        }
+//Opera
+        else if(explorer.indexOf("Opera") >= 0){
+            alert("Opera");
+        }
+//Safari
+        else if(explorer.indexOf("Safari") >= 0){
+            alert("Safari");
+        }
+//Netscape
+        else if(explorer.indexOf("Netscape")>= 0) {
+            alert('Netscape');
+        }
+
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

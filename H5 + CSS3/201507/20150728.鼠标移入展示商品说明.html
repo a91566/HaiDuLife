@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1{width: 260px;height: 425px;border: 1px solid seagreen;overflow: hidden;}
+        .img1{width: 250px;height: 375px;padding: 5px;border: none;}
+        .divmiaoshu{border: 1px solid red;}
+        .divmiaoshu h3{text-align: center;margin: 0 auto;}
+
+        @-webkit-keyframes key-div1 {
+            100%{width: 150px;height: 200px;}
+        }
+
+
+
+        #div1:hover .img1{
+            -webkit-transform-origin: left top;
+            -moz-transform-origin: left top;
+            -ms-transform-origin: left top;
+            -o-transform-origin: left top;
+            transform-origin: left top;
+
+            -webkit-animation-name: key-div1;
+            -webkit-animation-duration: .5s;
+            -webkit-animation-fill-mode: forwards;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <img class="img1" src="images/lufei.jpg" alt=""/>
+        <div class="divmiaoshu">
+            <h3>蒙奇·D·路飞</h3>
+            <p>我是要成为海贼王的男人。<br/>草帽海贼团总悬赏金八亿零五十贝里。
+                由路飞率领的海贼团，旗帜图案是戴着草帽的骷髅。</p>
+        </div>
+    </div>
+</body>
+</html>

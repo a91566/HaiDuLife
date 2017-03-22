@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .td1{width: 150px;line-height: 40px;text-align: right;}
+        .td2{width: 150px;line-height: 40px;text-align: left;padding-left: 30px;}
+        #div1{position: absolute;left: 0px;top: 0px;background: #eeeeee;width: 100%;font-size: 16px;
+            color: #2fa8ec;font-weight: bold;padding-left: 100px;line-height: 50px;}
+        table{padding-top: 50px;}
+    </style>
+    <script type="text/javascript">
+        $(window).scroll(function(){
+            // 重点就是下面这一条语句的实现
+            $("#div1").css({top: window.innerHeight + window.scrollY - $("#div1").outerHeight() });
+        });
+    </script>
+</head>
+<body>
+    <div id="div1">h5新增的input类型</div>
+    <table>
+        <tr>
+            <td class="td1">search</td>
+            <td class="td2"><input type="search"/></td>
+        </tr>
+        <tr>
+            <td class="td1">email</td>
+            <td class="td2"><input type="email"/></td>
+        </tr>
+        <tr>
+            <td class="td1">url</td>
+            <td class="td2"><input type="url"/></td>
+        </tr>
+        <tr>
+            <td class="td1">tel</td>
+            <td class="td2"><input type="tel"/></td>
+        </tr>
+        <tr>
+            <td class="td1">number</td>
+            <td class="td2"><input type="number"/></td>
+        </tr>
+        <tr>
+            <td class="td1">range</td>
+            <td class="td2"><input type="range"/></td>
+        </tr>
+        <tr>
+            <td class="td1">date</td>
+            <td class="td2"><input type="date"/></td>
+        </tr>
+        <tr>
+            <td class="td1">month</td>
+            <td class="td2"><input type="month"/></td>
+        </tr>
+        <tr>
+            <td class="td1">week</td>
+            <td class="td2"><input type="week"/></td>
+        </tr>
+        <tr>
+            <td class="td1">time</td>
+            <td class="td2"><input type="time"/></td>
+        </tr>
+        <tr>
+            <td class="td1">datetime-local</td>
+            <td class="td2"><input type="datetime-local"/></td>
+        </tr>
+        <tr>
+            <td class="td1">datetime</td>
+            <td class="td2"><input type="datetime"/></td>
+        </tr>
+        <tr>
+            <td class="td1">color</td>
+            <td class="td2"><input type="color"/></td>
+        </tr>
+    </table>
+</body>
+</html>

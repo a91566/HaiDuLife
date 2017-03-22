@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script>
+//        $(function(){
+//            var arr=['张三','李四','王五','马六'];
+//
+//            $.each(arr,function(index,value){
+//                $('#div1').html($('#div1').html()+(index+1)+':'+value+'<br/>');
+//            });
+//        });
+
+//        $(function(){
+//            $.each(window,function(name,fn){
+//                $('#div1').html($('#div1').html()+name+':'+fn+'<br/>');
+//            });
+//        });
+
+//        $(function(){
+//            $.each($.ajax(),function(name,fn){
+//                $('#div1').html($('#div1').html()+name+':'+fn+'<br/><br/>');
+//            });
+//        });
+
+//        $(function(){
+//            var arr=[9,7,5,22,11];
+//            alert('22的索引是（从0开始）：'+$.inArray(22,arr));
+//        });
+
+//        $(function(){
+//            var arr=[9,7,5,22,11];
+//            var arr2=[9,7,5,22,11,9999,8888,7777];
+//            alert('合并的数组为：'+$.merge(arr,arr2));
+//        });
+
+//        $(function(){
+//            var aDiv1=$('.div1').get();
+//            var aDiv1_1=$('.div1');
+//            alert(aDiv1===aDiv1_1);
+//            for(var i=0;i<aDiv1.length;i++)
+//            {
+//                aDiv1[i].innerHTML='aDiv11:'+i;
+//            }
+//
+//
+//            var aDiv2=document.getElementsByClassName('div2');
+//            for(var i=0;i<aDiv2.length;i++)
+//            {
+//                aDiv2[i].innerHTML='aDiv2222222:'+i;
+//            }
+//        });
+
+//        $(function(){
+//            var aDiv1=$('.div1').get();
+//            var aDiv1_1=$('.div1');
+//            alert(aDiv1);
+//            alert(aDiv1_1);
+//
+//        });
+
+            $(function(){
+                $('#div3').css('opacity',0.1);
+            });
+    </script>
+</head>
+<body>
+    <div id="div1"></div>
+    <div class="div1"></div>
+    <div class="div1"></div>
+    <div class="div1"></div>
+    <br/>
+    <div class="div2"></div>
+    <div class="div2"></div>
+    <div class="div2"></div>
+    <br/>
+    <div id="div3" style="height: 200px;width: 200px;background: red;">
+
+    </div>
+</body>
+</html>

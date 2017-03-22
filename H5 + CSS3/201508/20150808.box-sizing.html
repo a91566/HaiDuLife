@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{margin: 0 auto;width: 800px;border: 3px solid #39b3d7;}
+        .top{background: red;height: 200px;width: 800px;}
+        .aside{background: green;height: 500px;width: 200px;float: left;
+            padding: 10px;border: 5px solid yellow;
+            box-sizing: border-box;}
+        .main{background: blue;height: 500px;width: 600px;float: right;
+            }
+        .footer{background: gray;height: 200px;width: 800px;clear: both;}
+    </style>
+</head>
+<body>
+    <div class="top">
+        box-sizing属性可以为三个值：
+        <br/>
+        1.content-box（default）:border和padding不计算入width之内.也就是说设置了width,其实并不是
+        这个div的实际的width，还要加上border和padding，这才是他真正的宽度，就是offsetwidth
+        <br/>
+        2.padding-box:padding计算入width内。就是说，设置了width，那么这个width也不是这个div的offsetwidth了，
+        你需要加上border才是他的offsetwidth。
+        <br/>
+        3.border-box:border和padding计算入width之内，设置了width，那么这个width就是这个div的offsetwidth了，
+        你再设置border和padding并不会改变他大小。
+    </div>
+
+    <div class="aside">aside
+
+    </div>
+
+    <div class="main">main
+
+    </div>
+
+    <div class="footer">footer
+
+    </div>
+</body>
+</html>

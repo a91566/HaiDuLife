@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .div1{width: 150px;height: 50px;margin-top: 10px;background: #00ffff;}
+
+        @-webkit-keyframes key-div1{
+            to{width:350px;}
+        }
+
+        @keyframes key-div1{
+            to{width:350px;}
+        }
+
+        .div1:hover{
+            -webkit-animation-name: key-div1;
+            -webkit-animation-duration: 2s;
+            animation-name: key-div1;
+            animation-duration: 2s;
+        }
+
+        .div2{width: 150px;height: 50px;margin-top: 10px;background: #00ffff;}
+
+        @-webkit-keyframes key-div2 {
+            to{width: 300px;}
+        }
+        @keyframes key-div2 {
+            to{width: 300px;}
+        }
+        .div2:hover{
+            -webkit-animation-name: key-div2;
+            -webkit-animation-duration: 3s;
+            -webkit-animation-iteration-count: 10;
+
+            animation-name: key-div2;
+            animation-duration: 3s;
+            animation-iteration-count: 10;
+        }
+
+        .div3{width: 150px;height: 50px;margin-top: 10px;background: #00ffff;}
+
+        @-webkit-keyframes key-div3 {
+            to{width: 500px;}
+        }
+        @keyframes key-div3 {
+            to{width: 500px;}
+        }
+
+        .div3:hover{
+            -webkit-animation-name: key-div3;
+            -webkit-animation-duration: 2s;
+            -webkit-animation-iteration-count: infinite;
+        }
+
+
+        .div4{width: 150px;height: 50px;margin-top: 10px;background: #00ffff;}
+
+        @-webkit-keyframes key-div4 {
+            to{width: 700px;}
+        }
+        @keyframes key-div4 {
+            to{width: 700px;}
+        }
+        .div4:hover{
+            -webkit-animation-name: key-div4;
+            -webkit-animation-duration: 2s;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-direction: alternate;
+
+
+            animation-name: key-div4;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        .div5{width: 150px;height: 50px;margin-top: 10px;background: #00ffff;}
+        @-webkit-keyframes key-div5 {
+            from{width: 500px;}
+            to{width: 700px;}
+        }
+        @keyframes key-div5 {
+            from{width: 500px;}
+            to{width: 700px;}
+        }
+        .div5:hover{
+            -webkit-animation-name: key-div5;
+            -webkit-animation-duration: 2s;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-direction: alternate;
+
+
+            animation-name: key-div5;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        .div6{width: 150px;height: 50px;margin-top: 10px;background: #00ffff;}
+        @-webkit-keyframes key-div6 {
+            /*from=0% 100%=to*/
+            0%{width: 150px;}
+            50%{width: 700px;}
+            100%{height: 300px;}
+        }
+        @keyframes key-div6 {
+            0%{width: 150px;}
+            50%{width: 700px;}
+            100%{height: 300px;}
+        }
+        .div6:hover{
+            -webkit-animation-name: key-div6;
+            -webkit-animation-duration: 2s;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-direction: alternate;
+
+
+            animation-name: key-div6;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        .div7{width: 150px;height: 50px;margin-top: 10px;background: #00ffff;}
+        @-webkit-keyframes key-div7 {
+            /*from=0% 100%=to*/
+            0%{width: 150px;height: 50px;}
+            50%{width: 700px;height: 50px;}
+            100%{width: 700px;height: 300px;}
+        }
+        @keyframes key-div7 {
+            0%{width: 150px;height: 50px;}
+            50%{width: 700px;height: 50px;}
+            100%{width: 700px;height: 300px;}
+        }
+        .div7:hover{
+            -webkit-animation-name: key-div7;
+            -webkit-animation-duration: 2s;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-direction: alternate;
+
+
+            animation-name: key-div7;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        .div9{width: 150px;height: 50px;margin-top: 10px;background: #00ffff;}
+
+        @-webkit-keyframes key-div9{
+            to{width:350px;}
+        }
+
+        @keyframes key-div9{
+            to{width:350px;}
+        }
+
+        .div9:hover{
+            -webkit-animation-name: key-div1;
+            -webkit-animation-duration: 2s;
+            -webkit-animation-direction: reverse;
+
+            animation-name: key-div1;
+            animation-duration: 2s;
+            animation-direction: reverse;
+        }
+
+
+        .div0{width: 100%;margin-top: 10px;padding:10px;background: #F6F6F6;}
+    </style>
+</head>
+<body>
+    <div class="div1">播放1次</div>
+    <div class="div2">播放10次</div>
+    <div class="div3">无限播放</div>
+    <div class="div4">无限播放 来回播放</div>
+    <div class="div5">无限播放 来回播放 突然变宽</div>
+    <div class="div6">同时变宽变高</div>
+    <div class="div7">先变宽。。。再变高。。。</div>
+    <div class="div8"></div>
+    <div class="div9">反向播放</div>
+    <div class="div0">
+        animation必要的参数有两个：name(关键帧名称),duration（执行时间,默认为0，不会执行）
+        <br/>
+        animation-duration值为：0s|1s|2s|3s|4s...;
+        <br/>
+        animation-timing-function值为（贝塞尔曲线）比较复杂，没有特殊要求就不要设置了，有几个关键字：
+        linear：匀速。
+        ease：默认。（慢-快-慢）动画以低速开始，然后加快，在结束前变慢。
+        ease-in：（慢-快）动画以低速开始。
+        ease-out：（快-慢）动画以低速结束。
+        ease-in-out：（慢-快-慢）动画以低速开始和结束。
+
+        <br/>
+        animation-direction的值为：normal(正常的)|reverse(相反)|alternate（轮流）|alternate-reverse
+        <br/>
+        animation-iteration-count值为：int(播放次数)|infinites
+    </div>
+</body>
+</html>

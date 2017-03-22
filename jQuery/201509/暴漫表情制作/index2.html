@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh">
+    <meta charset="UTF-8">
+    <title>暴漫表情合集-小宝</title>
+    <style>
+        body{background: url(bg/body.jpg) 0 0;overflow-x: hidden;margin: 0;padding: 0;font-family: "microsoft yahei", "微软雅黑";}
+        .main{width: 100%;height: 95px;background: #e8e8e8;position: fixed;z-index: 10;}
+        .tools{width: 1200px;height: 50px;margin: 0 auto;padding-top: 5px;}
+        #show{width: 100%;height: 100%;background-color: #ffffff;position: fixed;display: none;
+            box-shadow: 0 0 15px #000000;z-index: 100;margin: 0;border-radius: 10px;
+            background-position: center center;background-repeat: no-repeat;background-image: url(img/001.png);}
+        #am-close{right:5px;top:5px;color: #FFFFFF;font-size: 38px;cursor: pointer;position: absolute;}
+        #am-close:hover{color: orange;}
+        .addText{line-height: 40px;font-size: 24px;position: absolute;
+            width: 200px;text-align: center;left: 40%;top: 42%;}
+        .addText:hover{background: #39b3d7;cursor: move;color: #ffffff;}
+        #footer{height: 100%;position: relative;}
+        .pics{margin: 0 auto;padding: 0;width:100%;list-style: none;left: 0;
+            background: #39b3d7;}
+        .pics li{margin: 5px;padding: 0;height: 200px;width: 200px;float: left;
+            background: #ffffff;cursor: pointer;border-style: solid;
+        border-width: 1px;border-color: black;}
+        .pics li:hover{box-shadow: 0 0 15px #ffffff;}
+        .pics li img{margin: 10px;height: 180px;width: 180px;}
+        #footer a{top: 40%;width: 75px;height: 200px;z-index: 4;display: block;}
+        .main h4{float:left;display: inline-block;width: 150px;position: absolute;
+        line-height: 40px;margin: 0;text-align: center;cursor: pointer;}
+        .h4-nor{background: springgreen;color: #484848;}
+        .h4-nav{background: #008d47;color: #ffffff;}
+        #footer h4:hover{color: #a3a3a3;}
+        #btnPrev{background: url(bg/re-prev.png) 27px 76px no-repeat;left: 0;float: left;}
+        #btnNext{background: url(bg/re-next.png) 27px 76px no-repeat;right: 0;float: right;}
+        .footer-main{overflow: hidden;width: 98%;float: left;height: 100%;position: relative;
+        margin-top: 95px;margin-left: 3%;display: none;}
+        #dStyle{position: absolute;width: 400px;border: 1px solid black;left: 10px;}
+        #dStyle h4{background: lightgreen;margin: 0;padding: 0;line-height: 50px;
+            text-align: center;margin-bottom: 10px;}
+        #dStyle ul{margin: 10px;padding: 0;list-style: none;width: 300px;height: 100px;
+            border: 1px solid lightgray;cursor: pointer;}
+        #dStyle li{margin: 0;padding: 0;float: left;width: 50px;height: 50px;line-height: 50px;
+        text-align: center;}
+        #dStyle li:hover{font-weight: bolder;}
+        #TextItem{text-align: center;height: 40px;width: 300px;margin:0 10px;font-size: 14px;}
+        #txtFSize{font-size: 24px;line-height: 30px;width: 80px;}
+    </style>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/zsbSelectHelper.js"></script>
+    <link href="css/jquery-ui.css" rel="stylesheet">
+    <link href="css/jquery-ui.structure.css" rel="stylesheet">
+    <link href="css/jquery-ui.theme.css" rel="stylesheet">
+    <script>
+        function mouseCoords(ev)
+        {
+            if(ev.pageX || ev.pageY){
+                return {x:ev.pageX, y:ev.pageY};
+            }
+            return{
+                x:ev.clientX + document.body.scrollLeft - document.body.clientLeft,
+                y:ev.clientY + document.body.scrollTop - document.body.clientTop
+            };
+        }
+
+        $(function(){
+            var iCreaNum=1;
+            $('.btn').button();
+            $('#txtaddText').button();
+            $('#btnStart').click(function(){
+                //var path = document.getElementById("file_sclect").value;
+                //path = path.substring(path.lastIndexOf("\\")+1,path.length);
+                //alert(path);
+                //$('#show').css('background-image','url(img/001.png)');
+                $('#show').css('display','block');
+            });
+
+            $('#btnaddText').click(function(){
+                var oDivText=document.createElement("div");
+                oDivText.innerHTML=$('#txtaddText').val();
+                var TempId='aT'+iCreaNum;
+                $('#show').append(oDivText);
+                $(oDivText).addClass('addText');
+                $(oDivText).attr('id',TempId);
+
+                jsAddItemToSelect($('#TextItem').get(0),oDivText.innerHTML,TempId);
+                var oTemp=document.getElementById(TempId);
+                var disX=0;
+                var disY=0;
+
+                oTemp.onclick=function(ev)
+                {
+                    $('#focusDiv').html(this.html());
+                }
+                oTemp.onmousedown=function(ev)
+                {
+                    var oEvent=ev||event;
+                    disX=oEvent.clientX-oTemp.offsetLeft;
+                    disY=oEvent.clientY-oTemp.offsetTop;
+
+                    oTemp.onmousemove=function(ev)
+                    {
+                        var oEvent=ev||event;
+                        var ll=oEvent.clientX-disX;
+                        var tt=oEvent.clientY-disY;
+                        if(ll<0)
+                        {
+                            ll=0;
+                        }
+                        else if(ll>document.documentElement.clientWidth-oTemp.offsetWidth)
+                        {
+                            ll=document.documentElement.clientWidth-oTemp.offsetWidth;
+                        }
+                        if(tt<=0)
+                        {
+                            tt=0;
+                        }
+                        else if(tt>document.documentElement.clientHeight-oTemp.offsetHeight)
+                        {
+                            tt=document.documentElement.clientHeight-oTemp.offsetHeight;
+                        }
+
+                        oTemp.style.left=ll+"px";
+                        oTemp.style.top=tt+"px";
+                    };
+
+                    oTemp.onmouseup=function()
+                    {
+                        oTemp.onmousemove=null;
+                    };
+
+                    //return false;
+
+                };
+                iCreaNum++;
+
+            });
+
+
+            $('#txtaddText').keydown(function(){
+                var e = event || window.event || arguments.callee.caller.arguments[0];
+                if(e && e.keyCode==13)
+                {
+                    $('#btnaddText').click();
+                }
+            });
+        });
+
+        $(function(){
+            var aLis=$('#uColor li').get();
+            for(var i=0;i<aLis.length;i++)
+            {
+                aLis[i].index=i;
+                $(aLis[i]).click(function(){
+                    if($('#TextItem').get(0).length>0) {
+//                    alert($('#TextItem').get(0).value);
+//                    alert($(this).css('background-color'));
+                        var temp = '#' + $('#TextItem').get(0).value;
+                        $(temp).css('color', $(this).css('background-color'));
+                    }
+                });
+            }
+
+            aLis=$('#uFontSize li').get();
+            for(var i=0;i<aLis.length;i++)
+            {
+                aLis[i].index=i;
+                $(aLis[i]).click(function(){
+                    if($('#TextItem').get(0).length>0) {
+//                    alert($('#TextItem').get(0).value);
+//                    alert($(this).html());
+                        var temp = '#' + $('#TextItem').get(0).value;
+                        $(temp).css('font-size', $(this).html() + 'px');
+                    }
+                });
+            }
+            $('#txtFSize').keydown(function(){
+                var temp = '#' + $('#TextItem').get(0).value;
+                $(temp).css('font-size', $(this).val()+ 'px');
+            });
+        });
+
+        $(function(){
+            $('#btnDel').click(function(){
+                if($('#TextItem').get(0).length>0)
+                {
+                    var temp='#'+$('#TextItem').get(0).value;
+                    $(temp).remove();
+                    jsRemoveSelectedItemFromSelect($('#TextItem').get(0));
+                }
+            });
+        });
+
+        $(function(){
+            $('#am-close').click(function(){
+                $('#show').css('display','none');
+            });
+        });
+
+        $(function(){
+            var aH4Lis=$('.main h4').get();
+            var aDivLis=$('.footer-main').get();
+            for(var i=0;i<aH4Lis.length;i++)
+            {
+                aH4Lis[i].index=i;
+                $(aH4Lis[i]).click(function(){
+                    for(var i=0;i<aH4Lis.length;i++)
+                    {
+                        $('.footer-main').eq(i).css('display','none');
+                        aH4Lis[i].className='h4-nor';
+                    }
+                    $('.footer-main').eq(this.index).css('display','block');
+                    aH4Lis[this.index].className='h4-nav';
+                });
+            }
+        });
+
+        $(function(){
+
+            //其他表情加载
+            oUl=document.getElementById('pics7');
+            filePath='img/other/';
+            fileType='.jpg';
+            for(var i=1;i<=235;i++)
+            {
+                oLi=document.createElement('li');
+                oImg=document.createElement('img');
+                oImg.src=filePath+i+fileType;
+                oLi.appendChild(oImg);
+                oUl.appendChild(oLi);
+            }
+
+            //蘑菇头表情加载
+            var oUl=document.getElementById('pics4');
+            var oLi,oImg;
+            var filePath='img/mogutou/';
+            var fileType='.jpg';
+            for(var i=1;i<=300;i++)
+            {
+                oLi=document.createElement('li');
+                oImg=document.createElement('img');
+                oImg.src=filePath+i+fileType;
+                oLi.appendChild(oImg);
+                oUl.appendChild(oLi);
+            }
+
+            //暴漫
+            oUl=document.getElementById('pics1');
+            filePath='img/baoman/';
+            fileType='.png';
+            for(var i=1;i<=37;i++)
+            {
+                oLi=document.createElement('li');
+                oImg=document.createElement('img');
+                oImg.src=filePath+i+fileType;
+                oLi.appendChild(oImg);
+                oUl.appendChild(oLi);
+            }
+
+            //大跃进表情加载
+            oUl=document.getElementById('pics2');
+            filePath='img/dayuejin/';
+            fileType='.jpg';
+            for(var i=1;i<=53;i++)
+            {
+                oLi=document.createElement('li');
+                oImg=document.createElement('img');
+                oImg.src=filePath+i+fileType;
+                oLi.appendChild(oImg);
+                oUl.appendChild(oLi);
+            }
+
+
+            //动物表情加载
+            oUl=document.getElementById('pics3');
+            filePath='img/dongwu/';
+            fileType='.jpg';
+            for(var i=1;i<=26;i++)
+            {
+                oLi=document.createElement('li');
+                oImg=document.createElement('img');
+                oImg.src=filePath+i+fileType;
+                oLi.appendChild(oImg);
+                oUl.appendChild(oLi);
+            }
+
+
+
+
+            //金馆长表情加载
+            oUl=document.getElementById('pics5');
+            filePath='img/jinguanzhang/';
+            fileType='.jpg';
+            for(var i=1;i<=99;i++)
+            {
+                oLi=document.createElement('li');
+                oImg=document.createElement('img');
+                oImg.src=filePath+i+fileType;
+                oLi.appendChild(oImg);
+                oUl.appendChild(oLi);
+            }
+
+            //人物表情加载
+            oUl=document.getElementById('pics6');
+            filePath='img/renwu/';
+            fileType='.jpg';
+            for(var i=1;i<=40;i++)
+            {
+                oLi=document.createElement('li');
+                oImg=document.createElement('img');
+                oImg.src=filePath+i+fileType;
+                oLi.appendChild(oImg);
+                oUl.appendChild(oLi);
+            }
+
+
+            //gif表情加载
+            oUl=document.getElementById('pics8');
+            filePath='img/gif/';
+            fileType='.gif';
+            for(var i=1;i<=31;i++)
+            {
+                oLi=document.createElement('li');
+                oImg=document.createElement('img');
+                oImg.src=filePath+i+fileType;
+                oLi.appendChild(oImg);
+                oUl.appendChild(oLi);
+            }
+
+            // 处理单击事件
+            var aLis=$('#footer li').get();
+            for(var i=0;i<aLis.length;i++)
+            {
+                aLis[i].index=i;
+                $(aLis[i]).click(function () {
+                    $('#file_sclect').css('value','123');
+                    $('#show').css('background-image','url('+$(this).find('img').attr('src')+')');
+                });
+                $(aLis[i]).dblclick(function () {
+                    $('#show').css('display','block');
+                });
+            }
+
+        });
+
+
+    </script>
+</head>
+<body>
+    <div id="show">
+        <div style="position: relative;height: 50px;width: 100%;background: #39b3d7;">
+            <input type="text" id="txtaddText" value="" style="margin: 8px;background: white;"/>
+            <input type="button" id="btnaddText" class="btn" value="添加文字" style="margin: 8px"/>
+
+            <span  id="am-close">×</span>
+            <div id="dStyle">
+                <h4>样式</h4>
+                <select id="TextItem">
+                </select>
+                <input type="button" id="btnDel" class="btn" value="删除" style="float: right;"/>
+                <ul id="uColor">
+                    <li>颜色</li>
+                    <li style="background: red;"></li>
+                    <li style="background: white;"></li>
+                    <li style="background: green;"></li>
+                    <li style="background: blueviolet;"></li>
+                    <li style="background: black;"></li>
+                </ul>
+                <ul id="uFontSize" style="height: 100px;">
+                    <li>大小</li>
+                    <!--<li style="background: lightgreen;">16</li>-->
+                    <!--<li style="background: lightgreen;">18</li>-->
+                    <!--<li style="background: lightgreen;">20</li>-->
+                    <!--<li style="background: lightgreen;">24</li>-->
+                    <!--<li style="background: lightgreen;">30</li>-->
+                    <li style="height: 100px;">
+                        <input type="text" id="txtFSize" value="24" style="margin: 8px;background: white;"/>
+                        <input type="button" id="btnOk" class="btn" value="确认" style="float: right;"/>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="tools">
+            <input type="file" id="file_sclect" class="btn" value="选择图片"/>
+            <input type="button" id="btnStart" class="btn"  value="开始制作"/>
+        </div>
+        <hr width=100% size=1 color=springgreen style="z-index: 0;position: absolute;bottom: 0;margin: 0;padding: 0;">
+        <h4 class="h4-nor">暴漫</h4>
+        <h4 class="h4-nor" style="left: 150px">大跃进</h4>
+        <h4 class="h4-nor" style="left: 300px">动物</h4>
+        <h4 class="h4-nor" style="left: 450px">蘑菇头</h4>
+        <h4 class="h4-nor" style="left: 600px">金馆长</h4>
+        <h4 class="h4-nor" style="left: 750px">人物</h4>
+        <h4 class="h4-nav" style="left: 900px">其他</h4>
+        <h4 class="h4-nor" style="left: 1050px">GIF</h4>
+    </div>
+    <div id="footer">
+        <div class="footer-main">
+            <ul class="pics" id="pics1" >
+
+            </ul>
+        </div>
+        <div class="footer-main">
+            <ul class="pics" id="pics2" >
+
+            </ul>
+        </div>
+        <div class="footer-main">
+            <ul class="pics" id="pics3" >
+
+            </ul>
+        </div>
+        <div class="footer-main">
+            <ul class="pics" id="pics4" >
+
+            </ul>
+        </div>
+        <div class="footer-main">
+            <ul class="pics" id="pics5" >
+
+            </ul>
+        </div>
+        <div class="footer-main">
+            <ul class="pics" id="pics6" >
+
+            </ul>
+        </div>
+        <div class="footer-main" style="display: block;">
+            <ul class="pics" id="pics7" >
+
+            </ul>
+        </div>
+        <div class="footer-main">
+            <ul class="pics" id="pics8" >
+
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

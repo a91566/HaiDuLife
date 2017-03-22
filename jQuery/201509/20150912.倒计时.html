@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Jquery实现倒计时效果</title>
+    <script src="http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        var SysSecond;
+        var InterValObj;
+        $(document).ready(function() {
+            SysSecond = parseInt($("#remainSeconds").html()); //这里我是在服务端算好了剩余的秒数，并保存到客户端，如果过期则返回0
+            InterValObj = window.setInterval(SetRemainTime, 1000); //间隔函数，1秒执行
+        });
+
+        //代理,接单的时间+1小时减去当前时间的秒数
+        function SetRemainTime() {
+            if (SysSecond > 0) {
+                //alert(SysSecond);
+                SysSecond = SysSecond - 1;
+                var second = Math.floor(SysSecond % 60);             // 计算秒
+                var minite = Math.floor((SysSecond / 60) % 60);      //计算分
+                var hour = Math.floor((SysSecond / 3600) % 24);      //计算小时
+                var day = Math.floor((SysSecond / 3600) / 24);        //计算天
+
+                $("#remainTime").html(day + "天" + hour + "小时" + minite + "分" + second + "秒");
+            } else {//剩余时间小于或等于0的时候，就停止间隔函数
+                window.clearInterval(InterValObj);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="remainSeconds" style="display:none">20</div>
+    <div id="remainTime" style="font-size:20px;font-weight:800;color:#FF9900"></div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .img1{margin: 150px 150px;}
+        #img2{margin: 150px 150px;}
+
+        @-webkit-keyframes zoom-in {
+            100%{transform:scale(1.05)}
+        }
+
+        .img1:hover{
+            -webkit-animation-name: zoom-in;
+            -webkit-animation-duration: 1s;
+            -webkit-animation-fill-mode: forwards;
+            -webkit-animation-iteration-count: 1;
+            -webkit-animation-direction: alternate;
+        }
+    </style>
+    <script>
+        window.onload= function () {
+            var oImg=document.getElementById("img2");
+
+            oImg.onmouseover=function(){
+                var tmrMove=null;
+                tmrMove=setInterval(function(){
+                    oImg.style.left=oImg.offsetLeft+1+"px";
+                },30)
+            }
+        }
+    </script>
+
+</head>
+<body>
+
+        <img class="img1" src="images/lufei.jpg" alt=""/>
+        <img id="img2" src="images/lufei.jpg" alt=""/>
+
+</body>
+</html>

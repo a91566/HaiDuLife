@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .img1{margin: 150px 150px;}
+
+        @-webkit-keyframes zoom-in {
+            100%{transform: translate(-200px,0px)}
+        }
+
+        .img1:hover{
+            -webkit-animation-name: zoom-in;
+            -webkit-animation-duration: 1s;
+            -webkit-animation-fill-mode: forwards;
+            -webkit-animation-iteration-count: 1;
+            -webkit-animation-direction: alternate;
+            -webkit-animation-delay: 2s;
+        }
+
+        .img2{margin: 150px 150px;width: 10px;height: 375px;}
+        @-webkit-keyframes zoom-in2 {
+            100%{width: 250px;}
+        }
+        .img2:hover{
+            -webkit-animation-name: zoom-in2;
+            -webkit-animation-duration: 1s;
+            -webkit-animation-fill-mode: forwards;
+            -webkit-animation-iteration-count: 1;
+            -webkit-animation-direction: alternate;
+        }
+    </style>
+
+</head>
+<body>
+
+        <img class="img1" src="images/lufei.jpg" alt=""/>
+        <img class="img2" src="images/lufei.jpg" alt=""/>
+
+</body>
+</html>

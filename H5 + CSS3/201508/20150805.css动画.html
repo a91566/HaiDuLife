@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .div2{width: 200px;height: 200px;background: red;border: 1px solid black;float: left;}
+        .div1{width: 200px;height: 200px;background: green;border: 1px solid black;float: left;
+            animation-name: myani;
+            animation-duration: 2s;}
+
+        @keyframes myani {
+            0%,100%{
+                background-color: green;
+                transform: translateX(0px);
+            }
+            50%{
+                background-color: #39b3d7;
+                transform: translateX(700px);
+            }
+        }
+
+        .div4{width: 200px;height: 200px;background: red;border: 1px solid black;float: left;}
+        .div3{width: 200px;height: 200px;background: green;border: 1px solid black;float: left;
+            animation-name: myani2;
+            animation-duration: 2s;}
+
+        @keyframes myani2 {
+            0%,100%{
+                background-color: green;
+                margin-left: 0;
+            }
+            50%{
+                background-color: #39b3d7;
+                margin-left: 700px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div style="1000px;height: 300px;">
+        <div class="div1">
+
+        </div>
+        <div class="div2">
+
+        </div>
+    </div>
+
+    <div style="1000px;height: 300px;">
+        <div class="div3">
+
+        </div>
+        <div class="div4">
+
+        </div>
+    </div>
+</body>
+</html>

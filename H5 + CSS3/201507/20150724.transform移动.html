@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .div1{width: 50px;height: 50px;background: #39b3d7;}
+        @-webkit-keyframes key-div1 {
+            0%{transform: translate(0px,200px)}
+            50%{transform: translate(200px,0px)}
+            100%{transform: translate(200px,200px)}
+        }
+        @keyframes key-div1 {
+            0%{transform: translate(0px,200px)}
+            50%{transform: translate(200px,0px)}
+            100%{transform: translate(200px,200px)}
+        }
+        .div1{
+            -webkit-animation-name: key-div1;
+            -webkit-animation-duration: 2s;
+            -webkit-animation-delay: 2s;
+
+
+            animation-name: key-div1;
+            animation-duration: 2s;
+            animation-delay: 2s;
+        }
+
+        .div2{width: 150px;height: 150px;background: #39b300;margin-top: 10px;}
+        @-webkit-keyframes key-div2 {
+            0%{transform: translate(0px,200px)}
+            50%{transform: translate(200px,0px)}
+            100%{transform: translate(200px,200px)}
+        }
+        @keyframes key-div2 {
+            0%{transform: translate(0px,200px)}
+            50%{transform: translate(200px,0px)}
+            100%{transform: translate(200px,200px)}
+        }
+        .div2{
+            -webkit-animation-name: key-div2;
+            -webkit-animation-duration: 2s;
+            -webkit-animation-delay: 2s;
+            -webkit-animation-fill-mode: backwards;
+
+
+            animation-name: key-div3;
+            animation-duration: 2s;
+            animation-delay: 2s;
+            animation-fill-mode: backwards;
+        }
+
+        .div3{width: 100px;height: 100px;background: #882224;margin-top: 10px;}
+        @-webkit-keyframes key-div3 {
+            0%{transform: translate(0px,200px)}
+            50%{transform: translate(200px,0px)}
+            100%{transform: translate(200px,200px)}
+        }
+        @keyframes key-div3 {
+            0%{transform: translate(0px,200px)}
+            50%{transform: translate(200px,0px)}
+            100%{transform: translate(200px,200px)}
+        }
+        .div3{
+            -webkit-animation-name: key-div3;
+            -webkit-animation-duration: 2s;
+            -webkit-animation-delay: 2s;
+            -webkit-animation-fill-mode: forwards;
+
+
+            animation-name: key-div3;
+            animation-duration: 2s;
+            animation-delay: 2s;
+            animation-fill-mode: forwards;
+        }
+
+        .div4{width: 50px;height: 50px;background: #ccdb38;margin-top: 10px;}
+        @-webkit-keyframes key-div4 {
+            0%{transform: translate(0px,200px)}
+            50%{transform: translate(200px,0px)}
+            100%{transform: translate(200px,200px)}
+        }
+        @keyframes key-div4 {
+            0%{transform: translate(0px,200px)}
+            50%{transform: translate(200px,0px)}
+            100%{transform: translate(200px,200px)}
+        }
+        .div4{
+            -webkit-animation-name: key-div4;
+            -webkit-animation-duration: 2s;
+            -webkit-animation-delay: 2s;
+            -webkit-animation-fill-mode: both;
+
+
+            animation-name: key-div4;
+            animation-duration: 2s;
+            animation-delay: 2s;
+            animation-fill-mode: both;
+        }
+
+        .div0{width: 100%;margin-top: 10px;padding:10px;background: #F6F6F6;}
+    </style>
+</head>
+<body>
+    <div class="div1">1</div>
+    <div class="div2">2none|backwards</div>
+    <div class="div3">3forwards</div>
+    <div class="div4">4both</div>
+
+    <div class="div0">
+        animation-fill-mode(播放前后的状态)可选值：none|backwards（播放之前和第一帧相同）|
+        forwards（播放之前和最后一帧相同）|
+        both（backwards、forwards结合）
+    </div>
+</body>
+</html>

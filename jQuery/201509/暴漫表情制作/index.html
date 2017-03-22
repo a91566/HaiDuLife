@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{margin: 0;padding: 0;background: url(bg/body.jpg) 0 0;}
+        .main{width: 1200px;height: 800px;margin: 0 auto;background: #e8e8e8;}
+        .tools{height: 50px;border-bottom: 1px solid springgreen;}
+        #show{height: 550px;background-color: #ffffff;
+            background-position: center center;background-repeat: no-repeat;background-image: url(img/001.png);}
+        .addText{line-height: 40px;font-family: "microsoft yahei", "微软雅黑";font-size: 24px;position: absolute;
+            width: 200px;text-align: center;}
+        .addText:hover{background: #39b3d7;cursor: move;color: #ffffff;}
+        #footer{height: 200px;position: relative;}
+        #pics{margin: 0;padding: 0;height: 200px;position: absolute;list-style: none;left: 0;}
+        #pics li{margin: 0 5px;padding: 0;height: 200px;width: 200px;float: left;background: #ffffff;cursor: pointer;}
+        #pics li img{margin: 10px;height: 180px;width: 180px;}
+        #footer a{top: 40%;width: 75px;height: 200px;z-index: 4;display: block;}
+        #btnPrev{background: url(bg/re-prev.png) 27px 76px no-repeat;left: 0;float: left;}
+        #btnNext{background: url(bg/re-next.png) 27px 76px no-repeat;right: 0;float: right;}
+        #footer-main{overflow: hidden;width: 1050px;float: left;height: 200px;position: relative;}
+    </style>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <link href="css/jquery-ui.css" rel="stylesheet">
+    <link href="css/jquery-ui.structure.css" rel="stylesheet">
+    <link href="css/jquery-ui.theme.css" rel="stylesheet">
+    <script>
+        function mouseCoords(ev)
+        {
+            if(ev.pageX || ev.pageY){
+                return {x:ev.pageX, y:ev.pageY};
+            }
+            return{
+                x:ev.clientX + document.body.scrollLeft - document.body.clientLeft,
+                y:ev.clientY + document.body.scrollTop - document.body.clientTop
+            };
+        }
+
+        $(function(){
+            var iCreaNum=1;
+            $('.btn').button();
+            $('#txtaddText').button();
+            $('#btnStart').click(function(){
+                var path = document.getElementById("file_sclect").value;
+//                path = path.substring(path.lastIndexOf("\\")+1,path.length);
+                //alert(path);
+                $('#show').css('background-image','url(img/001.png)');
+            });
+            $('#btnaddText').click(function(){
+                var oDivText=document.createElement("div");
+                oDivText.innerHTML=$('#txtaddText').val();
+                var TempId='aT'+iCreaNum;
+                $('#show').append(oDivText);
+                $(oDivText).addClass('addText');
+                $(oDivText).attr('id',TempId);
+
+                var oTemp=document.getElementById(TempId);
+                var disX=0;
+                var disY=0;
+
+                oTemp.onmousedown=function(ev)
+                {
+                    var oEvent=ev||event;
+                    disX=oEvent.clientX-oTemp.offsetLeft;
+                    disY=oEvent.clientY-oTemp.offsetTop;
+
+                    oTemp.onmousemove=function(ev)
+                    {
+                        var oEvent=ev||event;
+                        var ll=oEvent.clientX-disX;
+                        var tt=oEvent.clientY-disY;
+                        if(ll<0)
+                        {
+                            ll=0;
+                        }
+                        else if(ll>document.documentElement.clientWidth-oTemp.offsetWidth)
+                        {
+                            ll=document.documentElement.clientWidth-oTemp.offsetWidth;
+                        }
+                        if(tt<=0)
+                        {
+                            tt=0;
+                        }
+                        else if(tt>document.documentElement.clientHeight-oTemp.offsetHeight)
+                        {
+                            tt=document.documentElement.clientHeight-oTemp.offsetHeight;
+                        }
+
+                        oTemp.style.left=ll+"px";
+                        oTemp.style.top=tt+"px";
+                    };
+
+                    oTemp.onmouseup=function()
+                    {
+                        oTemp.onmousemove=null;
+                    };
+
+                    //return false;
+
+                };
+                iCreaNum++;
+            });
+
+            var aLis=$('#pics li').get();
+            for(var i=0;i<aLis.length;i++)
+            {
+                aLis[i].index=i;
+                $(aLis[i]).click(function () {
+                    $('#show').css('background-image','url('+$(this).find('img').attr('src')+')');
+                });
+            }
+            var iUlWidth=aLis.length*210;
+            $('#pics').css('width',iUlWidth);
+
+            $('#btnPrev').click(function(){
+
+                var iLeft=parseInt($('#pics').css('left'));
+                if((-iUlWidth+1050)<iLeft)
+                {
+                    $('#pics').animate({
+                        'left':iLeft-420
+                    });
+                }
+
+            });
+            $('#btnNext').click(function(){
+                var iLeft=parseInt($('#pics').css('left'));
+                if(iLeft<0)
+                {
+                    $('#pics').animate({
+                        'left':iLeft+420
+                    });
+                }
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <div class="main">
+        <div class="tools">
+            <input type="file" id="file_sclect" class="btn" value="选择图片"/>
+            <input type="button" id="btnStart" class="btn"  value="开始制作"/>
+            <input type="text" id="txtaddText" value="哈哈哈哈"/>
+            <input type="button" id="btnaddText" class="btn" value="添加文字"/>
+        </div>
+        <div id="show">
+
+        </div>
+        <div id="footer">
+            <a href="javascript:;" id="btnPrev"></a>
+            <a href="javascript:;" id="btnNext"></a>
+            <div id="footer-main">
+                <ul id="pics">
+                    <li><img src="img/001.png" alt=""/></li>
+                    <li><img src="img/002.png" alt=""/></li>
+                    <li><img src="img/003.png" alt=""/></li>
+                    <li><img src="img/004.png" alt=""/></li>
+                    <li><img src="img/005.png" alt=""/></li>
+                    <li><img src="img/006.png" alt=""/></li>
+                    <li><img src="img/007.png" alt=""/></li>
+                    <li><img src="img/007.png" alt=""/></li>
+                    <li><img src="img/009.png" alt=""/></li>
+                    <li><img src="img/010.png" alt=""/></li>
+                    <li><img src="img/011.png" alt=""/></li>
+                    <li><img src="img/012.png" alt=""/></li>
+                    <li><img src="img/013.png" alt=""/></li>
+                    <li><img src="img/014.png" alt=""/></li>
+                    <li><img src="img/015.png" alt=""/></li>
+                    <li><img src="img/016.png" alt=""/></li>
+                    <li><img src="img/017.png" alt=""/></li>
+                    <li><img src="img/018.png" alt=""/></li>
+                    <li><img src="img/019.png" alt=""/></li>
+                    <li><img src="img/020.png" alt=""/></li>
+                    <li><img src="img/021.png" alt=""/></li>
+                    <li><img src="img/022.png" alt=""/></li>
+                    <li><img src="img/023.png" alt=""/></li>
+                    <li><img src="img/024.png" alt=""/></li>
+                    <li><img src="img/025.png" alt=""/></li>
+                    <li><img src="img/026.png" alt=""/></li>
+                    <li><img src="img/027.png" alt=""/></li>
+                    <li><img src="img/028.png" alt=""/></li>
+                    <li><img src="img/029.png" alt=""/></li>
+                    <li><img src="img/030.png" alt=""/></li>
+                    <li><img src="img/031.png" alt=""/></li>
+                    <li><img src="img/032.png" alt=""/></li>
+                    <li><img src="img/033.png" alt=""/></li>
+                    <li><img src="img/034.png" alt=""/></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

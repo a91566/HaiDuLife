@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .div1{width:250px;height:375px;margin-left: 50px;float: left;}
+        .div2{width:250px;height:375px;margin-left: 50px;float: left;}
+        .div3{width:250px;height:375px;margin-left: 50px;float: left;}
+        .div4{width:250px;height:375px;float: left;-webkit-animation: rotate1 3s infinite;}
+
+        @-webkit-keyframes rotate1 {
+            100% {transform: rotateX(360deg);}
+        }
+
+        @-webkit-keyframes rotate2 {
+            100% {transform: rotateY(360deg);}
+        }
+
+        @-webkit-keyframes rotate3 {
+            100% {transform: rotateZ(360deg);}
+        }
+
+        @-webkit-keyframes rotate4 {
+            100% {transform: rotateY(360deg);}
+        }
+
+        .div1:hover{-webkit-animation: rotate1 1s;}
+        .div2:hover{-webkit-animation: rotate2 1s;}
+        .div3:hover{-webkit-animation: rotate3 1s;}
+    </style>
+</head>
+<body>
+    <div class="div1">
+        <img src="images/lufei.jpg" alt=""/>
+    </div>
+
+    <div class="div2">
+        <img src="images/lufei.jpg" alt=""/>
+    </div>
+
+    <div class="div3">
+        <img src="images/lufei.jpg" alt=""/>
+    </div>
+
+    <div class="div4">
+        <img src="images/lufei.jpg" alt=""/>
+    </div>
+</body>
+</html>
